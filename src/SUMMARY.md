@@ -1,3 +1,5 @@
 # 目次
 
-* [C++](README.md)
+* [はじめに](README.md)
+* [インストール](installation.md)
+* [Hello, World!](hello-world.md)
