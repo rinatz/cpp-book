@@ -1,5 +1,9 @@
 # はじめに
 
+<div align="center">
+    <img src="https://s3-us-west-2.amazonaws.com/svgporn.com/logos/c%2B%2B.svg" />
+</div>
+
 このサイトは C++ の学習サイトです。
 本サイトを通じて C++ の基本的な使い方が身につくようになります。
 C++ は多くの開発企業で利用されているプログラミング言語であり、
