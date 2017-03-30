@@ -10,6 +10,7 @@ init:
 build:
 	docker-compose run --rm gitbook gitbook build
 	touch src/_book/.nojekyll
+	rsync -a --delete src/_book/ docs/
 
 .PHONY: up
 up:
@@ -18,7 +19,3 @@ up:
 .PHONY: down
 down:
 	docker-compose down
-
-.PHONY: sync
-sync:
-	rsync -av --delete src/_book/ docs/

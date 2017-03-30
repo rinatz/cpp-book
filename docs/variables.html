@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>はじめに · GitBook</title>
+        <title>変数 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="installation.html" />
+    <link rel="next" href="primitive-types.html" />
     
+    
+    <link rel="prev" href="hello-world.html" />
     
 
     </head>
@@ -87,7 +89,7 @@
         
         
     
-        <li class="chapter active" data-level="1.1" data-path="./">
+        <li class="chapter " data-level="1.1" data-path="./">
             
                 <a href="./">
             
@@ -126,7 +128,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="variables.html">
+        <li class="chapter active" data-level="1.4" data-path="variables.html">
             
                 <a href="variables.html">
             
@@ -208,7 +210,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >はじめに</a>
+        <a href="." >変数</a>
     </h1>
 </div>
 
@@ -223,23 +225,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x306F;&#x3058;&#x3081;&#x306B;">&#x306F;&#x3058;&#x3081;&#x306B;</h1>
-<div align="center">
-    <img src="https://s3-us-west-2.amazonaws.com/svgporn.com/logos/c%2B%2B.svg">
-</div>
+                                <h1 id="&#x5909;&#x6570;">&#x5909;&#x6570;</h1>
+<p>C++ &#x3067;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x6574;&#x6570;&#x5024;&#x306E;&#x5909;&#x6570;&#x3092;&#x5BA3;&#x8A00;&#x3059;&#x308B;&#x306B;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+</code></pre>
+<p><code>int</code> &#x306F;&#x6574;&#x6570;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x578B;&#x3067;&#x3059;&#x3002;
+&#x5BA3;&#x8A00;&#x6642;&#x306B;&#x521D;&#x671F;&#x5316;&#x3092;&#x305B;&#x305A;&#x306B;&#x3042;&#x3068;&#x3067;&#x5024;&#x3092;&#x4EE3;&#x5165;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x;
+x = <span class="hljs-number">5</span>;
+</code></pre>
+<p>&#x521D;&#x671F;&#x5024;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x306A;&#x3044;&#x307E;&#x307E;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3068;&#x4E0D;&#x5B9A;&#x306A;&#x5024;&#x304C;&#x5165;&#x308B;&#x306E;&#x3067;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x4E0B;&#x3055;&#x3044;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x;
 
-<p>&#x3053;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x306F; C++ &#x306E;&#x5B66;&#x7FD2;&#x30B5;&#x30A4;&#x30C8;&#x3067;&#x3059;&#x3002;
-&#x672C;&#x30B5;&#x30A4;&#x30C8;&#x3092;&#x901A;&#x3058;&#x3066; C++ &#x306E;&#x57FA;&#x672C;&#x7684;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x8EAB;&#x306B;&#x3064;&#x304F;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
-C++ &#x306F;&#x591A;&#x304F;&#x306E;&#x958B;&#x767A;&#x4F01;&#x696D;&#x3067;&#x5229;&#x7528;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x3067;&#x3042;&#x308A;&#x3001;
-&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x6307;&#x5411;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3084;&#x30C6;&#x30F3;&#x30D7;&#x30EC;&#x30FC;&#x30C8;&#x30E1;&#x30BF;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x3068;&#x3044;&#x3063;&#x305F;
-&#x8907;&#x6570;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x30D1;&#x30E9;&#x30C0;&#x30A4;&#x30E0;&#x304C;&#x5B9F;&#x73FE;&#x3067;&#x304D;&#x308B;&#x30D1;&#x30D5;&#x30A9;&#x30FC;&#x30DE;&#x30F3;&#x30B9;&#x3068;&#x62E1;&#x5F35;&#x6027;&#x306B;&#x512A;&#x308C;&#x305F;&#x8A00;&#x8A9E;&#x3067;&#x3059;&#x3002;</p>
-<p>&#x4E00;&#x65B9;&#x3067;&#x4ED5;&#x69D8;&#x304C;&#x8907;&#x96D1;&#x3067;&#x79FB;&#x690D;&#x6027;&#x304C;&#x4ED6;&#x306E;&#x8A00;&#x8A9E;&#x3082;&#x3088;&#x308A;&#x52A3;&#x308B;&#x9762;&#x304C;&#x3042;&#x308A;&#x3001;
-&#x4ED5;&#x69D8;&#x3092;&#x719F;&#x77E5;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x3068;&#x4E0A;&#x624B;&#x304F;&#x4F7F;&#x3044;&#x3053;&#x306A;&#x305B;&#x306A;&#x3044;&#x3068;&#x3053;&#x308D;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
-&#x3053;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x306F; C++ &#x3067;&#x3064;&#x307E;&#x3065;&#x304D;&#x3084;&#x3059;&#x3044;&#x70B9;&#x3092;&#x91CD;&#x70B9;&#x7684;&#x306B;&#x8AAC;&#x660E;&#x3057;
-&#x5B89;&#x5168;&#x306B; C++ &#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x66F8;&#x3051;&#x308B;&#x3088;&#x3046;&#x306B;&#x624B;&#x52A9;&#x3051;&#x3092;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<p>&#x69CB;&#x6587;&#x306F; C++11 &#x3092;&#x30D9;&#x30FC;&#x30B9;&#x306B;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;
-&#x307E;&#x305F;&#x69CB;&#x6587;&#x3060;&#x3051;&#x3067;&#x306A;&#x304F;&#x5358;&#x4F53;&#x30C6;&#x30B9;&#x30C8;&#x3084;&#x30C7;&#x30D0;&#x30C3;&#x30B0;&#x30FB;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3068;&#x3044;&#x3063;&#x305F;&#x3068;&#x3053;&#x308D;&#x3082;&#x8AAC;&#x660E;&#x3057;&#x3001;
-&#x7DCF;&#x5408;&#x7684;&#x306B; C++ &#x958B;&#x767A;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;  <span class="hljs-comment">// &#x4E0D;&#x5B9A;&#x306A;&#x5024;&#x304C;&#x51FA;&#x529B;&#x3055;&#x308C;&#x308B;</span>
+</code></pre>
+<h2 id="const">const</h2>
+<p><code>const</code> &#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x5024;&#x306E;&#x66F8;&#x304D;&#x63DB;&#x3048;&#x304C;&#x7981;&#x6B62;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">const</span> <span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+x = <span class="hljs-number">10</span>;  <span class="hljs-comment">// &#x30A8;&#x30E9;&#x30FC;</span>
+</code></pre>
+<h2 id="&#x578B;&#x63A8;&#x8AD6;">&#x578B;&#x63A8;&#x8AD6;</h2>
+<p>&#x5909;&#x6570;&#x306E;&#x5BA3;&#x8A00;&#x6642;&#x306B;&#x306F;&#x660E;&#x793A;&#x7684;&#x306B;&#x578B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x306A;&#x304F;&#x3066;&#x3082; <code>auto</code> &#x3092;&#x4F7F;&#x3046;&#x3068;
+&#x53F3;&#x8FBA;&#x306E;&#x5024;&#x304B;&#x3089;&#x578B;&#x3092;&#x63A8;&#x8AD6;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> x = <span class="hljs-number">5</span>;  <span class="hljs-comment">// x &#x306F; int &#x3068;&#x63A8;&#x8AD6;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -267,8 +277,12 @@ C++ &#x306F;&#x591A;&#x304F;&#x306E;&#x958B;&#x767A;&#x4F01;&#x696D;&#x3067;&#x5
 
             
                 
+                <a href="hello-world.html" class="navigation navigation-prev " aria-label="Previous page: Hello, World!">
+                    <i class="fa fa-angle-left"></i>
+                </a>
                 
-                <a href="installation.html" class="navigation navigation-next navigation-unique" aria-label="Next page: インストール">
+                
+                <a href="primitive-types.html" class="navigation navigation-next " aria-label="Next page: 基本型">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -279,7 +293,7 @@ C++ &#x306F;&#x591A;&#x304F;&#x306E;&#x958B;&#x767A;&#x4F01;&#x696D;&#x3067;&#x5
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"はじめに","level":"1.1","depth":1,"next":{"title":"インストール","level":"1.2","depth":1,"path":"installation.md","ref":"installation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2017-03-30T13:24:41.768Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-30T15:33:02.478Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"変数","level":"1.4","depth":1,"next":{"title":"基本型","level":"1.5","depth":1,"path":"primitive-types.md","ref":"primitive-types.md","articles":[]},"previous":{"title":"Hello, World!","level":"1.3","depth":1,"path":"hello-world.md","ref":"hello-world.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"variables.md","mtime":"2017-03-30T14:57:32.570Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-30T15:33:02.478Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
