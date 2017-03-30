@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  gitbook:
+    build: .
+    working_dir: /usr/src/app
+    ports:
+      - 4001:4000
+    volumes:
+      - ${PWD}/docs:/usr/src/app
+    command: ["gitbook", "serve"]
