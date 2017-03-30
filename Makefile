@@ -6,10 +6,6 @@ provision:
 init:
 	docker-compose run --rm gitbook gitbook init
 
-.PHONY: clean
-clean:
-	rm -rf docs/_book
-
 .PHONY: build
 build:
 	docker-compose run --rm gitbook gitbook build

@@ -7,5 +7,5 @@ services:
     ports:
       - 4001:4000
     volumes:
-      - ${PWD}/docs:/usr/src/app
+      - ${PWD}/src:/usr/src/app
     command: ["gitbook", "serve"]
