@@ -7,3 +7,6 @@
 * [基本型](primitive-types.md)
 * [sizeof](sizeof.md)
 * [配列](arrays.md)
+* [コメント](comments.md)
+* [if](if.md)
+* [ループ](loops.md)

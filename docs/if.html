@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>sizeof · GitBook</title>
+        <title>if · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="arrays.html" />
+    <link rel="next" href="loops.html" />
     
     
-    <link rel="prev" href="primitive-types.html" />
+    <link rel="prev" href="comments.html" />
     
 
     </head>
@@ -154,7 +154,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="sizeof.html">
+        <li class="chapter " data-level="1.6" data-path="sizeof.html">
             
                 <a href="sizeof.html">
             
@@ -193,7 +193,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="if.html">
+        <li class="chapter active" data-level="1.9" data-path="if.html">
             
                 <a href="if.html">
             
@@ -249,7 +249,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >sizeof</a>
+        <a href="." >if</a>
     </h1>
 </div>
 
@@ -264,23 +264,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="sizeof">sizeof</h1>
-<p><code>sizeof</code> &#x306F;&#x578B;&#x306E;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5F97;&#x308B;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x6F14;&#x7B97;&#x5B50;&#x3067;&#x3059;&#x3002;
-&#x4F7F;&#x3044;&#x65B9;&#x306F;&#x6B21;&#x306E;&#x3068;&#x304A;&#x308A;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;cstddef&gt;</span></span>
+                                <h1 id="if">if</h1>
+<p>&#x6761;&#x4EF6;&#x5206;&#x5C90;&#x3092;&#x3057;&#x305F;&#x3044;&#x6642;&#x306B;&#x306F; <code>if</code> &#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
 
-<span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
-<span class="hljs-keyword">size_t</span> size = <span class="hljs-keyword">sizeof</span>(x);
+<span class="hljs-keyword">if</span> (x == <span class="hljs-number">5</span>) {
+    ...
+}
 </code></pre>
-<p><code>sizeof</code> &#x306F;&#x578B;&#x306E;&#x30D0;&#x30A4;&#x30C8;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;
-GCC &#x3067;&#x306F; <code>int</code> &#x306F; 32 &#x30D3;&#x30C3;&#x30C8;&#x306A;&#x306E;&#x3067; <code>sizeof(x)</code> &#x306F; 4 &#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
-<code>size_t</code> &#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x8868;&#x3059;&#x305F;&#x3081;&#x306E;&#x6574;&#x6570;&#x578B;&#x3067;&#x3059;&#x3002;
-&#x4F7F;&#x7528;&#x3059;&#x308B;&#x306B;&#x306F; <code>#include &lt;cstddef&gt;</code> &#x3092;&#x8A18;&#x8FF0;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<p><code>sizeof</code> &#x306B;&#x306F;&#x5909;&#x6570;&#x540D;&#x3067;&#x3082;&#x578B;&#x540D;&#x3067;&#x3082;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">sizeof</span>(x);
-<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">int</span>);
+<p><code>==</code> &#x306F;&#x5024;&#x304C;&#x7B49;&#x3057;&#x3044;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x898B;&#x308B;&#x305F;&#x3081;&#x306E;&#x6F14;&#x7B97;&#x5B50;&#x3067;&#x3059;&#x3002;
+<code>if</code> &#x306E;&#x6761;&#x4EF6;&#x3092;&#x6E80;&#x305F;&#x3055;&#x306A;&#x304B;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x4F55;&#x304B;&#x51E6;&#x7406;&#x3092;&#x3057;&#x305F;&#x3051;&#x308C;&#x3070; <code>else</code> &#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+
+<span class="hljs-keyword">if</span> (x == <span class="hljs-number">5</span>) {
+    ...
+} <span class="hljs-keyword">else</span> {
+    ...
+}
 </code></pre>
-<p>&#x3069;&#x3061;&#x3089;&#x3082;&#x610F;&#x5473;&#x306F;&#x540C;&#x3058;&#x3067;&#x3059;&#x304C;&#x3001;&#x5909;&#x6570;&#x540D;&#x3092;&#x6E21;&#x3059;&#x307B;&#x3046;&#x304C;&#x597D;&#x307E;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3055;&#x3089;&#x306B;&#x5225;&#x306E;&#x6761;&#x4EF6;&#x3067;&#x51E6;&#x7406;&#x3092;&#x5206;&#x5C90;&#x3057;&#x305F;&#x3051;&#x308C;&#x3070; <code>else if</code> &#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
+
+<span class="hljs-keyword">if</span> (x == <span class="hljs-number">5</span>) {
+    ...
+} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x == <span class="hljs-number">6</span>) {
+    ...
+} <span class="hljs-keyword">else</span> {
+    ...
+}
+</code></pre>
 
                                 
                                 </section>
@@ -308,12 +320,12 @@ GCC &#x3067;&#x306F; <code>int</code> &#x306F; 32 &#x30D3;&#x30C3;&#x30C8;&#x306
 
             
                 
-                <a href="primitive-types.html" class="navigation navigation-prev " aria-label="Previous page: 基本型">
+                <a href="comments.html" class="navigation navigation-prev " aria-label="Previous page: コメント">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="arrays.html" class="navigation navigation-next " aria-label="Next page: 配列">
+                <a href="loops.html" class="navigation navigation-next " aria-label="Next page: ループ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -324,7 +336,7 @@ GCC &#x3067;&#x306F; <code>int</code> &#x306F; 32 &#x30D3;&#x30C3;&#x30C8;&#x306
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"sizeof","level":"1.6","depth":1,"next":{"title":"配列","level":"1.7","depth":1,"path":"arrays.md","ref":"arrays.md","articles":[]},"previous":{"title":"基本型","level":"1.5","depth":1,"path":"primitive-types.md","ref":"primitive-types.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"sizeof.md","mtime":"2017-03-31T02:29:27.449Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T03:57:51.967Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"if","level":"1.9","depth":1,"next":{"title":"ループ","level":"1.10","depth":1,"path":"loops.md","ref":"loops.md","articles":[]},"previous":{"title":"コメント","level":"1.8","depth":1,"path":"comments.md","ref":"comments.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"if.md","mtime":"2017-03-31T02:54:45.258Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-30T09:04:01.546Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -332,6 +344,10 @@ GCC &#x3067;&#x306F; <code>int</code> &#x306F; 32 &#x30D3;&#x30C3;&#x30C8;&#x306
         
     <script src="gitbook/gitbook.js"></script>
     <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
