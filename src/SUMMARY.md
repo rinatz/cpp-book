@@ -9,4 +9,5 @@
 * [配列](arrays.md)
 * [コメント](comments.md)
 * [if](if.md)
+* [switch](switch.md)
 * [ループ](loops.md)

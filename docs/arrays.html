@@ -206,7 +206,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="loops.html">
+        <li class="chapter " data-level="1.10" data-path="switch.html">
+            
+                <a href="switch.html">
+            
+                    
+                    switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="loops.html">
             
                 <a href="loops.html">
             
@@ -296,6 +309,23 @@ x[<span class="hljs-number">4</span>] = <span class="hljs-number">4</span>;
 <pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x[<span class="hljs-number">5</span>] = {};
 </code></pre>
 <p>&#x3053;&#x308C;&#x304C;&#x4E00;&#x756A;&#x624B;&#x8EFD;&#x306A;&#x521D;&#x671F;&#x5316;&#x65B9;&#x6CD5;&#x3067;&#x3059;&#x3002;</p>
+<h2 id="stdarray">std::array</h2>
+<p>&#x3088;&#x308A;&#x9AD8;&#x6A5F;&#x80FD;&#x306A;&#x914D;&#x5217;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x306F; <code>std::array</code> &#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;array&gt;</span></span>
+
+<span class="hljs-built_in">std</span>::<span class="hljs-built_in">array</span>&lt;<span class="hljs-keyword">int</span>, 5&gt; x = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>};
+</code></pre>
+<p><code>x</code> &#x306F;&#x8981;&#x7D20;&#x6570;&#x304C; 5 &#x3067;&#x3042;&#x308B;&#x3088;&#x3046;&#x306A; <code>int</code> &#x306E;&#x914D;&#x5217;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;
+<code>std::array</code> &#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x306B;&#x306F; <code>&lt;array&gt;</code> &#x306E;&#x30A4;&#x30F3;&#x30AF;&#x30EB;&#x30FC;&#x30C9;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;
+&#x8981;&#x7D20;&#x53C2;&#x7167;&#x306F;&#x901A;&#x5E38;&#x306E;&#x914D;&#x5217;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp">x[<span class="hljs-number">2</span>] = <span class="hljs-number">10</span>;
+</code></pre>
+<p><code>x.size()</code> &#x3068;&#x3059;&#x308B;&#x3068;&#x8981;&#x7D20;&#x6570;&#x304C;&#x53D6;&#x5F97;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">auto</span> size = x.size();  <span class="hljs-comment">// 5</span>
+</code></pre>
+<p>&#x901A;&#x5E38;&#x306E;&#x914D;&#x5217;&#x304B;&#x3089;&#x306F;&#x8981;&#x7D20;&#x6570;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;
+&#x914D;&#x5217;&#x3068;&#x8981;&#x7D20;&#x6570;&#x3092;&#x4FDD;&#x5B58;&#x3057;&#x305F;&#x5909;&#x6570;&#x306E;2&#x3064;&#x3092;&#x6301;&#x3061;&#x56DE;&#x3059;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;
+<code>std::array</code> &#x3092;&#x4F7F;&#x3048;&#x3070;&#x305D;&#x308C;&#x3089;&#x3092;&#x3072;&#x3068;&#x307E;&#x3068;&#x3081;&#x306B;&#x3057;&#x3066;&#x6271;&#x3048;&#x308B;&#x306E;&#x3067;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;</p>
 
                                 
                                 </section>
@@ -339,7 +369,7 @@ x[<span class="hljs-number">4</span>] = <span class="hljs-number">4</span>;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"配列","level":"1.7","depth":1,"next":{"title":"コメント","level":"1.8","depth":1,"path":"comments.md","ref":"comments.md","articles":[]},"previous":{"title":"sizeof","level":"1.6","depth":1,"path":"sizeof.md","ref":"sizeof.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"arrays.md","mtime":"2017-03-31T02:43:34.833Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-31T03:57:51.967Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"配列","level":"1.7","depth":1,"next":{"title":"コメント","level":"1.8","depth":1,"path":"comments.md","ref":"comments.md","articles":[]},"previous":{"title":"sizeof","level":"1.6","depth":1,"path":"sizeof.md","ref":"sizeof.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"arrays.md","mtime":"2017-04-27T15:23:30.645Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-27T15:24:14.073Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
