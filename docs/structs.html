@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ループ · GitBook</title>
+        <title>構造体 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -57,8 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="if.html" />
     
-    <link rel="prev" href="switch.html" />
+    
+    <link rel="prev" href="tuples.html" />
     
 
     </head>
@@ -217,7 +219,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="structs.html">
+        <li class="chapter active" data-level="1.11" data-path="structs.html">
             
                 <a href="structs.html">
             
@@ -256,7 +258,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.14" data-path="loops.html">
+        <li class="chapter " data-level="1.14" data-path="loops.html">
             
                 <a href="loops.html">
             
@@ -299,7 +301,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >ループ</a>
+        <a href="." >構造体</a>
     </h1>
 </div>
 
@@ -314,50 +316,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x30EB;&#x30FC;&#x30D7;">&#x30EB;&#x30FC;&#x30D7;</h1>
-<p>&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x51E6;&#x7406;&#x3092;&#x66F8;&#x304F;&#x65B9;&#x6CD5;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="while">while</h2>
-<p><code>while</code> &#x306F; <code>()</code> &#x306B;&#x6E21;&#x3055;&#x308C;&#x305F;&#x6761;&#x4EF6;&#x304C; <code>true</code> &#x3067;&#x3042;&#x308B;&#x9650;&#x308A;
-<code>{ ... }</code> &#x5185;&#x306E;&#x51E6;&#x7406;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x7D9A;&#x3051;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">int</span> x = <span class="hljs-number">5</span>;
-<span class="hljs-keyword">bool</span> done = <span class="hljs-literal">false</span>;
-
-<span class="hljs-keyword">while</span> (!done) {
-    x += x - <span class="hljs-number">3</span>;
-
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-
-    <span class="hljs-keyword">if</span> (x % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>) {
-        done = <span class="hljs-literal">true</span>;
-    }
-}
+                                <h1 id="&#x69CB;&#x9020;&#x4F53;">&#x69CB;&#x9020;&#x4F53;</h1>
+<p>&#x69CB;&#x9020;&#x4F53;&#x306F;&#x8907;&#x6570;&#x306E;&#x5909;&#x6570;&#x3092;&#x307E;&#x3068;&#x3081;&#x3066;&#x7BA1;&#x7406;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x578B;&#x3092;&#x65B0;&#x305F;&#x306B;&#x4F5C;&#x308B;&#x4ED5;&#x7D44;&#x307F;&#x3067;&#x3059;&#x3002;
+&#x30BF;&#x30D7;&#x30EB;&#x3068;&#x3088;&#x304F;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x30BF;&#x30D7;&#x30EB;&#x3068;&#x306E;&#x9055;&#x3044;&#x306F;&#x5404;&#x8981;&#x7D20;&#x306B;&#x540D;&#x524D;&#x3092;&#x4ED8;&#x3051;&#x3089;&#x308C;&#x308B;&#x70B9;&#x3067;&#x3059;&#x3002;
+&#x69CB;&#x9020;&#x4F53;&#x306F;&#x30BF;&#x30D7;&#x30EB;&#x4EE5;&#x4E0A;&#x306B;&#x9AD8;&#x5EA6;&#x306A;&#x64CD;&#x4F5C;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;
+&#x3053;&#x3053;&#x3067;&#x306F;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x3060;&#x3051;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x5B9A;&#x7FA9;&#x306E;&#x4ED5;&#x65B9;">&#x5B9A;&#x7FA9;&#x306E;&#x4ED5;&#x65B9;</h2>
+<pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> Person {
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">string</span> name;
+    <span class="hljs-keyword">int</span> age;
+};
 </code></pre>
-<h2 id="for">for</h2>
-<p><code>for</code> &#x306F;&#x30EB;&#x30FC;&#x30D7;&#x3059;&#x308B;&#x305F;&#x3073;&#x306B;&#x5909;&#x5316;&#x3059;&#x308B;&#x5909;&#x6570;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; ++i) {
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-}
+<p>&#x3053;&#x308C;&#x3067; <code>std::string</code> &#x3068; <code>age</code> &#x306E;2&#x3064;&#x3092;&#x8981;&#x7D20;&#x3068;&#x3059;&#x308B; <code>Person</code> &#x3068;&#x3044;&#x3046;&#x578B;&#x306E;&#x69CB;&#x9020;&#x4F53;&#x304C;&#x5B9A;&#x7FA9;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x308C;&#x306F; <code>std::tuple&lt;std::string, int&gt;</code> &#x3068;&#x8FD1;&#x3044;&#x3082;&#x306E;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x4F7F;&#x3044;&#x65B9;">&#x4F7F;&#x3044;&#x65B9;</h2>
+<p>&#x69CB;&#x9020;&#x4F53;&#x306E;&#x5909;&#x6570;&#x3092;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x306B;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp">Person person { <span class="hljs-string">&quot;Bob&quot;</span>, <span class="hljs-number">20</span> };
 </code></pre>
-<p><code>i</code> &#x306F;&#x30EB;&#x30FC;&#x30D7;&#x3059;&#x308B;&#x305F;&#x3073;&#x306B; <code>0, 1, 2, ..., 9</code> &#x3068;&#x5024;&#x304C;&#x5909;&#x5316;&#x3057;&#x7D9A;&#x3051;&#x307E;&#x3059;&#x3002;
-<code>for (int i = 0; i &lt; 10; ++i)</code> &#x3068;&#x3044;&#x3046;&#x306E;&#x306F; <code>i</code> &#x306B; <code>0</code> &#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3066;
-<code>i &lt; 10</code> &#x3092;&#x6E80;&#x305F;&#x3059;&#x307E;&#x3067; <code>i</code> &#x3092; <code>+1</code> &#x3057;&#x306A;&#x304C;&#x3089;&#x30EB;&#x30FC;&#x30D7;&#x3092;&#x7D99;&#x7D9A;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<h2 id="&#x914D;&#x5217;&#x306E;&#x30EB;&#x30FC;&#x30D7;">&#x914D;&#x5217;&#x306E;&#x30EB;&#x30FC;&#x30D7;</h2>
-<p>&#x914D;&#x5217;&#x306E;&#x30EB;&#x30FC;&#x30D7;&#x306F; <code>for</code> &#x3092;&#x4F7F;&#x3063;&#x3066;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">int</span>[] x = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>};
-
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> e : x) {
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; e &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-}
+<p>&#x30BF;&#x30D7;&#x30EB;&#x3068;&#x3088;&#x304F;&#x4F3C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="&#x8981;&#x7D20;&#x53C2;&#x7167;">&#x8981;&#x7D20;&#x53C2;&#x7167;</h2>
+<p>&#x30BF;&#x30D7;&#x30EB;&#x3068;&#x9055;&#x3063;&#x3066;&#x540D;&#x524D;&#x3067;&#x8981;&#x7D20;&#x53C2;&#x7167;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-cpp">person.name;    <span class="hljs-comment">// &quot;Bob&quot;</span>
+person.age;     <span class="hljs-comment">// 20</span>
 </code></pre>
-<p><code>e</code> &#x306B;&#x306F; 0 &#x304B;&#x3089; 4 &#x304C;&#x9806;&#x306B;&#x4EE3;&#x5165;&#x3055;&#x308C;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;
-<code>std::array</code> &#x3067;&#x3082;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;
-<code>for</code> &#x306E;&#x4E2D;&#x3067;&#x6DFB;&#x5B57;&#x304C;&#x5FC5;&#x8981;&#x306A;&#x5834;&#x5408;&#x306F;&#x6DFB;&#x5B57;&#x3092;&#x30EB;&#x30FC;&#x30D7;&#x3057;&#x3066;&#x914D;&#x5217;&#x306E;&#x8981;&#x7D20;&#x3092;&#x305F;&#x3069;&#x308A;&#x307E;&#x3059;&#x3002;</p>
-<pre><code class="lang-cpp"><span class="hljs-keyword">int</span>[] x = {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>};
-
-<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; ++i) {
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; x[i] &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
-}
-</code></pre>
+<p>&#x30BF;&#x30D7;&#x30EB;&#x3088;&#x308A;&#x3082;&#x5206;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x3067;&#x3059;&#x304C;&#x3001;&#x30BF;&#x30D7;&#x30EB;&#x306F;&#x3044;&#x3061;&#x3044;&#x3061;&#x65B0;&#x305F;&#x306A;&#x578B;&#x3092;&#x4F5C;&#x3089;&#x306A;&#x304F;&#x3066;&#x3082;
+&#x4F7F;&#x7528;&#x3067;&#x304D;&#x308B;&#x3068;&#x3044;&#x3046;&#x70B9;&#x3067;&#x306F;&#x69CB;&#x9020;&#x4F53;&#x3088;&#x308A;&#x3082;&#x4F7F;&#x3044;&#x3084;&#x3059;&#x3044;&#x3067;&#x3059;&#x3002;</p>
 
                                 
                                 </section>
@@ -385,10 +368,14 @@
 
             
                 
-                <a href="switch.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: switch">
+                <a href="tuples.html" class="navigation navigation-prev " aria-label="Previous page: タプル">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="if.html" class="navigation navigation-next " aria-label="Next page: if">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -397,7 +384,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ループ","level":"1.14","depth":1,"previous":{"title":"switch","level":"1.13","depth":1,"path":"switch.md","ref":"switch.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"loops.md","mtime":"2017-04-27T15:35:44.843Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-10T17:02:09.762Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"構造体","level":"1.11","depth":1,"next":{"title":"if","level":"1.12","depth":1,"path":"if.md","ref":"if.md","articles":[]},"previous":{"title":"タプル","level":"1.10","depth":1,"path":"tuples.md","ref":"tuples.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"structs.md","mtime":"2017-05-10T16:59:15.841Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-05-10T17:02:09.762Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

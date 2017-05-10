@@ -1,4 +1,4 @@
-# はじめに
+# C++
 
 <div align="center">
     <img src="https://s3-us-west-2.amazonaws.com/svgporn.com/logos/c%2B%2B.svg" />
