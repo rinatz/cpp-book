@@ -1,0 +1,60 @@
+site_name: プログラミング言語 C++
+site_description: C++ のための学習サイト
+site_author: 井田 献一朗
+site_url: http://rinatz.github.io/cppdocsjp
+
+repo_name: rinatz/cppdocsjp
+repo_url: https://github.com/rinatz/cppdocsjp
+
+copyright: Copyright &copy 2018 Kenichiro IDA
+
+nav:
+  - ホーム: index.md
+  - はじめに: introduction.md
+  - C++ を始める:
+      - インストール: getting-started/installation.md
+      - Hello, World!: getting-started/hello-world.md
+  - 基本構文:
+      - 変数: common-programming-concepts/variables.md
+      - 基本型: common-programming-concepts/primitive-types.md
+      - コメント: common-programming-concepts/comments.md
+      - 制御文: common-programming-concepts/control-flow.md
+  - コンテナ:
+      - 配列: containers/arrays.md
+      - 文字列: containers/strings.md
+      - タプル: containers/tuples.md
+
+theme:
+  name: material
+  language: ja
+  logo: images/c++.svg
+  palette:
+    primary: indigo
+    accent: amber
+  font:
+    text: Noto Sans
+    code: Inconsolata
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - footnotes
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
