@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/introduction/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/getting-started/installation/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/getting-started/hello-world/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/common-programming-concepts/variables/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/common-programming-concepts/primitive-types/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/common-programming-concepts/comments/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/common-programming-concepts/control-flow/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/containers/arrays/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/containers/strings/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/containers/tuples/</loc>
-     <lastmod>2018-08-22</lastmod>
+     <lastmod>2019-01-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
