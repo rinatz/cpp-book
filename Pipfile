@@ -7,8 +7,12 @@ name = "pypi"
 mkdocs = "*"
 mkdocs-material = "*"
 pymdown-extensions = "*"
+pyyaml = ">=4.2b1"
 
 [dev-packages]
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true
