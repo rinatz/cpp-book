@@ -12,7 +12,12 @@ pyyaml = ">=4.2b1"
 [dev-packages]
 
 [requires]
-python_version = "3.6"
+python_version = "3"
+
+[scripts]
+build = "mkdocs build"
+serve = "mkdocs serve -a 0.0.0.0:8000"
+gh-deploy = "mkdocs gh-deploy"
 
 [pipenv]
 allow_prereleases = true
