@@ -1,39 +1,30 @@
-site_name: プログラミング言語 C++
-site_description: C++ のための学習サイト
+site_name: ゼロから学ぶ C++
+site_description: ゼロから学ぶ C++
 site_author: 井田 献一朗
 site_url: http://rinatz.github.io/cppdocsjp
-
 repo_name: rinatz/cppdocsjp
 repo_url: https://github.com/rinatz/cppdocsjp
-
-copyright: Copyright &copy 2018 Kenichiro IDA
-
-nav:
-  - ホーム: index.md
-  - はじめに: introduction.md
-  - C++ を始める:
-      - インストール: getting-started/installation.md
-      - Hello, World!: getting-started/hello-world.md
-  - 基本構文:
-      - 変数: common-programming-concepts/variables.md
-      - 基本型: common-programming-concepts/primitive-types.md
-      - コメント: common-programming-concepts/comments.md
-      - 制御文: common-programming-concepts/control-flow.md
-  - コンテナ:
-      - 配列: containers/arrays.md
-      - 文字列: containers/strings.md
-      - タプル: containers/tuples.md
+copyright: Copyright &copy 2019 Kenichiro IDA
 
 theme:
   name: material
   language: ja
-  logo: images/c++.svg
+  logo: img/cpp.svg
   palette:
     primary: indigo
     accent: amber
   font:
     text: Noto Sans
     code: Inconsolata
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - footnotes
+  - pymdownx.arithmate
 
 markdown_extensions:
   - admonition
@@ -58,3 +49,19 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+
+nav:
+  - ホーム: index.md
+  - 1. C++ を始める:
+      - 1.1. インストール: ch01-01-installation.md
+      - 1.2. Hello, World!: ch01-02-hello-world.md
+  - 2. 基本構文:
+      - 2.1. 変数: ch02-01-variables.md
+      - 2.2. 基本型: ch02-02-primitive-types.md
+      - 2.3. ポインタ: ch02-03-pointers.md
+      - 2.4. コメント: ch02-04-comments.md
+      - 2.5. 制御文: ch02-05-control-flow.md
+  - 3. コンテナ:
+      - 3.1. 配列: ch03-01-arrays.md
+      - 3.2. 文字列: ch03-02-strings.md
+      - 3.3. タプル: ch03-03-tuples.md
