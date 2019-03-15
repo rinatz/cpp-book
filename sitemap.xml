@@ -2,57 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>http://rinatz.github.io/cppdocsjp/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/introduction/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch01-01-installation/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/getting-started/installation/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch01-02-hello-world/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/getting-started/hello-world/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch02-01-variables/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/common-programming-concepts/variables/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch02-02-primitive-types/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/common-programming-concepts/primitive-types/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch02-03-pointers/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/common-programming-concepts/comments/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch02-04-comments/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/common-programming-concepts/control-flow/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch02-05-control-flow/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/containers/arrays/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch03-01-arrays/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/containers/strings/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch03-02-strings/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cppdocsjp/containers/tuples/</loc>
-     <lastmod>2019-01-06</lastmod>
+     <loc>http://rinatz.github.io/cppdocsjp/ch03-03-tuples/</loc>
+     <lastmod>2019-03-15</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
