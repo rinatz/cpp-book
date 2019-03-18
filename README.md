@@ -27,4 +27,4 @@ $ make serve
 
 http://localhost:8000 にアクセスすると Web ページが表示されます。
 
-[ゼロから学ぶ C++]: https://rinatz.github.io/cppdocsjp
+[ゼロから学ぶ C++]: https://rinatz.github.io/cpp-book
