@@ -65,3 +65,4 @@ nav:
       - 3.1. 配列: ch03-01-arrays.md
       - 3.2. 文字列: ch03-02-strings.md
       - 3.3. タプル: ch03-03-tuples.md
+      - 3.4. ベクタ: ch03-04-vectors.md
