@@ -49,3 +49,12 @@ auto size1 = x.size();  // 5
 x.pop_back();
 auto size2 = x.size();  // 4
 ```
+
+## bool に対する特殊化
+
+`std::vector` は `bool` に対してテンプレート特殊化されており、
+`std::vector<bool>` は `bool` 以外の `std::vector` とは動作が異なります。
+
+詳細は [vector - cpprefjp C++日本語リファレンス][cpprefjp_vector] を参照してください。
+
+[cpprefjp_vector]: https://cpprefjp.github.io/reference/vector/vector.html
