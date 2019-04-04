@@ -58,9 +58,10 @@ nav:
   - 2. 基本構文:
       - 2.1. 変数: ch02-01-variables.md
       - 2.2. 基本型: ch02-02-primitive-types.md
-      - 2.3. ポインタ: ch02-03-pointers.md
-      - 2.4. コメント: ch02-04-comments.md
-      - 2.5. 制御文: ch02-05-control-flow.md
+      - 2.3. 関数: ch02-03-functions.md
+      - 2.4. ポインタ: ch02-04-pointers.md
+      - 2.5. コメント: ch02-05-comments.md
+      - 2.6. 制御文: ch02-06-control-flow.md
   - 3. コンテナ:
       - 3.1. 配列: ch03-01-arrays.md
       - 3.2. 文字列: ch03-02-strings.md
