@@ -71,3 +71,4 @@ nav:
       - 7.1. コンストラクタ: ch07-01-constructors
       - 7.4. メンバ関数: ch07-04-member-functions
       - 7.5. メンバ変数: ch07-05-member-varialbes
+      - 7.6. 継承: ch07-06-inheritance
