@@ -61,19 +61,3 @@ class ConstMemberFunction {
 
 `const` メンバ関数から
 `const` メンバ関数ではないメンバ関数を呼び出すことはできません。
-
-### 使用例
-
-メンバ変数の値を変更する `SetA` と
-メンバ変数の値を取得する `GetA` というメンバ関数をもつクラスは次のようにします。
-
-```cpp
-class SetterAndGetter {
- public:
-    void SetA(int a) { a_ = a; }
-    int GetA() const { return a_; }
-
- private:
-    int a_;
-};
-```
