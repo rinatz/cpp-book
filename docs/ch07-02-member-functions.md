@@ -18,6 +18,34 @@ MemberFunction m;
 m.Func();  // 呼び出し
 ```
 
+## メンバ関数の定義
+
+クラス宣言と同時に定義するには次のようにします。
+
+```cpp
+class MemberFunction {
+ public:
+    void Func() {
+       std::cout << "member function" << std::endl;
+    }
+};
+```
+
+クラス宣言とは別に定義するには次のようにします。
+
+```cpp
+class MemberFunction {
+ public:
+    void Func();
+};
+
+void MemberFunction::Func() {
+   std::cout << "member function" << std::endl;
+}
+```
+
+どのクラスのメンバ関数であるかを表すために `MemberFunction::` が必要になります。
+
 ## const メンバ関数
 
 クラスの状態を変更しないメンバ関数は `const` メンバ関数にします。
