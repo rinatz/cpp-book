@@ -48,8 +48,6 @@ void MemberFunction::Func() {
 
 ## const メンバ関数
 
-クラスの状態を変更しないメンバ関数は `const` メンバ関数にします。
-
 引数リストのあとに `const` をつけることで `const` メンバ関数になります。
 
 ```cpp
@@ -59,5 +57,22 @@ class ConstMemberFunction {
 };
 ```
 
-`const` メンバ関数から
-`const` メンバ関数ではないメンバ関数を呼び出すことはできません。
+`const` メンバ関数ではメンバ変数を変更することができません。
+
+```cpp hl_lines="8" linenums="1"
+class ConstMemberFunction {
+ public:
+    void Func() const;
+    int a_;
+};
+
+void ConstMemberFunction::Func() const {
+    a_ = 1;  // メンバ変数を変更するとコンパイルエラーになります
+}
+```
+
+`const` メンバ関数はメンバ変数を変更しないため、
+オブジェクトの状態を変化させずに呼び出すことができます。
+
+メンバ変数を変更しないという制約を満たすため、
+`const` メンバ関数から呼び出せるメンバ関数は `const` メンバ関数に限定されます。
