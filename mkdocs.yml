@@ -68,7 +68,7 @@ nav:
       - 3.3. タプル: ch03-03-tuples.md
       - 3.4. ベクタ: ch03-04-vectors.md
   - 7. クラス:
-      - 7.1. コンストラクタ: ch07-01-constructors
-      - 7.4. メンバ関数: ch07-04-member-functions
-      - 7.5. メンバ変数: ch07-05-member-varialbes
-      - 7.6. 継承: ch07-06-inheritance
+      - 7.1. コンストラクタ: ch07-01-constructors.md
+      - 7.4. メンバ関数: ch07-04-member-functions.md
+      - 7.5. メンバ変数: ch07-05-member-varialbes.md
+      - 7.6. 継承: ch07-06-inheritance.md
