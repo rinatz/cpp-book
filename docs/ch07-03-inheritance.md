@@ -82,3 +82,28 @@ class AccessSpecifier {
 
 読みづらいコードになってしまうのを防ぐため、
 アクセス指定子の使い方についてコーディング規約で指定されることもあります。
+
+## 継承のアクセス指定
+
+基底クラスを継承する際のアクセスレベルは次の3つのいずれかを指定します。
+
+* public
+* protected
+* private
+
+デフォルトでは `private` になります。
+
+```cpp
+class Base {};
+
+class Sub1 : public Base {};  // public 継承
+class Sub2 : protected Base {};  // protected 継承
+class Sub3 : private Base {};  // private 継承
+class Sub4 : Base {};  // private 継承 (デフォルト)
+```
+
+インターフェースのクラスを継承して実装を行う場合には `public` を使用します。
+
+詳細は [派生クラス - cppreference.com][cppreference_derived_class] を参照してください。
+
+[cppreference_derived_class]: https://ja.cppreference.com/w/cpp/language/derived_class
