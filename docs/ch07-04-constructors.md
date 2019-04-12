@@ -45,6 +45,23 @@ TwoArguments::TwoArguments(int a, int b) {
 }
 ```
 
+## メンバ変数の初期化
+
+コンストラクタでメンバ変数を初期化するには次のようにします。
+
+```cpp
+class TwoArguments {
+ public:
+    TwoArguments(int a, int b) : a_(a), b_(b) {}
+ private:
+    const int a_;
+    int b_;
+};
+```
+
+初期化は値の変更ではないため、
+コンストラクタに渡された値から `const` メンバ変数の値を設定することができます。
+
 ## デフォルトコンストラクタ
 
 値を1つも受け取らないコンストラクタをデフォルトコンストラクタといいます。
