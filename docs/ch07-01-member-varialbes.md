@@ -1,22 +1,22 @@
 # メンバ変数
 
-C++ でメンバ変数を使用する方法について説明します。
+クラスが持つ変数をメンバ変数といいます。
 
-`int` 型の変数 `x` と `std::string` 型の文字列 `s` をもつクラス
-を宣言するには次のようにします。
+長方形を扱う `Rectangle` クラスに
+`int` 型のメンバ変数 `height` と `width` を持たせるには次のようにします。
 
 ```cpp
-class MemberVariable {
+class Rectangle {
  public:
-    int x;
-    std::string s;
+    int height_;
+    int width_;
 };
 ```
 
 メンバ変数を参照するには `.` を使用します。
 
 ```cpp
-MemberVariable m;
-m.x = 5;
-m.s = "Hello";
+Rectangle r;
+r.height = 10;
+r.width = 20;
 ```
