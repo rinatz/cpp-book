@@ -42,11 +42,12 @@ int main() {
 継承を行った場合もメンバを持つことができるため、
 `Square` クラスでは `Rectangle` クラスにはないメンバ関数 `SetSize` を追加することができます。
 
-## メンバのアクセス指定
+## アクセス指定子
 
-メンバ関数とメンバ変数のアクセスレベルは次の3つのいずれかを指定します。
+メンバを参照できる範囲はアクセス指定子によって制限することができます。
+アクセス指定子には次の3つがあります。
 
-| アクセス指定子 |     自クラス内     |    派生クラス内    |        外部        |
+| アクセス指定子 |      自クラス      |   継承したクラス   |       その他       |
 | -------------- | ------------------ | ------------------ | ------------------ |
 | public         | :white_check_mark: | :white_check_mark: | :white_check_mark: |
 | protected      | :white_check_mark: | :white_check_mark: | :x:                |
@@ -54,46 +55,112 @@ int main() {
 
 デフォルトでは `private` になります。
 
-`public` に指定すると外部からメンバを使用することができます。
+### メンバに対するアクセス指定子
 
-!!! example "public.cc"
-    ```cpp hl_lines="2 3 8" linenums="1"
-    class Concrete {
+`private` にすると自クラス内でのみメンバが参照できます。
+
+!!! example "private_member.cc"
+    ```cpp hl_lines="7 8 9 15 16 22 23" linenums="1"
+    class Rectangle {
      public:
-        void Public() {}
-    };
-
-    int main() {
-        Concrete c;
-        c.Public();
-        return 0;
-    }
-    ```
-
-`private` に指定すると自クラス内でのみメンバを使用できるようにします。
-
-!!! example "private.cc"
-    ```cpp hl_lines="4 7 8 14" linenums="1"
-    class Concrete {
-     public:
-        void Public() {
-            Private();
+        int Area() const {
+            height_ * width_;  // 参照可
         }
 
      private:
-        void Private() {}
+        int height_;
+        int width_;
+    };
+
+    class Square : public Rectangle {
+     public:
+        void SetSize(int size) {
+            height_ = size;  // コンパイルエラーになります
+            width_ = size;   // コンパイルエラーになります
+        }
     };
 
     int main() {
-        Concrete c;
-        c.Public();
-        // c.Private();  // コンパイルエラーになります
+        Rectangle r;
+        r.height_ = 10;  // コンパイルエラーになります
+        r.width_ = 20;   // コンパイルエラーになります
+
+        Square s;
+        s.SetSize(10);
         return 0;
     }
     ```
 
-アクセスレベルはアクセス指定子で指定されたところから変更されます。
-また、アクセス指定子はクラス内に何度でも使用できます。
+`protected` にすると自クラス内に加え、継承したクラス内でも参照できるようになります。
+
+!!! example "protected_member.cc"
+    ```cpp hl_lines="7 8 9 22 23" linenums="1"
+    class Rectangle {
+     public:
+        int Area() const {
+            height_ * width_;  // 参照可
+        }
+
+     protected:
+        int height_;
+        int width_;
+    };
+
+    class Square : public Rectangle {
+     public:
+        void SetSize(int size) {
+            height_ = size;  // 参照可
+            width_ = size;   // 参照可
+        }
+    };
+
+    int main() {
+        Rectangle r;
+        r.height_ = 10;  // コンパイルエラーになります
+        r.width_ = 20;   // コンパイルエラーになります
+
+        Square s;
+        s.SetSize(10);
+        return 0;
+    }
+    ```
+
+`public` にすると参照できる範囲の制限はなくなります。
+
+!!! example "public_member.cc"
+    ```cpp hl_lines="7 8 9" linenums="1"
+    class Rectangle {
+     public:
+        int Area() const {
+            height_ * width_;  // 参照可
+        }
+
+     public:
+        int height_;
+        int width_;
+    };
+
+    class Square : public Rectangle {
+     public:
+        void SetSize(int size) {
+            height_ = size;  // 参照可
+            width_ = size;   // 参照可
+        }
+    };
+
+    int main() {
+        Rectangle r;
+        r.height_ = 10;  // 参照可
+        r.width_ = 20;   // 参照可
+
+        Square s;
+        s.SetSize(10);
+        return 0;
+    }
+    ```
+
+アクセス指定子は次のアクセス指定子が出現するまでが有効範囲となります。
+また、アクセス指定子は何度でも使用できます。
 
 ```cpp
 class AccessSpecifier {
@@ -115,13 +182,11 @@ class AccessSpecifier {
 読みづらいコードになってしまうのを防ぐため、
 アクセス指定子の使い方についてコーディング規約で指定されることもあります。
 
-## 継承のアクセス指定
+### 継承に対するアクセス指定子
 
-基底クラスを継承する際のアクセスレベルは次の3つのいずれかを指定します。
-
-* public
-* protected
-* private
+継承する場合には、
+継承されるクラス (基底クラス) におけるメンバを参照できる範囲を
+継承したクラス (派生クラス) ではアクセス指定子によってさらに制限することができます。
 
 デフォルトでは `private` になります。
 
