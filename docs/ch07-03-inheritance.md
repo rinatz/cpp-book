@@ -1,14 +1,46 @@
 # 継承
 
-C++ で継承を使用する方法について説明します。
+クラスのメンバ (メンバ変数とメンバ関数) を引き継いで
+新しいクラスを作成することを継承といいます。
 
-`Concrete` クラスで `Interface` クラスを継承するには次のようにします。
+長方形を扱う `Rectangle` クラスを継承して
+正方形を扱う `Square` クラスを作るには次のようにします。
 
-```cpp
-class Interface {};
+```cpp hl_lines="13"
+#include <iostream>
 
-class Concrete : public Interface {};
+class Rectangle {
+ public:
+    int Area() const {
+       return height_ * width_;
+    }
+
+    int height_;
+    int width_;
+};
+
+class Square : public Rectangle {
+ public:
+    void SetSize(int size) {
+        height_ = size;
+        width_ = size;
+    }
+};
+
+int main() {
+    Square s;
+    s.SetSize(10);
+    std::cout << s.Area() << std::endl;
+    return 0;
+}
 ```
+
+`Square` クラスでは `Rectangle` クラスの全メンバを使用できます。
+メンバ関数 `SetSize` で `Rectangle` クラスのメンバ変数 `height_` と `width_` を参照したり、
+メンバ関数の呼び出しで `s.Area` としたりすることができます。
+
+継承を行った場合もメンバを持つことができるため、
+`Square` クラスでは `Rectangle` クラスにはないメンバ関数 `SetSize` を追加することができます。
 
 ## メンバのアクセス指定
 
