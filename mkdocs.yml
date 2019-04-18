@@ -83,6 +83,7 @@ nav:
       - 7.7. 構造体: ch07-07-structs.md
   - 8. キャスト:
       - 8.1. C++ のキャスト: ch08-01-cpp-casts.md
+      - 8.2. C言語のキャスト: ch08-02-c-cast.md
   - 9. テンプレート:
       - 9.1. 関数テンプレート: ch09-01-function-templates.md
       - 9.2. クラステンプレート: ch09-02-class-templates.md
