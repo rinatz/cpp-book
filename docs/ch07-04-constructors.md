@@ -1,82 +1,95 @@
 # コンストラクタ
 
-C++ でコンストラクタを使用する方法について説明します。
-
-2つの整数値を受け取るコンストラクタを宣言するには次のようにします。
-
-```cpp
-class TwoArguments {
- public:
-    TwoArguments(int a, int b);
-};
-```
+オブジェクトを作成する際に呼び出されるメンバ関数をコンストラクタといいます。
+コンストラクタはメンバ変数の初期化を行うために使用します。
 
 クラス名と同じ名前で戻り値がない関数がコンストラクタになります。
+
+```cpp hl_lines="3"
+class Rectangle {
+ public:
+    Rectangle(int height, int width);
+
+    int Area() const;
+
+ private:
+    const int height_;
+    const int width_;
+};
+```
 
 このコンストラクタを使ってオブジェクトを作成するには次のようにします。
 
 ```cpp
-TwoArguments t(1, 2);
-```
-
-コンストラクタの定義をクラス宣言の中に書く場合は次のようにします。
-
-```cpp
-class TwoArguments {
- public:
-    TwoArguments(int a, int b) {
-        std::cout << "a=" << a << std::endl;
-        std::cout << "b=" << b << std::endl;
-    }
-};
-```
-
-コンストラクタの定義をクラス宣言の外に書く場合は次のようにします。
-
-```cpp
-class TwoArguments {
- public:
-    TwoArguments(int a, int b);
-};
-
-TwoArguments::TwoArguments(int a, int b) {
-    std::cout << "a=" << a << std::endl;
-    std::cout << "b=" << b << std::endl;
-}
+Rectangle r(10, 20);
 ```
 
 ## メンバ変数の初期化
 
 コンストラクタでメンバ変数を初期化するには次のようにします。
 
-```cpp
-class TwoArguments {
+```cpp hl_lines="3"
+class Rectangle {
  public:
-    TwoArguments(int a, int b) : a_(a), b_(b) {}
+    Rectangle(int height, int width) : height_(height), width_(width) {}
+
+    int Area() const {
+        return height_ * width_;
+    }
+
  private:
-    const int a_;
-    int b_;
+    const int height_;
+    const int width_;
 };
 ```
 
 初期化は値の変更ではないため、
 コンストラクタに渡された値から `const` メンバ変数の値を設定することができます。
 
+## クラス宣言とは別に定義
+
+クラス宣言とは別にコンストラクタを定義するには次のようにします。
+
+```cpp hl_lines="3 14"
+class Rectangle {
+ public:
+    Rectangle(int height, int width);
+
+    int Area() const {
+        return height_ * width_;
+    }
+
+ private:
+    const int height_;
+    const int width_;
+};
+
+Rectangle::Rectangle(int height, int width) : height_(height), width_(width) {}
+```
+
 ## デフォルトコンストラクタ
 
 値を1つも受け取らないコンストラクタをデフォルトコンストラクタといいます。
 
-```cpp
-class Default {
+```cpp hl_lines="3"
+class Rectangle {
  public:
-    Default();
+    Rectangle() : height_(0), width_(0) {}
+
+    int Area() const {
+        return height_ * width_;
+    }
+
+ private:
+    const int height_;
+    const int width_;
 };
 ```
 
 デフォルトコンストラクタを使ってオブジェクトを作成するには次のようにします。
 
 ```cpp
-Default d;
+Rectangle r;
 ```
 
 明示的に定義するコンストラクタが1つもない場合のみ、
