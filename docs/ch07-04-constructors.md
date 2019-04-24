@@ -137,3 +137,76 @@ class Movable {
 Movable m1;  // デフォルトコンストラクタでオブジェクト作成
 Movable m2(std::move(m1));  // ムーブコンストラクタでオブジェクト作成
 ```
+
+## 継承
+
+継承したクラス (派生クラス) のコンストラクタは
+継承されるクラス (基底クラス) のデフォルトコンストラクタを暗黙的に呼び出します。
+
+!!! example "constructor_inheritance.cc"
+    ```cpp hl_lines="5 6 7 20 21 22 26" linenums="1"
+    #include <iostream>
+
+    class Rectangle {
+     public:
+        Rectangle() : height_(0), width_(0) {
+            std::cout << "Rectangle::Rectangle() is called." << std::endl;
+        }
+
+        int Area() const {
+            return height_ * width_;
+        }
+
+     private:
+        const int height_;
+        const int width_;
+    };
+
+    class Square : public Rectangle {
+     public:
+        Square() {
+            std::cout << "Square::Square() is called." << std::endl;
+        }
+    };
+
+    int main() {
+        Square s;  // Square クラスのデフォルトコンストラクタを使用
+        std::cout << "area = " << s.Area() << std::endl;
+        return 0;
+    }
+    ```
+
+実行結果は以下のようになります。
+
+```txt
+Rectangle::Rectangle() is called.
+Square::Square() is called.
+area = 0
+```
+
+コンストラクタの実行順序は、必ず次の順序になります。
+
+1. 継承されるクラス (基底クラス) のコンストラクタ
+1. 継承したクラス (派生クラス) のコンストラクタ
+
+継承されるクラス (基底クラス) のコンストラクタを明示的に呼び出すこともできます。
+
+```cpp hl_lines="16"
+class Rectangle {
+ public:
+    Rectangle(int height, int width) : height_(height), width_(width) {}
+
+    int Area() const {
+        return height_ * width_;
+    }
+
+ private:
+    const int height_;
+    const int width_;
+};
+
+class Square : public Rectangle {
+ public:
+    Square(int size) : Rectangle(size, size) {}
+};
+```
