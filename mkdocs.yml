@@ -73,3 +73,4 @@ nav:
       - 7.3. 継承: ch07-03-inheritance.md
       - 7.4. 多態性: ch07-04-polymorphism.md
       - 7.5. コンストラクタ: ch07-05-constructors.md
+      - 7.6. デストラクタ: ch07-06-destructors.md
