@@ -108,3 +108,37 @@ size = 10
 
 この例ではメンバ関数 `Describe` がオーバーライドされているため、
 `Rectangle` クラスではなく `Square` クラスの `Describe` が実行されます。
+
+## 純粋仮想関数とインターフェース
+
+定義をもたない仮想関数を純粋仮想関数といいます。
+純粋仮想関数にするには仮想関数に `= 0` をつけます。
+
+```cpp hl_lines="3"
+class Polygon {
+ public:
+    virtual void Area() const = 0;
+};
+```
+
+純粋仮想関数があるクラスのオブジェクトは作ることができません。
+
+C++ にはインターフェースクラスをつくるための専用の記法はないため、
+メンバ関数がすべて純粋仮想関数であるクラスをインターフェースとして使います。
+
+```cpp hl_lines="3 8"
+class Polygon {
+ public:
+    virtual int Area() const = 0;
+};
+
+class Rectangle : public Polygon {
+ public:
+    int Area() const override {
+        return height_ * width_;
+    }
+
+    int height_;
+    int width_;
+};
+```
