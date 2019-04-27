@@ -138,6 +138,69 @@ Movable m1;  // デフォルトコンストラクタでオブジェクト作成
 Movable m2(std::move(m1));  // ムーブコンストラクタでオブジェクト作成
 ```
 
+## 変換コンストラクタと explicit
+
+値を1つだけ受け取るコンストラクタを変換コンストラクタといいます。
+コピーコンストラクタやムーブコンストラクタも変換コンストラクタです。
+
+```cpp hl_lines="3"
+class Square {
+ public:
+    Square(int size) : size_(size) {}
+
+    int Area() const {
+        return size_ * size_;
+    }
+
+ private:
+    int size_;
+};
+```
+
+受け取る値が2個の場合と同様にオブジェクトを作成するには次のようにします。
+
+```cpp
+Square s(10);
+```
+
+以下のようにした場合、
+`int` から `Square` への暗黙的な型変換で変換コンストラクタが使用されます。
+
+```cpp
+Square s = 10;
+```
+
+暗黙的な型変換で使用されないようにするには
+変換コンストラクタに `explicit` をつけます。
+
+暗黙的な型変換を意図して使用する場合を除き、
+受け取る値が1つのコンストラクタには `explicit` をつけることが望ましいです。
+
+!!! note "コピーコンストラクタとムーブコンストラクタ"
+    コピーコンストラクタとムーブコンストラクタを `explicit` にすると
+    関数の戻り値で値渡しすることができなくなります。
+    一般的にコピーコンストラクタとムーブコンストラクタは `explicit` にはしません。
+
+```cpp hl_lines="3"
+class Square {
+ public:
+    explicit Square(int size) : size_(size) {}
+
+    int Area() const {
+        return size_ * size_;
+    }
+
+ private:
+    int size_;
+};
+```
+
+`explicit` をつけると以下の記述はコンパイルエラーになります。
+
+```cpp
+Square s = 10;
+```
+
 ## 継承
 
 派生クラスのコンストラクタは
