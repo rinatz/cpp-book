@@ -53,3 +53,58 @@
 ダウンキャストを行わないで済むようなコードを書くことが望ましいです。
 
 <!-- TODO: キャストのページへのリンクを追加する -->
+
+## 仮想関数とオーバーライド
+
+派生クラスで挙動を変更できるメンバ関数を仮想関数といいます。
+仮想関数にするには基底クラスのメンバ関数に `virtual` をつけます。
+
+派生クラスで仮想関数の挙動を変更することをオーバーライドといいます。
+オーバーライドするには派生クラスのメンバ関数に `override` をつけます。
+
+!!! example "polymorphism_override.cc"
+    ```cpp hl_lines="5 21 31" linenums="1"
+    #include <iostream>
+
+    class Rectangle {
+     public:
+        virtual void Describe() const {
+            std::cout << "height = " << height_ << std::endl;
+            std::cout << "width = " << width_ << std::endl;
+        }
+
+        int height_;
+        int width_;
+    };
+
+    class Square : public Rectangle {
+     public:
+        void SetSize(int size) {
+            height_ = size;
+            width_ = size;
+        }
+
+        void Describe() const override {
+            std::cout << "size = " << height_ << std::endl;
+        }
+    };
+
+    int main() {
+        Square s;
+        s.SetSize(10);
+
+        const Rectangle& r = s;
+        r.Describe();
+
+        return 0;
+    }
+    ```
+
+実行結果は以下のようになります。
+
+```txt
+size = 10
+```
+
+この例ではメンバ関数 `Describe` がオーバーライドされているため、
+`Rectangle` クラスではなく `Square` クラスの `Describe` が実行されます。
