@@ -43,3 +43,33 @@ int main() {
 
 明示的に定義しない場合、
 コンパイラが暗黙的にデストラクタを定義します。
+
+## クラス宣言とは別に定義
+
+クラス宣言とは別にデストラクタを定義するには次のようにします。
+
+```cpp hl_lines="10 20 21 22 23"
+class DynamicArray {
+ public:
+    DynamicArray(int size, int initial_value) {
+        data_ = new int[size];
+        for (auto i = 0; i < size; ++i) {
+            data_[i] = initial_value;
+        }
+    }
+
+    ~DynamicArray();
+
+    void Set(int index, int value) { data_[index] = value; }
+
+    int Get(int index) const { return data_[index]; }
+
+ private:
+    int* data_;
+};
+
+DynamicArray::~DynamicArray() {
+    std::cout << "DynamicArray::~DynamicArray() is called." << std::endl;
+    delete[] data_;
+}
+```
