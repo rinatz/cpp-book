@@ -21,8 +21,8 @@ class Rectangle {
 
 ```cpp hl_lines="4"
 Rectangle r;
-r.height = 10;
-r.width = 20;
+r.height_ = 10;
+r.width_ = 20;
 r.Area();
 ```
 
