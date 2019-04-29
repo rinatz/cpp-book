@@ -23,9 +23,13 @@ class DynamicArray {
         delete[] data_;
     }
 
-    void Set(int index, int value) { data_[index] = value; }
+    void Set(int index, int value) {
+        data_[index] = value;
+    }
 
-    int Get(int index) const { return data_[index]; }
+    int Get(int index) const {
+        return data_[index];
+    }
 
  private:
     int* data_;
@@ -48,7 +52,7 @@ int main() {
 
 クラス宣言とは別にデストラクタを定義するには次のようにします。
 
-```cpp hl_lines="10 20 21 22 23"
+```cpp hl_lines="10 24 25 26 27"
 class DynamicArray {
  public:
     DynamicArray(int size, int initial_value) {
@@ -60,9 +64,13 @@ class DynamicArray {
 
     ~DynamicArray();
 
-    void Set(int index, int value) { data_[index] = value; }
+    void Set(int index, int value) {
+        data_[index] = value;
+    }
 
-    int Get(int index) const { return data_[index]; }
+    int Get(int index) const {
+        return data_[index];
+    }
 
  private:
     int* data_;
