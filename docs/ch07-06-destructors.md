@@ -146,7 +146,133 @@ BasicArray::~BasicArray() is called.
 1. 派生クラスのデストラクタ
 1. 基底クラスのデストラクタ
 
-<!-- TODO: デストラクタをvirtualにする理由を記載 -->
+## 仮想デストラクタ
+
+アップキャストして基底クラスのポインタで扱う場合、
+基底クラスのデストラクタだけが呼び出されて
+派生クラスのデストラクタは呼び出されなくなります。
+
+!!! failure "destructor_non_virtual.cc"
+    ```cpp hl_lines="6 7 8 23 24 25 26 37" linenums="1"
+    #include <iostream>
+    #include <memory>
+
+    class BasicArray {
+     public:
+        ~BasicArray() {
+            std::cout << "BasicArray::~BasicArray() is called." << std::endl;
+        }
+
+        virtual void Set(int index, int value) = 0;
+        virtual int Get(int index) const = 0;
+    };
+
+    class DynamicArray : public BasicArray {
+     public:
+        DynamicArray(int size, int initial_value) {
+            data_ = new int[size];
+            for (auto i = 0; i < size; ++i) {
+                data_[i] = initial_value;
+            }
+        }
+
+        ~DynamicArray() {
+            std::cout << "DynamicArray::~DynamicArray() is called." << std::endl;
+            delete[] data_;
+        }
+
+        void Set(int index, int value) { data_[index] = value; }
+
+        int Get(int index) const { return data_[index]; }
+
+     private:
+        int* data_;
+    };
+
+    int main() {
+        std::unique_ptr<BasicArray> b(new DynamicArray(5, 1));
+        std::cout << b->Get(2) << std::endl;
+        b->Set(2, 10);
+        std::cout << b->Get(2) << std::endl;
+
+        return 0;
+    }
+    ```
+
+この例では
+派生クラス `DynamicArray` をアップキャストして
+基底クラス `BasicArray` のスマートポインタで扱っています。
+
+実行結果は以下のようになります。
+
+```txt
+1
+10
+BasicArray::~BasicArray() is called.
+```
+
+`DynamicArray` のデストラクタが呼ばれておらずメモリリークが発生してしまいます。
+
+このような問題を防ぐために、
+基底クラスのデストラクタは仮想関数にします。
+派生クラスではデストラクタをオーバーロードすることになるため
+`override` をつけます。
+
+!!! example "destructor_virtual.cc"
+    ```cpp hl_lines="6 23" linenums="1"
+    #include <iostream>
+    #include <memory>
+
+    class BasicArray {
+     public:
+        virtual ~BasicArray() {
+            std::cout << "BasicArray::~BasicArray() is called." << std::endl;
+        }
+
+        virtual void Set(int index, int value) = 0;
+        virtual int Get(int index) const = 0;
+    };
+
+    class DynamicArray : public BasicArray {
+     public:
+        DynamicArray(int size, int initial_value) {
+            data_ = new int[size];
+            for (auto i = 0; i < size; ++i) {
+                data_[i] = initial_value;
+            }
+        }
+
+        ~DynamicArray() override {
+            std::cout << "DynamicArray::~DynamicArray() is called." << std::endl;
+            delete[] data_;
+        }
+
+        void Set(int index, int value) { data_[index] = value; }
+
+        int Get(int index) const { return data_[index]; }
+
+     private:
+        int* data_;
+    };
+
+    int main() {
+        std::unique_ptr<BasicArray> b(new DynamicArray(5, 1));
+        std::cout << b->Get(2) << std::endl;
+        b->Set(2, 10);
+        std::cout << b->Get(2) << std::endl;
+
+        return 0;
+    }
+    ```
+
+実行結果は以下のようになります。
+
+```txt
+1
+10
+DynamicArray::~DynamicArray() is called.
+BasicArray::~BasicArray() is called.
+```
 
 <!-- TODO: デストラクタから例外を出さないことを記載
 
