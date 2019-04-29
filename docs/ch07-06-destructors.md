@@ -274,6 +274,12 @@ DynamicArray::~DynamicArray() is called.
 BasicArray::~BasicArray() is called.
 ```
 
+<!-- STLコンテナの説明を事前に行う or 記述を修正する -->
+!!! failure "STLコンテナクラスの継承"
+    STLコンテナクラスのデストラクタは仮想関数になっていません。
+    そのためSTLコンテナを継承したクラスを
+    STLコンテナにアップキャストして使用してはいけません。
+
 <!-- TODO: デストラクタから例外を出さないことを記載
 
 例外を throw して catch されるまでの間に
