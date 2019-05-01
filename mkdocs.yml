@@ -68,4 +68,4 @@ nav:
       - 3.3. タプル: ch03-03-tuples.md
       - 3.4. ベクタ: ch03-04-vectors.md
   - 9. テンプレート:
-      - 9.1. テンプレート関数: ch09-01-template-functions.md
+      - 9.1. 関数テンプレート: ch09-01-function-templates.md
