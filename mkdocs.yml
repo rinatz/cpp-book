@@ -76,6 +76,7 @@ nav:
   - 6. メモリ確保:
       - 6.1. メモリ領域: ch06-01-memory-areas.md
       - 6.2. new/delete: ch06-02-new-and-delete.md
+      - 6.3. スマートポインタ: ch06-03-smart-pointers.md
   - 7. クラス:
       - 7.1. メンバ変数: ch07-01-member-varialbes.md
       - 7.2. メンバ関数: ch07-02-member-functions.md
