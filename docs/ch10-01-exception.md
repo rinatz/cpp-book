@@ -12,3 +12,7 @@ http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf
 例外発生時にもデストラクタが呼ばれるため、
 デストラクタから外部へ例外を出すと上記に該当して std::terminate が呼ばれる。
 -->
+
+<!-- TODO: throwがC++17で削除されていることへの言及
+https://cpprefjp.github.io/lang/cpp17/remove_deprecated_exception_specifications.html
+-->
