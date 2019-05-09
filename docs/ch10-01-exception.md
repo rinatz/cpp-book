@@ -1,5 +1,58 @@
 # 例外処理
 
+例外処理とはプログラム実行中にエラーが発生した場合に、
+後続の処理を行うのをやめてエラー発生時用の処理を行うための機能です。
+
+例外処理においてエラーを表すもの例外といいます。
+例外処理は次の2つの段階で構成されます。
+
+1. エラーが発生する箇所で例外を送出し、後続の処理を行うのをやめる
+1. 送出された例外を捕捉し、エラー発生時用の処理を行う
+
+正の整数を表す `std::string` を `int` に変換する処理において、
+無効な文字があった場合に変換処理をやめてエラーメッセージを出力するには
+次のようにします。
+
+```cpp hl_lines="2 18 19 23 24 25 26"
+std::string str = "123XY56";
+try {
+    int num = 0;
+    for (const auto s : str) {
+        num *= 10;
+        switch (s) {
+            case '0':  num += 0;  break;
+            case '1':  num += 1;  break;
+            case '2':  num += 2;  break;
+            case '3':  num += 3;  break;
+            case '4':  num += 4;  break;
+            case '5':  num += 5;  break;
+            case '6':  num += 6;  break;
+            case '7':  num += 7;  break;
+            case '8':  num += 8;  break;
+            case '9':  num += 9;  break;
+            default:
+                // コンストラクタの引数でエラーメッセージを設定
+                throw std::runtime_error("数値ではない文字が入っています");
+        }
+    }
+    std::cout << num << std::endl;  // 問題なく変換できた場合には変換後の値を出力
+} catch (const std::runtime_error& e) {
+    // what() でエラーメッセージを取得
+    std::cout << e.what() << std::endl;
+}
+```
+
+例外の送出は `throw` で行います。
+
+この例では数値ではない文字がある場合にエラーとして
+例外 `std::runtime_error` を送出し、
+残っている文字の変換処理は行わずにエラー発生時用の処理を行います。
+
+`try` ブロック内で送出した例外は `catch` ブロックで捕捉します。
+
+この例では例外 `std::runtime_error` が送出された場合に
+参照 `e` で受けて `e.what()` でエラーメッセージを取得して出力します。
+
 <!-- TODO: デストラクタから例外を出さないことを記載
 
 例外を throw して catch されるまでの間に
