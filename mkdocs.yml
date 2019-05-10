@@ -58,6 +58,7 @@ nav:
   - 2. 基本構文:
       - 2.1. 変数: ch02-01-variables.md
       - 2.2. 基本型: ch02-02-primitive-types.md
+      - 2.3. リテラル: ch02-03-literals.md
       - 2.3. 関数: ch02-03-functions.md
       - 2.4. ポインタ: ch02-04-pointers.md
       - 2.5. コメント: ch02-05-comments.md
