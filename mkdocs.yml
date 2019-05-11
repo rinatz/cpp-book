@@ -55,7 +55,6 @@ nav:
   - 1. C++ を始める:
       - 1.1. インストール: ch01-01-installation.md
       - 1.2. Hello, World!: ch01-02-hello-world.md
-      - 1.3. C++ のバージョン: ch01-03-version.md
   - 2. 基本構文:
       - 2.1. 変数: ch02-01-variables.md
       - 2.2. 基本型: ch02-02-primitive-types.md
