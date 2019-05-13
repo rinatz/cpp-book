@@ -17,7 +17,7 @@ Visual Studio Code 上で `main.cc` というファイルを作成して
 msys2 のターミナルを起動して下記コマンドを打ってコンパイルします。
 
 ```bash
-$ g++ main.cc
+$ g++ -std=c++11 main.cc
 ```
 
 成功すると `a.exe` というファイルができていると思います。
