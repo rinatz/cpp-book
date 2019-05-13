@@ -79,3 +79,6 @@ nav:
       - 7.5. コンストラクタ: ch07-05-constructors.md
       - 7.6. デストラクタ: ch07-06-destructors.md
       - 7.7. 構造体: ch07-07-structs.md
+  - 9. テンプレート:
+      - 9.1. 関数テンプレート: ch09-01-function-templates.md
+      - 9.2. クラステンプレート: ch09-02-class-templates.md
