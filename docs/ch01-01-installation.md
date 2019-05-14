@@ -53,7 +53,9 @@ C++ 向けに使用することもできます。
 https://code.visualstudio.com/
 ```
 
-Visual Studio Code の拡張機能である `C/C++` もインストールします。
+Visual Studio Code の拡張機能である [C/C++] もインストールします。
 Visual Studio Code を起動した後、`Ctrl+Shift+X` を押すと
 拡張機能のインストール画面に切り替わるので、
-`C/C++` を検索してインストールしてください。
+[C/C++] を検索してインストールしてください。
+
+[C/C++]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
