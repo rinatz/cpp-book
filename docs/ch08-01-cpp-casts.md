@@ -9,8 +9,6 @@ C++ では4種類のキャスト演算子が用意されています。
 | const_cast       | const修飾子を外す                                |
 | reinterpret_cast | ポインタの型変換を行う                             |
 
-<!-- TODO: dynamic_castはポインタのみの紹介にするか否か -->
-
 ## static_cast
 
 暗黙的な型変換を明示的に行うためのキャストです。
