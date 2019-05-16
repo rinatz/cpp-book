@@ -20,21 +20,8 @@ int x = static_cast<int>(dx);
 
 ## dynamic_cast
 
-基底クラスから派生クラスにダウンキャストをする際に、 `dynamic_cast` を使います。
-`dynamic_cast` が使えるのは仮想関数を持ったクラスに限定されます。
-
-```cpp
-class Base {
-  public:
-    virtual ~Base(){}
-};
-class Sub1 : public Base {};
-class Sub2 : public Base {};
-
-Sub1* sub1 = dynamic_cast<Sub1*>(new Base());
-```
-
-`dynamic_cast` は他のキャスト演算子と異なり、実行時にキャストの成否を判断します。
+ダウンキャストをする際に、 `dynamic_cast` を使います。
+<!-- MEMO: 付録へのリンクを張る -->
 
 ## const_cast
 
