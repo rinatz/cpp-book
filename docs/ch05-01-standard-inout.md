@@ -1,4 +1,4 @@
-# 標準出力と標準エラー出力
+# 標準入出力
 
 C++ で入出力を扱う場合は `<iostream>` ヘッダをインクルードする必要があります。
 
@@ -32,3 +32,18 @@ std::cout << "標準出力";
 
 std::cerr << "標準エラー出力";
 ```
+
+## 標準入力
+`std::cin` で標準入力に対して入力します。
+
+```cpp
+#include <iostream>
+#include <string>
+
+std::cout << "好きな食べ物を入力してください: "
+std::string food;
+std::cin >> food;
+std::cout << "好きな食べ物は " << food << " です。" << std::endl;
+```
+
+<!-- TODO: intに対して文字列の入力をした場合について -->
