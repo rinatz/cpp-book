@@ -22,19 +22,7 @@ int x = static_cast<int>(dx);
 
 ## dynamic_cast
 
-派生クラスから基底クラスに向かうキャストのことをアップキャストといいます。
-アップキャストは安全なキャストのため、キャスト演算子を用いなくても暗黙的に変換されます。
-
-```cpp
-class Base {};
-class Sub1 : public Base {};
-class Sub2 : public Base {};
-
-Base* base = new Sub1(); // 暗黙的なアップキャスト
-```
-
-対して、基底クラスから派生クラスに向かうキャストのことをダウンキャストといいます。
-ダウンキャストをする際に、 `dynamic_cast` を使います。
+基底クラスから派生クラスにダウンキャストをする際に、 `dynamic_cast` を使います。
 `dynamic_cast` が使えるのは仮想関数を持ったクラスに限定されます。
 
 ```cpp
@@ -45,17 +33,14 @@ class Base {
 class Sub1 : public Base {};
 class Sub2 : public Base {};
 
-Sub1* sub1 = dynamic_cast<Sub1*>(new Base()); // ダウンキャスト
+Sub1* sub1 = dynamic_cast<Sub1*>(new Base());
 ```
 
 `dynamic_cast` は他のキャスト演算子と異なり、実行時にキャストの成否を判断します。
 
-ダウンキャストは扱いを誤ると非常に危険なため、可能な限りダウンキャストを行わないで済むようなコードを書くことが望ましいです。
-
 ## const_cast
 
-<!-- 「ポインタや参照に付与されている」はいらないかも -->
-ポインタや参照に付与されているconst修飾子を外すことができるキャストです。
+const修飾子を外すことができるキャストです。
 
 ```cpp
 const std::string str("hoge");
