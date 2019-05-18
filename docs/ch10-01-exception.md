@@ -268,6 +268,18 @@ dynamic_cast で失敗した場合に送出されます。
 
 <!-- TODO: ダウンキャストのページへのリンクを貼る -->
 
+<!-- TODO: 標準ライブラリの例外クラスの紹介の追加
+
+[std::logic_error]^-[std::invalid_argument]
+std::stoi の変換失敗で発生
+
+[std::logic_error]^-[std::out_of_range]
+std::vector::at の範囲外アクセスで発生
+
+[std::exception]^-[std::bad_function_call]
+`std::function f = nullptr;` を呼び出すと発生
+-->
+
 <!-- TODO: デストラクタから例外を出さないことを記載
 
 例外を throw して catch されるまでの間に
