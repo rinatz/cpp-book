@@ -177,6 +177,97 @@ terminate called after throwing an instance of 'std::runtime_error'
 Aborted (core dumped)
 ```
 
+## 標準ライブラリの例外クラス
+
+標準ライブラリの例外クラスの一部を紹介します。
+
+一覧は [std::exception - cppreference.com][cppreference_exception] を参照してください。
+
+[cppreference_exception]: https://ja.cppreference.com/w/cpp/error/exception
+
+![クラス図][class-diagram]
+
+[class-diagram]: http://yuml.me/diagram/nofunky;dir:TB/class/[std::exception]^-[std::bad_cast],[std::exception]^-[std::runtime_error],[std::exception]^-[std::logic_error].svg
+
+!!! question "std::logic_error と std::runtime_error の違い"
+    一般に
+    プログラム実行前に検出可能なものは `std::logic_error`、
+    プログラム実行時にのみ検出可能なものは `std::runtime_error` として分類されています。
+
+### std::exception
+
+すべての標準ライブラリの例外クラスの基底クラスです。
+
+このクラスで例外を捕捉することにより、
+標準ライブラリの例外クラスをすべて捕捉することができます。
+
+```cpp
+int main() {
+    std::string str = "123XY56";
+    try {
+        auto num = StringToInt(str);  // std::runtime_error を送出
+        std::cout << num << std::endl;
+    } catch (const std::exception& e) {
+        // std::exception で std::runtime_error を捕捉
+        std::cout << e.what() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+### std::logic_error
+
+前提条件を満たしていないなど論理エラーを表すためのクラスです。
+
+標準ライブラリで `std::logic_error` を送出するものはありません。
+
+### std::runtime_error
+
+実行時に評価する値の不正や実行環境の問題など
+実行時エラーを表すためのクラスです。
+
+`std::locale` で実行環境にないロケールを指定した場合などに送出されます。
+
+```cpp
+#include <iostream>
+#include <locale>
+
+void ShowValidLocales(const std::string& locale_name) {
+    try {
+        std::locale locale(locale_name);
+        std::cout << locale.name() << std::endl;
+    } catch (std::runtime_error& e) {
+        // 無効な場合にはエラーメッセージを標準エラーに出力
+        std::cerr << e.what() << std::endl;
+    }
+}
+
+int main() {
+    ShowValidLocales("en_US.UTF-8");
+    ShowValidLocales("ja_JP.UTF-8");
+    ShowValidLocales("zh_CN.UTF-8");
+
+    return 0;
+}
+```
+
+英語(米国)と日本語(日本)はあるが、
+簡体字中国語(中国)がない環境で実行すると以下のようになります。
+
+```bash
+$ ./a.out
+en_US.UTF-8
+ja_JP.UTF-8
+locale::facet::_S_create_c_locale name not valid
+```
+
+### std::bad_cast
+
+dynamic_cast で失敗した場合に送出されます。
+
+<!-- TODO: ダウンキャストのページへのリンクを貼る -->
+
 <!-- TODO: デストラクタから例外を出さないことを記載
 
 例外を throw して catch されるまでの間に
