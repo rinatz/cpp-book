@@ -101,6 +101,31 @@ try {
 例外を送出するのは呼び出す関数の内部であるため、
 この `try` ブロックには `throw` がありません。
 
+## 送出された例外が捕捉されない場合
+
+送出された例外が捕捉されない場合、
+[std::terminate][cpprefjp_terminate] が呼び出されてプログラムが異常終了します。
+
+[cpprefjp_terminate]: https://cpprefjp.github.io/reference/exception/terminate.html
+
+```cpp hl_lines="2"
+int main() {
+    std::string str = "123XY56";
+    auto num = StringToInt(str);
+    std::cout << num << std::endl;
+    return 0;
+}
+```
+
+実行結果は次のようになります。
+
+```txt
+$ ./a.out
+terminate called after throwing an instance of 'std::runtime_error'
+  what():  数値ではない文字が入っています
+Aborted (core dumped)
+```
+
 <!-- TODO: デストラクタから例外を出さないことを記載
 
 例外を throw して catch されるまでの間に
