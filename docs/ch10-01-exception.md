@@ -81,6 +81,7 @@ int StringToInt(const std::string& str) {
                 throw std::runtime_error("数値ではない文字が入っています");
         }
     }
+    return num;
 }
 ```
 
@@ -135,6 +136,7 @@ try {
             // CharToInt から例外が送出される
             num += CharToInt(s);
         }
+        return num;
     }
 
     int main() {
