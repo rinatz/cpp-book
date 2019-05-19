@@ -67,6 +67,47 @@ try {
 
 通常は標準ライブラリの例外クラスやそれを継承したユーザ定義クラスを使用します。
 
+## 型に応じた捕捉
+
+1つの `try` ブロックに対して `catch` ブロックは複数記述することができます。
+これによって例外の型に応じた処理を行うことができます。
+
+```cpp
+try {
+    throw 123;  // int を送出
+} catch (const bool v) {  // int は bool とは異なる型であるため捕捉されない
+    std::cout << "bool: " << v << std::endl;
+} catch (const int v) {  // ここで捕捉される
+    std::cout << "int: " << v << std::endl;
+}
+```
+
+例外の型がクラスである場合にはアップキャストを含めて捕捉は行われます。
+捕捉は上から順に確認して最初に一致したものだけが処理されます。
+
+```cpp
+try {
+    throw std::runtime_error("test");  // std::runtime_error を送出
+} catch (const std::exception& e) {
+    // std::runtime_error は std::exception の派生クラスであるためここで捕捉される
+    std::cout << "std::exception: " << e.what() << std::endl;
+} catch (const std::runtime_error& e) {
+    // この処理は実行されない
+    std::cout << "std::runtime_error: " << e.what() << std::endl;
+}
+```
+
+`catch (...)` と記載することであらゆる例外を捕捉することができます。
+この `catch` ブロックでは例外オブジェクトを参照することができません。
+
+```cpp
+try {
+    throw 123;
+} catch (...) {
+    std::cout << "Unexpected exception was thrown." << std::endl;
+}
+```
+
 ## 関数から例外を送出
 
 関数内で例外が捕捉されない場合、
