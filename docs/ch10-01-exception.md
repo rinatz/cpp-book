@@ -106,7 +106,7 @@ try {
 例外が捕捉されるまでの間に関数呼び出しを2回遡ります。
 
 !!! example "exception.cc"
-    ```cpp linenums="1" hl_lines="17 18 27 28 35 36"
+    ```cpp linenums="1" hl_lines="17 18 27 28 36 37"
     #include <iostream>
     #include <string>
 
@@ -161,7 +161,7 @@ try {
 
 [cpprefjp_terminate]: https://cpprefjp.github.io/reference/exception/terminate.html
 
-```cpp hl_lines="2"
+```cpp hl_lines="3"
 int main() {
     std::string str = "123XY56";
     auto num = StringToInt(str);
