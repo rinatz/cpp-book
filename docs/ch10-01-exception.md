@@ -179,6 +179,53 @@ terminate called after throwing an instance of 'std::runtime_error'
 Aborted (core dumped)
 ```
 
+## noexcept
+
+関数が例外を送出しないことを明示的に表すには `noexcept` をつけます。
+
+```cpp
+int Compare(int a, int b) noexcept {
+    if (a < b) {
+        return -1;
+    } else if (a > b) {
+        return 1;
+    } else {  // a == b
+        return 0;
+    }
+}
+```
+
+`noexcept` には条件を指定することができます。
+
+```cpp
+int Compare(int a, int b) noexcept(true);  // 例外を送出しない
+int CharToInt(const char c) noexcept(false);  // 例外を送出する
+```
+
+`noexcept` 内で `noexcept` を使用すると、
+他の関数が `noexcept` であるかどうかを条件に指定することができます。
+
+```cpp
+int StringToInt(const std::string& str) noexcept(noexcept(CharToInt('0')));
+```
+
+`noexcept` 指定された関数から例外が送出された場合、
+[std::terminate][cpprefjp_terminate] が呼び出されてプログラムが異常終了します。
+
+!!! warning "非推奨の動的例外仕様"
+    関数から送出される例外を列挙するための `throw` というキーワードがありますが、
+    C++11 では非推奨となっており C++17 では削除されているため使用しないでください。
+
+    ```cpp
+    int CharToInt(const char c) throw(std::runtime_error);
+    ```
+
+    詳細は
+    [非推奨だった古い例外仕様を削除 - cpprefjp C++日本語リファレンス][cpprefjp_dynamic_exception_specification]
+    を参照してください。
+
+[cpprefjp_dynamic_exception_specification]: https://cpprefjp.github.io/lang/cpp17/remove_deprecated_exception_specifications.html
+
 ## 標準ライブラリの例外クラス
 
 標準ライブラリの例外クラスの一部を紹介します。
@@ -293,8 +340,4 @@ http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf
 
 例外発生時にもデストラクタが呼ばれるため、
 デストラクタから外部へ例外を出すと上記に該当して std::terminate が呼ばれる。
--->
-
-<!-- TODO: throwがC++17で削除されていることへの言及
-https://cpprefjp.github.io/lang/cpp17/remove_deprecated_exception_specifications.html
 -->
