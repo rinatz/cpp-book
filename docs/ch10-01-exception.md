@@ -291,7 +291,7 @@ int StringToInt(const std::string& str) noexcept(noexcept(CharToInt('0')));
 
 ![クラス図][class-diagram]
 
-[class-diagram]: http://yuml.me/diagram/nofunky;dir:TB/class/[std::exception]^-[std::bad_cast],[std::exception]^-[std::runtime_error],[std::exception]^-[std::logic_error].svg
+[class-diagram]: http://yuml.me/diagram/nofunky;dir:TB/class/[std::exception]^-[std::bad_cast],[std::exception]^-[std::runtime_error],[std::exception]^-[std::logic_error],[std::logic_error]^-[std::invalid_argument].svg
 
 !!! question "std::logic_error と std::runtime_error の違い"
     一般に
@@ -370,12 +370,32 @@ locale::facet::_S_create_c_locale name not valid
 
 dynamic_cast で失敗した場合に送出されます。
 
+### std::invalid_argument
+
+関数の実引数が不正な値である場合の論理エラーを表すためのクラスです。
+
+`std::bitset` で変換できない文字列を指定した場合などに送出されます。
+
+```cpp
+try {
+    std::bitset<8> b("0000x111");  // 不正な文字 x を含んでいる
+    std::cout << b << std::endl;
+} catch (const std::invalid_argument& e) {
+    std::cout << "std::invalid_argument を捕捉" << std::endl;
+    std::cout << e.what() << std::endl;
+}
+```
+
+`std::bitset` では文字列から2進数数値への変換処理をコンストラクタで行っています。
+
+コンストラクタには戻り値がないため、
+エラー有無を戻り値として返却することができません。
+そのためコンストラクタでエラーが発生した場合には
+`std::bitset` のように例外を送出する実装にすることもあります。
+
 <!-- TODO: ダウンキャストのページへのリンクを貼る -->
 
 <!-- TODO: 標準ライブラリの例外クラスの紹介の追加
-
-[std::logic_error]^-[std::invalid_argument]
-std::stoi の変換失敗で発生
 
 [std::logic_error]^-[std::out_of_range]
 std::vector::at の範囲外アクセスで発生
