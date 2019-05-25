@@ -291,7 +291,7 @@ int StringToInt(const std::string& str) noexcept(noexcept(CharToInt('0')));
 
 ![クラス図][class-diagram]
 
-[class-diagram]: http://yuml.me/diagram/nofunky;dir:TB/class/[std::exception]^-[std::bad_cast],[std::exception]^-[std::runtime_error],[std::exception]^-[std::logic_error],[std::logic_error]^-[std::invalid_argument].svg
+[class-diagram]: http://yuml.me/diagram/nofunky;dir:TB/class/[std::exception]^-[std::bad_cast],[std::exception]^-[std::runtime_error],[std::exception]^-[std::logic_error],[std::logic_error]^-[std::out_of_range],[std::logic_error]^-[std::invalid_argument].svg
 
 !!! question "std::logic_error と std::runtime_error の違い"
     一般に
@@ -392,10 +392,45 @@ try {
 
 <!-- TODO: ダウンキャストのページへのリンクを貼る -->
 
-<!-- TODO: 標準ライブラリの例外クラスの紹介の追加
+### std::out_of_range
 
-[std::logic_error]^-[std::out_of_range]
-std::vector::at の範囲外アクセスで発生
+配列のようなデータに対する要素参照で
+範囲外が指定された場合の論理エラーを表すためのクラスです。
+
+`std::vector` の `at()` で範囲外の要素を参照しようとした場合などに送出されます。
+
+```cpp
+std::vector<int> x = {1, 2, 3, 4, 5};  // 要素数が 5 のベクタ
+
+try {
+    int a = x.at(5);  // at() で要素参照
+    std::cout << "5番目の値: " << a << std::endl;
+} catch (const std::out_of_range& e) {
+    std::cout << "std::out_of_range を捕捉" << std::endl;
+    std::cout << e.what() << std::endl;
+}
+```
+
+`std::vector` の `[]` で範囲外の要素を参照しようとした場合には例外は送出されません。
+
+```cpp
+std::vector<int> x = {1, 2, 3, 4, 5};  // 要素数が 5 のベクタ
+
+try {
+    int a = x[5];  // [] で要素参照
+    std::cout << "5番目の値: " << a << std::endl;  // 不定値が出力される
+} catch (...) {
+    std::cout << "例外を捕捉" << std::endl;  // 例外は送出されないため実行されない
+}
+```
+
+!!! question "セグメンテーション違反"
+    この例で `[]` で範囲外の要素参照をする際に
+    セグメンテーション違反が発生して OS によってプログラムが終了される可能性もあります。
+
+<!-- TODO: 追加予定のシグナルのページへのリンクを貼る -->
+
+<!-- TODO: 標準ライブラリの例外クラスの紹介の追加
 
 [std::exception]^-[std::bad_function_call]
 `std::function f = nullptr;` を呼び出すと発生
