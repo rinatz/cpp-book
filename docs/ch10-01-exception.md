@@ -430,12 +430,6 @@ try {
 
 <!-- TODO: 追加予定のシグナルのページへのリンクを貼る -->
 
-<!-- TODO: 標準ライブラリの例外クラスの紹介の追加
-
-[std::exception]^-[std::bad_function_call]
-`std::function f = nullptr;` を呼び出すと発生
--->
-
 <!-- TODO: デストラクタから例外を出さないことを記載
 
 例外を throw して catch されるまでの間に
