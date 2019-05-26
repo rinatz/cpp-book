@@ -85,4 +85,4 @@ nav:
       - 9.1. 関数テンプレート: ch09-01-function-templates.md
       - 9.2. クラステンプレート: ch09-02-class-templates.md
   - 10. エラー処理:
-      - 10.1 例外処理: ch10-01-exception.md
+      - 10.1 例外処理: ch10-01-exceptions.md
