@@ -214,8 +214,6 @@ try {
 送出された例外が捕捉されない場合、
 [std::terminate][cpprefjp_terminate] が呼び出されてプログラムが異常終了します。
 
-[cpprefjp_terminate]: https://cpprefjp.github.io/reference/exception/terminate.html
-
 ```cpp hl_lines="3"
 int main() {
     std::string str = "123XY56";
@@ -430,15 +428,72 @@ try {
 
 <!-- TODO: 追加予定のシグナルのページへのリンクを貼る -->
 
-<!-- TODO: デストラクタから例外を出さないことを記載
+## デストラクタと例外
 
-例外を throw して catch されるまでの間に
-さらに例外を throw すると std::terminate が呼ばれる。
+例外を送出して捕捉するまでの間に、
+さらに例外を送出すると [std::terminate][cpprefjp_terminate] が呼び出されて
+プログラムが異常終了します。
+この事象はデストラクタから例外を送出すると発生します。
 
-http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2012/n3337.pdf
+例外を送出した場合、
+その例外が捕捉されるまでに生存期間が終了するオブジェクトは
+デストラクタを呼び出して破棄されます。
 
-> 15.5.1  Thestd::terminate()function
+```cpp hl_lines="6 7 14 16"
+#include <iostream>
 
-例外発生時にもデストラクタが呼ばれるため、
-デストラクタから外部へ例外を出すと上記に該当して std::terminate が呼ばれる。
--->
+class DestructorAndException {
+ public:
+    ~DestructorAndException() {
+        // 例外を送出して捕捉するまでの間に実行される
+        std::cout << "~DestructorAndException() is called." << std::endl;
+    }
+};
+
+int main() {
+    try {
+        DestructorAndException obj;
+        throw std::runtime_error("main()");
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+デストラクタから例外を送出すると、
+例外を送出して捕捉するまでの間にデストラクタを実行した際に
+「例外を送出して捕捉するまでの間に、さらに例外を送出する」ことになってしまい、
+[std::terminate][cpprefjp_terminate] が呼び出されてプログラムが異常終了します。
+
+```cpp hl_lines="9 10"
+#include <iostream>
+
+class DestructorAndException {
+ public:
+    ~DestructorAndException() {
+        // 例外を送出して捕捉するまでの間に実行される
+        std::cout << "~DestructorAndException() is called." << std::endl;
+
+        // さらに例外を送出
+        throw std::runtime_error("~DestructorAndException()");
+    }
+};
+
+int main() {
+    try {
+        DestructorAndException obj;
+        throw std::runtime_error("main()");
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+こうした挙動にならないように、
+一般にデストラクタからは例外を送出しないようにします。
+
+[cpprefjp_terminate]: https://cpprefjp.github.io/reference/exception/terminate.html
