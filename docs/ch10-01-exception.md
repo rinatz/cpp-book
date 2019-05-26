@@ -235,6 +235,9 @@ Aborted (core dumped)
 ## noexcept
 
 関数が例外を送出しないことを明示的に表すには `noexcept` をつけます。
+デストラクタは暗黙的に `noexcept` になります。
+
+<!-- MEMO: delete 演算子もデフォルトで noexcept になる -->
 
 ```cpp
 int Compare(int a, int b) noexcept {
@@ -467,11 +470,12 @@ int main() {
 「例外を送出して捕捉するまでの間に、さらに例外を送出する」ことになってしまい、
 [std::terminate][cpprefjp_terminate] が呼び出されてプログラムが異常終了します。
 
-```cpp hl_lines="9 10"
+```cpp hl_lines="10 11"
 #include <iostream>
 
 class DestructorAndException {
  public:
+    // デストラクタは暗黙的に noexcept になるため noexcept(falsee) を明示的に指定
     ~DestructorAndException() noexcept(false) {
         // 例外を送出して捕捉するまでの間に実行される
         std::cout << "~DestructorAndException() is called." << std::endl;
