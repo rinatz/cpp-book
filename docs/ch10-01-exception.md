@@ -3,6 +3,13 @@
 例外処理とはプログラム実行中にエラーが発生した場合に、
 後続の処理を行うのをやめてエラー発生時用の処理を行うための機能です。
 
+!!! warning "コーディング規約による例外処理の使用禁止"
+    C++ における例外処理は問題点が多く、
+    [Google C++ Style Guide] や [LLVM Coding Standards] では例外処理の使用を原則禁止しています。
+
+[Google C++ Style Guide]: https://google.github.io/styleguide/cppguide.html#Exceptions]
+[LLVM Coding Standards]: http://llvm.org/docs/CodingStandards.html#do-not-use-rtti-or-exceptions
+
 例外処理においてエラーを表すもの例外といいます。
 例外処理は次の2つの段階で構成されます。
 
