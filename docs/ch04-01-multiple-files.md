@@ -16,6 +16,8 @@ C++ では2種類のファイルを扱います。
 
     int main() {
         DoSomething();
+
+        return 0;
     }
     ```
 
@@ -52,6 +54,8 @@ C++ では2種類のファイルを扱います。
     int main() {
         DoSomething();
         DoSomething2();
+
+        return 0;
     }
     ```
 

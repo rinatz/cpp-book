@@ -43,6 +43,8 @@ int main() {
     } // y が破棄されて所有者が1人になる。
 
     std::cout << *x << std::endl;
+
+    return 0;
 } // 所有者が0人になるので、 x のデストラクタで自動的に delete が行われる。
 ```
 
@@ -67,6 +69,8 @@ int main() {
     } else {
         std::cout << "リソースは解放済み" << std::endl;
     }
+
+    return 0;
 }
 ```
 
@@ -84,6 +88,8 @@ int main() {
     // std::unique_ptr<int> y = x; // コピー出来ない。コンパイルエラー。
 
     std::cout << *x << std::endl;
+
+    return 0;
 } // x が所有しているリソースが解放される。
 ```
 
@@ -99,6 +105,8 @@ int main() {
                                           // 所有権を移動したため、x は何も所有していない。
 
     std::cout << *y << std::endl;
+
+    return 0;
 } // y が所有しているリソースが解放される。
 ```
 
