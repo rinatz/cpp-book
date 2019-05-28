@@ -25,10 +25,11 @@ delete[] p2; // 配列の場合は [] を付ける
 
 !!! Error ""
     ```cpp
-    int main() {
+    void Function() {
         int* p = new int[100000];
-        return 0;
-    } // int[100000] 分のメモリが開放されないままになる。
+
+        // delete せずに Function() が終了すると…
+    } // int[100000] 分のメモリが解放されないままになる。
     ```
 
 <!-- MEMO: コンストラクタ呼び出しの話とかはmalloc/free側に書く. 非推奨なことを記載する. -->
