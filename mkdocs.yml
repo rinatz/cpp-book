@@ -50,6 +50,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
 nav:
   - ホーム: index.md
   - 1. C++ を始める:
