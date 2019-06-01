@@ -5,6 +5,15 @@ OS からのエラー通知などで使用されます。
 
 `<csignal>` で定義されるシグナルには以下の6種類があります。
 
+* SIGABRT
+* SIGFPE
+* SIGILL
+* SIGINT
+* SIGSEGV
+* SIGTERM
+
+一部を紹介します。
+
 ## SIGSEGV
 
 無効なメモリアクセス (セグメンテーション違反) を行うと発生します。
@@ -63,9 +72,3 @@ int main() {
 
 [cpprefjp_abort]: https://cpprefjp.github.io/reference/cstdlib/abort.html
 [cpprefjp_terminate]: https://cpprefjp.github.io/reference/exception/terminate.html
-
-<!-- TODO: 以下を追加
-SIGTERM
-SIGINT
-SIGILL
--->
