@@ -76,6 +76,14 @@ nav:
       - 3.6. マップ: ch03-06-maps.md
   - 4. ファイル分割とスコープ:
       - 4.1. 複数ファイル: ch04-01-multiple-files.md
+  - 5. ストリーム操作:
+      - 5.1. 標準入出力: ch05-01-standard-inout.md
+  - 6. メモリの管理:
+      - 6.1. メモリ領域: ch06-01-memory-areas.md
+      - 6.2. new/delete: ch06-02-new-and-delete.md
+      - 6.3. ディープコピーとシャローコピー: ch06-03-deep-and-shallow-copy.md
+      - 6.4. ムーブセマンティクス: ch06-04-move-semantics.md
+      - 6.5. スマートポインタ: ch06-05-smart-pointers.md
   - 7. クラス:
       - 7.1. メンバ変数: ch07-01-member-varialbes.md
       - 7.2. メンバ関数: ch07-02-member-functions.md
@@ -84,6 +92,9 @@ nav:
       - 7.5. コンストラクタ: ch07-05-constructors.md
       - 7.6. デストラクタ: ch07-06-destructors.md
       - 7.7. 構造体: ch07-07-structs.md
+  - 8. キャスト:
+      - 8.1. C++ のキャスト: ch08-01-cpp-casts.md
+      - 8.2. C言語形式のキャスト: ch08-02-c-cast.md
   - 9. テンプレート:
       - 9.1. 関数テンプレート: ch09-01-function-templates.md
       - 9.2. クラステンプレート: ch09-02-class-templates.md
