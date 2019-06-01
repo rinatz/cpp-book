@@ -43,9 +43,29 @@ int z = x / y;  // 整数の0除算
 https://ja.cppreference.com/w/cpp/numeric/fenv
 -->
 
+## SIGABRT
+
+[std::abort][cpprefjp_abort] の呼び出しによって発生します。
+
+[std::abort][cpprefjp_abort] は
+[std::terminate][cpprefjp_terminate] などから呼び出されます。
+
+```cpp
+#include <exception>
+
+int main() {
+    // 例外が捕捉されないため std::terminate が呼び出される
+    throw std::exception();
+
+    return 0;
+}
+```
+
+[cpprefjp_abort]: https://cpprefjp.github.io/reference/cstdlib/abort.html
+[cpprefjp_terminate]: https://cpprefjp.github.io/reference/exception/terminate.html
+
 <!-- TODO: 以下を追加
 SIGTERM
 SIGINT
 SIGILL
-SIGABRT
 -->
