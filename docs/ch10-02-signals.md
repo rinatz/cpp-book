@@ -14,16 +14,26 @@ OS からのエラー通知などで使用されます。
 
 一部を紹介します。
 
-## SIGSEGV
+## SIGABRT
 
-無効なメモリアクセス (セグメンテーション違反) を行うと発生します。
+[std::abort][cpprefjp_abort] の呼び出しによって発生します。
+
+[std::abort][cpprefjp_abort] は
+[std::terminate][cpprefjp_terminate] などから呼び出されます。
 
 ```cpp
-int* x = nullptr;
+#include <exception>
 
-// nullptr に対するデリファレンスで SIGSEGV が発生
-std::cout << *x << std::endl;
+int main() {
+    // 例外が捕捉されないため std::terminate が呼び出される
+    throw std::exception();
+
+    return 0;
+}
 ```
+
+[cpprefjp_abort]: https://cpprefjp.github.io/reference/cstdlib/abort.html
+[cpprefjp_terminate]: https://cpprefjp.github.io/reference/exception/terminate.html
 
 ## SIGFPE
 
@@ -52,23 +62,13 @@ int z = x / y;  // 整数の0除算
 https://ja.cppreference.com/w/cpp/numeric/fenv
 -->
 
-## SIGABRT
+## SIGSEGV
 
-[std::abort][cpprefjp_abort] の呼び出しによって発生します。
-
-[std::abort][cpprefjp_abort] は
-[std::terminate][cpprefjp_terminate] などから呼び出されます。
+無効なメモリアクセス (セグメンテーション違反) を行うと発生します。
 
 ```cpp
-#include <exception>
+int* x = nullptr;
 
-int main() {
-    // 例外が捕捉されないため std::terminate が呼び出される
-    throw std::exception();
-
-    return 0;
-}
+// nullptr に対するデリファレンスで SIGSEGV が発生
+std::cout << *x << std::endl;
 ```
-
-[cpprefjp_abort]: https://cpprefjp.github.io/reference/cstdlib/abort.html
-[cpprefjp_terminate]: https://cpprefjp.github.io/reference/exception/terminate.html
