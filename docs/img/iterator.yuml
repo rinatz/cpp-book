@@ -1,0 +1,5 @@
+// {direction:leftToRight}
+// {generate:true}
+// {type:class}
+[Forward Iterator]^-[Bidirectional Iterator]
+[Bidirectional Iterator]^-[Random Access Iterator]

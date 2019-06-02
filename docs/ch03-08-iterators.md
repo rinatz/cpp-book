@@ -62,7 +62,7 @@ for (auto it = x.begin(); it != x.end(); ++it) {
 
 ![is-a関係を表した図][iterator-is-a-diagram]
 
-[iterator-is-a-diagram]: http://yuml.me/diagram/nofunky;dir:LR/class/[Forward%20Iterator]^-[Bidirectional%20Iterator],[Bidirectional%20Iterator]^-[Random%20Access%20Iterator].svg
+[iterator-is-a-diagram]: img/iterator.svg
 
 ### 前方向イテレータ
 
