@@ -142,3 +142,5 @@ std::cout << *it << std::endl;  // 3
 std::cout << it[-2] << std::endl;  // 1 (it から2つ後ろへ戻した要素)
 std::cout << *it << std::endl;  // 3 (it は変更されていない)
 ```
+
+<!-- TODO: 範囲for文の説明 -->
