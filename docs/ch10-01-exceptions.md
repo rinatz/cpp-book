@@ -299,7 +299,7 @@ int StringToInt(const std::string& str) noexcept(noexcept(CharToInt('0')));
 
 ![クラス図][class-diagram]
 
-[class-diagram]: http://yuml.me/diagram/nofunky;dir:TB/class/[std::exception]^-[std::bad_cast],[std::exception]^-[std::runtime_error],[std::exception]^-[std::logic_error],[std::logic_error]^-[std::out_of_range],[std::logic_error]^-[std::invalid_argument].svg
+[class-diagram]: img/exception_class.svg
 
 !!! question "std::logic_error と std::runtime_error の違い"
     一般に
