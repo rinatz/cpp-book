@@ -117,10 +117,10 @@ std::cout << *it << std::endl;  // 1
 --it;  // 後ろへ戻す
 std::cout << *it << std::endl;  // 0
 
-it += 3;  // 3つ前に進める
+it = it + 3;  // 3つ前に進める
 std::cout << *it << std::endl;  // 3
 
 // it は変更せずに it から2つ後ろへ戻した要素を参照
-std::cout << it[-2] << std::endl;  // 1  (it から2つ後ろへ戻した要素)
+std::cout << it[-2] << std::endl;  // 1 (it から2つ後ろへ戻した要素)
 std::cout << *it << std::endl;  // 3 (it は変更されていない)
 ```
