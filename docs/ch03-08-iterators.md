@@ -49,6 +49,24 @@ for (auto it = x.begin(); it != x.end(); ++it) {
 }
 ```
 
+## マップのイテレータ
+
+`std::map` や `std::unordered_map` のイテレータが指す要素はペアとなっています。
+このペアは `first` がキーで `second` が値です。
+
+```cpp hl_lines="7 8"
+std::map<std::string, int> persons = {
+    {"Alice", 18},
+    {"Bob", 20}
+};
+
+for (auto it = persons.begin(); it != persons.end(); ++it) {
+    const std::string& name = it->first;
+    const int age = it->second;
+    std::cout << name << ": " << age << std::endl;
+}
+```
+
 ## イテレータの種類
 
 標準ライブラリのイテレータは5種類ありますが、
