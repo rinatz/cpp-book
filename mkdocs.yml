@@ -74,6 +74,8 @@ nav:
       - 3.4. ペア: ch03-04-pairs.md
       - 3.5. ベクタ: ch03-05-vectors.md
       - 3.6. マップ: ch03-06-maps.md
+      - 3.7. セット: ch03-07-sets.md
+      - 3.8. イテレータ: ch03-08-iterators.md
   - 4. ファイル分割とスコープ:
       - 4.1. 複数ファイル: ch04-01-multiple-files.md
   - 5. ストリーム操作:
