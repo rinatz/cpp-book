@@ -7,7 +7,7 @@
     C++ における例外処理は問題点が多く、
     [Google C++ Style Guide] や [LLVM Coding Standards] では例外処理の使用を原則禁止しています。
 
-[Google C++ Style Guide]: https://google.github.io/styleguide/cppguide.html#Exceptions]
+[Google C++ Style Guide]: https://google.github.io/styleguide/cppguide.html#Exceptions
 [LLVM Coding Standards]: http://llvm.org/docs/CodingStandards.html#do-not-use-rtti-or-exceptions
 
 例外処理においてエラーを表すもの例外といいます。
