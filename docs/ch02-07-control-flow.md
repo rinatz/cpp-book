@@ -130,6 +130,27 @@ while (!done) {
 }
 ```
 
+### do-while
+
+最初の1回は無条件で `do { ... }` 内の処理を実行し、
+2回目以降は `while ()` に渡された条件が `true` である限り
+`do { ... }` 内の処理を実行し続けます。
+
+```cpp
+int x = 5;
+bool done = false;
+
+do {
+    x += x - 3;
+
+    std::cout << x << std::endl;
+
+    if (x % 5 == 0) {
+        done = true;
+    }
+} while (!done);
+```
+
 ## for
 
 `for` はループするたびに変化する変数を使うことができます。
