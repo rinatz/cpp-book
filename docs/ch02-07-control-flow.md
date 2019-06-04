@@ -188,3 +188,80 @@ for (int i = 0; i < 5; ++i) {
     std::cout << x[i] << std::endl;
 }
 ```
+
+## ループ処理の中断
+
+ループ文 `while`、 `do-while`、 `for` のループ処理は
+`break` または `continue` で中断することができます。
+
+### break
+
+現在のループ処理を中断してループ文を終了します。
+
+```cpp
+int x = 5;
+
+while (true) {
+    x += x - 3;
+
+    std::cout << x << std::endl;
+
+    if (x % 5 == 0) {
+        break;  // while 文を抜ける
+    }
+}
+```
+
+ループ文がネストしている場合には、最も内側にある文のみが対象になります。
+
+```cpp
+for (int i = 0; i < 3; ++i) {
+    for (int j = 0; j < 3; ++j) {
+        if (i == j) {
+            break;  // j のループ文を抜ける
+        }
+
+        std::cout << i << "," << j << std::endl;
+    }
+}
+```
+
+### continue
+
+現在のループ処理を中断して、次のループ処理を行います。
+
+```cpp
+for (int i = 0; i < 10; ++i) {
+    if (i == 5) {
+        continue;  // 5 だけスキップ
+    }
+
+    std::cout << i << std::endl;
+}
+```
+
+ループ文がネストしている場合には、最も内側にある文のみが対象になります。
+
+```cpp
+for (int i = 0; i < 3; ++i) {
+    for (int j = 0; j < 3; ++j) {
+        if (i == j) {
+            continue;  // j のループ処理をスキップ
+        }
+
+        std::cout << i << "," << j << std::endl;
+    }
+}
+```
+
+`contiune` では次のループ処理を行うため、
+`do-while` では先頭に戻るのではなく末尾へ移動する動作となります。
+
+```cpp
+do {
+    std::cout << "done" << std::endl;
+    continue;  // ループ処理をスキップ (先頭に戻る動作なら無限ループとなる)
+
+    std::cout << "never reached" << std::endl;  // 実行されない
+} while (false);  // 条件が false であるため1回目で終了
+```
