@@ -334,52 +334,6 @@ int main() {
 
 標準ライブラリで `std::logic_error` を送出するものはありません。
 
-### std::runtime_error
-
-実行時に評価する値の不正や実行環境の問題など
-実行時エラーを表すためのクラスです。
-
-`std::locale` で実行環境にないロケールを指定した場合などに送出されます。
-
-```cpp
-#include <iostream>
-#include <locale>
-
-void ShowValidLocales(const std::string& locale_name) {
-    try {
-        std::locale locale(locale_name);
-        std::cout << locale.name() << std::endl;
-    } catch (std::runtime_error& e) {
-        // 無効な場合にはエラーメッセージを標準エラーに出力
-        std::cerr << e.what() << std::endl;
-    }
-}
-
-int main() {
-    ShowValidLocales("en_US.UTF-8");
-    ShowValidLocales("ja_JP.UTF-8");
-    ShowValidLocales("zh_CN.UTF-8");
-
-    return 0;
-}
-```
-
-英語(米国)と日本語(日本)はあるが、
-簡体字中国語(中国)がない環境で実行すると以下のようになります。
-
-```bash
-$ ./a.out
-en_US.UTF-8
-ja_JP.UTF-8
-locale::facet::_S_create_c_locale name not valid
-```
-
-### std::bad_cast
-
-dynamic_cast で失敗した場合に送出されます。
-
-<!-- TODO: ダウンキャストのページへのリンクを貼る -->
-
 ### std::invalid_argument
 
 関数の実引数が不正な値である場合の論理エラーを表すためのクラスです。
@@ -437,6 +391,52 @@ try {
     セグメンテーション違反が発生して OS によってプログラムが終了される可能性もあります。
 
 <!-- TODO: 追加予定のシグナルのページへのリンクを貼る -->
+
+### std::runtime_error
+
+実行時に評価する値の不正や実行環境の問題など
+実行時エラーを表すためのクラスです。
+
+`std::locale` で実行環境にないロケールを指定した場合などに送出されます。
+
+```cpp
+#include <iostream>
+#include <locale>
+
+void ShowValidLocales(const std::string& locale_name) {
+    try {
+        std::locale locale(locale_name);
+        std::cout << locale.name() << std::endl;
+    } catch (std::runtime_error& e) {
+        // 無効な場合にはエラーメッセージを標準エラーに出力
+        std::cerr << e.what() << std::endl;
+    }
+}
+
+int main() {
+    ShowValidLocales("en_US.UTF-8");
+    ShowValidLocales("ja_JP.UTF-8");
+    ShowValidLocales("zh_CN.UTF-8");
+
+    return 0;
+}
+```
+
+英語(米国)と日本語(日本)はあるが、
+簡体字中国語(中国)がない環境で実行すると以下のようになります。
+
+```bash
+$ ./a.out
+en_US.UTF-8
+ja_JP.UTF-8
+locale::facet::_S_create_c_locale name not valid
+```
+
+### std::bad_cast
+
+dynamic_cast で失敗した場合に送出されます。
+
+<!-- TODO: ダウンキャストのページへのリンクを貼る -->
 
 ## デストラクタと例外
 
