@@ -269,7 +269,7 @@ int CharToInt(const char c) noexcept(false);  // 例外を送出する
 他の関数が `noexcept` であるかどうかを条件に指定することができます。
 
 ```cpp
-int StringToInt(const std::string& str) noexcept(noexcept(CharToInt('0')));
+int StringToInt(const std::string& str) noexcept(noexcept(CharToInt(char())));
 ```
 
 `noexcept` 指定された関数から例外が送出された場合、
