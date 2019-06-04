@@ -1,0 +1,8 @@
+// {direction:topDown}
+// {generate:true}
+// {type:class}
+[std::exception]^-[std::logic_error]
+[std::exception]^-[std::runtime_error]
+[std::exception]^-[std::bad_cast]
+[std::logic_error]^-[std::invalid_argument]
+[std::logic_error]^-[std::out_of_range]

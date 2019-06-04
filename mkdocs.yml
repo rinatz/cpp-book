@@ -50,6 +50,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
 nav:
   - ホーム: index.md
   - 1. C++ を始める:
@@ -71,6 +74,8 @@ nav:
       - 3.4. ペア: ch03-04-pairs.md
       - 3.5. ベクタ: ch03-05-vectors.md
       - 3.6. マップ: ch03-06-maps.md
+      - 3.7. セット: ch03-07-sets.md
+      - 3.8. イテレータ: ch03-08-iterators.md
   - 4. ファイル分割とスコープ:
       - 4.1. 複数ファイル: ch04-01-multiple-files.md
   - 5. ストリーム操作:
@@ -95,3 +100,6 @@ nav:
   - 9. テンプレート:
       - 9.1. 関数テンプレート: ch09-01-function-templates.md
       - 9.2. クラステンプレート: ch09-02-class-templates.md
+  - 10. エラー処理:
+      - 10.1 例外処理: ch10-01-exceptions.md
+      - 10.2 シグナル: ch10-02-signals.md
