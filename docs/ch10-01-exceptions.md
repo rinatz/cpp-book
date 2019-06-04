@@ -482,7 +482,7 @@ int main() {
 
 class DestructorAndException {
  public:
-    // デストラクタは暗黙的に noexcept になるため noexcept(falsee) を明示的に指定
+    // デストラクタは暗黙的に noexcept になるため noexcept(false) を明示的に指定
     ~DestructorAndException() noexcept(false) {
         // 例外を送出して捕捉するまでの間に実行される
         std::cout << "~DestructorAndException() is called." << std::endl;
