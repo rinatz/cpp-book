@@ -108,3 +108,31 @@ int main() {
 ```cpp
 auto fp = Add;
 ```
+
+<!-- MEMO: 関数オブジェクトの話などが無いとstd::functionの意義が伝わりづらいかもしれない -->
+
+## std::function
+
+関数ポインタをより高機能に扱う場合は `std::function` を利用します。
+
+```cpp
+#include <functional>
+
+int Add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    std::function<int(int, int)> f = Add;  // std::function<戻り値の型(引数の型)> 変数名
+    int result = f(3, 5);                  // f を介して関数 Add が実行される
+    std::cout << result << std::endl;      // 8
+
+    return 0;
+}
+```
+
+<!-- TODO: ラムダ式/関数オブジェクト周りの話へのリンクを付けるか -->
+
+詳細は [function - cpprefjp C++日本語リファレンス][cpprefjp_function] を参照してください。
+
+[cpprefjp_function]: https://cpprefjp.github.io/reference/functional/function.html
