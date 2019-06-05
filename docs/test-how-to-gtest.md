@@ -1,13 +1,17 @@
 # Google Test の使い方
 
-<!-- 環境: MSYS2 MinGW 64-bit版 -->
+## Google Test のインストール
+msys2 のターミナルを起動して下記コマンドを打ってインストールします。
+
+<!-- MEMO: toolchain全般をインストールするのであれば、gccのインストールも省略ができるかもしれない -->
+
+```bash
+$ pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-gtest
+```
 
 ## 実行例
 
-例として、 `sample.h (.cc)` に偶数を判定する関数 `IsEven` を作成し、この関数の動作をテストします。
-
-`sample_test.cc` にテストコードを記述していきます。
-テストコード側は、Google Test を利用するために `gtest/gtest.h` をインクルードし、テスト対象となる `sample.h` もインクルードしています。
+例として、 `sample.h (.cc)` に偶数を判定する関数 `IsEven` を作成し、この関数の動作をテストするには次のようにします。
 
 ```cpp tab="sample.h" linenums="1"
 /**
@@ -44,6 +48,9 @@ TEST(IsEvenTest, Positive) {
 }
 ```
 
+`sample_test.cc` にテストコードを記述しています。
+テストコードでは、Google Test を利用するために `gtest/gtest.h` をインクルードし、テスト対象となる `sample.h` もインクルードしています。
+
 次のコマンドでテスト実行ファイルを作成します。ここではコマンドの詳細については割愛します。
 
 ```bash
@@ -74,9 +81,6 @@ Running main() from C:/repo/mingw-w64-gtest/src/googletest-release-1.8.1/googlet
 
 成功したテストは `[ OK ]` と出力され、失敗したテストは `[ FAILED ]` と出力されます。
 また、成功して通過したテスト数が `[ PASSED ]` に表示されます。
-
-今回の例では、全てのテストが成功し、`IsEven` が期待通り動作していることがわかりました。
-
 
 ## 初歩的なテストコードの書き方
 
@@ -114,7 +118,7 @@ EXPECT_GE(val1, val2);  // val1 <= val2 か
 `EXPECT_` の場合は、テストに失敗してもテスト関数がそのまま続行されますが、
 `ASSERT_` の場合は、テストに失敗するとその時点でテストを中断してテスト関数を抜けます。
 
-試しに、誤った実装がなされた関数 `IsEven` を利用して、テスト失敗時の出力を確認してみましょう。
+試しに、誤った実装がなされた関数 `IsEven` を利用して、テスト失敗時の出力を確認すると次のようになります。
 
 ```cpp tab="sample.h" linenums="1"
 /**
