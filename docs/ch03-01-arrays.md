@@ -53,6 +53,67 @@ int x[5] = {};
 
 これが一番手軽な初期化方法です。
 
+## 配列とポインタ
+
+配列を参照する時に、 `[]` を省略すると、配列の先頭を指し示すポインタが取得できます。
+先頭のポインタにインデックスを足すことで、それぞれの要素に対応したポインタが取得できます。
+
+```cpp
+#include <iostream>
+
+int x[] = {2, 4, 6, 8, 10};
+int* p = x;
+std::cout << *p << std::endl;        // 2
+std::cout << *(p + 1) << std::endl;  // 4
+std::cout << *(p + 2) << std::endl;  // 6
+std::cout << *(p + 3) << std::endl;  // 8
+std::cout << *(p + 4) << std::endl;  // 10
+```
+
+## 関数に配列を渡す
+
+配列も通常の変数同様、関数に渡すことが出来ます。
+
+```cpp
+#include <iostream>
+
+void PrintArray(int x[5]) {
+    for (int i = 0; i < 5; ++i) {
+        std::cout << x[i] << std::endl;
+    }
+}
+
+int main() {
+    int x[5] = {0, 1, 2, 3, 4};
+
+    PrintArray(x);
+
+    return 0;
+}
+```
+
+しかし、上記の例だと要素数が `5` 以外の配列を扱いたい時に不便です。
+そのため、関数に配列を渡す場合は、配列の先頭ポインタと要素数をセットで渡すことが多いです。
+
+```cpp
+#include <iostream>
+
+void PrintArray(int* x, int num) {
+    for (int i = 0; i < num; ++i) {
+        std::cout << x[i] << std::endl;
+    }
+}
+
+int main() {
+    int num = 5;
+    int x[num] = {0, 1, 2, 3, 4};
+
+    PrintArray(x, num);
+
+    return 0;
+}
+```
+
 ## std::array
 
 より高機能な配列を使用したい場合は `std::array` を使用します。
