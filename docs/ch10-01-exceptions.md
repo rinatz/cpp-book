@@ -230,15 +230,6 @@ int main() {
 }
 ```
 
-実行結果は次のようになります。
-
-```txt
-$ ./a.out
-terminate called after throwing an instance of 'std::runtime_error'
-  what():  数値ではない文字が入っています
-Aborted (core dumped)
-```
-
 ## noexcept
 
 関数が例外を送出しないことを明示的に表すには `noexcept` をつけます。
