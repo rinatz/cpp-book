@@ -221,3 +221,113 @@ $7 = 0
 ```
 
 <!-- TODO: inline関数を呼び出せない理由 -->
+
+## ステップ実行
+
+### ステップオーバー
+
+`next` でステップオーバーします。
+ステップオーバーは現在の行から次の行に処理がある行まで進める処理です。
+
+```gdb
+(gdb) break main
+(gdb) run
+
+Thread 1 "a" hit Breakpoint 1, main () at main.cc:24
+warning: Source file is more recent than executable.
+24              Triangle t(1, 3.0, 4.0, 5.0);
+(gdb) next
+25              std::cout << Area(t) << std::endl;
+(gdb) next
+-nan
+26              return 0;
+```
+
+`next` は `n` と省略できます。
+
+```gdb
+(gdb) b main
+(gdb) r
+
+Thread 1 "a" hit Breakpoint 1, main () at main.cc:24
+warning: Source file is more recent than executable.
+24              Triangle t(1, 3.0, 4.0, 5.0);
+(gdb) n
+25              std::cout << Area(t) << std::endl;
+(gdb) n
+-nan
+26              return 0;
+```
+
+### ステップイン
+
+`step` でステップインします。
+ステップオーバーは現在の処理から次の処理まで進める処理です。
+関数呼び出しの場合に関数の内部で停止します。
+
+```gdb
+(gdb) break main.cc:25
+(gdb) run
+
+Thread 1 "a" hit Breakpoint 1, main () at main.cc:25
+warning: Source file is more recent than executable.
+25              std::cout << Area(t) << std::endl;
+(gdb) step
+Area (t=...) at main.cc:14
+14              double a = t.sides[1];
+```
+
+`step` は `s` と省略できます。
+
+```gdb
+(gdb) b main.cc:25
+(gdb) r
+
+Thread 1 "a" hit Breakpoint 1, main () at main.cc:25
+warning: Source file is more recent than executable.
+25              std::cout << Area(t) << std::endl;
+(gdb) s
+Area (t=...) at main.cc:14
+14              double a = t.sides[1];
+```
+
+### ステップアウト
+
+`finish` でステップアウトします。
+ステップアウトは現在の関数が終了して呼び出し元に戻るまで進める処理です。
+
+```gdb
+(gdb) break Area
+(gdb) run
+
+Thread 1 "a" hit Breakpoint 1, Area (t=...) at main.cc:14
+warning: Source file is more recent than executable.
+14              double a = t.sides[1];
+(gdb) finish
+Run till exit from #0  Area (t=...) at main.cc:14
+0x0000000100401192 in main () at main.cc:25
+25              std::cout << Area(t) << std::endl;
+Value returned is $1 = -nan(0x8000000000000)
+```
+
+`finish` は `fin` と省略できます。
+
+```gdb
+(gdb) b Area
+(gdb) r
+Starting program: /d/msys2/a.exe
+[New Thread 1904.0x30cc]
+[New Thread 1904.0x2efc]
+[New Thread 1904.0x12a8]
+[New Thread 1904.0xb8c]
+[New Thread 1904.0x2100]
+
+Thread 1 "a" hit Breakpoint 1, Area (t=...) at main.cc:14
+warning: Source file is more recent than executable.
+14              double a = t.sides[1];
+(gdb) fin
+Run till exit from #0  Area (t=...) at main.cc:14
+0x0000000100401192 in main () at main.cc:25
+25              std::cout << Area(t) << std::endl;
+Value returned is $1 = -nan(0x8000000000000)
+```
