@@ -347,7 +347,8 @@ Value returned is $1 = -nan(0x8000000000000)
 ## ウォッチポイント
 (gdb) watch i==0  # watch point / break when i==0 becomes not satisfied
 
-## その他便利な設定
+## その他便利なもの
 (gdb) set print pretty
 (gdb) set pagination off
+(gdb) shell
 -->
