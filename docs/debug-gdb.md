@@ -331,3 +331,23 @@ Run till exit from #0  Area (t=...) at main.cc:14
 25              std::cout << Area(t) << std::endl;
 Value returned is $1 = -nan(0x8000000000000)
 ```
+
+<!-- TODO
+## スタック
+(gdb) backtrace
+(gdb) up
+(gdb) down
+(gdb) frame 3
+
+## 条件付きブレークポイント
+(gdb) condition 2 x==0 # Add break condition x==0 for break point 2
+(gdb) condition 2 # Clear break condition
+(gdb) catch throw # catch point
+
+## ウォッチポイント
+(gdb) watch i==0  # watch point / break when i==0 becomes not satisfied
+
+## その他便利な設定
+(gdb) set print pretty
+(gdb) set pagination off
+-->
