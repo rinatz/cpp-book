@@ -10,35 +10,36 @@
 
 なぜ期待通りの結果にならないのかをデバッグによって調査します。
 
-```cpp
-#include <array>
-#include <cmath>
-#include <iostream>
+!!! example "main.cc"
+    ```cpp linenums="1"
+    #include <array>
+    #include <cmath>
+    #include <iostream>
 
-struct Triangle {
-    std::array<double, 3> sides;
-    std::int64_t id;
+    struct Triangle {
+        std::array<double, 3> sides;
+        std::int64_t id;
 
-    Triangle(int64_t id, double a, double b, double c)
-        : id(id), sides({a, b, c}) {}
-};
+        Triangle(int64_t id, double a, double b, double c)
+            : id(id), sides({a, b, c}) {}
+    };
 
-double Area(const Triangle& t) {
-    double a = t.sides[1];
-    double b = t.sides[2];
-    double c = t.sides[3];
+    double Area(const Triangle& t) {
+        double a = t.sides[1];
+        double b = t.sides[2];
+        double c = t.sides[3];
 
-    double s = (a + b + c) / 2.0;
-    double area = std::sqrt(s * (s - a) * (s - b) * (s - c));
-    return area;
-}
+        double s = (a + b + c) / 2.0;
+        double area = std::sqrt(s * (s - a) * (s - b) * (s - c));
+        return area;
+    }
 
-int main() {
-    Triangle t(1, 3.0, 4.0, 5.0);
-    std::cout << Area(t) << std::endl;
-    return 0;
-}
-```
+    int main() {
+        Triangle t(1, 3.0, 4.0, 5.0);
+        std::cout << Area(t) << std::endl;
+        return 0;
+    }
+    ```
 
 ## デバッグビルド
 
