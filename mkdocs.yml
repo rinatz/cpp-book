@@ -105,3 +105,4 @@ nav:
       - 10.2 シグナル: ch10-02-signals.md
   - デバッグ:
       - 導入: debug-introduction.md
+      - GDB による CUI デバッグ: debug-gdb.md
