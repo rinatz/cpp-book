@@ -104,4 +104,4 @@ nav:
       - 10.1 例外処理: ch10-01-exceptions.md
       - 10.2 シグナル: ch10-02-signals.md
   - デバッグ:
-      - デバッグ: debug.md
+      - 導入: debug-introduction.md
