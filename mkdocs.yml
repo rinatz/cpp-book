@@ -83,10 +83,9 @@ nav:
   - 6. メモリの管理:
       - 6.1. メモリ領域: ch06-01-memory-areas.md
       - 6.2. new/delete: ch06-02-new-and-delete.md
-      - 6.3. malloc/free: ch06-03-malloc-and-free.md
-      - 6.4. ディープコピーとシャローコピー: ch06-04-deep-and-shallow-copy.md
-      - 6.5. ムーブセマンティクス: ch06-05-move-semantics.md
-      - 6.6. スマートポインタ: ch06-06-smart-pointers.md
+      - 6.3. ディープコピーとシャローコピー: ch06-03-deep-and-shallow-copy.md
+      - 6.4. ムーブセマンティクス: ch06-04-move-semantics.md
+      - 6.5. スマートポインタ: ch06-05-smart-pointers.md
   - 7. クラス:
       - 7.1. メンバ変数: ch07-01-member-varialbes.md
       - 7.2. メンバ関数: ch07-02-member-functions.md
@@ -104,3 +103,5 @@ nav:
   - 10. エラー処理:
       - 10.1 例外処理: ch10-01-exceptions.md
       - 10.2 シグナル: ch10-02-signals.md
+  - 付録:
+      - malloc/free: appendix-malloc-and-free.md
