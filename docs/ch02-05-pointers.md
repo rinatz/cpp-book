@@ -109,11 +109,10 @@ int main() {
 auto fp = Add;
 ```
 
-<!-- MEMO: 関数オブジェクトの話などが無いとstd::functionの意義が伝わりづらいかもしれない -->
-
 ## std::function
 
-関数ポインタをより高機能に扱う場合は `std::function` を利用します。
+関数ポインタは文法が複雑なため一見しただけでは分かりづらいですが、
+`std::function` を利用することで、簡潔に書くことが出来ます。
 
 ```cpp
 #include <functional>
@@ -130,9 +129,3 @@ int main() {
     return 0;
 }
 ```
-
-<!-- TODO: ラムダ式/関数オブジェクト周りの話へのリンクを付けるか -->
-
-詳細は [function - cpprefjp C++日本語リファレンス][cpprefjp_function] を参照してください。
-
-[cpprefjp_function]: https://cpprefjp.github.io/reference/functional/function.html
