@@ -2,6 +2,23 @@
 
 C言語のライブラリに用意されている関数 `malloc/free` を利用して、ヒープにメモリを動的に確保/解放することも出来ます。
 
+## sizeof
+
+`sizeof` 演算子を使うことで、オブジェクトや型のバイト単位のサイズを取得することが出来ます。操作するメモリのサイズを指定するときに使用されることが多いです。
+
+!!! warning "環境依存"
+    出力されるサイズは実行環境によって異なる場合があります。
+
+```cpp
+#include <iostream>
+
+double x = 3.14;
+std::cout << sizeof(3) << std::endl;    // 4
+std::cout << sizeof(int) << std::endl;  // 4
+std::cout << sizeof(x) << std::endl;    // 8
+std::cout << sizeof(&x) << std::endl;   // 8
+```
+
 ## malloc
 
 ヒープにメモリを動的に確保する場合は `malloc` を利用します。
