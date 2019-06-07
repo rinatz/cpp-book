@@ -3,8 +3,6 @@
 ## Google Test のインストール
 msys2 のターミナルを起動して下記コマンドを打ってインストールします。
 
-<!-- MEMO: toolchain全般をインストールするのであれば、gccのインストールも省略ができるかもしれない -->
-
 ```bash
 $ pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-gtest
 ```
@@ -29,7 +27,7 @@ int IsEven(int x) {
 ```
 
 ```cpp tab="sample_test.cc" hl_lines="1 3" linenums="1"
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "sample.h"
 
@@ -86,8 +84,8 @@ Running main() from C:/repo/mingw-w64-gtest/src/googletest-release-1.8.1/googlet
 
 ### テスト関数
 
-Google Test に用意されている `TEST()` マクロを利用してテスト関数を作成します。
-`TEST()` マクロの第1引数にテストケース名、第2引数にテスト名を記述します。
+Google Test に用意されている `TEST()` を利用してテスト関数を作成します。
+`TEST()` の第1引数にテストケース名、第2引数にテスト名を記述します。
 
 ```cpp
 TEST(/* テストケース名(大項目)*/, /* テスト名(小項目) */) {
@@ -97,7 +95,7 @@ TEST(/* テストケース名(大項目)*/, /* テスト名(小項目) */) {
 
 ### アサーション
 
-Google Test に用意されているアサーションマクロを利用することで、
+Google Test に用意されているアサーションを利用することで、
 テスト対象コードの動作を検証することが出来ます。
 
 ```cpp
@@ -136,9 +134,9 @@ bool IsEven(int x) {
 ```
 
 ```cpp tab="sample_test.cpp" hl_lines="8 14" linenums="1"
-#include "gtest/gtest.h"
-
 #include <iostream>
+
+#include <gtest/gtest.h>
 
 #include "sample.h"
 
