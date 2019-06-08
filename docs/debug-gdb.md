@@ -675,6 +675,10 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 15                    << GreatestCommonDivisor(a, b) << " です" << std::endl;
 ```
 
+## 参考
+
+* [GDB User Manual](https://sourceware.org/gdb/current/onlinedocs/gdb/)
+
 <!-- TODO
 ## 条件付きブレークポイント
 (gdb) condition 2 x==0 # Add break condition x==0 for break point 2
