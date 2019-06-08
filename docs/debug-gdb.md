@@ -100,16 +100,17 @@ Breakpoint 2 at 0x10040113a: file sum.cc, line 4.
 
 ### 一覧の確認
 
-`info break` でブレークポイントの一覧を確認することができます。
+`info breakpoints` でブレークポイントの一覧を確認することができます。
 
 ```gdb
-(gdb) info break
+(gdb) info breakpoints
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
 2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 ```
 
 `info` は `i` と省略できます。
+`breakpoints` は `break` や `b` と省略できます。
 
 ```gdb
 (gdb) i b
@@ -152,15 +153,15 @@ Thread 1 "a" hit Breakpoint 2, Sum (a=1, b=2) at sum.cc:4
 ### 削除
 
 `delete n` でブレークポイントを削除することができます。
-`n` には `info break` の `Num` の値で指定します。
+`n` には `info breakpoints` の `Num` の値で指定します。
 
 ```gdb
-(gdb) info break
+(gdb) info breakpoints
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
 2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 (gdb) delete 1
-(gdb) info break
+(gdb) info breakpoints
 Num     Type           Disp Enb Address            What
 2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 ```
@@ -181,13 +182,13 @@ Num     Type           Disp Enb Address            What
 `delete` で対象を指定しない場合にはすべてのブレークポイントを削除します。
 
 ```gdb
-(gdb) info break
+(gdb) info breakpoints
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
 2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 (gdb) delete
 Delete all breakpoints? (y or n) y
-(gdb) info break
+(gdb) info breakpoints
 No breakpoints or watchpoints.
 ```
 
