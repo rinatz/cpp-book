@@ -48,22 +48,54 @@ GDB は起動時にバージョンなどの情報を出力します。
 
 ## ブレークポイント
 
+以下のコードでブレークポイントの使い方を説明します。
+
+```cpp tab="main.cc" linenums="1"
+#include <iostream>
+
+#include "sum.h"
+
+int main() {
+    std::cout << Sum(1, 2) << std::endl;
+    return 0;
+}
+```
+
+```cpp tab="sum.h" linenums="1"
+#ifndef SUM_H_
+#define SUM_H_
+
+int Sum(int a, int b);
+
+#endif  // SUM_H_
+```
+
+```cpp tab="sum.cc" linenums="1"
+#include "sum.h"
+
+int Sum(int a, int b) {
+    return a + b;
+}
+```
+
 ### 追加
 
 `break ファイル:行番号` または `break 関数名` でブレークポイントを追加します。
 
 ```gdb
-(gdb) break main.cc:25
-Breakpoint 1 at 0x100401186: file main.cc, line 25.
-(gdb) break Area
-Breakpoint 2 at 0x10040108c: file main.cc, line 14.
+(gdb) break main.cc:6
+Breakpoint 1 at 0x10040108d: file main.cc, line 6.
+(gdb) break Sum
+Breakpoint 2 at 0x10040113a: file sum.cc, line 4.
 ```
 
 `break` は `b` と省略することもできます。
 
 ```gdb
-(gdb) b main.cc:25
-(gdb) b Area
+(gdb) b main.cc:6
+Breakpoint 1 at 0x10040108d: file main.cc, line 6.
+(gdb) b Sum
+Breakpoint 2 at 0x10040113a: file sum.cc, line 4.
 ```
 
 ### 一覧の確認
@@ -73,9 +105,8 @@ Breakpoint 2 at 0x10040108c: file main.cc, line 14.
 ```gdb
 (gdb) info break
 Num     Type           Disp Enb Address            What
-1       breakpoint     keep y   0x0000000100401186 in main() at main.cc:25
-2       breakpoint     keep y   0x000000010040108c in Area(Triangle const&)
-                                                   at main.cc:14
+1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
+2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 ```
 
 `info` は `i` と省略できます。
@@ -83,9 +114,8 @@ Num     Type           Disp Enb Address            What
 ```gdb
 (gdb) i b
 Num     Type           Disp Enb Address            What
-1       breakpoint     keep y   0x0000000100401186 in main() at main.cc:25
-2       breakpoint     keep y   0x000000010040108c in Area(Triangle const&)
-                                                   at main.cc:14
+1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
+2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 ```
 
 ### プログラムの一時停止
@@ -95,9 +125,15 @@ Num     Type           Disp Enb Address            What
 
 ```gdb
 (gdb) run
+Starting program: a.exe
+[New Thread 10676.0x3cf8]
+[New Thread 10676.0x1ab8]
+[New Thread 10676.0x17e4]
+[New Thread 10676.0x1494]
+[New Thread 10676.0x36a4]
 
-Thread 1 "a" hit Breakpoint 1, main () at main.cc:25
-25              std::cout << Area(t) << std::endl;
+Thread 1 "a" hit Breakpoint 1, main () at main.cc:6
+6           std::cout << Sum(1, 2) << std::endl;
 ```
 
 ### プログラムの再開
@@ -109,8 +145,8 @@ Thread 1 "a" hit Breakpoint 1, main () at main.cc:25
 (gdb) continue
 Continuing.
 
-Thread 1 "a" hit Breakpoint 2, Area (t=...) at main.cc:14
-14              double a = t.sides[1];
+Thread 1 "a" hit Breakpoint 2, Sum (a=1, b=2) at sum.cc:4
+4           return a + b;
 ```
 
 ### 削除
@@ -121,14 +157,12 @@ Thread 1 "a" hit Breakpoint 2, Area (t=...) at main.cc:14
 ```gdb
 (gdb) info break
 Num     Type           Disp Enb Address            What
-1       breakpoint     keep y   0x0000000100401186 in main() at main.cc:25
-2       breakpoint     keep y   0x000000010040108c in Area(Triangle const&)
-                                                   at main.cc:14
+1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
+2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 (gdb) delete 1
 (gdb) info break
 Num     Type           Disp Enb Address            What
-2       breakpoint     keep y   0x000000010040108c in Area(Triangle const&)
-                                                   at main.cc:14
+2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 ```
 
 `delete` は `d` と省略できます。
@@ -136,14 +170,12 @@ Num     Type           Disp Enb Address            What
 ```gdb
 (gdb) i b
 Num     Type           Disp Enb Address            What
-1       breakpoint     keep y   0x0000000100401186 in main() at main.cc:25
-2       breakpoint     keep y   0x000000010040108c in Area(Triangle const&)
-                                                   at main.cc:14
+1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
+2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 (gdb) d 1
 (gdb) i b
 Num     Type           Disp Enb Address            What
-2       breakpoint     keep y   0x000000010040108c in Area(Triangle const&)
-                                                   at main.cc:14
+2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 ```
 
 `delete` で対象を指定しない場合にはすべてのブレークポイントを削除します。
@@ -151,9 +183,8 @@ Num     Type           Disp Enb Address            What
 ```gdb
 (gdb) info break
 Num     Type           Disp Enb Address            What
-1       breakpoint     keep y   0x0000000100401186 in main() at main.cc:25
-2       breakpoint     keep y   0x000000010040108c in Area(Triangle const&)
-                                                   at main.cc:14
+1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
+2       breakpoint     keep y   0x000000010040113a in Sum(int, int) at sum.cc:4
 (gdb) delete
 Delete all breakpoints? (y or n) y
 (gdb) info break
