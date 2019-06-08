@@ -192,64 +192,145 @@ Delete all breakpoints? (y or n) y
 No breakpoints or watchpoints.
 ```
 
-## 値の確認
+## 評価値の表示
 
-`print` で値を確認することができます。
+以下のコードで説明します。
+
+```cpp tab="main.cc" linenums="1"
+#include <iostream>
+
+#include "swap.h"
+
+// 最大公約数
+int GreatestCommonDivisor(int a, int b) {
+    while (a != 0) {
+        b = b % a;
+        Swap(&a, &b);
+    }
+    return b;
+}
+
+// 最小公倍数
+int LeastCommonMultiple(int a, int b) {
+    int gcd = GreatestCommonDivisor(a, b);
+    return a * b / gcd;
+}
+
+int main() {
+    int a = 12;
+    int b = 18;
+    std::cout << a << " と " << b << " の最小公倍数は "
+              << LeastCommonMultiple(a, b) << " です" << std::endl;
+    return 0;
+}
+```
+
+```cpp tab="swap.h" linenums="1"
+#ifndef SWAP_H_
+#define SWAP_H_
+
+// 2つの変数の値を入れ替える
+void Swap(int* a, int* b);
+
+#endif  // SWAP_H_
+```
+
+```cpp tab="swap.cc" linenums="1"
+#include "swap.h"
+
+void Swap(int* a, int* b) {
+    int tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+```
+
+### 変数の値を確認
+
+`print` で変数の値を確認することができます。
 
 ```gdb
-(gdb) break main.cc:18
+(gdb) break main.cc:17
 (gdb) run
-Thread 1 "a" hit Breakpoint 1, Area (t=...) at main.cc:18
-warning: Source file is more recent than executable.
-18              double s = (a + b + c) / 2.0;
+Thread 1 "a" hit Breakpoint 1, LeastCommonMultiple (a=12, b=18) at main.cc:17
+17          return a * b / gcd;
 (gdb) print a
-$1 = 4
+$1 = 12
 (gdb) print b
-$2 = 5
+$2 = 18
+(gdb) print gcd
+$3 = 6
 ```
 
 `print` は `p` と省略できます。
 
 ```gdb
-(gdb) b main.cc:18
-Breakpoint 1 at 0x1004010da: file main.cc, line 18.
+(gdb) b main.cc:17
 (gdb) r
-Thread 1 "a" hit Breakpoint 1, Area (t=...) at main.cc:18
-warning: Source file is more recent than executable.
-18              double s = (a + b + c) / 2.0;
+Thread 1 "a" hit Breakpoint 1, LeastCommonMultiple (a=12, b=18) at main.cc:17
+17          return a * b / gcd;
 (gdb) p a
-$1 = 4
+$1 = 12
 (gdb) p b
-$2 = 5
+$2 = 18
+(gdb) p gcd
+$3 = 6
 ```
 
-値を確認すると `$n = 値` と出力され、
-この `$n` で確認した値を再利用することができます。
+### 確認した値の再利用
 
-```gdb
+値を確認すると `$n = 値` と出力され、 `$n` で結果を再利用することができます。
+
+```gdb hl_lines="9 17 18"
+(gdb) break main.cc:8
+(gdb) break main.cc:9
+(gdb) run
+Starting program: a.exe
+
+Thread 1 "a" hit Breakpoint 1, GreatestCommonDivisor (a=12, b=18) at main.cc:8
+8               b = b % a;
+(gdb) print b
+$1 = 18
+(gdb) continue
+Continuing.
+
+Thread 1 "a" hit Breakpoint 2, GreatestCommonDivisor (a=12, b=6) at main.cc:9
+9               Swap(&a, &b);
+(gdb) print b
+$2 = 6
 (gdb) print $1
-$3 = 4
+$3 = 18
 ```
 
 ### 任意の処理を実行
 
-`print` で値を確認する対象は変数だけではなく、
+`print` では変数の値を確認するだけでなく、
 関数呼び出しを行ってその戻り値を確認したり、任意の演算を行った結果を確認することができます。
 
-```gdb
-(gdb) print (a + b + c)
-$4 = 9
+```gdb hl_lines="7"
+(gdb) break main.cc:17
+(gdb) run
+Thread 1 "a" hit Breakpoint 1, LeastCommonMultiple (a=12, b=18) at main.cc:17
+17          return a * b / gcd;
+(gdb) print gcd
+$1 = 6
+(gdb) print GreatestCommonDivisor(b, a)
+$2 = 6
 ```
 
 変数の値を変更する代入なども行えてしまうため、副作用に気をつける必要があります。
 
-```gdb
-(gdb) print a
-$5 = 4
-(gdb) print a = 0
-$6 = 0
-(gdb) print a
-$7 = 0
+```gdb hl_lines="7"
+(gdb) break main.cc:17
+(gdb) run
+Thread 1 "a" hit Breakpoint 1, LeastCommonMultiple (a=12, b=18) at main.cc:17
+17          return a * b / gcd;
+(gdb) print gcd
+$1 = 6
+(gdb) print gcd = 0
+$2 = 0
+(gdb) print gcd
+$3 = 0
 ```
 
 <!-- TODO: inline関数を呼び出せない理由 -->
