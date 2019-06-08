@@ -335,6 +335,31 @@ $3 = 0
 
 <!-- TODO: inline関数を呼び出せない理由 -->
 
+### ポインタに対する操作
+
+変数からポインタを得る `&` やデリファレンスの `*` が使用できます。
+
+```gdb hl_lines="8 17"
+(gdb) break main.cc:9
+(gdb) break Swap
+(gdb) run
+Starting program: a.exe
+
+Thread 1 "a" hit Breakpoint 1, GreatestCommonDivisor (a=12, b=6) at main.cc:9
+9               Swap(&a, &b);
+(gdb) print &a
+$1 = (int *) 0xffffcb70
+(gdb) continue
+Continuing.
+
+Thread 1 "a" hit Breakpoint 2, Swap (a=0xffffcb70, b=0xffffcb78) at swap.cc:4
+4           int tmp = *a;
+(gdb) print a
+$2 = (int *) 0xffffcb70
+(gdb) print *a
+$3 = 12
+```
+
 ## ステップ実行
 
 ### ステップオーバー
