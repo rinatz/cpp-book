@@ -362,40 +362,113 @@ $3 = 12
 
 ## ステップ実行
 
-<!-- TODO: ステップ実行のサンプルコードを変更する -->
+以下のコードで説明します。
+
+```cpp tab="main.cc" linenums="1"
+#include <iostream>
+
+#include "circle.h"
+
+double SquareOf(double v) {
+    return v * v;
+}
+
+double SquareOfDistance(const Point& p, const Point& q) {
+    return SquareOf(q.X() - p.X()) + SquareOf(q.Y() - p.Y());
+}
+
+bool Intersects(const Circle& c1, const Circle& c2) {
+    auto c = SquareOfDistance(c1.Center(), c2.Center());
+    auto r = SquareOf(c1.Radius() + c2.Radius());
+    return c < r;
+}
+
+int main() {
+    Circle c1(Point(1, 2), 3);
+    Circle c2(Point(5, 0), 2);
+
+    if (Intersects(c1, c2)) {
+        std::cout << "2つの円は交差します" << std::endl;
+    } else {
+        std::cout << "2つの円は交差しません" << std::endl;
+    }
+    return 0;
+}
+```
+
+```cpp tab="circle.h" linenums="1"
+#ifndef CIRCLE_H_
+#define CIRCLE_H_
+
+#include "point.h"
+
+class Circle {
+ public:
+    Circle(const Point& center, double radius)
+        : center_(center), radius_(radius) {}
+
+    Point Center() const {
+        return center_;
+    }
+
+    double Radius() const {
+        return radius_;
+    }
+
+ private:
+    Point center_;
+    double radius_;
+};
+
+#endif  // CIRCLE_H_
+```
+
+```cpp tab="point.h" linenums="1"
+#ifndef POINT_H_
+#define POINT_H_
+
+class Point {
+ public:
+    Point(double x, double y) : x_(x), y_(y) {}
+
+    double X() const {
+        return x_;
+    }
+
+    double Y() const {
+        return y_;
+    }
+
+ private:
+    double x_;
+    double y_;
+};
+
+#endif  // POINT_H_
+```
 
 ### ステップオーバー
 
 `next` で現在の行から次に処理がある行まで進めます。
 
 ```gdb
-(gdb) break main
+(gdb) break Intersects
 (gdb) run
-
-Thread 1 "a" hit Breakpoint 1, main () at main.cc:24
-warning: Source file is more recent than executable.
-24              Triangle t(1, 3.0, 4.0, 5.0);
+Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
+14          auto c = SquareOfDistance(c1.Center(), c2.Center());
 (gdb) next
-25              std::cout << Area(t) << std::endl;
-(gdb) next
--nan
-26              return 0;
+15          auto r = SquareOf(c1.Radius() + c2.Radius());
 ```
 
 `next` は `n` と省略できます。
 
 ```gdb
-(gdb) b main
+(gdb) b Intersects
 (gdb) r
-
-Thread 1 "a" hit Breakpoint 1, main () at main.cc:24
-warning: Source file is more recent than executable.
-24              Triangle t(1, 3.0, 4.0, 5.0);
+Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
+14          auto c = SquareOfDistance(c1.Center(), c2.Center());
 (gdb) n
-25              std::cout << Area(t) << std::endl;
-(gdb) n
--nan
-26              return 0;
+15          auto r = SquareOf(c1.Radius() + c2.Radius());
 ```
 
 ### ステップイン
@@ -404,29 +477,25 @@ warning: Source file is more recent than executable.
 現在の処理が関数呼び出しの場合には呼び出した関数の内部で停止します。
 
 ```gdb
-(gdb) break main.cc:25
+(gdb) break Intersects
 (gdb) run
-
-Thread 1 "a" hit Breakpoint 1, main () at main.cc:25
-warning: Source file is more recent than executable.
-25              std::cout << Area(t) << std::endl;
+Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
+14          auto c = SquareOfDistance(c1.Center(), c2.Center());
 (gdb) step
-Area (t=...) at main.cc:14
-14              double a = t.sides[1];
+Circle::Center (this=0xffffcb90) at circle.h:12
+12              return center_;
 ```
 
 `step` は `s` と省略できます。
 
 ```gdb
-(gdb) b main.cc:25
+(gdb) b Intersects
 (gdb) r
-
-Thread 1 "a" hit Breakpoint 1, main () at main.cc:25
-warning: Source file is more recent than executable.
-25              std::cout << Area(t) << std::endl;
+Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
+14          auto c = SquareOfDistance(c1.Center(), c2.Center());
 (gdb) s
-Area (t=...) at main.cc:14
-14              double a = t.sides[1];
+Circle::Center (this=0xffffcb90) at circle.h:12
+12              return center_;
 ```
 
 ### ステップアウト
@@ -434,39 +503,29 @@ Area (t=...) at main.cc:14
 `finish` で現在の関数が終了して呼び出し元に戻るまで進めます。
 
 ```gdb
-(gdb) break Area
+(gdb) break Intersects
 (gdb) run
-
-Thread 1 "a" hit Breakpoint 1, Area (t=...) at main.cc:14
-warning: Source file is more recent than executable.
-14              double a = t.sides[1];
+Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
+14          auto c = SquareOfDistance(c1.Center(), c2.Center());
 (gdb) finish
-Run till exit from #0  Area (t=...) at main.cc:14
-0x0000000100401192 in main () at main.cc:25
-25              std::cout << Area(t) << std::endl;
-Value returned is $1 = -nan(0x8000000000000)
+Run till exit from #0  Intersects (c1=..., c2=...) at main.cc:14
+0x0000000100401233 in main () at main.cc:23
+23          if (Intersects(c1, c2)) {
+Value returned is $1 = true
 ```
 
 `finish` は `fin` と省略できます。
 
 ```gdb
-(gdb) b Area
+(gdb) b Intersects
 (gdb) r
-Starting program: /d/msys2/a.exe
-[New Thread 1904.0x30cc]
-[New Thread 1904.0x2efc]
-[New Thread 1904.0x12a8]
-[New Thread 1904.0xb8c]
-[New Thread 1904.0x2100]
-
-Thread 1 "a" hit Breakpoint 1, Area (t=...) at main.cc:14
-warning: Source file is more recent than executable.
-14              double a = t.sides[1];
+Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
+14          auto c = SquareOfDistance(c1.Center(), c2.Center());
 (gdb) fin
-Run till exit from #0  Area (t=...) at main.cc:14
-0x0000000100401192 in main () at main.cc:25
-25              std::cout << Area(t) << std::endl;
-Value returned is $1 = -nan(0x8000000000000)
+Run till exit from #0  Intersects (c1=..., c2=...) at main.cc:14
+0x0000000100401233 in main () at main.cc:23
+23          if (Intersects(c1, c2)) {
+Value returned is $1 = true
 ```
 
 <!-- TODO
