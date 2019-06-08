@@ -104,5 +104,5 @@ nav:
       - 10.1 例外処理: ch10-01-exceptions.md
       - 10.2 シグナル: ch10-02-signals.md
   - デバッグ:
-      - 導入: debug-introduction.md
+      - デバッグビルド: debug-build.md
       - GDB による CUI デバッグ: debug-gdb.md
