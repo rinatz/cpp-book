@@ -528,6 +528,41 @@ Run till exit from #0  Intersects (c1=..., c2=...) at main.cc:14
 Value returned is $1 = true
 ```
 
+!!! tip "実引数で関数の戻り値を使用する場合"
+    ```cpp
+    auto c = SquareOfDistance(c1.Center(), c2.Center());
+    ```
+
+    のように実引数として他の関数の戻り値を使用する場合には、
+    次のように `step` と `finish` を交互に使用することで実引数を求める各処理と
+    実引数を定めた後に呼び出す関数をデバッグすることができます。
+
+    ```gdb
+    (gdb) break Intersects
+    (gdb) run
+    Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
+    14          auto c = SquareOfDistance(c1.Center(), c2.Center());
+    (gdb) step
+    Circle::Center (this=0xffffcb90) at circle.h:12
+    12              return center_;
+    (gdb) finish
+    Run till exit from #0  Circle::Center (this=0xffffcb90) at circle.h:12
+    0x0000000100401133 in Intersects (c1=..., c2=...) at main.cc:14
+    14          auto c = SquareOfDistance(c1.Center(), c2.Center());
+    Value returned is $1 = {x_ = 5, y_ = 0}
+    (gdb) step
+    Circle::Center (this=0xffffcbb0) at circle.h:12
+    12              return center_;
+    (gdb) finish
+    Run till exit from #0  Circle::Center (this=0xffffcbb0) at circle.h:12
+    0x0000000100401143 in Intersects (c1=..., c2=...) at main.cc:14
+    14          auto c = SquareOfDistance(c1.Center(), c2.Center());
+    Value returned is $2 = {x_ = 1, y_ = 2}
+    (gdb) step
+    SquareOfDistance (p=..., q=...) at main.cc:10
+    10          return SquareOf(q.X() - p.X()) + SquareOf(q.Y() - p.Y());
+    ```
+
 <!-- TODO
 ## スタック
 (gdb) backtrace
