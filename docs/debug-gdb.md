@@ -362,6 +362,8 @@ $3 = 12
 
 ## ステップ実行
 
+<!-- TODO: ステップ実行のサンプルコードを変更する -->
+
 ### ステップオーバー
 
 `next` で現在の行から次に処理がある行まで進めます。
@@ -486,4 +488,7 @@ Value returned is $1 = -nan(0x8000000000000)
 (gdb) set print pretty
 (gdb) set pagination off
 (gdb) shell
+(gdb) return
+(gdb) set x 1
+(gdb) until
 -->
