@@ -565,13 +565,117 @@ Value returned is $1 = true
     10          return SquareOf(q.X() - p.X()) + SquareOf(q.Y() - p.Y());
     ```
 
-<!-- TODO
-## スタック
-(gdb) backtrace
-(gdb) up
-(gdb) down
-(gdb) frame 3
+## スタックフレーム
 
+以下のコードで説明します。
+
+```cpp tab="main.cc" linenums="1"
+#include <iostream>
+
+int GreatestCommonDivisor(int a, int b) {
+    if (a == 0) {
+        return b;
+    }
+
+    return GreatestCommonDivisor(b % a, a);
+}
+
+int main() {
+    int a = 12;
+    int b = 18;
+    std::cout << a << " と " << b << " の最大公約数は "
+              << GreatestCommonDivisor(a, b) << " です" << std::endl;
+    return 0;
+}
+```
+
+### 表示
+
+`backtrace` でスタックフレームの一覧を表示します。
+現在の箇所に到達するまでの関数呼び出しを確認できます。
+
+```gdb
+(gdb) break main.cc:5
+(gdb) run
+Thread 1 "a" hit Breakpoint 1, GreatestCommonDivisor (a=0, b=6) at main.cc:5
+5               return b;
+(gdb) backtrace
+#0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
+#1  0x00000001004010ac in GreatestCommonDivisor (a=6, b=12) at main.cc:8
+#2  0x00000001004010ac in GreatestCommonDivisor (a=12, b=18) at main.cc:8
+#3  0x000000010040111f in main () at main.cc:15
+```
+
+`backtrace` は `bt` と省略できます。
+
+```gdb
+(gdb) b main.cc:5
+Breakpoint 1 at 0x100401094: file main.cc, line 5.
+(gdb) r
+Thread 1 "a" hit Breakpoint 1, GreatestCommonDivisor (a=0, b=6) at main.cc:5
+5               return b;
+(gdb) bt
+#0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
+#1  0x00000001004010ac in GreatestCommonDivisor (a=6, b=12) at main.cc:8
+#2  0x00000001004010ac in GreatestCommonDivisor (a=12, b=18) at main.cc:8
+#3  0x000000010040111f in main () at main.cc:15
+```
+
+### 移動
+
+`up` や `down` で GDB が参照するスタックフレームを上下に移動します。
+GDB の参照箇所が移動するだけでプログラムの実行箇所は移動しません。
+
+```gdb
+(gdb) backtrace
+#0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
+#1  0x00000001004010ac in GreatestCommonDivisor (a=6, b=12) at main.cc:8
+#2  0x00000001004010ac in GreatestCommonDivisor (a=12, b=18) at main.cc:8
+#3  0x000000010040111f in main () at main.cc:15
+(gdb) up
+#1  0x00000001004010ac in GreatestCommonDivisor (a=6, b=12) at main.cc:8
+8           return GreatestCommonDivisor(b % a, a);
+(gdb) down
+#0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
+5               return b;
+```
+
+`frame` で GDB が参照しているスタックフレームを表示することができます。
+
+```gdb
+(gdb) frame
+#0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
+5               return b;
+```
+
+`frame n` で `#n` のフレームへ移動できます。
+
+```gdb
+(gdb) frame
+#0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
+5               return b;
+(gdb) frame 3
+#3  0x000000010040111f in main () at main.cc:15
+15                    << GreatestCommonDivisor(a, b) << " です" << std::endl;
+(gdb) frame
+#3  0x000000010040111f in main () at main.cc:15
+15                    << GreatestCommonDivisor(a, b) << " です" << std::endl;
+```
+
+`frame` は `f` と省略できます。
+
+```cpp
+(gdb) bt
+#0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
+#1  0x00000001004010ac in GreatestCommonDivisor (a=6, b=12) at main.cc:8
+#2  0x00000001004010ac in GreatestCommonDivisor (a=12, b=18) at main.cc:8
+#3  0x000000010040111f in main () at main.cc:15
+(gdb) f 3
+#3  0x000000010040111f in main () at main.cc:15
+15                    << GreatestCommonDivisor(a, b) << " です" << std::endl;
+```
+
+<!-- TODO
 ## 条件付きブレークポイント
 (gdb) condition 2 x==0 # Add break condition x==0 for break point 2
 (gdb) condition 2 # Clear break condition
