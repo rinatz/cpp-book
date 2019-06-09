@@ -121,6 +121,12 @@ Visual Studio Code を起動している状態で `F5` を押すことでも
 - 再起動
 - デバッグ終了
 
+## 変数の値
+
+現在の変数の値は自動で表示されます。
+
+![変数の値](img/debug_vscode_print_variable_values.png)
+
 ## 参考
 
 - [Debugging in Visual Studio Code]
