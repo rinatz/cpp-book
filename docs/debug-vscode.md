@@ -127,6 +127,14 @@ Visual Studio Code を起動している状態で `F5` を押すことでも
 
 ![変数の値](img/debug_vscode_print_variable_values.png)
 
+## スタックフレーム
+
+スタックフレームの一覧は自動で表示されます。
+
+![スタックフレーム](img/debug_vscode_stack_frames.png)
+
+各フレームをクリックすることでデバッガの参照箇所を移動できます。
+
 ## 参考
 
 - [Debugging in Visual Studio Code]
