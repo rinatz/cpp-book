@@ -693,6 +693,6 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 (gdb) set pagination off
 (gdb) shell
 (gdb) return
-(gdb) set x 1
-(gdb) until
+(gdb) set var x=1
+(gdb) until 50
 -->
