@@ -837,17 +837,17 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 
 * [GDB User Manual](https://sourceware.org/gdb/current/onlinedocs/gdb/)
 
-<!-- TODO
-## 条件付きブレークポイント
+<!-- MEMO: 入門編として必須ではないが紹介してもよさそうなもの
+
+条件付きブレークポイント
 (gdb) condition 2 x==0 # Add break condition x==0 for break point 2
 (gdb) condition 2 # Clear break condition
 (gdb) catch throw # catch point
 
-## ウォッチポイント
+ウォッチポイント
 (gdb) watch i==0  # watch point / break when i==0 becomes not satisfied
 
-## その他便利なもの
-(gdb) shell
+その他
 (gdb) return
 (gdb) set var x=1
 (gdb) until 50
