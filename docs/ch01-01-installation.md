@@ -59,23 +59,3 @@ Visual Studio Code を起動した後、`Ctrl+Shift+X` を押すと
 [C/C++] を検索してインストールしてください。
 
 [C/C++]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
-
-## デバッガ
-
-コンパイラごとに対応するデバッガが存在します。
-
-| コンパイラ | デバッガ |
-|------------|:---------|
-| GCC        | GDB      |
-| Clang      | LLDB     |
-| Visual C++ | CDB      |
-
-本書では GCC を扱うためデバッガは GDB を使用します。
-
-### GDB のインストール
-
-msys2 のターミナルを起動して下記コマンドを打ってインストールします。
-
-```bash
-$ pacman -S gdb
-```
