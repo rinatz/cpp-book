@@ -107,3 +107,4 @@ nav:
       - デバッガ: debug-debugger.md
       - デバッグビルド: debug-build.md
       - GDB による CUI デバッグ: debug-gdb.md
+      - Visual Studio Code による GUI デバッグ: debug-vscode.md
