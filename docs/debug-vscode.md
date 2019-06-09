@@ -120,3 +120,9 @@ Visual Studio Code を起動している状態で `F5` を押すことでも
 - ステップアウト
 - 再起動
 - デバッグ終了
+
+## 参考
+
+- [Debugging in Visual Studio Code]
+
+[Debugging in Visual Studio Code]: https://code.visualstudio.com/docs/editor/debugging
