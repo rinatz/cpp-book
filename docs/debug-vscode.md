@@ -4,8 +4,8 @@ Visual Studio Code から GDB を使用することで GUI デバッグするこ
 
 ## launch.json の設定
 
-Visual Studio Code を起動している状態で `Ctrl+Shift+P` を押してコマンドパレットを開き、
-`Debug: Open launch.json` と入力して `launch.json` を開きます。
+Visual Studio Code を起動している状態で `Ctrl+Shift+P` を押すとコマンドパレットが開きます。
+コマンドパレットに `Debug: Open launch.json` と入力して `launch.json` を開きます。
 
 `launch.json` が存在しない場合には `環境の選択` というダイアログが出るので
 `C++ (GDB/LLDB)` を選択することで次のような内容の `launch.json` が生成されます。
