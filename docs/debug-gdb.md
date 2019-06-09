@@ -675,6 +675,164 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 15                    << GreatestCommonDivisor(a, b) << " です" << std::endl;
 ```
 
+## 便利な機能
+
+### set pretty print
+
+クラスや構造体を表示する際に見やすく整形するかどうか設定します。
+
+`set print pretty on` で有効、
+`set print pretty off` で無効にします。
+
+??? example "使用例"
+    以下のコードで説明します。
+
+    ```c++ tab="main.cc" linenums="1"
+    struct Point {
+        double x;
+        double y;
+
+        Point(double x, double y) : x(x), y(y) {}
+    };
+
+    struct Triangle {
+        Point a;
+        Point b;
+        Point c;
+
+        Triangle(const Point& a, const Point& b, const Point& c)
+            : a(a), b(b), c(c) {}
+    };
+
+    int main() {
+        Triangle t(Point(1, 1), Point(2, 0), Point(3, 2));
+        return 0;
+    }
+    ```
+
+    `print` で `t` の値を確認する際に整形の有無で次のように出力が変化します。
+
+    ```gdb hl_lines="5 21"
+    (gdb) break main.cc:19
+    (gdb) run
+    Thread 1 "a" hit Breakpoint 1, main () at main.cc:19
+    19          return 0;
+    (gdb) set print pretty on
+    (gdb) print t
+    $1 = {
+      a = {
+        x = 1,
+        y = 1
+      },
+      b = {
+        x = 2,
+        y = 0
+      },
+      c = {
+        x = 3,
+        y = 2
+      }
+    }
+    (gdb) set print pretty off
+    (gdb) print t
+    $2 = {a = {x = 1, y = 1}, b = {x = 2, y = 0}, c = {x = 3, y = 2}}
+    ```
+
+### set pagination
+
+出力する情報が画面内に収まらない場合に
+収まる量ずつでページ送りをするかどうか設定します。
+
+`set pagination on` で有効、
+`set pagination off` で無効にします。
+
+??? example "使用例"
+    以下のコードで説明します。
+
+    ```cpp tab="main.cc" linenums="1"
+    #include <iostream>
+
+    int Fibonacchi(int n) {
+        if (n == 0) {
+            return 0;
+        }
+        if (n == 1) {
+            return 1;
+        }
+        return Fibonacchi(n - 1) + Fibonacchi(n - 2);
+    }
+
+    int main() {
+        std::cout << Fibonacchi(100) << std::endl;
+    }
+    ```
+
+    スタックフレームの一覧が画面内に収まらない場合に
+    ページ送りの有無で次のように出力が変化します。
+
+    ```gdb hl_lines="6 33"
+    (gdb) break main.cc:5
+    Breakpoint 1 at 0x100401097: file main.cc, line 5.
+    (gdb) run
+    Thread 1 "a" hit Breakpoint 1, Fibonacchi (n=0) at main.cc:5
+    5               return 0;
+    (gdb) set pagination on
+    (gdb) backtrace
+    #0  Fibonacchi (n=0) at main.cc:5
+    #1  0x00000001004010c7 in Fibonacchi (n=2) at main.cc:10
+    #2  0x00000001004010b8 in Fibonacchi (n=3) at main.cc:10
+    #3  0x00000001004010b8 in Fibonacchi (n=4) at main.cc:10
+    #4  0x00000001004010b8 in Fibonacchi (n=5) at main.cc:10
+    #5  0x00000001004010b8 in Fibonacchi (n=6) at main.cc:10
+    #6  0x00000001004010b8 in Fibonacchi (n=7) at main.cc:10
+    #7  0x00000001004010b8 in Fibonacchi (n=8) at main.cc:10
+    #8  0x00000001004010b8 in Fibonacchi (n=9) at main.cc:10
+    #9  0x00000001004010b8 in Fibonacchi (n=10) at main.cc:10
+    #10 0x00000001004010b8 in Fibonacchi (n=11) at main.cc:10
+    #11 0x00000001004010b8 in Fibonacchi (n=12) at main.cc:10
+    #12 0x00000001004010b8 in Fibonacchi (n=13) at main.cc:10
+    #13 0x00000001004010b8 in Fibonacchi (n=14) at main.cc:10
+    #14 0x00000001004010b8 in Fibonacchi (n=15) at main.cc:10
+    #15 0x00000001004010b8 in Fibonacchi (n=16) at main.cc:10
+    #16 0x00000001004010b8 in Fibonacchi (n=17) at main.cc:10
+    #17 0x00000001004010b8 in Fibonacchi (n=18) at main.cc:10
+    #18 0x00000001004010b8 in Fibonacchi (n=19) at main.cc:10
+    #19 0x00000001004010b8 in Fibonacchi (n=20) at main.cc:10
+    #20 0x00000001004010b8 in Fibonacchi (n=21) at main.cc:10
+    #21 0x00000001004010b8 in Fibonacchi (n=22) at main.cc:10
+    #22 0x00000001004010b8 in Fibonacchi (n=23) at main.cc:10
+    --Type <RET> for more, q to quit, c to continue without paging--q
+    Quit
+    (gdb) set pagination off
+    (gdb) backtrace
+    #0  Fibonacchi (n=0) at main.cc:5
+    #1  0x00000001004010c7 in Fibonacchi (n=2) at main.cc:10
+    #2  0x00000001004010b8 in Fibonacchi (n=3) at main.cc:10
+    #3  0x00000001004010b8 in Fibonacchi (n=4) at main.cc:10
+    #4  0x00000001004010b8 in Fibonacchi (n=5) at main.cc:10
+    #5  0x00000001004010b8 in Fibonacchi (n=6) at main.cc:10
+    #6  0x00000001004010b8 in Fibonacchi (n=7) at main.cc:10
+    #7  0x00000001004010b8 in Fibonacchi (n=8) at main.cc:10
+    #8  0x00000001004010b8 in Fibonacchi (n=9) at main.cc:10
+    #9  0x00000001004010b8 in Fibonacchi (n=10) at main.cc:10
+    #10 0x00000001004010b8 in Fibonacchi (n=11) at main.cc:10
+    #11 0x00000001004010b8 in Fibonacchi (n=12) at main.cc:10
+    #12 0x00000001004010b8 in Fibonacchi (n=13) at main.cc:10
+    #13 0x00000001004010b8 in Fibonacchi (n=14) at main.cc:10
+    #14 0x00000001004010b8 in Fibonacchi (n=15) at main.cc:10
+    #15 0x00000001004010b8 in Fibonacchi (n=16) at main.cc:10
+    #16 0x00000001004010b8 in Fibonacchi (n=17) at main.cc:10
+    #17 0x00000001004010b8 in Fibonacchi (n=18) at main.cc:10
+    #18 0x00000001004010b8 in Fibonacchi (n=19) at main.cc:10
+    #19 0x00000001004010b8 in Fibonacchi (n=20) at main.cc:10
+    #20 0x00000001004010b8 in Fibonacchi (n=21) at main.cc:10
+    #21 0x00000001004010b8 in Fibonacchi (n=22) at main.cc:10
+    #22 0x00000001004010b8 in Fibonacchi (n=23) at main.cc:10
+    #23 0x00000001004010b8 in Fibonacchi (n=24) at main.cc:10
+    #24 0x00000001004010b8 in Fibonacchi (n=25) at main.cc:10
+    #25 0x00000001004010e7 in main () at main.cc:14
+    ```
+
 ## 参考
 
 * [GDB User Manual](https://sourceware.org/gdb/current/onlinedocs/gdb/)
@@ -689,8 +847,6 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 (gdb) watch i==0  # watch point / break when i==0 becomes not satisfied
 
 ## その他便利なもの
-(gdb) set print pretty
-(gdb) set pagination off
 (gdb) shell
 (gdb) return
 (gdb) set var x=1
