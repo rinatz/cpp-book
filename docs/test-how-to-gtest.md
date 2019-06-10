@@ -12,10 +12,15 @@ $ pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-gtest
 例として、 `sample.h (.cc)` に偶数を判定する関数 `IsEven` を作成し、この関数の動作をテストするには次のようにします。
 
 ```cpp tab="sample.h" linenums="1"
+#ifndef SAMPLE_H_
+#define SAMPLE_H_
+
 /**
  * 入力値が偶数か判定する関数
  */
 bool IsEven(int x);
+
+#endif  // SAMPLE_H_
 ```
 
 ```cpp tab="sample.cc" linenums="1"
@@ -121,10 +126,15 @@ EXPECT_GE(val1, val2);  // val1 >= val2 か
 試しに、誤った実装がなされた関数 `IsEven` を利用して、テスト失敗時の出力を確認すると次のようになります。
 
 ```cpp tab="sample.h" linenums="1"
+#ifndef SAMPLE_H_
+#define SAMPLE_H_
+
 /**
  * 入力値が偶数か判定する関数
  */
 bool IsEven(int x);
+
+#endif  // SAMPLE_H_
 ```
 
 ```cpp tab="sample.cc" hl_lines="4" linenums="1"
