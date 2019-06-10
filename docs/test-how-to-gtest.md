@@ -106,10 +106,10 @@ EXPECT_FALSE(condition);  // condition が false か
 // 2つの値を比較するアサーション
 EXPECT_EQ(val1, val2);  // val1 == val2 か
 EXPECT_NE(val1, val2);  // val1 != val2 か
-EXPECT_LT(val1, val2);  // val1 > val2 か
-EXPECT_LE(val1, val2);  // val1 >= val2 か
-EXPECT_GT(val1, val2);  // val1 < val2 か
-EXPECT_GE(val1, val2);  // val1 <= val2 か
+EXPECT_LT(val1, val2);  // val1 < val2 か
+EXPECT_LE(val1, val2);  // val1 <= val2 か
+EXPECT_GT(val1, val2);  // val1 > val2 か
+EXPECT_GE(val1, val2);  // val1 >= val2 か
 ```
 
 `EXPECT_` で始まるアサーションの他に、 `ASSERT_` で始まるアサーションがあります。
