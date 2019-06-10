@@ -21,7 +21,7 @@ bool IsEven(int x);
 ```cpp tab="sample.cc" linenums="1"
 #include "sample.h"
 
-int IsEven(int x) {
+bool IsEven(int x) {
     return x % 2 == 0;
 }
 ```
