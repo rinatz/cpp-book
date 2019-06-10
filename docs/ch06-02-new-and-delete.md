@@ -23,7 +23,7 @@ delete[] p2;  // 配列の場合は [] を付ける
 
 `new` を利用して確保したメモリの解放を忘れるとメモリリークになります。 `new` と `delete` は必ずセットで使いましょう。
 
-!!! Error "メモリリーク"
+!!! error "メモリリーク"
     ```cpp
     void Function() {
         int* p = new int[100000];
@@ -32,7 +32,7 @@ delete[] p2;  // 配列の場合は [] を付ける
     }   // int[100000] 分のメモリが解放されないままになる。
     ```
 
-!!! Tips "malloc/free"
+!!! warning "malloc/free"
     [malloc/free][malloc-free] を利用することでもメモリの確保・解放は可能ですが、C++ での利用は推奨されていません。
 
 [malloc-free]: appendix-malloc-and-free.md
