@@ -38,57 +38,6 @@ Blest be the man that spares these stones,
 And cursed be he that moves my bones.
 ```
 
-1行ごとの文字列を1文字ずつに分けて出力する場合は次のようにします。
-
-```cpp tab="配列のように操作する場合" hl_lines="10 11 12"
-#include <fstream>
-#include <iostream>
-#include <string>
-
-int main() {
-    std::ifstream file("file.txt");
-    std::string line;
-
-    while (std::getline(file, line)) {
-        for (auto i = 0u; i < line.size(); ++i) {
-            std::cout << line[i];  // 1文字ずつ出力
-        }
-
-        std::cout << std::endl;
-    }
-
-    return 0;
-}
-```
-
-```cpp tab="イテレータで操作する場合" hl_lines="10 11 12"
-#include <fstream>
-#include <iostream>
-#include <string>
-
-int main() {
-    std::ifstream file("file.txt");
-    std::string line;
-
-    while (std::getline(file, line)) {
-        for (auto it = line.begin(); it != line.end(); ++it) {
-            std::cout << *it;  // 1文字ずつ出力
-        }
-
-        std::cout << std::endl;
-    }
-
-    return 0;
-}
-```
-
-```tab="実行結果"
-Good friend, for Jesus' sake forbear,
-To dig the dust enclosed here.
-Blest be the man that spares these stones,
-And cursed be he that moves my bones.
-```
-
 ## ファイル書き出し
 
 ファイルへ書き出す場合は `std::ofstream` を使います。
