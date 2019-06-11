@@ -277,7 +277,7 @@ Square s = 10;
 
 実行結果は以下のようになります。
 
-```txt
+```
 Rectangle::Rectangle() is called.
 Square::Square() is called.
 area = 0
