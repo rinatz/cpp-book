@@ -87,7 +87,7 @@ nav:
       - 6.4. ムーブセマンティクス: ch06-04-move-semantics.md
       - 6.5. スマートポインタ: ch06-05-smart-pointers.md
   - 7. クラス:
-      - 7.1. メンバ変数: ch07-01-member-varialbes.md
+      - 7.1. メンバ変数: ch07-01-member-variables.md
       - 7.2. メンバ関数: ch07-02-member-functions.md
       - 7.3. 継承: ch07-03-inheritance.md
       - 7.4. 多態性: ch07-04-polymorphism.md
