@@ -664,7 +664,7 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 
 `frame` は `f` と省略できます。
 
-```cpp
+```gdb
 (gdb) bt
 #0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
 #1  0x00000001004010ac in GreatestCommonDivisor (a=6, b=12) at main.cc:8
