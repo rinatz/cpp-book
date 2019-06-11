@@ -22,13 +22,13 @@ GDB は起動時にバージョンなどの情報を出力します。
 
 `quit` で GDB を終了することができます。
 
-```gdb
+```
 (gdb) quit
 ```
 
 `quit` は `q` と省略できます。
 
-```gdb
+```
 (gdb) q
 ```
 
@@ -36,13 +36,13 @@ GDB は起動時にバージョンなどの情報を出力します。
 
 `run` でデバッグ対象プログラムを開始します。
 
-```gdb
+```
 (gdb) run
 ```
 
 `run` は `r` と省略できます。
 
-```gdb
+```
 (gdb) r
 ```
 
@@ -84,7 +84,7 @@ int Sum(int a, int b) {
 
 `break ファイル:行番号` または `break 関数名` でブレークポイントを追加します。
 
-```gdb
+```
 (gdb) break main.cc:6
 Breakpoint 1 at 0x10040108d: file main.cc, line 6.
 (gdb) break Sum
@@ -93,7 +93,7 @@ Breakpoint 2 at 0x10040113a: file sum.cc, line 4.
 
 `break` は `b` と省略することもできます。
 
-```gdb
+```
 (gdb) b main.cc:6
 Breakpoint 1 at 0x10040108d: file main.cc, line 6.
 (gdb) b Sum
@@ -104,7 +104,7 @@ Breakpoint 2 at 0x10040113a: file sum.cc, line 4.
 
 `info breakpoints` でブレークポイントの一覧を確認することができます。
 
-```gdb
+```
 (gdb) info breakpoints
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
@@ -114,7 +114,7 @@ Num     Type           Disp Enb Address            What
 `info` は `i` と省略できます。
 `breakpoints` は `break` や `b` と省略できます。
 
-```gdb
+```
 (gdb) i b
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
@@ -126,7 +126,7 @@ Num     Type           Disp Enb Address            What
 ブレークポイントを追加した状態でデバッグを開始すると、
 ブレークポイントに到達した時点でプログラムが一時停止します。
 
-```gdb
+```
 (gdb) run
 Starting program: a.exe
 [New Thread 10676.0x3cf8]
@@ -144,7 +144,7 @@ Thread 1 "a" hit Breakpoint 1, main () at main.cc:6
 `continue` でプログラムを再開することができます。
 次のブレークポイントに到達すると再び一時停止します。
 
-```gdb
+```
 (gdb) continue
 Continuing.
 
@@ -157,7 +157,7 @@ Thread 1 "a" hit Breakpoint 2, Sum (a=1, b=2) at sum.cc:4
 `delete n` でブレークポイントを削除することができます。
 `n` には `info breakpoints` の `Num` の値で指定します。
 
-```gdb
+```
 (gdb) info breakpoints
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
@@ -170,7 +170,7 @@ Num     Type           Disp Enb Address            What
 
 `delete` は `d` と省略できます。
 
-```gdb
+```
 (gdb) i b
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
@@ -183,7 +183,7 @@ Num     Type           Disp Enb Address            What
 
 `delete` で対象を指定しない場合にはすべてのブレークポイントを削除します。
 
-```gdb
+```
 (gdb) info breakpoints
 Num     Type           Disp Enb Address            What
 1       breakpoint     keep y   0x000000010040108d in main() at main.cc:6
@@ -251,7 +251,7 @@ void Swap(int* a, int* b) {
 
 `print` で変数の値を確認することができます。
 
-```gdb
+```
 (gdb) break main.cc:17
 (gdb) run
 Thread 1 "a" hit Breakpoint 1, LeastCommonMultiple (a=12, b=18) at main.cc:17
@@ -266,7 +266,7 @@ $3 = 6
 
 `print` は `p` と省略できます。
 
-```gdb
+```
 (gdb) b main.cc:17
 (gdb) r
 Thread 1 "a" hit Breakpoint 1, LeastCommonMultiple (a=12, b=18) at main.cc:17
@@ -283,7 +283,7 @@ $3 = 6
 
 値を確認すると `$n = 値` と出力され、 `$n` で結果を再利用することができます。
 
-```gdb hl_lines="9 17 18"
+```hl_lines="9 17 18"
 (gdb) break main.cc:8
 (gdb) break main.cc:9
 (gdb) run
@@ -309,7 +309,7 @@ $3 = 18
 `print` では変数の値を確認するだけでなく、
 関数呼び出しを行ってその戻り値を確認したり、任意の演算を行った結果を確認することができます。
 
-```gdb hl_lines="7"
+```hl_lines="7"
 (gdb) break main.cc:17
 (gdb) run
 Thread 1 "a" hit Breakpoint 1, LeastCommonMultiple (a=12, b=18) at main.cc:17
@@ -322,7 +322,7 @@ $2 = 6
 
 変数の値を変更する代入なども行えてしまうため、副作用に気をつける必要があります。
 
-```gdb hl_lines="7"
+```hl_lines="7"
 (gdb) break main.cc:17
 (gdb) run
 Thread 1 "a" hit Breakpoint 1, LeastCommonMultiple (a=12, b=18) at main.cc:17
@@ -341,7 +341,7 @@ $3 = 0
 
 変数からポインタを得る `&` やデリファレンスの `*` が使用できます。
 
-```gdb hl_lines="8 17"
+```hl_lines="8 17"
 (gdb) break main.cc:9
 (gdb) break Swap
 (gdb) run
@@ -453,7 +453,7 @@ class Point {
 
 `next` で現在の行から次に処理がある行まで進めます。
 
-```gdb
+```
 (gdb) break Intersects
 (gdb) run
 Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
@@ -464,7 +464,7 @@ Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
 
 `next` は `n` と省略できます。
 
-```gdb
+```
 (gdb) b Intersects
 (gdb) r
 Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
@@ -478,7 +478,7 @@ Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
 `step` で現在の処理から次の処理まで進めます。
 現在の処理が関数呼び出しの場合には呼び出した関数の内部で停止します。
 
-```gdb
+```
 (gdb) break Intersects
 (gdb) run
 Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
@@ -490,7 +490,7 @@ Circle::Center (this=0xffffcb90) at circle.h:12
 
 `step` は `s` と省略できます。
 
-```gdb
+```
 (gdb) b Intersects
 (gdb) r
 Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
@@ -504,7 +504,7 @@ Circle::Center (this=0xffffcb90) at circle.h:12
 
 `finish` で現在の関数が終了して呼び出し元に戻るまで進めます。
 
-```gdb
+```
 (gdb) break Intersects
 (gdb) run
 Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
@@ -518,7 +518,7 @@ Value returned is $1 = true
 
 `finish` は `fin` と省略できます。
 
-```gdb
+```
 (gdb) b Intersects
 (gdb) r
 Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
@@ -539,7 +539,7 @@ Value returned is $1 = true
     次のように `step` と `finish` を交互に使用することで実引数を求める各処理と
     実引数を定めた後に呼び出す関数をデバッグすることができます。
 
-    ```gdb
+    ```
     (gdb) break Intersects
     (gdb) run
     Thread 1 "a" hit Breakpoint 1, Intersects (c1=..., c2=...) at main.cc:14
@@ -594,7 +594,7 @@ int main() {
 `backtrace` でスタックフレームの一覧を表示します。
 現在の箇所に到達するまでの関数呼び出しを確認できます。
 
-```gdb
+```
 (gdb) break main.cc:5
 (gdb) run
 Thread 1 "a" hit Breakpoint 1, GreatestCommonDivisor (a=0, b=6) at main.cc:5
@@ -608,7 +608,7 @@ Thread 1 "a" hit Breakpoint 1, GreatestCommonDivisor (a=0, b=6) at main.cc:5
 
 `backtrace` は `bt` と省略できます。
 
-```gdb
+```
 (gdb) b main.cc:5
 Breakpoint 1 at 0x100401094: file main.cc, line 5.
 (gdb) r
@@ -626,7 +626,7 @@ Thread 1 "a" hit Breakpoint 1, GreatestCommonDivisor (a=0, b=6) at main.cc:5
 `up` や `down` で GDB が参照するスタックフレームを上下に移動します。
 GDB の参照箇所が移動するだけでプログラムの実行箇所は移動しません。
 
-```gdb
+```
 (gdb) backtrace
 #0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
 #1  0x00000001004010ac in GreatestCommonDivisor (a=6, b=12) at main.cc:8
@@ -642,7 +642,7 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 
 `frame` で GDB が参照しているスタックフレームを表示することができます。
 
-```gdb
+```
 (gdb) frame
 #0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
 5               return b;
@@ -650,7 +650,7 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 
 `frame n` で `#n` のフレームへ移動できます。
 
-```gdb
+```
 (gdb) frame
 #0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
 5               return b;
@@ -664,7 +664,7 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 
 `frame` は `f` と省略できます。
 
-```gdb
+```
 (gdb) bt
 #0  GreatestCommonDivisor (a=0, b=6) at main.cc:5
 #1  0x00000001004010ac in GreatestCommonDivisor (a=6, b=12) at main.cc:8
@@ -712,7 +712,7 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 
     `print` で `t` の値を確認する際に整形の有無で次のように出力が変化します。
 
-    ```gdb hl_lines="5 21"
+    ```hl_lines="5 21"
     (gdb) break main.cc:19
     (gdb) run
     Thread 1 "a" hit Breakpoint 1, main () at main.cc:19
@@ -770,7 +770,7 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
     スタックフレームの一覧が画面内に収まらない場合に
     ページ送りの有無で次のように出力が変化します。
 
-    ```gdb hl_lines="6 33"
+    ```hl_lines="6 33"
     (gdb) break main.cc:5
     Breakpoint 1 at 0x100401097: file main.cc, line 5.
     (gdb) run
