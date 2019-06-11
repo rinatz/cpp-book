@@ -102,7 +102,7 @@
 
 実行結果は以下のようになります。
 
-```txt
+```
 size = 10
 ```
 
@@ -117,7 +117,7 @@ size = 10
 ```cpp hl_lines="3"
 class Polygon {
  public:
-    virtual void Area() const = 0;
+    virtual int Area() const = 0;
 };
 ```
 

@@ -134,7 +134,7 @@ DynamicArray::~DynamicArray() {
 
 実行結果は以下のようになります。
 
-```txt
+```
 1
 10
 DynamicArray::~DynamicArray() is called.
@@ -205,7 +205,7 @@ BasicArray::~BasicArray() is called.
 
 実行結果は以下のようになります。
 
-```txt
+```
 1
 10
 BasicArray::~BasicArray() is called.
@@ -267,7 +267,7 @@ BasicArray::~BasicArray() is called.
 
 実行結果は以下のようになります。
 
-```txt
+```
 1
 10
 DynamicArray::~DynamicArray() is called.

@@ -104,3 +104,9 @@ nav:
   - 10. エラー処理:
       - 10.1 例外処理: ch10-01-exceptions.md
       - 10.2 シグナル: ch10-02-signals.md
+      - 10.3 アサーション: ch10-03-assertions.md
+  - デバッグ:
+      - デバッガ: debug-debugger.md
+      - デバッグビルド: debug-build.md
+      - GDB による CUI デバッグ: debug-gdb.md
+      - Visual Studio Code による GUI デバッグ: debug-vscode.md
