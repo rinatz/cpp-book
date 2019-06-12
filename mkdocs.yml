@@ -93,6 +93,7 @@ nav:
       - 7.4. 多態性: ch07-04-polymorphism.md
       - 7.5. コンストラクタ: ch07-05-constructors.md
       - 7.6. デストラクタ: ch07-06-destructors.md
+      - 7.7. 演算子オーバーロード: ch07-07-operator-overloading.md
       - 7.8. 構造体: ch07-08-structs.md
   - 8. キャスト:
       - 8.1. C++ のキャスト: ch08-01-cpp-casts.md
