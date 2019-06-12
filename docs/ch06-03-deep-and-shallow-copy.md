@@ -13,10 +13,10 @@ y = 50; // y を 50 に書き換える（図2）
 std::cout << x << std::endl; // x は100のまま
 ```
 
-!!!Info "図1"
+!!! info "図1"
     ![図1][deep_copy_a]
 
-!!!Info "図2"
+!!! info "図2"
     ![図1][deep_copy_b]
 
 
@@ -36,10 +36,10 @@ int* y = x; // x を y へシャローコピー（図3）
 std::cout << *x << std::endl; // x が指す先の値も 50 になる
 ```
 
-!!!Info "図3"
+!!! info "図3"
     ![図3][shallow_copy_a]
 
-!!!Info "図4"
+!!! info "図4"
     ![図4][shallow_copy_b]
 
 [deep_copy_a]: img/deep_copy_a.svg

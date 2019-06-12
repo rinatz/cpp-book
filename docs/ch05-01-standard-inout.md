@@ -12,7 +12,7 @@ C++ で入出力を扱う場合は `<iostream>` ヘッダをインクルード�
 std::cout << "標準出力";
 ```
 
-!!! Info
+!!! info
     `std::endl` で改行を出力します。
     ```cpp
     std::cout << 1 + 2 << std::endl;
