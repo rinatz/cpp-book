@@ -80,6 +80,7 @@ nav:
       - 4.1. 複数ファイル: ch04-01-multiple-files.md
   - 5. ストリーム操作:
       - 5.1. 標準入出力: ch05-01-standard-inout.md
+      - 5.2. ファイル操作: ch05-02-file-operations.md
   - 6. メモリの管理:
       - 6.1. メモリ領域: ch06-01-memory-areas.md
       - 6.2. new/delete: ch06-02-new-and-delete.md
