@@ -79,3 +79,25 @@ int Rectangle::Area() const {
 
 メンバ変数を変更しないという制約を満たすために、
 `const` メンバ関数から呼び出せるメンバ関数は `const` メンバ関数に限定されます。
+
+<!-- TODO: staticメンバ関数の説明 -->
+
+## this ポインタ
+
+メンバ関数 (static メンバ関数を除く) では
+`this` で自オブジェクトのポインタを取得することができます。
+
+```cpp
+class Rectangle {
+ public:
+    int Area();
+
+    int height_;
+    int width_;
+};
+
+int Rectangle::Area() {
+   // this ポインタ経由でメンバ変数を使用
+    return this->height_ * this->width_;
+}
+```
