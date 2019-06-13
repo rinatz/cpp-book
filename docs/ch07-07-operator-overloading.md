@@ -224,4 +224,43 @@ std::cout << a.Value() << std::endl;  // 3
 std::cout << b.Value() << std::endl;  // 2
 ```
 
-<!-- TODO: https://ja.cppreference.com/w/cpp/language/operators へのリンクを追加 -->
+## 期待される振る舞い
+
+演算子の振る舞いについては制約がほとんどありませんが、
+一般に組み込みの演算子と同様の振る舞いになることが期待されます。
+
+たとえば次のように期待する動作と異なる実装にすることも可能ではあります。
+
+```cpp
+class Integer {
+ public:
+    explicit Integer(int value) : value_(value) {}
+
+    int Value() const { return value_; }
+
+    Integer& operator-() {
+        return *this;  // 何もしないで自オブジェクトを返却
+    }
+
+ private:
+    int value_;
+};
+```
+
+この定義に対して演算子を使用すると次のようになります。
+
+```cpp
+Integer a(2);
+Integer b = -a;
+
+std::cout << a.Value() << std::endl;  // 2
+std::cout << b.Value() << std::endl;  // 2 (-2 ではない)
+```
+
+このように期待される振る舞いと異なる振る舞いにならないように、
+組み込みの演算子となるべく同じ振る舞いになるよう定義するのが一般的です。
+
+期待される振る舞いについては
+[演算子オーバーロード - cppreference.com][cppreference_operators] を参照してください。
+
+[cppreference_operators]: https://ja.cppreference.com/w/cpp/language/operators
