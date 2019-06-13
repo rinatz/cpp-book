@@ -90,9 +90,9 @@ Integer a(2);
 Integer b(3);
 Integer c = a + b;
 
-std::cout << a.Value() << std::endl;
-std::cout << b.Value() << std::endl;
-std::cout << c.Value() << std::endl;
+std::cout << a.Value() << std::endl;  // 2
+std::cout << b.Value() << std::endl;  // 3
+std::cout << c.Value() << std::endl;  // 5
 ```
 
 メンバ関数として定義するには次のようにします。
@@ -108,7 +108,7 @@ class Integer {
 
     // 加算演算子の左辺のメンバ関数に対して、右辺が引数として渡される
     Integer operator+(const Integer& rhs) {
-        Integer tmp(Value() + rhs.Value());  // 左辺は自クラスを使用する
+        Integer tmp(Value() + rhs.Value());  // 左辺は自オブジェクトを使用する
         return tmp;
     }
 
