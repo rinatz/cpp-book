@@ -156,6 +156,72 @@ RealNumber operator+(const RealNumber& lhs, const Integer& rhs) {
 }
 ```
 
-<!-- TODO: 単行演算子のインクリメントの前置と後置の説明 -->
+## インクリメント/デクリメント
+
+インクリメント/デクリメントには前置と後置の2種類があります。
+
+前置は単行演算子の方法で定義します。
+
+```cpp hl_lines="9 10 11 12"
+class Integer {
+ public:
+    explicit Integer(int value) : value_(value) {}
+
+    int Value() const {
+        return value_;
+    }
+
+    Integer& operator++() {
+        ++value_;
+        return *this;
+    }
+
+ private:
+    int value_;
+};
+```
+
+次のように前置インクリメントが使用できるようになります。
+
+```cpp hl_lines="2"
+Integer a(2);
+Integer b = ++a;
+
+std::cout << a.Value() << std::endl;  // 3
+std::cout << b.Value() << std::endl;  // 3
+```
+
+後置は二項演算子の方法で定義します。
+これは前置と後置を区別するために後置では `int` (通常は値 `0`) が渡される決まりがあるからです。
+
+```cpp hl_lines="9 10 11 12 13"
+class Integer {
+ public:
+    explicit Integer(int value) : value_(value) {}
+
+    int Value() const {
+        return value_;
+    }
+
+    Integer operator++(int) {  // 引数の int は使用しない
+        Integer tmp(Value());
+        ++value_;
+        return tmp;
+    }
+
+ private:
+    int value_;
+};
+```
+
+次のように後置インクリメントが使用できるようになります。
+
+```cpp hl_lines="2"
+Integer a(2);
+Integer b = a++;
+
+std::cout << a.Value() << std::endl;  // 3
+std::cout << b.Value() << std::endl;  // 2
+```
 
 <!-- TODO: https://ja.cppreference.com/w/cpp/language/operators へのリンクを追加 -->
