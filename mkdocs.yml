@@ -67,6 +67,7 @@ nav:
       - 2.6. コメント: ch02-06-comments.md
       - 2.7. 制御文: ch02-07-control-flow.md
       - 2.8. 演算子: ch02-08-operators.md
+      - 2.9. 関数オブジェクト: ch02-09-function-objects.md
   - 3. コンテナ:
       - 3.1. 配列: ch03-01-arrays.md
       - 3.2. 文字列: ch03-02-strings.md
