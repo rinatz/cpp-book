@@ -107,7 +107,7 @@ class Integer {
     }
 
     // 加算演算子の左辺のメンバ関数に対して、右辺が引数として渡される
-    Integer operator+(const Integer& rhs) {
+    Integer operator+(const Integer& rhs) const {
         Integer tmp(Value() + rhs.Value());  // 左辺は自オブジェクトを使用する
         return tmp;
     }
