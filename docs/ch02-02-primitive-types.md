@@ -151,6 +151,7 @@ enum Day {
 
 enum SolarSystem {
   Sun,  // Sun は enum Day 内で定義済みのためコンパイルエラー
+  Mercury,
   Venus,
   Earth,
   Mars,
