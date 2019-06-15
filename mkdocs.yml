@@ -96,8 +96,8 @@ nav:
       - 7.6. デストラクタ: ch07-06-destructors.md
       - 7.7. 演算子オーバーロード: ch07-07-operator-overloading.md
       - 7.8. 代入演算子: ch07-08-assignment-operator.md
-      - 7.8. default/delete: ch07-08-default-and-delete.md
-      - 7.9. 構造体: ch07-09-structs.md
+      - 7.9. default/delete: ch07-09-default-and-delete.md
+      - 7.10. 構造体: ch07-10-structs.md
   - 8. キャスト:
       - 8.1. C++ のキャスト: ch08-01-cpp-casts.md
       - 8.2. C言語形式のキャスト: ch08-02-c-cast.md
