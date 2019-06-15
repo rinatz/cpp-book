@@ -61,4 +61,50 @@ int main() {
 }
 ```
 
-<!-- TODO: staticメンバ関数の説明 -->
+## static メンバ関数
+
+クラスのオブジェクトごとではなく、クラスそのものがもつ関数です。
+
+メンバ関数の宣言に static をつけることで static メンバ関数を宣言することができます。
+
+```cpp
+class Brightness {
+ public:
+    explicit Brightness(int value) : value_(value) {}
+
+    int Value() const {
+        return value_;
+    }
+
+    static Brightness Maximum();
+    static Brightness Minimum();
+    static Brightness Median();
+
+ private:
+    int value_;
+};
+```
+
+static メンバ関数は static メンバ変数以外のメンバ変数は直接参照できないため、
+static メンバ関数ではなく通常の関数で十分なことが多いです。
+
+通常の関数との違いは static メンバ関数はクラスに属するため、
+`protected` や `private` のメンバにもアクセスできることです。
+
+```cpp
+Brightness Brightness::Maximum() {
+    return Brightness(100);
+}
+
+Brightness Brightness::Minimum() {
+    return Brightness(0);
+}
+
+Brightness Brightness::Median() {
+    return Brightness((Maximum().value_ + Minimum().value_) / 2);
+}
+```
+
+static メンバ関数は実行順序が定まるため、
+static メンバ変数の代わりに static メンバ関数を使用することで
+初期化順序を制御できない問題を回避することができます。
