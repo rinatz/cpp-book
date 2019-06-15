@@ -122,7 +122,7 @@ int main() {
     std::cout << result << std::endl;      // 8
 
     f = [](int x, int y) { return x * y; };  // ラムダ式も保持可能
-    std::cout << g(4, 7) << std::endl;       // 28
+    std::cout << f(4, 7) << std::endl;       // 28
 
     return 0;
 }
