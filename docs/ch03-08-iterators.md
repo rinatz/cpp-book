@@ -54,15 +54,16 @@ for (auto it = x.begin(); it != x.end(); ++it) {
 `std::map` や `std::unordered_map` のイテレータが指す要素はペアとなっています。
 このペアは `first` がキーで `second` が値です。
 
-```cpp hl_lines="7 8"
+```cpp hl_lines="7 8 9"
 std::map<std::string, int> persons = {
     {"Alice", 18},
     {"Bob", 20}
 };
 
 for (auto it = persons.begin(); it != persons.end(); ++it) {
-    const std::string& name = it->first;
-    const int age = it->second;
+    const auto& person = *it;  // std::pair<std::string, int>
+    const std::string& name = person.first;
+    const int age = person.second;
     std::cout << name << ": " << age << std::endl;
 }
 ```
