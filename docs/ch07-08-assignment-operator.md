@@ -56,7 +56,59 @@ class Copyable {
 
 [cppreference_copy_assignment]: https://ja.cppreference.com/w/cpp/language/copy_assignment
 
-<!-- TODO: ムーブ代入演算子 -->
+## ムーブ代入演算子
+
+ムーブ代入演算子は通常以下を満たすメンバ関数として定義します。
+
+* 引数はムーブ元となるオブジェクトの右辺値参照
+* 戻り値はムーブ先オブジェクト (自オブジェクト) の左辺値参照
+
+```cpp
+class Movable {
+ public:
+    Movable();  // デフォルトコンストラクタ
+    Movable& operator=(Movable&& m);  // ムーブ代入演算子
+};
+```
+
+ムーブ代入演算子を使用するには次のようにします。
+
+```cpp
+Movable m1;  // デフォルトコンストラクタでオブジェクト作成
+Movable m2;  // デフォルトコンストラクタでオブジェクト作成
+m2 = std::move(m1);  // ムーブ代入演算子でムーブ代入
+```
+
+一般にムーブコンストラクタとムーブ代入演算子はセットで使用します。
+
+```cpp
+class Movable {
+ public:
+    Movable();  // デフォルトコンストラクタ
+    Movable(Movable&& m);  // ムーブコンストラクタ
+    Movable& operator=(Movable&& m);  // ムーブ代入演算子
+};
+```
+
+ムーブ代入演算子を定義していないクラスでは
+コンパイラによって暗黙的にムーブ代入演算子が定義されます。
+
+??? question "暗黙的にムーブ代入演算子が定義されないケース"
+    ムーブ代入演算子を定義していないクラスであっても、
+    特定の条件を満たした場合には暗黙的なムーブ代入演算子の定義は行われなくなります。
+
+    条件の一例として次のものがあります。
+
+    - ムーブ代入演算子が定義されていないメンバ変数をもつ
+    - 下記のいずれかが明示的に定義されている
+        - コピーコンストラクタ
+        - コピー代入演算子
+        - ムーブコンストラクタ
+        - デストラクタ
+
+    詳細は [ムーブ代入演算子 - cppreference.com][cppreference_move_assignment] を参照してください。
+
+[cppreference_move_assignment]: https://ja.cppreference.com/w/cpp/language/move_assignment
 
 ## 初期化
 
@@ -73,5 +125,17 @@ C++ では代入と初期化が区別されます。
 Copyable c1;
 Copyable c2 = c1;  // コピーコンストラクタを使用
 Copyable c3;
-c3 = c1;  // コピー代入演算子を使用
+c3 = c2;  // コピー代入演算子を使用
+```
+
+### ムーブ初期化
+
+初期化をムーブによって行う場合、
+ムーブ代入演算子ではなくムーブコンストラクタが使用されます。
+
+```cpp
+Movable m1;
+Movable m2 = std::move(m1);  // ムーブコンストラクタを使用
+Movable m3;
+m3 = std::move(m2);  // ムーブ代入演算子を使用
 ```
