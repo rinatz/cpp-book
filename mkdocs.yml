@@ -95,6 +95,7 @@ nav:
       - 7.5. コンストラクタ: ch07-05-constructors.md
       - 7.6. デストラクタ: ch07-06-destructors.md
       - 7.7. 演算子オーバーロード: ch07-07-operator-overloading.md
+      - 7.8. 代入演算子: ch07-08-assignment-operator.md
       - 7.8. default/delete: ch07-08-default-and-delete.md
       - 7.9. 構造体: ch07-09-structs.md
   - 8. キャスト:
