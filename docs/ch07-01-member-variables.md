@@ -26,7 +26,8 @@ r.width_ = 20;
 クラスのオブジェクトをポインタで扱う場合に、メンバ変数を参照するには次のようにします。
 
 ```cpp
-std::unique_ptr<Rectangle> r(new Rectangle);
+Rectangle rectangle;
+Rectangle* r = &rectangle;
 (*r).height_ = 10;
 (*r).width_ = 20;
 ```
@@ -36,7 +37,8 @@ std::unique_ptr<Rectangle> r(new Rectangle);
 この記述方法は不便なため `(*r).` の代わりに `r->` と記述することができます。
 
 ```cpp
-std::unique_ptr<Rectangle> r(new Rectangle);
+Rectangle rectangle;
+Rectangle* r = &rectangle;
 r->height_ = 10;
 r->width_ = 20;
 ```
