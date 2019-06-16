@@ -189,3 +189,15 @@ class Array<bool> {
     uint8_t* data_;
 };
 ```
+
+## 部分特殊化
+
+特定のテンプレート引数に対して
+特殊化で使用する関数テンプレートやクラステンプレートを別のテンプレートに変更することができます。
+これを部分特殊化といいます。
+
+詳細は
+[テンプレートの部分特殊化 - cppreference.com][cppreference_partial_specialization]
+を参照してください。
+
+[cppreference_partial_specialization]: https://ja.cppreference.com/w/cpp/language/partial_specialization
