@@ -180,3 +180,74 @@ if (false)
 C++11 であれば `201103L` という値に置換されます。
 
 C++ のバージョンに応じて有効/無効を制御するために使用されます。
+
+## 条件
+
+次の司令で条件に応じてコードの有効/無効を分けることができます。
+
+* `#if`
+* `#elif`
+* `#else`
+* `#endif`
+
+```cpp
+#include <iostream>
+
+int main() {
+#if true
+    std::cout << "true" << std::endl;  // 有効 (コンパイルされる)
+#endif
+
+#if false
+    std::cout << "false" << std::endl;  // 無効 (コンパイル前に削除される)
+#endif
+
+#if false
+    std::cout << "1" << std::endl;  // 無効
+#elif true
+    std::cout << "2" << std::endl;  // 有効
+#else
+    std::cout << "3" << std::endl;  // 無効
+#endif
+
+    return 0;
+}
+```
+
+`defined` によってマクロが定義されているかどうかを条件にすることができます。
+
+```cpp
+#include <iostream>
+
+// 条件だけに使用するマクロは置換文字列を空にする
+#define SAMPLE_A
+
+int main() {
+#if defined SAMPLE_A
+    std::cout << "A" << std::endl;  // 有効
+#endif
+
+#if defined SAMPLE_B
+    std::cout << "B" << std::endl;  // 無効
+#endif
+
+    return 0;
+}
+```
+
+### #ifdef と #ifndef
+
+マクロが定義されているかという条件は多用されるため、
+`#if defined` の短縮として `#ifdef`、
+否定 `#if !defined` の短縮として `#ifndef` という司令があります。
+
+これらを活用してインクルードガードは実現されています。
+
+```cpp
+#ifndef SAMPLE_H_
+#define SAMPLE_H_
+
+// 内容
+
+#endif  // SAMPLE_H_
+```
