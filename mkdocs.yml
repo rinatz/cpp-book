@@ -115,5 +115,6 @@ nav:
       - Visual Studio Code による GUI デバッグ: debug-vscode.md
   - ビルド自動化:
       - Make: make-make.md
+      - CMake: make-cmake.md
   - 付録:
       - malloc/free: appendix-malloc-and-free.md
