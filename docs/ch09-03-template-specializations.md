@@ -116,3 +116,76 @@ int main() {
         return SumImpl(a, b);
     }
     ```
+
+## 完全特殊化
+
+特殊化によって関数テンプレートやクラステンプレートから関数やクラスを生成する代わりに、
+通常の関数やクラスを使用するように指定することで
+特定のテンプレート引数に対する挙動を変更することができます。
+これを完全特殊化 (または明示的特殊化) といいます。
+
+関数テンプレートの完全特殊化は次のようにします。
+
+```cpp hl_lines="6 7 8 9"
+template <typename T>
+T DoSomething(T a, T b) {
+    return a + b;
+}
+
+template <>
+double DoSomething<double>(double a, double b) {
+    return a * b;
+}
+
+std::cout << DoSomething(2, 3) << std::endl;  // 5
+std::cout << DoSomething(2.0, 3.0) << std::endl;  // 6
+```
+
+関数の前に `template <>` を付けて完全特殊化を行うことを指定し、
+関数名の後に `< ... >` で対象となるテンプレート引数を指定します。
+
+クラステンプレートの完全特殊化も同様です。
+
+```cpp hl_lines="21 22"
+template <typename T>
+class Array {
+ public:
+    explicit Array(int size)
+        : size_(size),
+          data_(new T[size_]) {}
+
+    ~Array() {
+        delete[] data_;
+    }
+
+    int Size() const {
+        return size_;
+    }
+
+ private:
+    const int size_;
+    T* data_;
+};
+
+template <>
+class Array<bool> {
+ public:
+    explicit Array(int size)
+        : size_(size),
+          data_size_((size - 1) / 8 + 1),
+          data_(new uint8_t[data_size_]) {}
+
+    ~Array() {
+        delete[] data_;
+    }
+
+    int Size() const {
+        return size_;
+    }
+
+ private:
+    const int size_;
+    const int data_size_;
+    uint8_t* data_;
+};
+```
