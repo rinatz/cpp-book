@@ -115,3 +115,4 @@ nav:
       - Visual Studio Code による GUI デバッグ: debug-vscode.md
   - 付録:
       - malloc/free: appendix-malloc-and-free.md
+      - プリプロセッサ司令: appendix-preprocessor-directives.md
