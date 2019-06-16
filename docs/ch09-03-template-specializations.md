@@ -1,0 +1,118 @@
+# 特殊化
+
+テンプレートでは実引数に応じて関数やクラスを生成します。
+
+```cpp
+// 関数テンプレート
+template <typename T>
+T Sum(T a, T b) {
+    return a + b;
+}
+
+// 関数テンプレートの関数の呼び出し
+Sum<int>(1, 2);
+```
+
+`Sum<int>(1, 2)` という関数テンプレートの関数の呼び出しによって
+`T` が `int` である関数が必要と判断され、次の関数が生成されます。
+
+```cpp
+int Sum(int a, int b) {
+    return a + b;
+}
+```
+
+このようにテンプレートを使用する箇所において、
+関数テンプレートから関数を生成することおよび
+クラステンプレートからクラスを生成することを特殊化といいます。
+
+特殊化はコンパイラによって行われるため、
+ヘッダファイルで関数テンプレートを使用する場合にはそのヘッダファイルで定義も行います。
+
+```cpp tab="sum.h"
+#ifndef SUM_H_
+#define SUM_H_
+
+template <typename T>
+inline T Sum(T a, T b) {  // inline 指定が必要
+    return a + b;
+}
+
+#endif  // SUM_H_
+```
+
+```cpp tab="main.cc"
+#include <iostream>
+
+#include "sum.h"
+
+int main() {
+    std::cout << Sum(1, 2) << std::endl;
+    return 0;
+}
+```
+
+??? question "テンプレートの明示的インスタンス化"
+    テンプレートを使用する箇所で関数やクラスを生成する代わりに、
+    ソースファイルで明示的に関数やクラスを生成することで
+    ヘッダファイルでは宣言だけ行うことは可能ではあります。
+
+    ```cpp tab="sum.h"
+    #ifndef SUM_H_
+    #define SUM_H_
+
+    template <typename T>
+    T Sum(T a, T b);  // 宣言だけ行う (inline もつけない)
+
+    #endif  // SUM_H_
+    ```
+
+    ```cpp tab="sum.cc"
+    #include "sum.h"
+
+    // 関数テンプレートの定義
+    template <typename T>
+    T Sum(T a, T b) {
+        return a + b;
+    }
+
+    // 明示的インスタンス化
+    template int Sum<int>(int, int);
+    ```
+
+    こうした構成にするとヘッダファイルでテンプレートが提供されていても
+    使用可能な型はソースファイルで明示的な生成を行う型のみとなってしまいます。
+    たとえば `Sum<double>(double, double)` は生成されていないため
+    `Sum(1.2, 3.4)` のように関数テンプレートの関数を呼び出すとリンクエラーになります。
+
+    こうした問題を避けるためには、
+    ヘッダファイルでは関数テンプレートをやめてオーバーロードされた関数を提供し、
+    ソースファイルで関数テンプレートを使用します。
+
+    ```cpp tab="sum.h"
+    #ifndef SUM_H_
+    #define SUM_H_
+
+    int Sum(int a, int b);
+    double Sum(double a, double b);
+
+    #endif  // SUM_H_
+    ```
+
+    ```cpp tab="sum.cc"
+    #include "sum.h"
+
+    // 実装に関数テンプレートを使用
+    template <typename T>
+    T SumImpl(T a, T b) {
+        return a + b;
+    }
+
+    int Sum(int a, int b) {
+        return SumImpl(a, b);
+    }
+
+    double Sum(double a, double b) {
+        return SumImpl(a, b);
+    }
+    ```
