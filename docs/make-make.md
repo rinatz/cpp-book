@@ -1,8 +1,8 @@
-# make
+# Make
 
-[make] は1976年に登場して現在でも使用されているビルド自動化ツールです。
+[Make] は1976年に登場して現在でも使用されているビルド自動化ツールです。
 
-[make]: https://en.wikipedia.org/wiki/Make_(software)
+[Make]: https://en.wikipedia.org/wiki/Make_(software)
 
 ## インストール
 

@@ -114,6 +114,6 @@ nav:
       - GDB による CUI デバッグ: debug-gdb.md
       - Visual Studio Code による GUI デバッグ: debug-vscode.md
   - ビルド自動化:
-      - make: make-make.md
+      - Make: make-make.md
   - 付録:
       - malloc/free: appendix-malloc-and-free.md
