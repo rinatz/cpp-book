@@ -61,3 +61,36 @@ $ ./a.exe
 5
 -2147483648
 ```
+
+## static_assert
+
+コンパイル時に条件を満たさないとコンパイルエラーにする処理です。
+
+```cpp
+template <typename T, int N>
+class Array {
+    static_assert(N > 0, "サイズは0より大きくなければなりません");
+
+ public:
+    int size() const { return N; }
+
+    T data_[N];  // サイズ 0 の配列はコンパイルエラーにならない
+};
+
+int main() {
+    Array<int, 0> a;
+    return 0;
+}
+```
+
+コンパイル結果は以下のようになります。
+
+```bash
+$ g++ -std=c++11 -c main.cc
+main.cc: In instantiation of ‘class Array<int, 0>’:
+main.cc:12:19:   required from here
+main.cc:3:5: エラー: static assertion failed: サイズは0より大きくなければなりま
+せん
+     static_assert(N > 0, "サイズは0より大きくなければなりません");
+     ^~~~~~~~~~~~~
+```
