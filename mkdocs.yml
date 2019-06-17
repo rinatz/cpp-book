@@ -62,11 +62,12 @@ nav:
       - 2.1. 変数: ch02-01-variables.md
       - 2.2. 基本型: ch02-02-primitive-types.md
       - 2.3. リテラル: ch02-03-literals.md
-      - 2.4. 関数: ch02-04-functions.md
-      - 2.5. ポインタ: ch02-05-pointers.md
-      - 2.6. コメント: ch02-06-comments.md
-      - 2.7. 制御文: ch02-07-control-flow.md
-      - 2.8. 演算子: ch02-08-operators.md
+      - 2.4. ポインタ: ch02-04-pointers.md
+      - 2.5. コメント: ch02-05-comments.md
+      - 2.6. 制御文: ch02-06-control-flow.md
+      - 2.7. 演算子: ch02-07-operators.md
+      - 2.8. 関数: ch02-08-functions.md
+      - 2.9. 関数オブジェクト: ch02-09-function-objects.md
   - 3. コンテナ:
       - 3.1. 配列: ch03-01-arrays.md
       - 3.2. 文字列: ch03-02-strings.md
@@ -96,6 +97,7 @@ nav:
       - 7.6. デストラクタ: ch07-06-destructors.md
       - 7.7. 演算子オーバーロード: ch07-07-operator-overloading.md
       - 7.8. 代入演算子: ch07-08-assignment-operator.md
+      - 7.8. static メンバ: ch07-08-static-members.md
       - 7.9. 構造体: ch07-09-structs.md
   - 8. キャスト:
       - 8.1. C++ のキャスト: ch08-01-cpp-casts.md
