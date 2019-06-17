@@ -143,7 +143,8 @@ Copyable c2(c1);  // コピーコンストラクタでオブジェクト作成
 ```cpp
 class Movable {
  public:
-    Movable(Movable&& m);
+    Movable();  // デフォルトコンストラクタ
+    Movable(Movable&& m);  // ムーブコンストラクタ
 };
 ```
 
