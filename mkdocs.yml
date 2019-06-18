@@ -106,6 +106,7 @@ nav:
   - 9. テンプレート:
       - 9.1. 関数テンプレート: ch09-01-function-templates.md
       - 9.2. クラステンプレート: ch09-02-class-templates.md
+      - 9.3. 特殊化: ch09-03-template-specializations.md
   - 10. エラー処理:
       - 10.1 例外処理: ch10-01-exceptions.md
       - 10.2 シグナル: ch10-02-signals.md
