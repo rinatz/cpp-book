@@ -19,6 +19,17 @@ int* p = &x;
 int* p = nullptr;
 ```
 
+!!! warning "NULL マクロ"
+    C++11 までは `nullptr` というキーワードがなく、代わりに `NULL` を使用するのが一般的でした。
+    `NULL` の実体はポインタ型ではなく `int` 型の `0` などであるため不都合が生じることもありました。
+
+    C++11 ではこの問題を解決するために `nullptr` が導入されました。
+    そのため C++11 以降では `NULL` ではなく `nullptr` を使うようにしましょう。
+
+    詳細は [nullptr - cpprefjp C++日本語リファレンス][cpprefjp_nullptr] を参照してください。
+
+[cpprefjp_nullptr]: https://cpprefjp.github.io/lang/cpp11/nullptr.html
+
 ## デリファレンス（逆参照）
 
 ポインタが指す変数の値を参照するには次のように書きます。
