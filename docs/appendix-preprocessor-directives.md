@@ -58,7 +58,7 @@ int main() {
     // `std::cout << 2 << std::endl;` に置換される
     std::cout << ECHO(2) << std::endl;
 
-    // `std::cout << ECHO("abc") << std::endl;` に置換される
+    // `std::cout << "abc" << std::endl;` に置換される
     std::cout << ECHO("abc") << std::endl;
 
     return 0;
