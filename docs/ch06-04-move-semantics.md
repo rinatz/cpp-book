@@ -65,3 +65,42 @@ std::vector<int> y = std::move(x); // std::move で x を右辺値にキャス�
 
 // 以降、xは利用しない
 ```
+
+## 右辺値参照
+
+右辺値を参照するには `&&` を付けます。
+
+```cpp
+int&& x = 100;
+```
+
+左辺値の参照と右辺値の参照は別の型として扱われるため、
+オーバーロードの仕組みを利用することで、引数が左辺値参照の時と右辺値参照の時で処理を分けることが可能です。
+
+```cpp
+#include <iostream>
+#include <string>
+
+void Print(std::string&) {
+    std::cout << "左辺値参照" << std::endl;
+}
+
+void Print(std::string&&) {
+    std::cout << "右辺値参照" << std::endl;
+}
+
+int main() {
+    std::string str = "hoge";
+
+    Print(str);
+    Print(std::move(str));
+
+    return 0;
+}
+```
+
+```bash
+# 実行結果
+左辺値参照
+右辺値参照
+```
