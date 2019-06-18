@@ -173,33 +173,16 @@ int main() {
 グローバルスコープに宣言された変数や関数は、宣言以降であればどこからでも利用することが出来ます。
 また、グローバルスコープに宣言した変数・関数のことを一般的にグローバル変数・関数と言います。
 
-```cpp tab="main.cc"
+```cpp hl_lines="3"
 #include <iostream>
 
-#include "global.h"  // グローバル変数 x が存在するヘッダをインクルード
+int x = 100;  // グローバル変数
 
 int main() {
     std::cout << x << std::endl;  // 100
 
     return 0;
 }
-```
-
-```cpp tab="global.h" hl_lines="4"
-#ifndef GLOBAL_H_
-#define GLOBAL_H_
-
-int x = 100;  // グローバル変数
-
-namespace A {
-    int x = 50;
-}  // namespace A
-
-void Hoge() {
-    /* Do Nothing. */
-}
-
-#endif  // GLOBAL_H_
 ```
 
 グローバル変数は「どこからでも利用することが出来る」という性質上、どこからでも値を書き換えることが出来ます。
