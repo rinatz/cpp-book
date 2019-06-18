@@ -14,7 +14,10 @@ $ pacman -S make
 
 ## ビルド実行
 
-`main.cc` をビルドして `a.exe` を生成する場合は `Makefile` を次のようにします。
+`make` は `Makefile` という名前のファイルを読み込んで動作します。
+
+`main.cc` をビルドして `a.exe` を生成する場合は、
+`Makefile` というファイルを作成して次のように記述します。
 
 <!-- FIXME: Codeblock probably can not treat tab character (&#009). -->
 
