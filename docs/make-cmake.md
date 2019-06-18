@@ -18,7 +18,10 @@ $ pacman -S cmake
 
 ## ビルド実行
 
-`main.cc` をビルドして `a.exe` を生成する場合は `CMakeLists.txt` を次のようにします。
+`cmake` は `CMakeLists.txt` という名前のファイルを読み込んで動作します。
+
+`main.cc` をビルドして `a.exe` を生成する場合は
+`CMakeLists.txt` というファイルを作成して次のように記述します。
 
 ```
 cmake_minimum_required(VERSION 3.0)
