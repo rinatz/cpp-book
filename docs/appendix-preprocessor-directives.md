@@ -52,6 +52,8 @@ int main() {
 特別な理由がない限り関数テンプレートの使用が望ましいです。
 
 ```cpp
+#include <iostream>
+
 #define ECHO(VALUE) VALUE
 
 int main() {
@@ -97,8 +99,11 @@ int main() {
 他にも次のようなケースがあります。
 
 ```cpp
+#include <iostream>
+
 // 条件 EXPECTED が満たされていない時に MESSAGE を出力
-#define ERROR_LOG(EXPECTED, MESSAGE)       \  // \ で改行できる
+// `\` で改行できる
+#define ERROR_LOG(EXPECTED, MESSAGE)       \
     if (!(EXPECTED)) {                     \
         std::cout << MESSAGE << std::endl; \
     }
