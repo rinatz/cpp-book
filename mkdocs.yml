@@ -113,6 +113,7 @@ nav:
       - 10.3 アサーション: ch10-03-assertions.md
   - 11. ビルドと実行:
       - 11.1 ビルド: ch11-01-build.md
+      - 11.2 静的ライブラリと静的リンク: ch11-02-static-libraries-and-static-linking.md
   - 単体テスト:
       - Google Test の使い方: test-how-to-gtest.md
   - デバッグ:
