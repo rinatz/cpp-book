@@ -146,7 +146,7 @@ if (false)
     }
 ```
 
-`else` が `if` の中に入ってしまってい、次の `if` とつながって `else if` となっています。
+`else` が `if` の中に入ってしまい、次の `if` とつながって `else if` となっています。
 
 このような問題を避けるためには
 [複文マクロ][more_cplusplus_idioms_multi_statement_macro] と呼ばれるイディオムを使用します。
