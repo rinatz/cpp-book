@@ -111,6 +111,8 @@ nav:
       - 10.1 例外処理: ch10-01-exceptions.md
       - 10.2 シグナル: ch10-02-signals.md
       - 10.3 アサーション: ch10-03-assertions.md
+  - 11. ビルドと実行:
+      - 11.1 ビルド: ch11-01-build.md
   - 単体テスト:
       - Google Test の使い方: test-how-to-gtest.md
   - デバッグ:
