@@ -1,0 +1,1516 @@
+
+
+
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="ゼロから学ぶ C++">
+      
+      
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch07-02-member-functions/">
+      
+      
+        <meta name="author" content="井田 献一朗">
+      
+      
+        <meta name="lang:clipboard.copy" content="クリップボードへコピー">
+      
+        <meta name="lang:clipboard.copied" content="コピーしました">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="何も見つかりませんでした">
+      
+        <meta name="lang:search.result.one" content="1件見つかりました">
+      
+        <meta name="lang:search.result.other" content="#件見つかりました">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-　、。，．]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+    
+    
+      
+        <title>7.2. メンバ関数 - ゼロから学ぶ C++</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.982221ab.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,400,400i,700|Inconsolata">
+        <style>body,input{font-family:"Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Inconsolata","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://rinatz.github.io/cpp-book" title="ゼロから学ぶ C++" class="md-header-nav__button md-logo">
+          
+            <img src="../img/cpp.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              ゼロから学ぶ C++
+            </span>
+            <span class="md-header-nav__topic">
+              7.2. メンバ関数
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            検索キーワードを入力してください
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/rinatz/cpp-book/" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    rinatz/cpp-book
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="http://rinatz.github.io/cpp-book" title="ゼロから学ぶ C++" class="md-nav__button md-logo">
+      
+        <img src="../img/cpp.svg" width="48" height="48">
+      
+    </a>
+    ゼロから学ぶ C++
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/rinatz/cpp-book/" title="リポジトリへ" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    rinatz/cpp-book
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="ホーム" class="md-nav__link">
+      ホーム
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      1. C++ を始める
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        1. C++ を始める
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch01-01-installation/" title="1.1. インストール" class="md-nav__link">
+      1.1. インストール
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-nav__link">
+      1.2. Hello, World!
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      2. 基本構文
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        2. 基本構文
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-01-variables/" title="2.1. 変数" class="md-nav__link">
+      2.1. 変数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-02-primitive-types/" title="2.2. 基本型" class="md-nav__link">
+      2.2. 基本型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-03-literals/" title="2.3. リテラル" class="md-nav__link">
+      2.3. リテラル
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-04-pointers/" title="2.4. ポインタ" class="md-nav__link">
+      2.4. ポインタ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-05-comments/" title="2.5. コメント" class="md-nav__link">
+      2.5. コメント
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-06-control-flow/" title="2.6. 制御文" class="md-nav__link">
+      2.6. 制御文
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-07-operators/" title="2.7. 演算子" class="md-nav__link">
+      2.7. 演算子
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-08-functions/" title="2.8. 関数" class="md-nav__link">
+      2.8. 関数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch02-09-function-objects/" title="2.9. 関数オブジェクト" class="md-nav__link">
+      2.9. 関数オブジェクト
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      3. コンテナ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        3. コンテナ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-01-arrays/" title="3.1. 配列" class="md-nav__link">
+      3.1. 配列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-02-strings/" title="3.2. 文字列" class="md-nav__link">
+      3.2. 文字列
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-03-tuples/" title="3.3. タプル" class="md-nav__link">
+      3.3. タプル
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-04-pairs/" title="3.4. ペア" class="md-nav__link">
+      3.4. ペア
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-05-vectors/" title="3.5. ベクタ" class="md-nav__link">
+      3.5. ベクタ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-06-maps/" title="3.6. マップ" class="md-nav__link">
+      3.6. マップ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-07-sets/" title="3.7. セット" class="md-nav__link">
+      3.7. セット
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-08-iterators/" title="3.8. イテレータ" class="md-nav__link">
+      3.8. イテレータ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      4. ファイル分割とスコープ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        4. ファイル分割とスコープ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-01-multiple-files/" title="4.1. 複数ファイル" class="md-nav__link">
+      4.1. 複数ファイル
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      5. ストリーム操作
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        5. ストリーム操作
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-01-standard-inout/" title="5.1. 標準入出力" class="md-nav__link">
+      5.1. 標準入出力
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch05-02-file-operations/" title="5.2. ファイル操作" class="md-nav__link">
+      5.2. ファイル操作
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      6. メモリの管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        6. メモリの管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch06-01-memory-areas/" title="6.1. メモリ領域" class="md-nav__link">
+      6.1. メモリ領域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch06-02-new-and-delete/" title="6.2. new/delete" class="md-nav__link">
+      6.2. new/delete
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch06-03-deep-and-shallow-copy/" title="6.3. ディープコピーとシャローコピー" class="md-nav__link">
+      6.3. ディープコピーとシャローコピー
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch06-04-move-semantics/" title="6.4. ムーブセマンティクス" class="md-nav__link">
+      6.4. ムーブセマンティクス
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch06-05-smart-pointers/" title="6.5. スマートポインタ" class="md-nav__link">
+      6.5. スマートポインタ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+    
+    <label class="md-nav__link" for="nav-8">
+      7. クラス
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        7. クラス
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-01-member-variables/" title="7.1. メンバ変数" class="md-nav__link">
+      7.1. メンバ変数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7.2. メンバ関数
+      </label>
+    
+    <a href="./" title="7.2. メンバ関数" class="md-nav__link md-nav__link--active">
+      7.2. メンバ関数
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="クラス宣言とは別に定義" class="md-nav__link">
+    クラス宣言とは別に定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#const" title="const メンバ関数" class="md-nav__link">
+    const メンバ関数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this" title="this ポインタ" class="md-nav__link">
+    this ポインタ
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-03-inheritance/" title="7.3. 継承" class="md-nav__link">
+      7.3. 継承
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-04-polymorphism/" title="7.4. 多態性" class="md-nav__link">
+      7.4. 多態性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-05-constructors/" title="7.5. コンストラクタ" class="md-nav__link">
+      7.5. コンストラクタ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-06-destructors/" title="7.6. デストラクタ" class="md-nav__link">
+      7.6. デストラクタ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-07-operator-overloading/" title="7.7. 演算子オーバーロード" class="md-nav__link">
+      7.7. 演算子オーバーロード
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-08-assignment-operator/" title="7.8. 代入演算子" class="md-nav__link">
+      7.8. 代入演算子
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-09-default-and-delete/" title="7.9. default/delete" class="md-nav__link">
+      7.9. default/delete
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-10-static-members/" title="7.10. static メンバ" class="md-nav__link">
+      7.10. static メンバ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch07-11-structs/" title="7.11. 構造体" class="md-nav__link">
+      7.11. 構造体
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      8. キャスト
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        8. キャスト
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch08-01-cpp-casts/" title="8.1. C++ のキャスト" class="md-nav__link">
+      8.1. C++ のキャスト
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch08-02-c-cast/" title="8.2. C言語形式のキャスト" class="md-nav__link">
+      8.2. C言語形式のキャスト
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      9. テンプレート
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        9. テンプレート
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch09-01-function-templates/" title="9.1. 関数テンプレート" class="md-nav__link">
+      9.1. 関数テンプレート
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch09-02-class-templates/" title="9.2. クラステンプレート" class="md-nav__link">
+      9.2. クラステンプレート
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch09-03-template-specializations/" title="9.3. 特殊化" class="md-nav__link">
+      9.3. 特殊化
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      10. エラー処理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        10. エラー処理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch10-01-exceptions/" title="10.1 例外処理" class="md-nav__link">
+      10.1 例外処理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch10-02-signals/" title="10.2 シグナル" class="md-nav__link">
+      10.2 シグナル
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch10-03-assertions/" title="10.3 アサーション" class="md-nav__link">
+      10.3 アサーション
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      単体テスト
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        単体テスト
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../test-how-to-gtest/" title="Google Test の使い方" class="md-nav__link">
+      Google Test の使い方
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      デバッグ
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        デバッグ
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../debug-debugger/" title="デバッガ" class="md-nav__link">
+      デバッガ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../debug-build/" title="デバッグビルド" class="md-nav__link">
+      デバッグビルド
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../debug-gdb/" title="GDB による CUI デバッグ" class="md-nav__link">
+      GDB による CUI デバッグ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../debug-vscode/" title="Visual Studio Code による GUI デバッグ" class="md-nav__link">
+      Visual Studio Code による GUI デバッグ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      ビルド自動化
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        ビルド自動化
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../make-make/" title="Make" class="md-nav__link">
+      Make
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      付録
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        付録
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../appendix-malloc-and-free/" title="malloc/free" class="md-nav__link">
+      malloc/free
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="クラス宣言とは別に定義" class="md-nav__link">
+    クラス宣言とは別に定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#const" title="const メンバ関数" class="md-nav__link">
+    const メンバ関数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this" title="this ポインタ" class="md-nav__link">
+    this ポインタ
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch07-02-member-functions.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="_1">メンバ関数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>クラスが持つ関数をメンバ関数といいます。</p>
+<p>長方形を扱う <code>Rectangle</code> クラスに
+面積を求めるメンバ関数 <code>Area</code> を持たせるには次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">       <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>メンバ関数を使用するには <code>.</code> を使用します。</p>
+<div class="codehilite"><pre><span></span><span class="n">Rectangle</span> <span class="n">r</span><span class="p">;</span>
+<span class="n">r</span><span class="p">.</span><span class="n">height_</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">r</span><span class="p">.</span><span class="n">width_</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="hll"><span class="n">r</span><span class="p">.</span><span class="n">Area</span><span class="p">();</span>
+</span></pre></div>
+
+<h2 id="_2">クラス宣言とは別に定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>クラス宣言とは別にメンバ関数を定義するには次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">Area</span><span class="p">();</span>
+</span>
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span></pre></div>
+
+<p>どのクラスのメンバ関数であるかを表すために <code>Rectangle::</code> が必要になります。</p>
+<h2 id="const">const メンバ関数<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
+<p>引数リストのあとに <code>const</code> をつけることで <code>const</code> メンバ関数になります。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">Area</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</span><span class="p">};</span>
+</pre></div>
+
+<p><code>const</code> メンバ関数ではメンバ変数を変更することができません。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">Area</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+<span class="hll">    <span class="n">height_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// メンバ変数を変更するとコンパイルエラーになります</span>
+</span>    <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>const</code> メンバ関数はメンバ変数を変更しないため、
+オブジェクトの状態を変化させずに呼び出すことができます。</p>
+<p>メンバ変数を変更しないという制約を満たすために、
+<code>const</code> メンバ関数から呼び出せるメンバ関数は <code>const</code> メンバ関数に限定されます。</p>
+<h2 id="this">this ポインタ<a class="headerlink" href="#this" title="Permanent link">&para;</a></h2>
+<p>メンバ関数では <code>this</code> で自オブジェクトのポインタを取得することができます。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">Area</span><span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+   <span class="c1">// this ポインタ経由でメンバ変数を使用</span>
+    <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">height_</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">width_</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../ch07-01-member-variables/" title="7.1. メンバ変数" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前
+                </span>
+                7.1. メンバ変数
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ch07-03-inheritance/" title="7.3. 継承" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  次
+                </span>
+                7.3. 継承
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy 2019 Kenichiro IDA
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.d9aa80ab.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
