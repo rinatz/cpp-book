@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/appendix-malloc-and-free/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/appendix-preprocessor-directives/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>malloc/free - ゼロから学ぶ C++</title>
+        <title>プリプロセッサ司令 - ゼロから学ぶ C++</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#mallocfree" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              malloc/free
+              プリプロセッサ司令
             </span>
           
         </div>
@@ -1258,6 +1258,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../appendix-malloc-and-free/" title="malloc/free" class="md-nav__link">
+      malloc/free
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -1269,11 +1281,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        malloc/free
+        プリプロセッサ司令
       </label>
     
-    <a href="./" title="malloc/free" class="md-nav__link md-nav__link--active">
-      malloc/free
+    <a href="./" title="プリプロセッサ司令" class="md-nav__link md-nav__link--active">
+      プリプロセッサ司令
     </a>
     
       
@@ -1287,30 +1299,83 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sizeof" title="sizeof" class="md-nav__link">
-    sizeof
+  <a href="#_2" title="インクルード" class="md-nav__link">
+    インクルード
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#malloc" title="malloc" class="md-nav__link">
-    malloc
+  <a href="#_3" title="マクロ" class="md-nav__link">
+    マクロ
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="オブジェクト形式" class="md-nav__link">
+    オブジェクト形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="関数形式" class="md-nav__link">
+    関数形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="定義済みマクロ" class="md-nav__link">
+    定義済みマクロ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="ファイル名と行番号" class="md-nav__link">
+    ファイル名と行番号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" title="C++ バージョン" class="md-nav__link">
+    C++ バージョン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#free" title="free" class="md-nav__link">
-    free
+  <a href="#_8" title="条件" class="md-nav__link">
+    条件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ifdef-ifndef" title="#ifdef と #ifndef" class="md-nav__link">
+    #ifdef と #ifndef
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#newdelete" title="new/deleteとの違い" class="md-nav__link">
-    new/deleteとの違い
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1322,18 +1387,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../appendix-preprocessor-directives/" title="プリプロセッサ司令" class="md-nav__link">
-      プリプロセッサ司令
-    </a>
   </li>
 
         
@@ -1363,30 +1416,83 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sizeof" title="sizeof" class="md-nav__link">
-    sizeof
+  <a href="#_2" title="インクルード" class="md-nav__link">
+    インクルード
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#malloc" title="malloc" class="md-nav__link">
-    malloc
+  <a href="#_3" title="マクロ" class="md-nav__link">
+    マクロ
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="オブジェクト形式" class="md-nav__link">
+    オブジェクト形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="関数形式" class="md-nav__link">
+    関数形式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="定義済みマクロ" class="md-nav__link">
+    定義済みマクロ
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="ファイル名と行番号" class="md-nav__link">
+    ファイル名と行番号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" title="C++ バージョン" class="md-nav__link">
+    C++ バージョン
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#free" title="free" class="md-nav__link">
-    free
+  <a href="#_8" title="条件" class="md-nav__link">
+    条件
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ifdef-ifndef" title="#ifdef と #ifndef" class="md-nav__link">
+    #ifdef と #ifndef
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#newdelete" title="new/deleteとの違い" class="md-nav__link">
-    new/deleteとの違い
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1406,84 +1512,216 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/appendix-malloc-and-free.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/appendix-preprocessor-directives.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="mallocfree">malloc/free<a class="headerlink" href="#mallocfree" title="Permanent link">&para;</a></h1>
-<p>C言語のライブラリに用意されている関数 <code>malloc/free</code> を利用して、ヒープにメモリを動的に確保/解放することも出来ます。</p>
-<h2 id="sizeof">sizeof<a class="headerlink" href="#sizeof" title="Permanent link">&para;</a></h2>
-<p><code>sizeof</code> 演算子を使うことで、オブジェクトや型のバイト単位のサイズを取得することが出来ます。操作するメモリのサイズを指定するときに使用されることが多いです。</p>
-<div class="admonition warning">
-<p class="admonition-title">環境依存</p>
-<p>出力されるサイズは実行環境によって異なる場合があります。</p>
-</div>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="kt">double</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// 4</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 4</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// 8</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>   <span class="c1">// 8</span>
-</pre></div>
-
-<h2 id="malloc">malloc<a class="headerlink" href="#malloc" title="Permanent link">&para;</a></h2>
-<p>ヒープにメモリを動的に確保する場合は <code>malloc</code> を利用します。</p>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>      <span class="c1">// (型名*)malloc(確保する領域のサイズ)</span>
-<span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">);</span>  <span class="c1">// int[5] の領域を確保する場合</span>
-</pre></div>
-
-<h2 id="free">free<a class="headerlink" href="#free" title="Permanent link">&para;</a></h2>
-<p>ヒープに動的に確保したメモリを解放する場合は <code>free</code> を利用します。</p>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">);</span>
-
-<span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>  <span class="c1">// メモリの解放</span>
-</pre></div>
-
-<p><code>malloc</code> を利用して確保したメモリの解放を忘れるとメモリリークになります。 <code>malloc</code> と <code>free</code> は必ずセットで使いましょう。</p>
-<h2 id="newdelete">new/deleteとの違い<a class="headerlink" href="#newdelete" title="Permanent link">&para;</a></h2>
-<p><code>new/delete</code> と違い、 <code>malloc/free</code> で生成されたオブジェクトはコンストラクタ・デストラクタの呼び出しが行われません。
-プログラムが予期せぬ動作をする原因になることがあるので、基本的に <code>new/delete</code> を使用するようにしましょう。</p>
-<div class="superfences-tabs">
-<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
-<label for="__tab_1_0">サンプルコード</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
-
-<span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="n">MyClass</span><span class="p">()</span> <span class="p">{</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;MyClass&#39; constructor is called.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="o">~</span><span class="n">MyClass</span><span class="p">()</span> <span class="p">{</span>
-      <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;MyClass&#39; destructor is called.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">};</span>
+                <h1 id="_1">プリプロセッサ司令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>プリプロセッサはコンパイルを行う前にソースファイルの変換などを行うプログラムです。</p>
+<h2 id="_2">インクルード<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>#include</code> で指定ファイルを読み込んでその場に展開します。
+単純なファイル展開であるためインクルードガードなどが必要となります。</p>
+<p>ファイルの指定には <code>"..."</code> と <code>&lt;...&gt;</code> の2種類があります。</p>
+<p><code>&lt;...&gt;</code> は標準のインクルードディレクトリからファイルを検索します。
+標準のインクルードディレクトリは一般に次のもので構成されます。</p>
+<ul>
+<li><code>C</code> および <code>C++</code> の標準ライブラリ</li>
+<li>処理系の標準ライブラリ (Windows における <code>windows.h</code> など)</li>
+<li>オプション指定されたディレクトリ (外部ライブラリなど)</li>
+</ul>
+<p><code>"..."</code> はカレントディレクトリからファイルを検索します。
+見つからなかった場合には <code>&lt;...&gt;</code> と同様に標準のインクルードディレクトリからファイルを検索します。</p>
+<h2 id="_3">マクロ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><code>#define</code> でマクロを定義して文字列置換を行います。</p>
+<p>定義されたマクロはソースファイルの末尾まで有効です。
+ソースファイルの途中で無効化するには <code>#undef</code> を使用します。</p>
+<h3 id="_4">オブジェクト形式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>オブジェクト形式のマクロは固定の文字列へ置換されます。</p>
+<p>一般に定数として利用されますが、
+特別な理由がない限り <code>constexpr</code> 変数の使用が望ましいです。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#define BUFFER_SIZE 256</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;---new/delete---&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="n">MyClass</span><span class="o">*</span> <span class="n">mc1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">();</span>
-    <span class="k">delete</span> <span class="n">mc1</span><span class="p">;</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;---malloc/free---&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="n">MyClass</span><span class="o">*</span> <span class="n">mc2</span> <span class="o">=</span> <span class="p">(</span><span class="n">MyClass</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">MyClass</span><span class="p">));</span>
-    <span class="n">free</span><span class="p">(</span><span class="n">mc2</span><span class="p">);</span>
+    <span class="c1">// `char buffer[256];` に置換される</span>
+    <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="n">BUFFER_SIZE</span><span class="p">];</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div></div>
-<input name="__tabs_1" type="radio" id="__tab_1_1" />
-<label for="__tab_1_1">実行結果</label>
-<div class="superfences-content"><div class="codehilite"><pre><span></span>---new/delete---
-MyClass&#39; constructor is called.
-MyClass&#39; destructor is called.
----malloc/free---
-</pre></div></div>
-</div>
+</pre></div>
+
+<h3 id="_5">関数形式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>関数形式のマクロは引数を使用して文字列へ置換されます。</p>
+<p>一般に型に依存しない関数として使用されますが、
+特別な理由がない限り関数テンプレートの使用が望ましいです。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#define ECHO(VALUE) VALUE</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// `std::cout &lt;&lt; 2 &lt;&lt; std::endl;` に置換される</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ECHO</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="c1">// `std::cout &lt;&lt; &quot;abc&quot; &lt;&lt; std::endl;` に置換される</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ECHO</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>意図しない挙動にならないよう置換内容の工夫が必要となることがあります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// VALUE1 と VALUE2 の和</span>
+<span class="cp">#define SUM(VALUE1, VALUE2) VALUE1 + VALUE2</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// `1 + 2` に置換される</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">SUM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+
+    <span class="c1">// `1 + 2 * 3` に置換される</span>
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="n">SUM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 3</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 7 (9 にならない)</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>意図通りの挙動にするためには次のように括弧で囲む必要があります。</p>
+<div class="codehilite"><pre><span></span><span class="c1">// VALUE1 と VALUE2 の和</span>
+<span class="cp">#define SUM(VALUE1, VALUE2) (VALUE1 + VALUE2)</span>
+</pre></div>
+
+<p>他にも次のようなケースがあります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// 条件 EXPECTED が満たされていない時に MESSAGE を出力</span>
+<span class="c1">// `\` で改行できる</span>
+<span class="cp">#define ERROR_LOG(EXPECTED, MESSAGE)       \</span>
+<span class="cp">    if (!(EXPECTED)) {                     \</span>
+<span class="cp">        std::cout &lt;&lt; MESSAGE &lt;&lt; std::endl; \</span>
+<span class="cp">    }</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 期待通りの動作</span>
+    <span class="n">ERROR_LOG</span><span class="p">(</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;message1&quot;</span><span class="p">);</span>  <span class="c1">// true なので実行されない</span>
+    <span class="n">ERROR_LOG</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="s">&quot;message2&quot;</span><span class="p">);</span>  <span class="c1">// false なので実行される</span>
+
+    <span class="c1">// 展開されるとブロック有り if 文なのでセミコロンがなくてもエラーにならない</span>
+    <span class="n">ERROR_LOG</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="s">&quot;message3&quot;</span><span class="p">)</span>
+
+    <span class="c1">// ブロック無し if 文では制御構造が変化してしまう</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+        <span class="n">ERROR_LOG</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="s">&quot;message4&quot;</span><span class="p">)</span>
+    <span class="k">else</span>
+        <span class="n">ERROR_LOG</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="s">&quot;message5&quot;</span><span class="p">)</span>  <span class="c1">// 実行されない</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>ブロック無し if 文では次のように展開されます。</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nb">false</span><span class="p">))</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;message4&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+<span class="k">else</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nb">false</span><span class="p">))</span> <span class="p">{</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;message5&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<p>分かりやすいように整形すると次のようになります。</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="nb">false</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nb">false</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;message4&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nb">false</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;message5&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre></div>
+
+<p><code>else</code> が <code>if</code> の中に入ってしまい、次の <code>if</code> とつながって <code>else if</code> となっています。</p>
+<p>このような問題を避けるためには
+<a href="https://ja.wikibooks.org/wiki/More_C%2B%2B_Idioms/複文マクロ(Multi-statement_Macro)">複文マクロ</a> と呼ばれるイディオムを使用します。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#define ERROR_LOG(EXPECTED, MESSAGE)           \</span>
+<span class="cp">    do {                                       \</span>
+<span class="cp">        if (!(EXPECTED)) {                     \</span>
+<span class="cp">            std::cout &lt;&lt; MESSAGE &lt;&lt; std::endl; \</span>
+<span class="cp">        }                                      \</span>
+<span class="cp">    } while (false)</span>
+</pre></div>
+
+<h3 id="_6">定義済みマクロ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>定義済みマクロの一部を紹介します。</p>
+<p>一覧は <a href="https://ja.cppreference.com/w/cpp/preprocessor/replace">テキストマクロの置換 - cppreference.com</a> を参照してください。</p>
+<h4 id="_7">ファイル名と行番号<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<p>ソースファイルやヘッダファイルの情報として
+<code>__FILE__</code> でファイル名、
+<code>__LINE__</code> で行番号を取得することができます。</p>
+<p>ログ出力ではこれらの値を使用するために、
+ログ出力関数を関数形式のマクロで定義するのが一般的です。</p>
+<h4 id="c">C++ バージョン<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
+<p><code>__cplusplus</code> で使用している C++ のバージョンを表す数値を取得できます。
+C++11 であれば <code>201103L</code> という値に置換されます。</p>
+<p>C++ のバージョンに応じて有効/無効を制御するために使用されます。</p>
+<h2 id="_8">条件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>次の司令で条件に応じてコードの有効/無効を分けることができます。</p>
+<ul>
+<li><code>#if</code></li>
+<li><code>#elif</code></li>
+<li><code>#else</code></li>
+<li><code>#endif</code></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="cp">#if true</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;true&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 有効 (コンパイルされる)</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#if false</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;false&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 無効 (コンパイル前に削除される)</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#if false</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;1&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 無効</span>
+<span class="cp">#elif true</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;2&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 有効</span>
+<span class="cp">#else</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;3&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 無効</span>
+<span class="cp">#endif</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p><code>defined</code> によってマクロが定義されているかどうかを条件にすることができます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="c1">// 条件だけに使用するマクロは置換文字列を空にする</span>
+<span class="cp">#define SAMPLE_A</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="cp">#if defined SAMPLE_A</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;A&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 有効</span>
+<span class="cp">#endif</span>
+
+<span class="cp">#if defined SAMPLE_B</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;B&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 無効</span>
+<span class="cp">#endif</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="ifdef-ifndef">#ifdef と #ifndef<a class="headerlink" href="#ifdef-ifndef" title="Permanent link">&para;</a></h3>
+<p>マクロが定義されているかという条件は多用されるため、
+<code>#if defined</code> の短縮として <code>#ifdef</code>、
+否定 <code>#if !defined</code> の短縮として <code>#ifndef</code> という司令があります。</p>
+<p>これらを活用してインクルードガードは実現されています。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#ifndef SAMPLE_H_</span>
+<span class="cp">#define SAMPLE_H_</span>
+
+<span class="c1">// 内容</span>
+
+<span class="cp">#endif  </span><span class="c1">// SAMPLE_H_</span>
+</pre></div>
                 
                   
                 
@@ -1504,7 +1742,7 @@ MyClass&#39; destructor is called.
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../make-make/" title="Make" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../appendix-malloc-and-free/" title="malloc/free" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1513,25 +1751,11 @@ MyClass&#39; destructor is called.
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                Make
+                malloc/free
               </span>
             </div>
           </a>
         
-        
-          <a href="../appendix-preprocessor-directives/" title="プリプロセッサ司令" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  次
-                </span>
-                プリプロセッサ司令
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
