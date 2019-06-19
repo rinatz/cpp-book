@@ -45,16 +45,15 @@ C++での関数の使用方法について説明します。
 
 4行目の時点では、`HelloWorld()`が何者なのかコンパイラには理解できないためです。
 
-## プロトタイプ宣言
+## 関数の前方宣言
 
 関数の宣言のみを呼び出し箇所よりも上の行に記述することで、関数の存在をコンパイラに教えることが出来ます。
-これをプロトタイプ宣言（前方宣言）と呼びます。
 
 !!! example "main.cc"
     ```cpp hl_lines="3" linenums="1"
     #include <iostream>
 
-    void HelloWorld(int n);  // プロトタイプ宣言（前方宣言）
+    void HelloWorld(int n);  // 前方宣言
 
     int main() {
         HelloWorld(10);
@@ -69,7 +68,10 @@ C++での関数の使用方法について説明します。
     }
     ```
 
-`HelloWorld()`の本体は`main()`の呼び出し箇所よりも下に記述されていますが、プロトタイプ宣言があることで問題なくコンパイルできます。
+`HelloWorld()`の本体は`main()`の呼び出し箇所よりも下に記述されていますが、前方宣言があることで問題なくコンパイルできます。
+
+宣言についての詳細は、[4.1. 宣言と定義 - 宣言][declarations-and-definitions] を参照してください。
+[declarations-and-definitions]: ch04-01-declarations-and-definitions.md#_2
 
 ## main関数
 これまでのサンプルコードで度々現れた`main()`をmain関数と呼びます。
