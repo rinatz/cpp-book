@@ -1,10 +1,10 @@
 site_name: ゼロから学ぶ C++
 site_description: ゼロから学ぶ C++
-site_author: 井田 献一朗
+site_author: Ida Kenichiro, Kamei Shogo, Kubo Koki
 site_url: http://rinatz.github.io/cpp-book
 repo_name: rinatz/cpp-book
 repo_url: https://github.com/rinatz/cpp-book
-copyright: Copyright &copy 2019 Kenichiro IDA
+copyright: Copyright &copy 2019 Ida Kenichiro
 
 theme:
   name: material
@@ -111,6 +111,9 @@ nav:
       - 10.1 例外処理: ch10-01-exceptions.md
       - 10.2 シグナル: ch10-02-signals.md
       - 10.3 アサーション: ch10-03-assertions.md
+  - 11. ビルドと実行:
+      - 11.1 ビルド: ch11-01-build.md
+      - 11.2 静的ライブラリと静的リンク: ch11-02-static-libraries-and-static-linking.md
   - 単体テスト:
       - Google Test の使い方: test-how-to-gtest.md
   - デバッグ:
@@ -123,3 +126,4 @@ nav:
       - CMake: make-cmake.md
   - 付録:
       - malloc/free: appendix-malloc-and-free.md
+      - プリプロセッサ司令: appendix-preprocessor-directives.md
