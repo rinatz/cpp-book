@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch03-05-vectors/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch11-02-static-libraries-and-static-linking/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>3.5. ベクタ - ゼロから学ぶ C++</title>
+        <title>11.2 静的ライブラリと静的リンク - ゼロから学ぶ C++</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              3.5. ベクタ
+              11.2 静的ライブラリと静的リンク
             </span>
           
         </div>
@@ -433,12 +433,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. コンテナ
@@ -502,63 +500,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        3.5. ベクタ
-      </label>
-    
-    <a href="./" title="3.5. ベクタ" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch03-05-vectors/" title="3.5. ベクタ" class="md-nav__link">
       3.5. ベクタ
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="末尾へ要素追加" class="md-nav__link">
-    末尾へ要素追加
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="末尾から要素削除" class="md-nav__link">
-    末尾から要素削除
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bool" title="bool に対する特殊化" class="md-nav__link">
-    bool に対する特殊化
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1099,10 +1045,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
     
     <label class="md-nav__link" for="nav-12">
       11. ビルドと実行
@@ -1130,11 +1078,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch11-02-static-libraries-and-static-linking/" title="11.2 静的ライブラリと静的リンク" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="11.2 静的ライブラリと静的リンク" class="md-nav__link md-nav__link--active">
       11.2 静的ライブラリと静的リンク
     </a>
+    
   </li>
 
         
@@ -1340,36 +1297,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="末尾へ要素追加" class="md-nav__link">
-    末尾へ要素追加
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="末尾から要素削除" class="md-nav__link">
-    末尾から要素削除
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bool" title="bool に対する特殊化" class="md-nav__link">
-    bool に対する特殊化
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1380,52 +1307,71 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch03-05-vectors.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch11-02-static-libraries-and-static-linking.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">ベクタ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>要素数を実行時に変更できる配列を扱うには <code>std::vector</code> を使用します。</p>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+                <h1 id="_1">静的ライブラリと静的リンク<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>複数のオブジェクトファイルを1つのファイルにまとめ、
+リンク時にオブジェクトファイルの代わりとして使用することができます。
+複数のオブジェクトファイルをまとめたファイルを静的ライブラリといい、
+そのファイルをリンクすることを静的リンクといいます。</p>
+<p>次のコードで説明します。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">main.cc</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">Sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">Sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">add.cc</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">sub.cc</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p><code>add.cc</code> と <code>sub.cc</code> をコンパイルして生成される
+2つのオブジェクトファイル <code>add.o</code> と <code>sub.o</code> から
+静的ライブラリ <code>util.a</code> を作成するには下記コマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>$ ar rc util.a add.o sub.o
 </pre></div>
 
-<p><code>x</code> は要素数が 5 であるような <code>int</code> の配列になります。
-<code>std::vector</code> を使用するには <code>&lt;vector&gt;</code> のインクルードが必要です。
-要素参照は通常の配列と同じようにできます。</p>
-<div class="codehilite"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<p><code>ar</code> はアーカイブを操作するコマンドです。
+<code>rc</code> でアーカイブを作成してファイルを追加するという指定をします。</p>
+<p>作成したアーカイブの内容は下記コマンドで確認できます。</p>
+<div class="codehilite"><pre><span></span>$ ar t util.a
+add.o
+sub.o
 </pre></div>
 
-<p><code>x.size()</code> とすると要素数が取得できます。</p>
-<div class="codehilite"><pre><span></span><span class="k">auto</span> <span class="n">size</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 5</span>
+<p><code>util.a</code> を静的リンクしてリンクを行うには下記コマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.o util.a
 </pre></div>
-
-<h2 id="_2">末尾へ要素追加<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>x.push_back()</code> とすると末尾へ要素を追加することができます。</p>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
-<span class="k">auto</span> <span class="n">size1</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 5</span>
-
-<span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
-<span class="k">auto</span> <span class="n">size2</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 6</span>
-</pre></div>
-
-<h2 id="_3">末尾から要素削除<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><code>x.pop_back()</code> とすると末尾から要素を削除することができます。</p>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
-<span class="k">auto</span> <span class="n">size1</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 5</span>
-
-<span class="n">x</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
-<span class="k">auto</span> <span class="n">size2</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 4</span>
-</pre></div>
-
-<h2 id="bool">bool に対する特殊化<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h2>
-<p><code>std::vector</code> は <code>bool</code> に対してテンプレート特殊化されており、
-<code>std::vector&lt;bool&gt;</code> は <code>bool</code> 以外の <code>std::vector</code> とは動作が異なります。</p>
-<p>詳細は <a href="https://cpprefjp.github.io/reference/vector/vector.html">vector - cpprefjp C++日本語リファレンス</a> を参照してください。</p>
                 
                   
                 
@@ -1446,7 +1392,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch03-04-pairs/" title="3.4. ペア" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch11-01-build/" title="11.1 ビルド" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1455,19 +1401,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                3.4. ペア
+                11.1 ビルド
               </span>
             </div>
           </a>
         
         
-          <a href="../ch03-06-maps/" title="3.6. マップ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../test-how-to-gtest/" title="Google Test の使い方" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                3.6. マップ
+                Google Test の使い方
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

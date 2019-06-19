@@ -241,6 +241,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://rinatz.github.io/cpp-book/ch11-02-static-libraries-and-static-linking/</loc>
+     <lastmod>2019-06-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://rinatz.github.io/cpp-book/test-how-to-gtest/</loc>
      <lastmod>2019-06-20</lastmod>
      <changefreq>daily</changefreq>
