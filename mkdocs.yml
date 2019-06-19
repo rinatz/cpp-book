@@ -4,7 +4,7 @@ site_author: 井田 献一朗
 site_url: http://rinatz.github.io/cpp-book
 repo_name: rinatz/cpp-book
 repo_url: https://github.com/rinatz/cpp-book
-copyright: Copyright &copy 2019 Kenichiro IDA
+copyright: Copyright &copy 2019 Ida, Kenichiro
 
 theme:
   name: material
