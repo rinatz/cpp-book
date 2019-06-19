@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch07-07-operator-overloading/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch11-01-build/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>7.7. 演算子オーバーロード - ゼロから学ぶ C++</title>
+        <title>11.1 ビルド - ゼロから学ぶ C++</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              7.7. 演算子オーバーロード
+              11.1 ビルド
             </span>
           
         </div>
@@ -721,12 +721,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       7. クラス
@@ -814,70 +812,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        7.7. 演算子オーバーロード
-      </label>
-    
-    <a href="./" title="7.7. 演算子オーバーロード" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch07-07-operator-overloading/" title="7.7. 演算子オーバーロード" class="md-nav__link">
       7.7. 演算子オーバーロード
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="単項演算子" class="md-nav__link">
-    単項演算子
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="二項演算子" class="md-nav__link">
-    二項演算子
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="インクリメント/デクリメント" class="md-nav__link">
-    インクリメント/デクリメント
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="期待される振る舞い" class="md-nav__link">
-    期待される振る舞い
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1106,10 +1045,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
     
     <label class="md-nav__link" for="nav-12">
       11. ビルドと実行
@@ -1125,11 +1066,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch11-01-build/" title="11.1 ビルド" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11.1 ビルド
+      </label>
+    
+    <a href="./" title="11.1 ビルド" class="md-nav__link md-nav__link--active">
       11.1 ビルド
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="コンパイル" class="md-nav__link">
+    コンパイル
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="リンク" class="md-nav__link">
+    リンク
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1339,29 +1325,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="単項演算子" class="md-nav__link">
-    単項演算子
+  <a href="#_2" title="コンパイル" class="md-nav__link">
+    コンパイル
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="二項演算子" class="md-nav__link">
-    二項演算子
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="インクリメント/デクリメント" class="md-nav__link">
-    インクリメント/デクリメント
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="期待される振る舞い" class="md-nav__link">
-    期待される振る舞い
+  <a href="#_3" title="リンク" class="md-nav__link">
+    リンク
   </a>
   
 </li>
@@ -1382,238 +1354,70 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch07-07-operator-overloading.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch11-01-build.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">演算子オーバーロード<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>クラスに対する演算子を定義することで演算子が使用可能になります。
-演算子は関数またはメンバ関数として定義します。</p>
-<h2 id="_2">単項演算子<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>整数を扱う <code>Integer</code> クラスの負号演算子を関数として定義するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">Integer</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
+                <h1 id="_1">ビルド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>ソースファイルから実行ファイルを生成する処理をビルドといいます。
+ビルドは次の手順で行われます。</p>
+<!-- TODO: プリプロセスを追加する -->
 
-    <span class="kt">int</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="hll"><span class="c1">// 負号演算子の対象が引数として渡される</span>
-</span><span class="hll"><span class="n">Integer</span> <span class="k">operator</span><span class="o">-</span><span class="p">(</span><span class="k">const</span> <span class="n">Integer</span><span class="o">&amp;</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="hll">    <span class="n">Integer</span> <span class="n">tmp</span><span class="p">(</span><span class="o">-</span><span class="n">v</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>
-</span><span class="hll">    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
-</span><span class="hll"><span class="p">}</span>
-</span></pre></div>
-
-<p>この演算子を使用するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="n">Integer</span> <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="hll"><span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span><span class="p">;</span>
-</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// -2</span>
+<ol>
+<li>コンパイル</li>
+<li>リンク</li>
+</ol>
+<h2 id="_2">コンパイル<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>人間が扱うソースファイルをコンピュータで扱うために0と1の表現 (機械語) に変換することをコンパイルといいます。
+コンパイルはソースファイル単位で行います。</p>
+<p>厳密にはコンパイルを行うプログラムのことをコンパイラといいますが、
+コンパイル以外のビルド処理もコンパイラによって提供されるのが一般的です。</p>
+<p>ソースファイルを機械語に変換した結果はオブジェクトファイルと呼ばれます。
+コンパイルだけ実行するには <code>-c</code> を指定します。</p>
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 -c main.cc
+$ g++ -std<span class="o">=</span>c++11 -c util.cc
 </pre></div>
 
-<p>メンバ関数として定義するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">Integer</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="kt">int</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="hll">    <span class="c1">// 負号演算子の対象のメンバ関数</span>
-</span><span class="hll">    <span class="n">Integer</span> <span class="k">operator</span><span class="o">-</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-</span><span class="hll">        <span class="n">Integer</span> <span class="n">tmp</span><span class="p">(</span><span class="o">-</span><span class="n">Value</span><span class="p">());</span>  <span class="c1">// 演算対象は自オブジェクトを使用する</span>
-</span><span class="hll">        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
-</span><span class="hll">    <span class="p">}</span>
-</span>
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
+<p>このコマンドを実行すると
+<code>main.cc</code> から <code>main.o</code>、 <code>util.cc</code> から <code>util.o</code> へコンパイルされます。</p>
+<p>コンパイルだけでは実行ファイルは生成されません。</p>
+<h2 id="_3">リンク<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>オブジェクトファイルなどをまとめて実行ファイルを生成することをリンクといいます。
+リンクを行うプログラムはリンカといいます。</p>
+<p><code>main.o</code> と <code>util.o</code> をリンクして実行ファイルを生成するには次のようにします。</p>
+<div class="codehilite"><pre><span></span>$ g++ main.o util.o
 </pre></div>
 
-<h2 id="_3">二項演算子<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>整数を扱う <code>Integer</code> クラスの加算演算子を関数として定義するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">Integer</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
+<p>コンパイル時点ではソースファイルを1つずつ処理するため、
+ソースファイル内で定義されていない関数や変数に対しては未定義であるという情報がオブジェクトファイルに格納されます。
+リンクではこうした未定義の関数や変数の定義を他のオブジェクトファイルなどから探して対応付けを行います。</p>
+<p>たとえば以下のコードの関数 <code>Sum</code> は <code>main.cc</code> ではプロトタイプ宣言だけで定義がないため、
+<code>main.o</code> には <code>Sum</code> が未定義であるという情報が格納されます。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">main.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
 
-    <span class="kt">int</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="hll"><span class="c1">// 加算演算子の左辺が第1引数、右辺が第2引数として渡される</span>
-</span><span class="hll"><span class="n">Integer</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Integer</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">Integer</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="hll">    <span class="n">Integer</span> <span class="n">tmp</span><span class="p">(</span><span class="n">lhs</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">+</span> <span class="n">rhs</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>
-</span><span class="hll">    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
-</span><span class="hll"><span class="p">}</span>
-</span></pre></div>
-
-<p>この演算子を使用するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="n">Integer</span> <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Integer</span> <span class="nf">b</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
-<span class="hll"><span class="n">Integer</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 3</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 5</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">util.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<p><code>Sum</code> は <code>util.cc</code> で定義が行われているため、
+<code>main.o</code> から実行ファイルを生成するには <code>util.o</code> が必要となります。
+次のように <code>main.o</code> だけでリンクを行うと <code>main.o</code> で未定義の <code>Sum</code> を定義と対応付けできずエラーとなります。</p>
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.o
+main.o:main.cc:<span class="o">(</span>.text+0x18<span class="o">)</span>: <span class="sb">`</span>Sum<span class="o">(</span>int, int<span class="o">)</span><span class="s1">&#39; に対する定義されていない参照です</span>
+<span class="s1">main.o:main.cc:(.text+0x18): 再配置がオーバーフローしないように切り詰められまし</span>
+<span class="s1">た: R_X86_64_PC32 (未定義シンボル `Sum(int, int)&#39;</span> に対して<span class="o">)</span>
+collect2: エラー: ld はステータス <span class="m">1</span> で終了しました
 </pre></div>
-
-<p>メンバ関数として定義するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">Integer</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="kt">int</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="hll">    <span class="c1">// 加算演算子の左辺のメンバ関数に対して、右辺が引数として渡される</span>
-</span><span class="hll">    <span class="n">Integer</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Integer</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
-</span><span class="hll">        <span class="n">Integer</span> <span class="n">tmp</span><span class="p">(</span><span class="n">Value</span><span class="p">()</span> <span class="o">+</span> <span class="n">rhs</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>  <span class="c1">// 左辺は自オブジェクトを使用する</span>
-</span><span class="hll">        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
-</span><span class="hll">    <span class="p">}</span>
-</span>
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
-</pre></div>
-
-<p>一般に二項演算子は対称性を維持するために関数として実装されます。
-たとえば整数クラスと実数クラスの二項演算子は次のように実装します。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">Integer</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="kt">int</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="k">class</span> <span class="nc">RealNumber</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">RealNumber</span><span class="p">(</span><span class="kt">double</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="kt">double</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">double</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
-
-<span class="hll"><span class="n">RealNumber</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Integer</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">RealNumber</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="hll">    <span class="n">RealNumber</span> <span class="n">tmp</span><span class="p">(</span><span class="n">lhs</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">+</span> <span class="n">rhs</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>
-</span><span class="hll">    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
-</span><span class="hll"><span class="p">}</span>
-</span>
-<span class="hll"><span class="n">RealNumber</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">RealNumber</span><span class="o">&amp;</span> <span class="n">lhs</span><span class="p">,</span> <span class="k">const</span> <span class="n">Integer</span><span class="o">&amp;</span> <span class="n">rhs</span><span class="p">)</span> <span class="p">{</span>
-</span><span class="hll">    <span class="n">RealNumber</span> <span class="n">tmp</span><span class="p">(</span><span class="n">lhs</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">+</span> <span class="n">rhs</span><span class="p">.</span><span class="n">Value</span><span class="p">());</span>
-</span><span class="hll">    <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
-</span><span class="hll"><span class="p">}</span>
-</span></pre></div>
-
-<h2 id="_4">インクリメント/デクリメント<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>インクリメント/デクリメントには前置と後置の2種類があります。</p>
-<p>前置は単行演算子の方法で定義します。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">Integer</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="kt">int</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="hll">    <span class="n">Integer</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">()</span> <span class="p">{</span>
-</span><span class="hll">        <span class="o">++</span><span class="n">value_</span><span class="p">;</span>
-</span><span class="hll">        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
-</span><span class="hll">    <span class="p">}</span>
-</span>
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
-</pre></div>
-
-<p>次のように前置インクリメントが使用できるようになります。</p>
-<div class="codehilite"><pre><span></span><span class="n">Integer</span> <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="hll"><span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="o">++</span><span class="n">a</span><span class="p">;</span>
-</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 3</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 3</span>
-</pre></div>
-
-<p>後置は二項演算子の方法で定義します。
-これは前置と後置を区別するために後置では <code>int</code> (通常は値 <code>0</code>) が渡される決まりがあるからです。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">Integer</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="kt">int</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">value_</span><span class="p">;</span>
-    <span class="p">}</span>
-
-<span class="hll">    <span class="n">Integer</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// 引数の int は使用しない</span>
-</span><span class="hll">        <span class="n">Integer</span> <span class="n">tmp</span><span class="p">(</span><span class="n">Value</span><span class="p">());</span>
-</span><span class="hll">        <span class="o">++</span><span class="n">value_</span><span class="p">;</span>
-</span><span class="hll">        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
-</span><span class="hll">    <span class="p">}</span>
-</span>
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
-</pre></div>
-
-<p>次のように後置インクリメントが使用できるようになります。</p>
-<div class="codehilite"><pre><span></span><span class="n">Integer</span> <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="hll"><span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">++</span><span class="p">;</span>
-</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 3</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2</span>
-</pre></div>
-
-<h2 id="_5">期待される振る舞い<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>演算子の振る舞いについては制約がほとんどありませんが、
-一般に組み込みの演算子と同様の振る舞いになることが期待されます。</p>
-<p>たとえば次のように期待する動作と異なる実装にすることも可能ではあります。</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Integer</span> <span class="p">{</span>
- <span class="k">public</span><span class="o">:</span>
-    <span class="k">explicit</span> <span class="n">Integer</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">)</span> <span class="o">:</span> <span class="n">value_</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="p">{}</span>
-
-    <span class="kt">int</span> <span class="n">Value</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span> <span class="k">return</span> <span class="n">value_</span><span class="p">;</span> <span class="p">}</span>
-
-    <span class="n">Integer</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">-</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>  <span class="c1">// 何もしないで自オブジェクトを返却</span>
-    <span class="p">}</span>
-
- <span class="k">private</span><span class="o">:</span>
-    <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
-<span class="p">};</span>
-</pre></div>
-
-<p>この定義に対して演算子を使用すると次のようになります。</p>
-<div class="codehilite"><pre><span></span><span class="n">Integer</span> <span class="nf">a</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="o">-</span><span class="n">a</span><span class="p">;</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">Value</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2 (-2 ではない)</span>
-</pre></div>
-
-<p>このように期待される振る舞いと異なる振る舞いにならないように、
-組み込みの演算子となるべく同じ振る舞いになるよう定義するのが一般的です。</p>
-<p>期待される振る舞いについては
-<a href="https://ja.cppreference.com/w/cpp/language/operators">演算子オーバーロード - cppreference.com</a> を参照してください。</p>
                 
                   
                 
@@ -1634,7 +1438,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch07-06-destructors/" title="7.6. デストラクタ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch10-03-assertions/" title="10.3 アサーション" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1643,19 +1447,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                7.6. デストラクタ
+                10.3 アサーション
               </span>
             </div>
           </a>
         
         
-          <a href="../ch07-08-assignment-operator/" title="7.8. 代入演算子" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../test-how-to-gtest/" title="Google Test の使い方" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                7.8. 代入演算子
+                Google Test の使い方
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
