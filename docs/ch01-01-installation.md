@@ -19,8 +19,7 @@ Clang は近年注目されているコンパイラで、
 
 本書では Windows 版の GCC をインストールします。
 GCC のインストールには msys2 というツールを使用します。
-msys2 は Linux で使用できるコマンドの一部を Windows に移植したツールセットであり、
-msys2 の中には GCC も含まれています。
+msys2 は Linux で使用できるコマンドの一部を Windows に移植したツールセットです。
 
 ### msys2 のインストール
 
@@ -34,6 +33,14 @@ https://www.msys2.org/
 2 種類がありますが、前者が 32 ビット版で後者が 64 ビット版になります。
 本書では 64 ビット版をもとに説明するので、64 ビット版をインストールしてください。
 
+### GCC のインストール
+
+msys2 のターミナルを起動して下記コマンドを打ってインストールします。
+
+```bash
+$ pacman -S gcc
+```
+
 ## IDE
 
 C++ 用の IDE としては Visual Studio Code が人気です。
@@ -46,7 +53,9 @@ C++ 向けに使用することもできます。
 https://code.visualstudio.com/
 ```
 
-Visual Studio Code の拡張機能である `C/C++` もインストールします。
+Visual Studio Code の拡張機能である [C/C++] もインストールします。
 Visual Studio Code を起動した後、`Ctrl+Shift+X` を押すと
 拡張機能のインストール画面に切り替わるので、
-`C/C++` を検索してインストールしてください。
+[C/C++] を検索してインストールしてください。
+
+[C/C++]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools

@@ -32,6 +32,16 @@ const int x = 5;
 x = 10;  // エラー
 ```
 
+## constexpr
+
+`constexpr` を付けると定数にできます。
+
+```cpp
+constexpr int x = 5;
+```
+
+`const` の値は実行時に決定しますが `constexpr` の値はコンパイル時に決定します。
+
 ## 型推論
 
 変数の宣言時には明示的に型を指定しなくても `auto` を使うと

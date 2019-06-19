@@ -50,6 +50,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
 nav:
   - ホーム: index.md
   - 1. C++ を始める:
@@ -58,10 +61,64 @@ nav:
   - 2. 基本構文:
       - 2.1. 変数: ch02-01-variables.md
       - 2.2. 基本型: ch02-02-primitive-types.md
-      - 2.3. ポインタ: ch02-03-pointers.md
-      - 2.4. コメント: ch02-04-comments.md
-      - 2.5. 制御文: ch02-05-control-flow.md
+      - 2.3. リテラル: ch02-03-literals.md
+      - 2.4. ポインタ: ch02-04-pointers.md
+      - 2.5. コメント: ch02-05-comments.md
+      - 2.6. 制御文: ch02-06-control-flow.md
+      - 2.7. 演算子: ch02-07-operators.md
+      - 2.8. 関数: ch02-08-functions.md
+      - 2.9. 関数オブジェクト: ch02-09-function-objects.md
   - 3. コンテナ:
       - 3.1. 配列: ch03-01-arrays.md
       - 3.2. 文字列: ch03-02-strings.md
       - 3.3. タプル: ch03-03-tuples.md
+      - 3.4. ペア: ch03-04-pairs.md
+      - 3.5. ベクタ: ch03-05-vectors.md
+      - 3.6. マップ: ch03-06-maps.md
+      - 3.7. セット: ch03-07-sets.md
+      - 3.8. イテレータ: ch03-08-iterators.md
+  - 4. ファイル分割とスコープ:
+      - 4.1. 複数ファイル: ch04-01-multiple-files.md
+  - 5. ストリーム操作:
+      - 5.1. 標準入出力: ch05-01-standard-inout.md
+      - 5.2. ファイル操作: ch05-02-file-operations.md
+  - 6. メモリの管理:
+      - 6.1. メモリ領域: ch06-01-memory-areas.md
+      - 6.2. new/delete: ch06-02-new-and-delete.md
+      - 6.3. ディープコピーとシャローコピー: ch06-03-deep-and-shallow-copy.md
+      - 6.4. ムーブセマンティクス: ch06-04-move-semantics.md
+      - 6.5. スマートポインタ: ch06-05-smart-pointers.md
+  - 7. クラス:
+      - 7.1. メンバ変数: ch07-01-member-variables.md
+      - 7.2. メンバ関数: ch07-02-member-functions.md
+      - 7.3. 継承: ch07-03-inheritance.md
+      - 7.4. 多態性: ch07-04-polymorphism.md
+      - 7.5. コンストラクタ: ch07-05-constructors.md
+      - 7.6. デストラクタ: ch07-06-destructors.md
+      - 7.7. 演算子オーバーロード: ch07-07-operator-overloading.md
+      - 7.8. 代入演算子: ch07-08-assignment-operator.md
+      - 7.9. default/delete: ch07-09-default-and-delete.md
+      - 7.10. static メンバ: ch07-10-static-members.md
+      - 7.11. 構造体: ch07-11-structs.md
+  - 8. キャスト:
+      - 8.1. C++ のキャスト: ch08-01-cpp-casts.md
+      - 8.2. C言語形式のキャスト: ch08-02-c-cast.md
+  - 9. テンプレート:
+      - 9.1. 関数テンプレート: ch09-01-function-templates.md
+      - 9.2. クラステンプレート: ch09-02-class-templates.md
+      - 9.3. 特殊化: ch09-03-template-specializations.md
+  - 10. エラー処理:
+      - 10.1 例外処理: ch10-01-exceptions.md
+      - 10.2 シグナル: ch10-02-signals.md
+      - 10.3 アサーション: ch10-03-assertions.md
+  - 単体テスト:
+      - Google Test の使い方: test-how-to-gtest.md
+  - デバッグ:
+      - デバッガ: debug-debugger.md
+      - デバッグビルド: debug-build.md
+      - GDB による CUI デバッグ: debug-gdb.md
+      - Visual Studio Code による GUI デバッグ: debug-vscode.md
+  - ビルド自動化:
+      - Make: make-make.md
+  - 付録:
+      - malloc/free: appendix-malloc-and-free.md
