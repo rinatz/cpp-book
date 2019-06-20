@@ -78,7 +78,8 @@ nav:
       - 3.7. セット: ch03-07-sets.md
       - 3.8. イテレータ: ch03-08-iterators.md
   - 4. ファイル分割とスコープ:
-      - 4.1. 複数ファイル: ch04-01-multiple-files.md
+      - 4.1. 宣言と定義: ch04-01-declarations-and-definitions.md
+      - 4.2. 複数ファイル: ch04-02-multiple-files.md
   - 5. ストリーム操作:
       - 5.1. 標準入出力: ch05-01-standard-inout.md
       - 5.2. ファイル操作: ch05-02-file-operations.md
