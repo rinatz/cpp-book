@@ -101,7 +101,22 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://rinatz.github.io/cpp-book/ch04-01-multiple-files/</loc>
+     <loc>http://rinatz.github.io/cpp-book/ch04-01-declarations-and-definitions/</loc>
+     <lastmod>2019-06-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://rinatz.github.io/cpp-book/ch04-02-multiple-files/</loc>
+     <lastmod>2019-06-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://rinatz.github.io/cpp-book/ch04-03-scopes/</loc>
+     <lastmod>2019-06-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://rinatz.github.io/cpp-book/ch04-04-internal-linkages/</loc>
      <lastmod>2019-06-20</lastmod>
      <changefreq>daily</changefreq>
     </url>

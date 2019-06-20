@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch01-02-hello-world/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch04-04-internal-linkages/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>1.2. Hello, World! - ゼロから学ぶ C++</title>
+        <title>4.4. 内部リンケージ - ゼロから学ぶ C++</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#hello-world" tabindex="1" class="md-skip">
+      <a href="#_1" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              1.2. Hello, World!
+              4.4. 内部リンケージ
             </span>
           
         </div>
@@ -253,12 +253,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       1. C++ を始める
@@ -286,20 +284,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="1.2. Hello, World!" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-nav__link">
       1.2. Hello, World!
     </a>
-    
   </li>
 
         
@@ -564,10 +553,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       4. ファイル分割とスコープ
@@ -619,11 +610,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch04-04-internal-linkages/" title="4.4. 内部リンケージ" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.4. 内部リンケージ
+      </label>
+    
+    <a href="./" title="4.4. 内部リンケージ" class="md-nav__link md-nav__link--active">
       4.4. 内部リンケージ
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#static" title="static" class="md-nav__link">
+    static
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="無名名前空間" class="md-nav__link">
+    無名名前空間
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1357,6 +1393,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#static" title="static" class="md-nav__link">
+    static
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="無名名前空間" class="md-nav__link">
+    無名名前空間
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1367,41 +1426,76 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch01-02-hello-world.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch04-04-internal-linkages.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="hello-world">Hello, World!<a class="headerlink" href="#hello-world" title="Permanent link">&para;</a></h1>
-<p>Visual Studio Code 上で <code>main.cc</code> というファイルを作成して
-下記のようなソースコードを作成します。</p>
-<div class="admonition example">
-<p class="admonition-title">main.cc</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+                <h1 id="_1">内部リンケージ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>宣言された同名のシンボルを同一のものとして扱うかどうかを示す概念のことをリンケージと言います。</p>
+<p>ここでは、内部リンケージについて紹介します。
+内部リンケージを持つシンボルは宣言されたファイル内でのみ参照できるようになります。</p>
+<!-- MEMO: ここで言うファイルとは厳密にはプリプロセス後の翻訳単位である -->
+
+<h2 id="static">static<a class="headerlink" href="#static" title="Permanent link">&para;</a></h2>
+<p>シンボルの宣言に <code>static</code> 指定子を付与することで内部リンケージを持たせることが出来ます。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">main.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// リンクエラー。main.cc からは other.cc の x が参照できない。</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
-</td></tr></table>
-
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">other.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="k">static</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">246</span><span class="p">;</span>  <span class="c1">// 内部リンケージ。 other.cc 内でのみ参照可能</span>
+</pre></div></div>
 </div>
-<p>msys2 のターミナルを起動して下記コマンドを打ってコンパイルします。</p>
-<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.cc
-</pre></div>
+<h2 id="_2">無名名前空間<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>namespace 名前 {}</code> で名前空間を定義することが出来ますが、
+名前を付けずに <code>namespace {}</code> とすることで無名名前空間を定義することが出来ます。</p>
+<p>無名名前空間内に宣言された変数や関数は、 <code>static</code> 指定子と同様に内部リンケージを持ちます。</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">main.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<p>成功すると <code>a.exe</code> というファイルができていると思います。
-これが実行ファイルになるので、実行すると <code>Hello, World!</code> という
-メッセージが表示されます。</p>
-<div class="codehilite"><pre><span></span>$ ./a.exe
-Hello, World!
-</pre></div>
+<span class="cp">#include</span> <span class="cpf">&quot;other.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Print</span><span class="p">();</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// ここから x は参照できない</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">other.h</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#ifndef OTHER_H_</span>
+<span class="cp">#define OTHER_H_</span>
+
+<span class="kt">void</span> <span class="nf">Print</span><span class="p">();</span>
+
+<span class="cp">#endif  </span><span class="c1">// OTHER_H_</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_2" />
+<label for="__tab_2_2">other.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;other.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="hll"><span class="k">namespace</span> <span class="p">{</span>
+</span><span class="hll">    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>  <span class="c1">// x に内部リンケージを持たせる</span>
+</span><span class="hll"><span class="p">}</span>  <span class="c1">// unnamed namespace</span>
+</span>
+<span class="kt">void</span> <span class="n">Print</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// ここから x は参照可能</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
+<p>C++ において <code>static</code> は<a href="https://ja.cppreference.com/w/cpp/keyword/static">様々な意味を持つ</a>ため、分かりづらいキーワードとなっています。
+宣言に内部リンケージを持たせる場合は、 <code>static</code> ではなく無名名前空間を使うようにしましょう。</p>
                 
                   
                 
@@ -1422,7 +1516,7 @@ Hello, World!
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch01-01-installation/" title="1.1. インストール" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch04-03-scopes/" title="4.3. スコープ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1431,19 +1525,19 @@ Hello, World!
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                1.1. インストール
+                4.3. スコープ
               </span>
             </div>
           </a>
         
         
-          <a href="../ch02-01-variables/" title="2.1. 変数" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch05-01-standard-inout/" title="5.1. 標準入出力" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                2.1. 変数
+                5.1. 標準入出力
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

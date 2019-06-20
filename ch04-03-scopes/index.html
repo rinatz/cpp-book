@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch04-01-multiple-files/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch04-03-scopes/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>4.1. 複数ファイル - ゼロから学ぶ C++</title>
+        <title>4.3. スコープ - ゼロから学ぶ C++</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              4.1. 複数ファイル
+              4.3. スコープ
             </span>
           
         </div>
@@ -574,6 +574,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../ch04-01-declarations-and-definitions/" title="4.1. 宣言と定義" class="md-nav__link">
+      4.1. 宣言と定義
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-02-multiple-files/" title="4.2. 複数ファイル" class="md-nav__link">
+      4.2. 複数ファイル
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -585,11 +609,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        4.1. 複数ファイル
+        4.3. スコープ
       </label>
     
-    <a href="./" title="4.1. 複数ファイル" class="md-nav__link md-nav__link--active">
-      4.1. 複数ファイル
+    <a href="./" title="4.3. スコープ" class="md-nav__link md-nav__link--active">
+      4.3. スコープ
     </a>
     
       
@@ -603,8 +627,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="インクルードガード" class="md-nav__link">
-    インクルードガード
+  <a href="#_2" title="名前空間スコープ" class="md-nav__link">
+    名前空間スコープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="関数スコープ" class="md-nav__link">
+    関数スコープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="ブロックスコープ" class="md-nav__link">
+    ブロックスコープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="グローバルスコープ" class="md-nav__link">
+    グローバルスコープ
   </a>
   
 </li>
@@ -617,6 +662,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-04-internal-linkages/" title="4.4. 内部リンケージ" class="md-nav__link">
+      4.4. 内部リンケージ
+    </a>
   </li>
 
         
@@ -1354,8 +1411,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="インクルードガード" class="md-nav__link">
-    インクルードガード
+  <a href="#_2" title="名前空間スコープ" class="md-nav__link">
+    名前空間スコープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="関数スコープ" class="md-nav__link">
+    関数スコープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="ブロックスコープ" class="md-nav__link">
+    ブロックスコープ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="グローバルスコープ" class="md-nav__link">
+    グローバルスコープ
   </a>
   
 </li>
@@ -1376,138 +1454,186 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch04-01-multiple-files.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch04-03-scopes.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">複数ファイル<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>C++ では2種類のファイルを扱います。</p>
-<ul>
-<li>ヘッダ (拡張子: <code>.h</code> , <code>.hpp</code> )<ul>
-<li>関数のプロトタイプ宣言を記述します。</li>
-</ul>
-</li>
-<li>ソース (拡張子: <code>.cpp</code> , <code>.cc</code> , <code>.cxx</code> )<ul>
-<li>関数の実装を記述します。</li>
-</ul>
-</li>
-</ul>
-<p>複数のファイルを跨いだコードを書くには次のようにします。
-<code>main.cc</code> 内で <code>a.cc</code> の <code>DoSomething()</code> を使うためにプロトタイプ宣言をしています。</p>
-<div class="admonition example">
-<p class="admonition-title">main.cc</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">();</span> <span class="c1">// プロトタイプ宣言</span>
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">DoSomething</span><span class="p">();</span>
+                <h1 id="_1">スコープ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>プログラムは、特定の範囲毎にシンボルを識別しています。
+この範囲のことを スコープ と言います。
+同一のスコープ内に同名のシンボルが存在した場合、シンボルを一意に識別する事ができないのでリンク時にエラーになります。</p>
+<p>また、スコープを決める範囲のことをブロックと言います。 <code>{}</code> で括られた範囲が一つのブロックになります。</p>
+<div class="admonition tip">
+<p class="admonition-title">名前修飾（名前マングリング）</p>
+<p>C++ では同一のスコープ内に同名の関数があっても、引数の型が異なれば宣言することが可能です。（関数のオーバーロード）</p>
+<p>これは、シンボルに引数の型の情報なども含める <a href="https://ja.wikipedia.org/wiki/名前修飾">名前修飾（名前マングリング）</a> を行なった上で関数を一意に識別することで実現しています。</p>
+</div>
+<h2 id="_2">名前空間スコープ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>namespace 名前 {}</code> で名前空間の定義をすることが出来ます。
+<code>namespace</code> ブロックで括られたシンボルは、その名前空間に属することになります。</p>
+<div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// 名前空間 A に属する変数</span>
+<span class="p">}</span>  <span class="c1">// namespace A</span>
+
+<span class="k">namespace</span> <span class="n">B</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>  <span class="c1">// 名前空間 B に属する変数。名前空間 A とは別スコープなのでエラーにはならない。</span>
+<span class="p">}</span>  <span class="c1">// namespace B</span>
+</pre></div>
+
+<p>スコープ解決演算子 <code>::</code> を付けることで、名前空間内のシンボルを利用する事ができます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>  <span class="c1">// namespace A</span>
+
+<span class="k">namespace</span> <span class="n">B</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>  <span class="c1">// namespace B</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">B</span><span class="o">::</span><span class="n">count</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 4</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-</td></tr></table>
 
-</div>
-<div class="admonition example">
-<p class="admonition-title">a.cc</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
-</pre></div>
-</td></tr></table>
+<p>同一の名前空間に属する場合は、スコープ解決演算子 <code>::</code> による名前空間の指定を省略することが可能です。</p>
+<div class="codehilite"><pre><span></span><span class="k">namespace</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>複数ファイルをコンパイルして実行ファイルを生成する場合は、
-次のようにコンパイルしたいファイルを並べてコマンドを実行します。</p>
-<div class="codehilite"><pre><span></span>$ g++ main.cc a.cc
+    <span class="kt">int</span> <span class="nf">GetCount</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">count</span><span class="p">;</span>  <span class="c1">// A::count と同じ</span>
+    <span class="p">}</span>
+<span class="p">}</span>  <span class="c1">// namespace A</span>
 </pre></div>
 
-</div>
-<p>上記のコードでも動作はしますが、
-<code>a.cc</code> に記述している関数を他の様々なソースから利用したいとなった場合に、
-その都度、それぞれのソースにプロトタイプ宣言を追加することになり、手間がかかります。</p>
-<p>そこで登場するのがヘッダです。
-プロトタイプ宣言だけヘッダに記述することで、宣言を1回書くだけで済むようになります。</p>
-<div class="admonition example">
-<p class="admonition-title">a.h</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">();</span>
-</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething2</span><span class="p">();</span>
-</span></pre></div>
-</td></tr></table>
+<p>名前空間は入れ子にすることが出来ます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-</div>
-<div class="admonition example">
-<p class="admonition-title">main.cc</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="hll"><span class="cp">#include</span> <span class="cpf">&quot;a.h&quot;</span><span class="cp"></span>
-</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">DoSomething</span><span class="p">();</span>
-    <span class="n">DoSomething2</span><span class="p">();</span>
+<span class="k">namespace</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// A::count</span>
+
+    <span class="k">namespace</span> <span class="n">P</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>  <span class="c1">// A::P::count</span>
+
+        <span class="kt">int</span> <span class="nf">GetCount</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>  <span class="c1">// namespace P</span>
+<span class="p">}</span>  <span class="c1">// namespace A</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">P</span><span class="o">::</span><span class="n">GetCount</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 4;</span>
 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-</td></tr></table>
 
-</div>
-<div class="admonition example">
-<p class="admonition-title">a.cc</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
-<span class="kt">void</span> <span class="nf">DoSomething2</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<p>同一の名前空間内に指定したシンボルが見つからなかった場合、シンボルを探す範囲を <code>namespace</code> ブロック毎に外に広げていき、最初に見つかったものが利用されます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="c1">// A::count</span>
+
+    <span class="k">namespace</span> <span class="n">P</span> <span class="p">{</span>
+        <span class="k">namespace</span> <span class="n">X</span> <span class="p">{</span>
+            <span class="kt">int</span> <span class="n">GetCount</span><span class="p">()</span> <span class="p">{</span>
+                <span class="cm">/*</span>
+<span class="cm">                 * A::P::X::count は存在しない</span>
+<span class="cm">                 * -&gt; A::P::count は存在しない</span>
+<span class="cm">                 *    -&gt; A::count が利用される</span>
+<span class="cm">                 */</span>
+                <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>  <span class="c1">// namespace X</span>
+    <span class="p">}</span>  <span class="c1">// namespace P</span>
+<span class="p">}</span>  <span class="c1">// namespace A</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">P</span><span class="o">::</span><span class="n">X</span><span class="o">::</span><span class="n">GetCount</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
-</td></tr></table>
 
+<div class="admonition tip">
+<p class="admonition-title">std 名前空間</p>
+<p>これまでに出てきた、 <code>std::cout</code> や <code>std::vector</code> 等の <code>std::</code> は std 名前空間の事を指しています。
+C++ の標準ライブラリの機能は、ほとんどが std 名前空間に属しています。</p>
 </div>
-<p><code>main.cc</code> 内で <code>a.cc</code> の関数を利用できるようにするために</p>
-<ol>
-<li><code>a.h</code> で <code>a.cc</code> の関数のプロトタイプ宣言をします。</li>
-<li><code>main.cc</code> で <code>a.h</code> を取り込むために <code>#include "a.h"</code> と記述します。</li>
-</ol>
-<p>これで <code>main.cc</code> から <code>a.cc</code> の関数を利用することが出来ます。</p>
-<h2 id="_2">インクルードガード<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>ヘッダにはインクルードガードが必要です。</p>
-<div class="admonition example">
-<p class="admonition-title">a.h</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="hll"><span class="cp">#ifndef A_H_</span>
-</span><span class="hll"><span class="cp">#define A_H_</span>
+<h2 id="_3">関数スコープ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>関数内で宣言されたオブジェクトはその関数内でのみ有効になります。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">GetCount</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// GetCount() 内の x の有効範囲はここから</span>
+</span><span class="hll">
+</span><span class="hll">    <span class="k">return</span> <span class="n">x</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>  <span class="c1">// ここまで</span>
 </span>
-<span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">();</span>
-<span class="kt">void</span> <span class="nf">DoSomething2</span><span class="p">();</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">GetCount</span><span class="p">();</span>  <span class="c1">// main() の x と GetCount() の x は別スコープ</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-<span class="hll"><span class="cp">#endif  </span><span class="c1">// A_H_</span>
-</span></pre></div>
-</td></tr></table>
-
-</div>
-<p>インクルードガードがあることで、ソースが同じヘッダを複数回インクルードすることを防ぎます。</p>
-<p><code>_</code> で始まる名前や <code>__</code> を含むような名前は、
-コンパイラや標準ライブラリにて予約されている識別子と名前が被る恐れがあるため使ってはいけません。</p>
-<div class="admonition warning">
-<div class="codehilite"><pre><span></span><span class="cp">#define _A_H_ </span><span class="c1">//  _ で始まるのでNG</span>
-<span class="cp">#define A__H_ </span><span class="c1">// __ を含むのでNG</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
-</div>
-<p>インクルードガードは一般的にプロジェクトごとに命名規則を設けます。</p>
+<h2 id="_4">ブロックスコープ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>ブロック内もスコープの一つです。
+<code>if</code> 文を始めとした制御文で使われる <code>{}</code> もブロックスコープに該当します。</p>
+<p>名前空間同様、同一のブロック内に指定したシンボルが見つからなかった場合、シンボルを探す範囲をブロック毎に外に広げていき、最初に見つかったものが利用されます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 5</span>
+    <span class="p">}</span>
+
+    <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 3</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="_5">グローバルスコープ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>名前空間や関数に属さない場所はグローバルスコープと言います。
+グローバルスコープに宣言された変数や関数は、宣言以降であればどこからでも利用することが出来ます。
+また、グローバルスコープに宣言した変数・関数のことを一般的にグローバル変数・関数と言います。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="hll"><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>  <span class="c1">// グローバル変数</span>
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 100</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>グローバル変数は「どこからでも利用することが出来る」という性質上、どこからでも値を書き換えることが出来ます。
+どこで変数の値が書き換えられたのか特定しづらくなるため、可能な限り使わないことが望ましいです。</p>
+<p>グローバルスコープは、一番外側の名前空間として捉えることも出来ます。
+そのため、スコープ解決演算子 <code>::</code> を利用して、明示的にグローバルスコープを指定することが出来ます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// 40</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">::</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 20</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
@@ -1528,7 +1654,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch03-08-iterators/" title="3.8. イテレータ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch04-02-multiple-files/" title="4.2. 複数ファイル" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1537,19 +1663,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                3.8. イテレータ
+                4.2. 複数ファイル
               </span>
             </div>
           </a>
         
         
-          <a href="../ch05-01-standard-inout/" title="5.1. 標準入出力" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch04-04-internal-linkages/" title="4.4. 内部リンケージ" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                5.1. 標準入出力
+                4.4. 内部リンケージ
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

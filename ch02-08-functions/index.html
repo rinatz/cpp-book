@@ -435,8 +435,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="プロトタイプ宣言" class="md-nav__link">
-    プロトタイプ宣言
+  <a href="#_2" title="関数の前方宣言" class="md-nav__link">
+    関数の前方宣言
   </a>
   
 </li>
@@ -635,8 +635,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch04-01-multiple-files/" title="4.1. 複数ファイル" class="md-nav__link">
-      4.1. 複数ファイル
+    <a href="../ch04-01-declarations-and-definitions/" title="4.1. 宣言と定義" class="md-nav__link">
+      4.1. 宣言と定義
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-02-multiple-files/" title="4.2. 複数ファイル" class="md-nav__link">
+      4.2. 複数ファイル
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-03-scopes/" title="4.3. スコープ" class="md-nav__link">
+      4.3. スコープ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch04-04-internal-linkages/" title="4.4. 内部リンケージ" class="md-nav__link">
+      4.4. 内部リンケージ
     </a>
   </li>
 
@@ -1375,8 +1411,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="プロトタイプ宣言" class="md-nav__link">
-    プロトタイプ宣言
+  <a href="#_2" title="関数の前方宣言" class="md-nav__link">
+    関数の前方宣言
   </a>
   
 </li>
@@ -1490,9 +1526,8 @@
 
 </div>
 <p>4行目の時点では、<code>HelloWorld()</code>が何者なのかコンパイラには理解できないためです。</p>
-<h2 id="_2">プロトタイプ宣言<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>関数の宣言のみを呼び出し箇所よりも上の行に記述することで、関数の存在をコンパイラに教えることが出来ます。
-これをプロトタイプ宣言（前方宣言）と呼びます。</p>
+<h2 id="_2">関数の前方宣言<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>関数の宣言のみを呼び出し箇所よりも上の行に記述することで、関数の存在をコンパイラに教えることが出来ます。</p>
 <div class="admonition example">
 <p class="admonition-title">main.cc</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
@@ -1511,7 +1546,7 @@
 14
 15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="hll"><span class="kt">void</span> <span class="nf">HelloWorld</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>  <span class="c1">// プロトタイプ宣言（前方宣言）</span>
+<span class="hll"><span class="kt">void</span> <span class="nf">HelloWorld</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">);</span>  <span class="c1">// 前方宣言</span>
 </span>
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="n">HelloWorld</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
@@ -1528,7 +1563,8 @@
 </td></tr></table>
 
 </div>
-<p><code>HelloWorld()</code>の本体は<code>main()</code>の呼び出し箇所よりも下に記述されていますが、プロトタイプ宣言があることで問題なくコンパイルできます。</p>
+<p><code>HelloWorld()</code>の本体は<code>main()</code>の呼び出し箇所よりも下に記述されていますが、前方宣言があることで問題なくコンパイルできます。</p>
+<p>宣言についての詳細は、<a href="../ch04-01-declarations-and-definitions/">4.1. 宣言と定義</a> を参照してください。</p>
 <h2 id="main">main関数<a class="headerlink" href="#main" title="Permanent link">&para;</a></h2>
 <p>これまでのサンプルコードで度々現れた<code>main()</code>をmain関数と呼びます。</p>
 <p>C++で生成された実行ファイルを実行すると、main関数を起点に処理が進みます。</p>
