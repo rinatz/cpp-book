@@ -49,6 +49,32 @@ for (auto it = x.begin(); it != x.end(); ++it) {
 }
 ```
 
+この性質によってコンテナの種類に依存せず
+[`<algorithm>`][cpprefjp_algorithm] で提供される機能を使用できます。
+
+[cpprefjp_algorithm]: https://cpprefjp.github.io/reference/algorithm.html
+
+```cpp
+#include <algorithm>
+
+std::vector<int> x = {0, 1, 2, 3, 4};
+
+// std::count_if は条件を満たすコンテナ要素の個数を数える処理
+//   - 第1引数と第2引数で範囲を指定
+//   - 第3引数で関数オブジェクトで条件を指定
+auto n = std::count_if(x.begin(), x.end(), [](const int v) {
+    // 0 より大きい 2 の倍数
+    if (v <= 0) {
+        return false;
+    }
+    if (v % 2 != 0) {
+        return false;
+    }
+    return true;
+});
+std::cout << n << std::endl;  // 2
+```
+
 ## マップのイテレータ
 
 `std::map` や `std::unordered_map` のイテレータが指す要素はペアとなっています。
