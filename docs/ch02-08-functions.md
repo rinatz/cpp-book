@@ -70,8 +70,8 @@ C++での関数の使用方法について説明します。
 
 `HelloWorld()`の本体は`main()`の呼び出し箇所よりも下に記述されていますが、前方宣言があることで問題なくコンパイルできます。
 
-宣言についての詳細は、[4.1. 宣言と定義 - 宣言][declarations-and-definitions] を参照してください。
-[declarations-and-definitions]: ch04-01-declarations-and-definitions.md#_2
+宣言についての詳細は、[4.1. 宣言と定義][declarations-and-definitions] を参照してください。
+[declarations-and-definitions]: ch04-01-declarations-and-definitions.md
 
 ## main関数
 これまでのサンプルコードで度々現れた`main()`をmain関数と呼びます。
