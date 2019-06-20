@@ -30,12 +30,14 @@ int Sub(int a, int b) {
 }
 ```
 
+## GCC の場合
+
 `add.cc` と `sub.cc` をコンパイルして生成される
 2つのオブジェクトファイル `add.o` と `sub.o` から
-静的ライブラリ `util.a` を作成するには下記コマンドを実行します。
+静的ライブラリ `libutil.a` を作成するには下記コマンドを実行します。
 
 ```bash
-$ ar rc util.a add.o sub.o
+$ ar rc libutil.a add.o sub.o
 ```
 
 `ar` はアーカイブを操作するコマンドです。
@@ -44,13 +46,13 @@ $ ar rc util.a add.o sub.o
 作成したアーカイブの内容は下記コマンドで確認できます。
 
 ```bash
-$ ar t util.a
+$ ar t libutil.a
 add.o
 sub.o
 ```
 
-`util.a` を静的リンクしてリンクを行うには下記コマンドを実行します。
+`libutil.a` を静的リンクしてリンクを行うには下記コマンドを実行します。
 
 ```bash
-$ g++ -std=c++11 main.o util.a
+$ g++ -std=c++11 main.o libutil.a
 ```
