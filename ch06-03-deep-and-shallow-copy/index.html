@@ -724,6 +724,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" title="関数の引数" class="md-nav__link">
+    関数の引数
+  </a>
+  
+</li>
+      
       
       
       
@@ -1374,6 +1381,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_4" title="関数の引数" class="md-nav__link">
+    関数の引数
+  </a>
+  
+</li>
+      
       
       
       
@@ -1431,6 +1445,30 @@
 <p class="admonition-title">図4</p>
 <p><img alt="図4" src="../img/shallow_copy_b.svg" /></p>
 </div>
+<h2 id="_4">関数の引数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>ディープコピーとシャローコピーは関数の引数でも区別されます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">ChangeToFifty1</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// ディープコピー</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">ChangeToFifty2</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// シャローコピー</span>
+    <span class="o">*</span><span class="n">v</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="n">ChangeToFifty1</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 100</span>
+
+    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="n">ChangeToFifty2</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 50</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 
