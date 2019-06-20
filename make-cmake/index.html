@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch09-01-function-templates/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/make-cmake/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>9.1. 関数テンプレート - ゼロから学ぶ C++</title>
+        <title>CMake - ゼロから学ぶ C++</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#cmake" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              9.1. 関数テンプレート
+              CMake
             </span>
           
         </div>
@@ -925,12 +925,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
       9. テンプレート
@@ -946,70 +944,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        9.1. 関数テンプレート
-      </label>
-    
-    <a href="./" title="9.1. 関数テンプレート" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch09-01-function-templates/" title="9.1. 関数テンプレート" class="md-nav__link">
       9.1. 関数テンプレート
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="テンプレート実引数の省略" class="md-nav__link">
-    テンプレート実引数の省略
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="複数のテンプレート引数" class="md-nav__link">
-    複数のテンプレート引数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="戻り値の型推論" class="md-nav__link">
-    戻り値の型推論
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="コンパイル時に定まる値のパラメータ化" class="md-nav__link">
-    コンパイル時に定まる値のパラメータ化
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1262,10 +1201,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" checked>
     
     <label class="md-nav__link" for="nav-15">
       ビルド自動化
@@ -1293,11 +1234,69 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../make-cmake/" title="CMake" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        CMake
+      </label>
+    
+    <a href="./" title="CMake" class="md-nav__link md-nav__link--active">
       CMake
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="インストール" class="md-nav__link">
+    インストール
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="ビルド実行" class="md-nav__link">
+    ビルド実行
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#out-of-source" title="out-of-source ビルド" class="md-nav__link">
+    out-of-source ビルド
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1375,30 +1374,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="テンプレート実引数の省略" class="md-nav__link">
-    テンプレート実引数の省略
+  <a href="#_1" title="インストール" class="md-nav__link">
+    インストール
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="複数のテンプレート引数" class="md-nav__link">
-    複数のテンプレート引数
+  <a href="#_2" title="ビルド実行" class="md-nav__link">
+    ビルド実行
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#out-of-source" title="out-of-source ビルド" class="md-nav__link">
+    out-of-source ビルド
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" title="戻り値の型推論" class="md-nav__link">
-    戻り値の型推論
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" title="コンパイル時に定まる値のパラメータ化" class="md-nav__link">
-    コンパイル時に定まる値のパラメータ化
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1418,83 +1416,44 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch09-01-function-templates.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/make-cmake.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">関数テンプレート<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>型やコンパイル時に定まる値をパラメータ化する機能をテンプレートといいます。
-型に依存せず処理を共通化するために使用されます。</p>
-<p>関数に対するテンプレートを関数テンプレートといいます。
-関数テンプレートを定義するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">Sum</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
+                <h1 id="cmake">CMake<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h1>
+<p><a href="https://ja.wikipedia.org/wiki/CMake">CMake</a> はコンパイラに依存しないビルド自動化ツールです。</p>
+<p>実際には CMake によってコンパイラに依存するビルド手順を生成し、
+ビルドの実行はその手順を元に他のツールで行います。
+たとえば CMake によって Makefile を生成して Make でビルドします。</p>
+<h2 id="_1">インストール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>msys2 のターミナルを起動して下記コマンドを打ってインストールします。</p>
+<div class="codehilite"><pre><span></span>$ pacman -S cmake
 </pre></div>
 
-<p>型をパラメータ化するには <code>typename</code> を使用します。
-この例では <code>T</code> という型で2つの引数と戻り値をパラメータ化しています。
-この関数テンプレートの関数を呼び出すには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="n">Sum</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>         <span class="c1">// 3</span>
-<span class="n">Sum</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">);</span>  <span class="c1">// 4.6</span>
+<h2 id="_2">ビルド実行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>cmake</code> は <code>CMakeLists.txt</code> という名前のファイルを読み込んで動作します。</p>
+<p><code>main.cc</code> をビルドして <code>a.exe</code> を生成する場合は
+<code>CMakeLists.txt</code> というファイルを作成して次のように記述します。</p>
+<div class="codehilite"><pre><span></span>cmake_minimum_required(VERSION 3.0)
+project(sample)
+add_executable(a main.cc)
 </pre></div>
 
-<p>関数呼び出し時に <code>&lt; ... &gt;</code> で <code>T</code> の型を指定します。</p>
-<h2 id="_2">テンプレート実引数の省略<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>実引数から型パラメータ <code>T</code> を推論できる場合には
-呼び出し時の <code>&lt; ... &gt;</code> を省略することができます。</p>
-<div class="codehilite"><pre><span></span><span class="n">Sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>      <span class="c1">// 3</span>
-<span class="n">Sum</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">);</span>  <span class="c1">// 4.6</span>
+<p>この <code>CMakeLists.txt</code> ある状態で下記コマンドを実行すると <code>a.exe</code> がビルドされます。</p>
+<div class="codehilite"><pre><span></span>$ cmake .
+$ make
 </pre></div>
 
-<p>第1引数を <code>int</code> 、第2引数を <code>double</code> にすると <code>T</code> の型を推論できず、
-呼び出し時の <code>&lt; ... &gt;</code> を省略した場合コンパイルエラーになります。</p>
-<div class="codehilite"><pre><span></span><span class="n">Sum</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">);</span>  <span class="c1">// 3.3</span>
-<span class="c1">// Sum(1, 2.3);       // コンパイルエラー</span>
-</pre></div>
-
-<h2 id="_3">複数のテンプレート引数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>パラメータ化する型やコンパイル時に定まる値は
-1つだけではなく複数にすることができます。</p>
-<p>戻り値を <code>double</code> に固定して第1引数と第2引数を
-パラメータ化するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-<span class="kt">double</span> <span class="n">Sum</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">U</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>この場合には次の関数呼び出しもコンパイルエラーにはなりません。</p>
-<div class="codehilite"><pre><span></span><span class="n">Sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">);</span>  <span class="c1">// 3.3</span>
-</pre></div>
-
-<h2 id="_4">戻り値の型推論<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>パラメータ化した引数の型から戻り値の型を推論するには <code>decltype</code> を使用します。</p>
-<div class="codehilite"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="k">typename</span> <span class="n">U</span><span class="o">&gt;</span>
-<span class="k">auto</span> <span class="n">Sum</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">U</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<h2 id="_5">コンパイル時に定まる値のパラメータ化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>テンプレートでは型だけではなく
-コンパイル時に定まる値をパラメータ化することができます。
-コンパイル時に定まる値として配列のサイズなどを指定することができます。</p>
-<div class="codehilite"><pre><span></span><span class="hll"><span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
-</span><span class="kt">int</span> <span class="n">Fibonacchi</span><span class="p">()</span> <span class="p">{</span>
-<span class="hll">    <span class="kt">int</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
-</span>    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">N</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="n">a</span><span class="p">[</span><span class="n">N</span><span class="p">];</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>この例は <a href="https://ja.wikipedia.org/wiki/フィボナッチ数">フィボナッチ数</a> を計算する処理です。
-次のように呼び出すことで値を計算することができます。</p>
-<div class="codehilite"><pre><span></span><span class="n">Fibonacchi</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">&gt;</span><span class="p">();</span>  <span class="c1">// 55</span>
+<p><code>cmake .</code> で <code>Makefile</code> を生成して <code>make</code> でビルドが行われます。</p>
+<h3 id="out-of-source">out-of-source ビルド<a class="headerlink" href="#out-of-source" title="Permanent link">&para;</a></h3>
+<p>ビルドによって生成されるファイルは
+上記の方法だと <code>CMakeLists.txt</code> のあるディレクトリに配置されます。</p>
+<p>一般に生成されるファイルはビルド用ディレクトリ配下とするのが望ましいです。
+<code>cmake</code> で生成されるファイルをビルド用ディレクトリ配下にするには
+次のようにビルド用ディレクトリ内で <code>cmake</code> (や <code>make</code>) を実行します。</p>
+<div class="codehilite"><pre><span></span>$ mkdir -p build
+$ <span class="nb">cd</span> build
+$ cmake ..
+$ make
 </pre></div>
                 
                   
@@ -1516,7 +1475,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch08-02-c-cast/" title="8.2. C言語形式のキャスト" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../make-make/" title="Make" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1525,19 +1484,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                8.2. C言語形式のキャスト
+                Make
               </span>
             </div>
           </a>
         
         
-          <a href="../ch09-02-class-templates/" title="9.2. クラステンプレート" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../appendix-malloc-and-free/" title="malloc/free" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                9.2. クラステンプレート
+                malloc/free
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
