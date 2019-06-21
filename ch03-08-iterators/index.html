@@ -1525,6 +1525,28 @@
 <span class="p">}</span>
 </pre></div>
 
+<p>この性質によってコンテナの種類に依存せず
+<a href="https://cpprefjp.github.io/reference/algorithm.html"><code>&lt;algorithm&gt;</code></a> で提供される機能を使用できます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp"></span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+
+<span class="c1">// std::count_if は条件を満たすコンテナ要素の個数を数える処理</span>
+<span class="c1">//   - 第1引数と第2引数で範囲を指定</span>
+<span class="c1">//   - 第3引数で関数オブジェクトで条件を指定</span>
+<span class="k">auto</span> <span class="n">n</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">count_if</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="p">[](</span><span class="k">const</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 0 より大きい 2 の倍数</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">v</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+<span class="p">});</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2</span>
+</pre></div>
+
 <h2 id="_2">マップのイテレータ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>std::map</code> や <code>std::unordered_map</code> のイテレータが指す要素はペアとなっています。
 このペアは <code>first</code> がキーで <code>second</code> が値です。</p>
