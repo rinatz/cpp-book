@@ -43,7 +43,7 @@ $ g++ -std=c++11 -shared -o libutil.so add.o sub.o
 `-shared` をつけることで動的ライブラリの生成が行われます。
 生成する動的ライブラリのファイル名は `-o` で指定します。
 
-`libutil.so` を動的リンクしてリンクを行うには下記コマンドを実行します。
+`libutil.so` を動的リンクするには下記コマンドを実行します。
 
 ```bash
 $ g++ -std=c++11 main.o libutil.so

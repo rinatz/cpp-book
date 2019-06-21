@@ -51,7 +51,7 @@ add.o
 sub.o
 ```
 
-`libutil.a` を静的リンクしてリンクを行うには下記コマンドを実行します。
+`libutil.a` を静的リンクするには下記コマンドを実行します。
 
 ```bash
 $ g++ -std=c++11 main.o libutil.a
