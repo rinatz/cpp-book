@@ -130,3 +130,4 @@ nav:
   - 付録:
       - malloc/free: appendix-malloc-and-free.md
       - プリプロセッサ司令: appendix-preprocessor-directives.md
+      - ダウンキャスト: appendix-downcasts.md
