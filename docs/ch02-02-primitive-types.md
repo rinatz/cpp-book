@@ -161,3 +161,70 @@ enum SolarSystem {
   Neptune
 };
 ```
+
+### enum class
+
+`enum class` で列挙型を定義することもできます。
+
+```cpp
+enum class Day {
+  Sun,
+  Mon,
+  Tue,
+  Wed,
+  Thu,
+  Fri,
+  Sat
+};
+```
+
+基本的には `enum` と同じですが、以下の点が異なります。
+
+`enum class` を扱うには `型名::列挙子名` とします。
+
+```cpp
+Day day = Day::Fri;  // OK
+Day day = Fri;       // コンパイルエラー
+```
+
+明示的に型変換をしない限り、数値型に `enum class` の値の代入はできません。
+
+```cpp
+int x = Day::Fri;  // コンパイルエラー
+```
+
+!!! tip "明示的な型変換"
+    [明示的に型変換][cpp-casts] を行うことで、数値型などに `enum class` の値の代入が可能です。
+
+    ```cpp
+    int x = static_cast<int>(Day::Fri);
+    ```
+
+[cpp-casts]: ch08-01-cpp-casts.md
+
+`enum class` の場合、列挙子の名前はその型ごとに紐づくため、
+他の列挙型の列挙子と名前が被っても問題ありません。
+
+```cpp
+enum class Day {
+  Sun,  // Day::Sun
+  Mon,
+  Tue,
+  Wed,
+  Thu,
+  Fri,
+  Sat
+};
+
+enum class SolarSystem {
+  Sun,  // Day::Sun と SolarSystem::Sun は区別されるためOK
+  Mercury,
+  Venus,
+  Earth,
+  Mars,
+  Jupiter,
+  Saturn,
+  Uranus,
+  Neptune
+};
+```
