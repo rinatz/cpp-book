@@ -75,6 +75,26 @@ auto n = std::count_if(x.begin(), x.end(), [](const int v) {
 std::cout << n << std::endl;  // 2
 ```
 
+## イテレータを使用できるコンテナ
+
+イテレータを使用できるコンテナとして、代表的なものはコンテナライブラリで提供されるコンテナです。
+コンテナライブラリで提供されるコンテナは STL コンテナと呼ばれ、本書で紹介した以下ものが該当します。
+
+* `std::array`
+* `std::vector`
+* `std::map`
+* `std::set`
+* `std::unordered_map`
+* `std::unordered_set`
+
+STL コンテナの一覧は
+[コンテナライブラリ - cppreference.com][cppreference_container]
+を参照してください。
+
+[cppreference_container]: https://ja.cppreference.com/w/cpp/container
+
+STL コンテナ以外にも `std::string` などでイテレータは使用できます。
+
 ## マップのイテレータ
 
 `std::map` や `std::unordered_map` のイテレータが指す要素はペアとなっています。
