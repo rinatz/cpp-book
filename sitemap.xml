@@ -271,6 +271,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://rinatz.github.io/cpp-book/ch11-04-dynamic-loading-and-name-mangling/</loc>
+     <lastmod>2019-06-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://rinatz.github.io/cpp-book/test-how-to-gtest/</loc>
      <lastmod>2019-06-23</lastmod>
      <changefreq>daily</changefreq>
