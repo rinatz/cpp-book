@@ -1143,14 +1143,21 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="コンパイル" class="md-nav__link">
+  <a href="#_2" title="プリプロセス" class="md-nav__link">
+    プリプロセス
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="コンパイル" class="md-nav__link">
     コンパイル
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="リンク" class="md-nav__link">
+  <a href="#_4" title="リンク" class="md-nav__link">
     リンク
   </a>
   
@@ -1433,14 +1440,21 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="コンパイル" class="md-nav__link">
+  <a href="#_2" title="プリプロセス" class="md-nav__link">
+    プリプロセス
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="コンパイル" class="md-nav__link">
     コンパイル
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="リンク" class="md-nav__link">
+  <a href="#_4" title="リンク" class="md-nav__link">
     リンク
   </a>
   
@@ -1472,13 +1486,19 @@
 </div>
 <p>ソースファイルから実行ファイルを生成する処理をビルドといいます。
 ビルドは次の手順で行われます。</p>
-<!-- TODO: プリプロセスを追加する -->
-
 <ol>
+<li>プリプロセス</li>
 <li>コンパイル</li>
 <li>リンク</li>
 </ol>
-<h2 id="_2">コンパイル<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">プリプロセス<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>プリプロセスはコンパイル前に行われる前処理のことです。
+コメントの削除と <a href="../appendix-preprocessor-directives/">プリプロセッサ司令</a> の実行を行います。</p>
+<p><code>-E</code> を指定するとプリプロセスだけを行うことができます。</p>
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 -E main.cc
+</pre></div>
+
+<h2 id="_3">コンパイル<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>人間が扱うソースファイルをコンピュータで扱うために0と1の表現 (機械語) に変換することをコンパイルといいます。
 コンパイルはソースファイル単位で行います。</p>
 <p>厳密にはコンパイルを行うプログラムのことをコンパイラといいますが、
@@ -1492,7 +1512,7 @@ $ g++ -std<span class="o">=</span>c++11 -c util.cc
 <p>このコマンドを実行すると
 <code>main.cc</code> から <code>main.o</code>、 <code>util.cc</code> から <code>util.o</code> へコンパイルされます。</p>
 <p>コンパイルだけでは実行ファイルは生成されません。</p>
-<h2 id="_3">リンク<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">リンク<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>オブジェクトファイルなどをまとめて実行ファイルを生成することをリンクといいます。
 リンクを行うプログラムはリンカといいます。</p>
 <p><code>main.o</code> と <code>util.o</code> をリンクして実行ファイルを生成するには次のようにします。</p>
