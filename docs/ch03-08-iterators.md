@@ -171,3 +171,28 @@ std::cout << *it << std::endl;  // 3 (it は変更されていない)
 ```
 
 <!-- TODO: 範囲for文の説明 -->
+
+## イテレータと参照の無効化
+
+要素の追加や削除を行うと
+既存のイテレータや要素への参照が無効になることがあります。
+無効化されたイテレータや参照を使用した場合の挙動は未定義動作 (保証されない) です。
+
+たとえば `std::vector` の要素を削除すると、
+削除した要素の位置とそれ以降の位置のイテレータと参照が無効化されます。
+
+```cpp
+std::vector<int> x = {0, 1, 2, 3, 4, 5, 6};
+auto it1 = x.begin() + 2;
+auto it2 = x.begin() + 3;
+auto it3 = x.begin() + 4;
+std::cout << *it1 << std::endl;  // 2
+std::cout << *it2 << std::endl;  // 3
+std::cout << *it3 << std::endl;  // 4
+
+x.erase(x.begin() + 3);  // index=3 の要素を削除
+
+std::cout << *it1 << std::endl;  // 2 (有効なまま)
+std::cout << *it2 << std::endl;  // 未定義動作 (無効化される)
+std::cout << *it3 << std::endl;  // 未定義動作 (無効化される)
+```
