@@ -4,8 +4,8 @@
 ライブラリを使用するプログラムで必要な作業は以下の項目で決まります。
 
 * 静的ライブラリと動的ライブラリのどちらであるか
-* 更新前後でのAPI互換性
-* 更新前後でのABI互換性
+* 更新前後での API 互換性
+* 更新前後での ABI 互換性
 
 ![ライブラリ更新で必要な手順を表した図][library_updating]
 [library_updating]: img/library_updating.svg
