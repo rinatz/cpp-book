@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-09-function-objects/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch11-03-dynamic-libraries-and-dynamic-linking/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>2.9. 関数オブジェクト - ゼロから学ぶ C++</title>
+        <title>11.3 動的ライブラリと動的リンク - ゼロから学ぶ C++</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              2.9. 関数オブジェクト
+              11.3 動的ライブラリと動的リンク
             </span>
           
         </div>
@@ -301,12 +301,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. 基本構文
@@ -418,90 +416,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.9. 関数オブジェクト
-      </label>
-    
-    <a href="./" title="2.9. 関数オブジェクト" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch02-09-function-objects/" title="2.9. 関数オブジェクト" class="md-nav__link">
       2.9. 関数オブジェクト
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="関数ポインタ" class="md-nav__link">
-    関数ポインタ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="ラムダ式" class="md-nav__link">
-    ラムダ式
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" title="キャプチャ" class="md-nav__link">
-    キャプチャ
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" title="引数リスト" class="md-nav__link">
-    引数リスト
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" title="戻り値の型の省略" class="md-nav__link">
-    戻り値の型の省略
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stdfunction" title="std::function" class="md-nav__link">
-    std::function
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1162,10 +1081,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
     
     <label class="md-nav__link" for="nav-12">
       11. ビルドと実行
@@ -1205,11 +1126,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch11-03-dynamic-libraries-and-dynamic-linking/" title="11.3 動的ライブラリと動的リンク" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="11.3 動的ライブラリと動的リンク" class="md-nav__link md-nav__link--active">
       11.3 動的ライブラリと動的リンク
     </a>
+    
   </li>
 
         
@@ -1439,63 +1369,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="関数ポインタ" class="md-nav__link">
-    関数ポインタ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="ラムダ式" class="md-nav__link">
-    ラムダ式
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" title="キャプチャ" class="md-nav__link">
-    キャプチャ
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" title="引数リスト" class="md-nav__link">
-    引数リスト
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" title="戻り値の型の省略" class="md-nav__link">
-    戻り値の型の省略
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#stdfunction" title="std::function" class="md-nav__link">
-    std::function
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1506,137 +1379,118 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-09-function-objects.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch11-03-dynamic-libraries-and-dynamic-linking.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">関数オブジェクト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">関数ポインタ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>関数を指し示すポインタを作成する場合は次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="c1">// 戻り値の型 (*変数名)(引数の型);</span>
-<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="kt">double</span><span class="p">);</span>    <span class="c1">// double を引数として int を返す関数のポインタ f1</span>
-<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>  <span class="c1">// 2つの int を引数として int を返す関数のポインタ f2</span>
-</pre></div>
-
-<p>関数ポインタには、戻り値の型と引数の型・数・順番が一致している関数のアドレスが代入可能です。</p>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
-<span class="p">}</span>
+                <h1 id="_1">動的ライブラリと動的リンク<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">説明に使用する環境</p>
+<p>Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。</p>
+</div>
+<p>実行に必要な処理の一部を分割して外部ファイルにしておき、実行時に結合することができます。
+これはビルド時に依存関係の設定だけを行い、実行時に解決することで実現されます。
+この外部ファイルを動的ライブラリといい、
+そのファイルをリンクして依存関係を設定することを動的リンクといいます。</p>
+<p>次のコードで説明します。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">main.cc</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">Sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">Add</span><span class="p">;</span>  <span class="c1">// 関数 Add のアドレスを保持する関数ポインタ fp</span>
-    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">fp</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// 関数ポインタ fp を介して関数 Add が実行される</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 8</span>
-
+    <span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">Sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-<p>関数ポインタを変数に代入する際は、 <code>auto</code> を使うことで複雑な関数ポインタの型を書く必要が無くなり簡潔になります。</p>
-<div class="codehilite"><pre><span></span><span class="k">auto</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">Add</span><span class="p">;</span>
-</pre></div>
-
-<h2 id="_3">ラムダ式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>ラムダ式は、簡潔に関数オブジェクトを記述するための式です。
-ラムダ式で生成される関数オブジェクトは <code>auto</code> で保持することが出来ます。</p>
-<p>ラムダ式の構文は次のようになります。</p>
-<div class="codehilite"><pre><span></span><span class="c1">// auto 変数名 = [ キャプチャ ]( 引数リスト ) -&gt; 戻り値の型 { 処理内容 };</span>
-<span class="k">auto</span> <span class="n">func</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// int を2つ受け取り、足した結果を返すラムダ式</span>
-
-<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 10</span>
-</pre></div>
-
-<h3 id="_4">キャプチャ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>ラムダ式の外にある変数をラムダ式の中で使用する場合は、
-ラムダ式先頭の <code>[]</code> 内でキャプチャと呼ばれるものの指定が必要です。</p>
-<p>キャプチャには、コピーキャプチャと参照キャプチャの2種類が存在します。</p>
-<table>
-<thead>
-<tr>
-<th align="center">記述例</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center"><code>[=]</code></td>
-<td>ラムダ式定義時に存在する全ての変数をコピーしてラムダ式の中で使う</td>
-</tr>
-<tr>
-<td align="center"><code>[&amp;]</code></td>
-<td>ラムダ式定義時に存在する全ての変数を参照してラムダ式の中で使う</td>
-</tr>
-<tr>
-<td align="center"><code>[a]</code></td>
-<td>変数 <code>a</code> をコピーしてラムダ式の中で使う</td>
-</tr>
-<tr>
-<td align="center"><code>[&amp;a]</code></td>
-<td>変数 <code>a</code> を参照してラムダ式の中で使う</td>
-</tr>
-<tr>
-<td align="center"><code>[&amp;a, b]</code></td>
-<td>変数 <code>a</code> は参照し、変数 <code>b</code> はコピーしてラムダ式の中で使う</td>
-</tr>
-<tr>
-<td align="center"><code>[=, &amp;a]</code></td>
-<td>変数 <code>a</code> は参照し、それ以外はコピーしてラムダ式の中で使う</td>
-</tr>
-</tbody>
-</table>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">init</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-
-<span class="c1">// キャプチャを指定することで {} 内で変数 init を使うことができる</span>
-<span class="k">auto</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="n">init</span><span class="p">](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">init</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>   <span class="c1">// コピーキャプチャ</span>
-<span class="k">auto</span> <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">init</span><span class="p">](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">init</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// 参照キャプチャ</span>
-
-<span class="n">init</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="c1">// 【コピーキャプチャの場合】</span>
-<span class="c1">//    ラムダ式の定義時点で init がコピーされているので、ラムダ式内の init は 5</span>
-<span class="kt">int</span> <span class="n">result_copy</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result_copy</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 13</span>
-
-<span class="c1">// 【参照キャプチャの場合】</span>
-<span class="c1">//    ラムダ式実行時の init の値が参照されるので、ラムダ式内の init は 0</span>
-<span class="kt">int</span> <span class="n">result_ref</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result_ref</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>   <span class="c1">// 8</span>
-</pre></div>
-
-<h3 id="_5">引数リスト<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><code>( 引数リスト )</code> は、通常の関数と同じように記述することが出来ます。</p>
-<div class="codehilite"><pre><span></span><span class="k">auto</span> <span class="n">func1</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// int を引数とする</span>
-<span class="k">auto</span> <span class="n">func2</span> <span class="o">=</span> <span class="p">[]()</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">400</span><span class="p">;</span> <span class="p">};</span>         <span class="c1">// 引数なし</span>
-<span class="k">auto</span> <span class="n">func3</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">400</span><span class="p">;</span> <span class="p">};</span>                  <span class="c1">// 戻り値の型の記述を省略した場合、 () ごと省略可能</span>
-</pre></div>
-
-<h3 id="_6">戻り値の型の省略<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p><code>-&gt; 戻り値の型</code> は、 ラムダ式内の型推論に任せる場合は省略可能です。</p>
-<div class="codehilite"><pre><span></span><span class="k">auto</span> <span class="n">func</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// a, b は共に int なので、戻り値も int と推論される</span>
-</pre></div>
-
-<h2 id="stdfunction">std::function<a class="headerlink" href="#stdfunction" title="Permanent link">&para;</a></h2>
-<p><code>std::function</code> で関数ポインタやラムダ式を保持することが出来ます。
-<code>std::function</code> を使うことで、関数ポインタのような複雑な構文が簡潔になるという利点もあります。</p>
-<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">Add</span><span class="p">;</span>  <span class="c1">// std::function&lt;戻り値の型(引数の型)&gt; 変数名</span>
-    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>                  <span class="c1">// f を介して関数 Add が実行される</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>      <span class="c1">// 8</span>
-
-    <span class="n">f</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// ラムダ式も保持可能</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>       <span class="c1">// 28</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">add.cc</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">sub.cc</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p><code>add.cc</code> と <code>sub.cc</code> をコンパイルして生成される
+2つのオブジェクトファイル <code>add.o</code> と <code>sub.o</code> から
+動的ライブラリ <code>libhoge.so</code> を作成するには下記コマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 -shared -o libhoge.so add.o sub.o
+</pre></div>
+
+<p><code>-shared</code> をつけることで動的ライブラリの生成が行われます。
+生成する動的ライブラリのファイル名は <code>-o</code> で指定します。</p>
+<p><code>libhoge.so</code> を動的リンクするには下記コマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.o libhoge.so
+</pre></div>
+
+<p>動的ライブラリの子依存関係は <code>ldd</code> コマンドで確認できます。</p>
+<div class="codehilite"><pre><span></span>$ ldd a.out
+        linux-vdso.so.1 <span class="o">=</span>&gt;  <span class="o">(</span>0x00007ffeacf68000<span class="o">)</span>
+        libhoge.so <span class="o">=</span>&gt; ./libhoge.so <span class="o">(</span>0x00007f86f4381000<span class="o">)</span>
+        libc.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libc.so.6 <span class="o">(</span>0x00007f86f3fb7000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f86f4583000<span class="o">)</span>
+</pre></div>
+
+<p><code>libhoge.so =&gt; not found</code> と出力される場合は
+<code>export LD_LIBRARY_PATH=.</code> を実行してください。</p>
+<div class="codehilite"><pre><span></span>$ ldd a.out
+        linux-vdso.so.1 <span class="o">=</span>&gt;  <span class="o">(</span>0x00007ffc49540000<span class="o">)</span>
+<span class="hll">        libhoge.so <span class="o">=</span>&gt; not found
+</span>        libc.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libc.so.6 <span class="o">(</span>0x00007feb00b3e000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007feb00f08000<span class="o">)</span>
+<span class="hll">$ <span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>.
+</span>$ ldd a.out
+        linux-vdso.so.1 <span class="o">=</span>&gt;  <span class="o">(</span>0x00007ffeacf68000<span class="o">)</span>
+<span class="hll">        libhoge.so <span class="o">=</span>&gt; ./libhoge.so <span class="o">(</span>0x00007f86f4381000<span class="o">)</span>
+</span>        libc.so.6 <span class="o">=</span>&gt; /lib/x86_64-linux-gnu/libc.so.6 <span class="o">(</span>0x00007f86f3fb7000<span class="o">)</span>
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f86f4583000<span class="o">)</span>
+</pre></div>
+
+<p>依存関係は実行ファイルだけでなく動的ライブラリにも存在します。</p>
+<div class="codehilite"><pre><span></span>$ ldd /lib/x86_64-linux-gnu/libc.so.6
+        /lib64/ld-linux-x86-64.so.2 <span class="o">(</span>0x00007f53f0153000<span class="o">)</span>
+        linux-vdso.so.1 <span class="o">=</span>&gt;  <span class="o">(</span>0x00007fff235c4000<span class="o">)</span>
+</pre></div>
+
+<p>このように依存関係は子依存だけでは完結せず、連鎖して発生します。</p>
+<p>子依存がない場合は次のように出力されます。</p>
+<div class="codehilite"><pre><span></span>$ ldd libhoge.so
+        statically linked
+</pre></div>
+
+<details class="question"><summary>-l オプションによるライブラリのリンク指定</summary><p>ライブラリパスに配置されているライブラリは
+<code>-l</code> でライブラリ名称を用いてリンク指定できます。
+ライブラリパスは処理系で必要なパスがデフォルトで入っており、
+<code>-L</code> でユーザ指定パスを追加できます。
+ライブラリ名称は接頭辞 <code>lib</code> と拡張子をとったもので
+<code>libhoge.so</code> や <code>libhoge.a</code> なら <code>hoge</code> となります。</p>
+<p><code>-l</code> でカレントディレクトリにある <code>libhoge.so</code> を動的リンクするには次のようにします。</p>
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.o -lhoge -L.
+</pre></div>
+
+<p>動的ライブラリ <code>libhoge.so</code> がない場合には、
+同じコマンドで静的ライブラリ <code>libhoge.a</code> の静的リンクが行われます。</p>
+</details>
                 
                   
                 
@@ -1657,7 +1511,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch02-08-functions/" title="2.8. 関数" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch11-02-static-libraries-and-static-linking/" title="11.2 静的ライブラリと静的リンク" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1666,19 +1520,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                2.8. 関数
+                11.2 静的ライブラリと静的リンク
               </span>
             </div>
           </a>
         
         
-          <a href="../ch03-01-arrays/" title="3.1. 配列" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../test-how-to-gtest/" title="Google Test の使い方" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                3.1. 配列
+                Google Test の使い方
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

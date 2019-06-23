@@ -1167,6 +1167,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch11-03-dynamic-libraries-and-dynamic-linking/" title="11.3 動的ライブラリと動的リンク" class="md-nav__link">
+      11.3 動的ライブラリと動的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1430,6 +1442,10 @@
                 
                 
                 <h1 id="_1">ビルド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">説明に使用する環境</p>
+<p>Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。</p>
+</div>
 <p>ソースファイルから実行ファイルを生成する処理をビルドといいます。
 ビルドは次の手順で行われます。</p>
 <!-- TODO: プリプロセスを追加する -->
@@ -1456,7 +1472,7 @@ $ g++ -std<span class="o">=</span>c++11 -c util.cc
 <p>オブジェクトファイルなどをまとめて実行ファイルを生成することをリンクといいます。
 リンクを行うプログラムはリンカといいます。</p>
 <p><code>main.o</code> と <code>util.o</code> をリンクして実行ファイルを生成するには次のようにします。</p>
-<div class="codehilite"><pre><span></span>$ g++ main.o util.o
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.o util.o
 </pre></div>
 
 <p>コンパイル時点ではソースファイルを1つずつ処理するため、
@@ -1485,10 +1501,9 @@ $ g++ -std<span class="o">=</span>c++11 -c util.cc
 <code>main.o</code> から実行ファイルを生成するには <code>util.o</code> が必要となります。
 次のように <code>main.o</code> だけでリンクを行うと <code>main.o</code> で未定義の <code>Sum</code> を定義と対応付けできずエラーとなります。</p>
 <div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.o
-main.o:main.cc:<span class="o">(</span>.text+0x18<span class="o">)</span>: <span class="sb">`</span>Sum<span class="o">(</span>int, int<span class="o">)</span><span class="s1">&#39; に対する定義されていない参照です</span>
-<span class="s1">main.o:main.cc:(.text+0x18): 再配置がオーバーフローしないように切り詰められまし</span>
-<span class="s1">た: R_X86_64_PC32 (未定義シンボル `Sum(int, int)&#39;</span> に対して<span class="o">)</span>
-collect2: エラー: ld はステータス <span class="m">1</span> で終了しました
+main.o: 関数 <span class="sb">`</span>main<span class="s1">&#39; 内:</span>
+<span class="s1">main.cc:(.text+0xf): `Sum(int, int)&#39;</span> に対する定義されていない参照です
+collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</span> status
 </pre></div>
                 
                   

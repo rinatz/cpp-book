@@ -1131,6 +1131,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch11-03-dynamic-libraries-and-dynamic-linking/" title="11.3 動的ライブラリと動的リンク" class="md-nav__link">
+      11.3 動的ライブラリと動的リンク
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1371,6 +1383,10 @@
                 
                 
                 <h1 id="_1">静的ライブラリと静的リンク<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">説明に使用する環境</p>
+<p>Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。</p>
+</div>
 <p>複数のオブジェクトファイルを1つのファイルにまとめ、
 リンク時にオブジェクトファイルの代わりとして使用することができます。
 複数のオブジェクトファイルをまとめたファイルを静的ライブラリといい、
@@ -1417,20 +1433,20 @@
 </div>
 <p><code>add.cc</code> と <code>sub.cc</code> をコンパイルして生成される
 2つのオブジェクトファイル <code>add.o</code> と <code>sub.o</code> から
-静的ライブラリ <code>util.a</code> を作成するには下記コマンドを実行します。</p>
-<div class="codehilite"><pre><span></span>$ ar rc util.a add.o sub.o
+静的ライブラリ <code>libhoge.a</code> を作成するには下記コマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>$ ar rc libhoge.a add.o sub.o
 </pre></div>
 
 <p><code>ar</code> はアーカイブを操作するコマンドです。
 <code>rc</code> でアーカイブを作成してファイルを追加するという指定をします。</p>
 <p>作成したアーカイブの内容は下記コマンドで確認できます。</p>
-<div class="codehilite"><pre><span></span>$ ar t util.a
+<div class="codehilite"><pre><span></span>$ ar t libhoge.a
 add.o
 sub.o
 </pre></div>
 
-<p><code>util.a</code> を静的リンクしてリンクを行うには下記コマンドを実行します。</p>
-<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.o util.a
+<p><code>libhoge.a</code> を静的リンクするには下記コマンドを実行します。</p>
+<div class="codehilite"><pre><span></span>$ g++ -std<span class="o">=</span>c++11 main.o libhoge.a
 </pre></div>
                 
                   
@@ -1467,13 +1483,13 @@ sub.o
           </a>
         
         
-          <a href="../test-how-to-gtest/" title="Google Test の使い方" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch11-03-dynamic-libraries-and-dynamic-linking/" title="11.3 動的ライブラリと動的リンク" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                Google Test の使い方
+                11.3 動的ライブラリと動的リンク
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
