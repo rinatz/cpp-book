@@ -118,3 +118,39 @@ std::cout << (a ^ b) << std::endl; // 0x33
 ```
 
 [cppreference_expressions]: https://ja.cppreference.com/w/cpp/language/expressions
+
+## 複合代入
+
+算術演算子と代入演算子を組み合わせることで、算術と代入を同時に行うことが可能です。
+
+```cpp
+a += b   // a = a + b と同じ
+a -= b   // a = a - b
+a *= b   // a = a * b
+a /= b   // a = a / b
+a %= b   // a = a % b
+a &= b   // a = a & b
+a |= b   // a = a | b
+a ^= b   // a = a ^ b
+a <<= b  // a = a << b
+a >>= b  // a = a >> b
+```
+
+代入演算子は算術演算子よりも後に解釈されます。
+複合代入も代入演算子と同様に、算術演算子よりも後に解釈されることになります。
+
+```cpp
+int x = 2;
+x *= 4 + 3;
+std::cout << x << std::endl;  // 14
+
+int y = 2;
+y = y * 4 + 3;
+std::cout << y << std::endl;  // 11
+```
+
+!!! tip "演算子の優先順位"
+    演算子ごとに解釈される優先順位は決まっています。
+    詳細は [C++の演算子の優先順位 - cppreference.com][cppreference-operator-precedence] を参照してください。
+
+[cppreference-operator-precedence]: https://ja.cppreference.com/w/cpp/language/operator_precedence
