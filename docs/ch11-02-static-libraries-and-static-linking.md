@@ -1,5 +1,8 @@
 # 静的ライブラリと静的リンク
 
+!!! info "説明に使用する環境"
+    Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。
+
 複数のオブジェクトファイルを1つのファイルにまとめ、
 リンク時にオブジェクトファイルの代わりとして使用することができます。
 複数のオブジェクトファイルをまとめたファイルを静的ライブラリといい、
@@ -32,10 +35,10 @@ int Sub(int a, int b) {
 
 `add.cc` と `sub.cc` をコンパイルして生成される
 2つのオブジェクトファイル `add.o` と `sub.o` から
-静的ライブラリ `util.a` を作成するには下記コマンドを実行します。
+静的ライブラリ `libhoge.a` を作成するには下記コマンドを実行します。
 
 ```bash
-$ ar rc util.a add.o sub.o
+$ ar rc libhoge.a add.o sub.o
 ```
 
 `ar` はアーカイブを操作するコマンドです。
@@ -44,13 +47,13 @@ $ ar rc util.a add.o sub.o
 作成したアーカイブの内容は下記コマンドで確認できます。
 
 ```bash
-$ ar t util.a
+$ ar t libhoge.a
 add.o
 sub.o
 ```
 
-`util.a` を静的リンクしてリンクを行うには下記コマンドを実行します。
+`libhoge.a` を静的リンクするには下記コマンドを実行します。
 
 ```bash
-$ g++ -std=c++11 main.o util.a
+$ g++ -std=c++11 main.o libhoge.a
 ```
