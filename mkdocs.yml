@@ -77,6 +77,7 @@ nav:
       - 3.6. マップ: ch03-06-maps.md
       - 3.7. セット: ch03-07-sets.md
       - 3.8. イテレータ: ch03-08-iterators.md
+      - 3.9. 範囲 for: ch03-09-range-based-for.md
   - 4. ファイル分割とスコープ:
       - 4.1. 宣言と定義: ch04-01-declarations-and-definitions.md
       - 4.2. 複数ファイル: ch04-02-multiple-files.md
