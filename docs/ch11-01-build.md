@@ -1,5 +1,8 @@
 # ビルド
 
+!!! info "説明に使用する環境"
+    Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。
+
 ソースファイルから実行ファイルを生成する処理をビルドといいます。
 ビルドは次の手順で行われます。
 
@@ -37,7 +40,7 @@ $ g++ -std=c++11 -c util.cc
 `main.o` と `util.o` をリンクして実行ファイルを生成するには次のようにします。
 
 ```bash
-$ g++ main.o util.o
+$ g++ -std=c++11 main.o util.o
 ```
 
 コンパイル時点ではソースファイルを1つずつ処理するため、
@@ -68,8 +71,7 @@ int Sum(int a, int b) {
 
 ```bash
 $ g++ -std=c++11 main.o
-main.o:main.cc:(.text+0x18): `Sum(int, int)' に対する定義されていない参照です
-main.o:main.cc:(.text+0x18): 再配置がオーバーフローしないように切り詰められまし
-た: R_X86_64_PC32 (未定義シンボル `Sum(int, int)' に対して)
-collect2: エラー: ld はステータス 1 で終了しました
+main.o: 関数 `main' 内:
+main.cc:(.text+0xf): `Sum(int, int)' に対する定義されていない参照です
+collect2: error: ld returned 1 exit status
 ```
