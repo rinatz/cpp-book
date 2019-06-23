@@ -1,8 +1,15 @@
 # ダウンキャスト
 
 基底クラスの参照やポインタから派生クラスの参照やポインタへの型変換をダウンキャストといいます。
+C++ では、ダウンキャストをする際に `dynamic_cast` や ` static_cast` を使います。
 
-C++ では、ダウンキャストをする際に `dynamic_cast` を使います。
+ダウンキャストをしたクラスを扱う場合、
+キャスト失敗を考慮したコードを書く必要があったり、
+メモリアクセス違反を引き起こすようなコードになる可能性があります。
+そのため、ダウンキャストを行わないで済むようなコードを書くことが望ましいです。
+
+## dynamic_cast によるダウンキャスト
+
 `dynamic_cast` が使えるのは仮想関数を持ったクラスに限定されます。
 
 ```cpp
@@ -62,8 +69,10 @@ int main() {
 }
 ```
 
-ダウンキャストをしたクラスを扱う場合、注意をしないとメモリアクセス違反を引き起こす可能性があります。
-そのため、ダウンキャストを行わないで済むようなコードを書くことが望ましいです。
+## static_cast によるダウンキャスト
+
+キャスト元のポインタが正しくキャスト後のオブジェクトを指していることが自明であれば、
+`static_cast` を利用してダウンキャストを行うことも可能です。
 
 ```cpp
 class Base {
@@ -74,13 +83,32 @@ class Sub1 : public Base {
  public:
     int x_;
 };
+class Sub2 : public Base {}
 
-int main() {
-    Base* base = new Base();  // Base 型分のメモリが確保される
-    Sub1* sub1 = dynamic_cast<Sub1*>(base);  // ダウンキャスト
+Base* base = new Sub1();  // Sub1 からのアップキャスト
+Sub1* sub1 = static_cast<Sub1*>(base);  // Sub1 へのダウンキャスト
+                                        // base の実体は Sub1 なので問題なし
+```
 
-    sub1->x_ = 100;  // sub1 は base のメモリ領域を指したポインタ
-                     // base には存在しない領域 x_ を参照しようとして不正なメモリアクセスになる
-    return 0;
-}
+`static_cast` は `dynamic_cast` とは違い、
+実行時の型の情報をチェックしていないので、
+次のような危険なダウンキャストも出来てしまいます。
+`static_cast` の場合、キャストが成功しても動作は保証されないので注意が必要です。
+
+```cpp
+class Base {
+ public:
+    virtual ~Base(){}
+};
+class Sub1 : public Base {
+ public:
+    int x_;
+};
+class Sub2 : public Base {}
+
+Base* base = new Sub2();  // Sub2 からのアップキャスト
+Sub1* sub1 = static_cast<Sub1*>(base);  // Sub1 へのダウンキャスト
+
+sub1->x_ = 100;  // sub1 は Sub2 のメモリ領域を指したポインタ
+                 // Sub2 には存在しない領域 x_ を参照しようとして不正なメモリアクセスになる
 ```
