@@ -462,23 +462,10 @@
     for
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="配列のループ" class="md-nav__link">
-    配列のループ
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="ループ処理の中断" class="md-nav__link">
+  <a href="#_3" title="ループ処理の中断" class="md-nav__link">
     ループ処理の中断
   </a>
   
@@ -667,6 +654,18 @@
   <li class="md-nav__item">
     <a href="../ch03-08-iterators/" title="3.8. イテレータ" class="md-nav__link">
       3.8. イテレータ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ch03-09-range-based-for/" title="3.9. 範囲 for" class="md-nav__link">
+      3.9. 範囲 for
     </a>
   </li>
 
@@ -1540,23 +1539,10 @@
     for
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" title="配列のループ" class="md-nav__link">
-    配列のループ
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" title="ループ処理の中断" class="md-nav__link">
+  <a href="#_3" title="ループ処理の中断" class="md-nav__link">
     ループ処理の中断
   </a>
   
@@ -1738,26 +1724,9 @@
 <p><code>i</code> はループするたびに <code>0, 1, 2, ..., 9</code> と値が変化し続けます。
 <code>for (int i = 0; i &lt; 10; ++i)</code> というのは <code>i</code> に <code>0</code> を設定して
 <code>i &lt; 10</code> を満たすまで <code>i</code> を <code>+1</code> しながらループを継続するという意味になります。</p>
-<h3 id="_3">配列のループ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>配列のループは <code>for</code> を使って次のように書くことができます。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p><code>e</code> には 0 から 4 が順に代入されていきます。
-<code>std::array</code> でも同じように書くことができます。
-<code>for</code> の中で添字が必要な場合は添字をループして配列の要素をたどります。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<h2 id="_4">ループ処理の中断<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><code>for</code> はこの書き方以外に <code>範囲 for</code> という書き方もあります。
+詳細は <a href="../ch03-09-range-based-for/">3.9. 範囲 for</a> を参照してください。</p>
+<h2 id="_3">ループ処理の中断<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ループ文 <code>while</code>、 <code>do-while</code>、 <code>for</code> のループ処理は
 <code>break</code> または <code>continue</code> で中断することができます。</p>
 <h3 id="break">break<a class="headerlink" href="#break" title="Permanent link">&para;</a></h3>
