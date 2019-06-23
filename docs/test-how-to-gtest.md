@@ -1,10 +1,25 @@
 # Google Test の使い方
 
 ## Google Test のインストール
+
 msys2 のターミナルを起動して下記コマンドを打ってインストールします。
+[Make] と [CMake] が必要なのでインストールしていない場合は先にインストールしてください。
+
+[Make]: make-make.md
+[CMake]: make-cmake.md
 
 ```bash
-$ pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-gtest
+$ cd /tmp
+$ wget 'https://github.com/google/googletest/archive/release-1.8.1.tar.gz'
+$ tar zxvf release-1.8.1.tar.gz
+$ mkdir -p /usr/local/src
+$ mv googletest-release-1.8.1 /usr/local/src
+$ cd /usr/local/src/googletest-release-1.8.1
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ make install
 ```
 
 ## 実行例
@@ -58,14 +73,14 @@ TEST(IsEvenTest, Positive) {
 
 ```bash
 # ビルド
-$ g++ -std=c++11 sample.cc sample_test.cc -o test -I/mingw64/include -L/mingw64/lib -lgtest -lgtest_main -D_GLIBCXX_USE_CXX11_ABI=1
+$ g++ -std=c++11 sample.cc sample_test.cc -o test -L/usr/local/lib -lgtest -lgtest_main
 # 実行
 $ ./test.exe
 ```
 
 ```bash
 # 実行結果
-Running main() from C:/repo/mingw-w64-gtest/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
+Running main() from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
 [==========] Running 3 tests from 1 test case.
 [----------] Global test environment set-up.
 [----------] 3 tests from IsEvenTest
@@ -166,7 +181,7 @@ TEST(IsEvenTest, ExpectPositive) {
 ```
 
 ```bash tab="実行結果" hl_lines="6 7 8 9 10 12 13 14 15 16 17 18 19 20 21" linenums="1"
-Running main() from C:/repo/mingw-w64-gtest/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
+Running main() from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
 [==========] Running 2 tests from 1 test case.
 [----------] Global test environment set-up.
 [----------] 2 tests from IsEvenTest
