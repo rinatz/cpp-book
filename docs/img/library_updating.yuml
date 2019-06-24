@@ -1,0 +1,12 @@
+// {direction:leftToRight}
+// {generate:true}
+// {type:activity}
+(start)-><API>
+<API>API 互換性なし->(コード修正)
+<API>API 互換性あり-><library>
+<library>静的ライブラリ->(ビルド)
+<library>動的ライブラリ-><ABI>
+(コード修正)->(ビルド)
+<ABI>ABI 互換性なし->(ビルド)
+<ABI>ABI 互換性あり->(end)
+(ビルド)->(end)
