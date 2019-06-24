@@ -83,3 +83,9 @@ API 互換性のある API の変更は、
     - クラスにメンバ変数を追加 (オブジェクトのサイズ変更)
     - クラスのメンバ変数の宣言順序を変更 (オブジェクトのメモリ配置変更)
     - 仮想関数の追加 (vtable のサイズ変更)
+
+詳細は
+[Policies/Binary Compatibility Issues With C++ - KDE Community Wiki][kde_abi]
+を参照してください。
+
+[kde_abi]: https://community.kde.org/Policies/Binary_Compatibility_Issues_With_C%2B%2B
