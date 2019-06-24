@@ -432,6 +432,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#enum-class" title="enum class" class="md-nav__link">
+    enum class
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1575,6 +1582,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#enum-class" title="enum class" class="md-nav__link">
+    enum class
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1717,6 +1731,61 @@ GCC では 8, 16, 32, 64 ビットで定義されています。
 
 <span class="k">enum</span> <span class="n">SolarSystem</span> <span class="p">{</span>
   <span class="n">Sun</span><span class="p">,</span>  <span class="c1">// Sun は enum Day 内で定義済みのためコンパイルエラー</span>
+  <span class="n">Mercury</span><span class="p">,</span>
+  <span class="n">Venus</span><span class="p">,</span>
+  <span class="n">Earth</span><span class="p">,</span>
+  <span class="n">Mars</span><span class="p">,</span>
+  <span class="n">Jupiter</span><span class="p">,</span>
+  <span class="n">Saturn</span><span class="p">,</span>
+  <span class="n">Uranus</span><span class="p">,</span>
+  <span class="n">Neptune</span>
+<span class="p">};</span>
+</pre></div>
+
+<h3 id="enum-class">enum class<a class="headerlink" href="#enum-class" title="Permanent link">&para;</a></h3>
+<p><code>enum class</code> で列挙型を定義することもできます。</p>
+<div class="codehilite"><pre><span></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">Day</span> <span class="p">{</span>
+  <span class="n">Sun</span><span class="p">,</span>
+  <span class="n">Mon</span><span class="p">,</span>
+  <span class="n">Tue</span><span class="p">,</span>
+  <span class="n">Wed</span><span class="p">,</span>
+  <span class="n">Thu</span><span class="p">,</span>
+  <span class="n">Fri</span><span class="p">,</span>
+  <span class="n">Sat</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>基本的には <code>enum</code> と同じですが、以下の点が異なります。</p>
+<p><code>enum class</code> を扱うには <code>型名::列挙子名</code> とします。</p>
+<div class="codehilite"><pre><span></span><span class="n">Day</span> <span class="n">day</span> <span class="o">=</span> <span class="n">Day</span><span class="o">::</span><span class="n">Fri</span><span class="p">;</span>  <span class="c1">// OK</span>
+<span class="n">Day</span> <span class="n">day</span> <span class="o">=</span> <span class="n">Fri</span><span class="p">;</span>       <span class="c1">// コンパイルエラー</span>
+</pre></div>
+
+<p>明示的に型変換をしない限り、数値型に <code>enum class</code> の値の代入はできません。</p>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Day</span><span class="o">::</span><span class="n">Fri</span><span class="p">;</span>  <span class="c1">// コンパイルエラー</span>
+</pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">明示的な型変換</p>
+<p><a href="../ch08-01-cpp-casts/">明示的に型変換</a> を行うことで、数値型などに <code>enum class</code> の値の代入が可能です。</p>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Day</span><span class="o">::</span><span class="n">Fri</span><span class="p">);</span>
+</pre></div>
+
+</div>
+<p><code>enum class</code> の場合、列挙子の名前は型ごとに区別されるため、
+他の列挙型の列挙子と名前が被っても問題ありません。</p>
+<div class="codehilite"><pre><span></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">Day</span> <span class="p">{</span>
+  <span class="n">Sun</span><span class="p">,</span>  <span class="c1">// Day::Sun</span>
+  <span class="n">Mon</span><span class="p">,</span>
+  <span class="n">Tue</span><span class="p">,</span>
+  <span class="n">Wed</span><span class="p">,</span>
+  <span class="n">Thu</span><span class="p">,</span>
+  <span class="n">Fri</span><span class="p">,</span>
+  <span class="n">Sat</span>
+<span class="p">};</span>
+
+<span class="k">enum</span> <span class="k">class</span> <span class="nc">SolarSystem</span> <span class="p">{</span>
+  <span class="n">Sun</span><span class="p">,</span>  <span class="c1">// Day::Sun と SolarSystem::Sun は区別されるためOK</span>
   <span class="n">Mercury</span><span class="p">,</span>
   <span class="n">Venus</span><span class="p">,</span>
   <span class="n">Earth</span><span class="p">,</span>
