@@ -70,9 +70,19 @@ ABI 互換性があれば
 API の変更がなければ ABI 互換性があり、
 API 互換性がなければ ABI 互換性はありません。
 
-<!-- TODO: コンパイラのバージョンにも依存することに言及する。
-GCC 5.x の _GLIBCXX_USE_CXX11_ABI を説明に使用する。
--->
+??? question "ABI のコンパイラ依存"
+    ABI はコンパイラ依存です。
+
+    同じコンパイラであってもバージョンが異なれば ABI 互換性はないことがあります。
+    たとえば GCC 4.x と GCC 5.x ではデフォルトの ABI は互換性がありません。
+    GCC 5.x では `_GLIBCXX_USE_CXX11_ABI` マクロを `0` に定義することで
+    GCC 4.x と ABI 互換性があるようにビルドすることができます。
+    詳細は [Dual ABI - The GNU C++ Library][gcc_dual_abi] を参照してください。
+
+    一方で、異なるコンパイラ間でも ABI 互換性がある場合もあります。
+    たとえば Clang でビルドしたライブラリを GCC で使用できることがあります。
+
+[gcc_dual_abi]: https://gcc.gnu.org/onlinedocs/libstdc++/manual/using_dual_abi.html
 
 API 互換性のある API の変更は、
 次のように ABI 互換性のあるものとないものがあります。
