@@ -443,6 +443,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" title="複合代入" class="md-nav__link">
+    複合代入
+  </a>
+  
+</li>
+      
       
       
       
@@ -1414,6 +1421,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../appendix-downcasts/" title="ダウンキャスト" class="md-nav__link">
+      ダウンキャスト
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1456,6 +1475,13 @@
         <li class="md-nav__item">
   <a href="#_4" title="ビットの演算" class="md-nav__link">
     ビットの演算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="複合代入" class="md-nav__link">
+    複合代入
   </a>
   
 </li>
@@ -1574,6 +1600,18 @@
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 0xc</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">|</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 0x3f</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="c1">// 0x33</span>
+</pre></div>
+
+<h2 id="_5">複合代入<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">+=</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// 加算代入</span>
+<span class="n">x</span> <span class="o">-=</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// 減算代入</span>
+<span class="n">x</span> <span class="o">*=</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// 乗算代入</span>
+<span class="n">x</span> <span class="o">/=</span> <span class="n">y</span><span class="p">;</span> <span class="c1">// 除算代入</span>
+<span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">y</span> <span class="c1">// 左シフト</span>
+<span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="c1">// 右シフト</span>
+<span class="n">x</span> <span class="o">&amp;</span> <span class="n">y</span> <span class="c1">// 論理積</span>
+<span class="n">x</span> <span class="o">|</span> <span class="n">y</span> <span class="c1">// 論理和</span>
+<span class="n">x</span> <span class="o">^</span> <span class="n">y</span> <span class="c1">// 排他的論理和</span>
 </pre></div>
                 
                   

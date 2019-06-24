@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-04-pointers/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/appendix-downcasts/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>2.4. ポインタ - ゼロから学ぶ C++</title>
+        <title>ダウンキャスト - ゼロから学ぶ C++</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              2.4. ポインタ
+              ダウンキャスト
             </span>
           
         </div>
@@ -301,12 +301,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. 基本構文
@@ -358,70 +356,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.4. ポインタ
-      </label>
-    
-    <a href="./" title="2.4. ポインタ" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch02-04-pointers/" title="2.4. ポインタ" class="md-nav__link">
       2.4. ポインタ
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#nullptr" title="nullptr" class="md-nav__link">
-    nullptr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="デリファレンス（逆参照）" class="md-nav__link">
-    デリファレンス（逆参照）
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#const" title="constポインタ" class="md-nav__link">
-    constポインタ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="参照" class="md-nav__link">
-    参照
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1382,10 +1321,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16" checked>
     
     <label class="md-nav__link" for="nav-16">
       付録
@@ -1425,11 +1366,56 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../appendix-downcasts/" title="ダウンキャスト" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        ダウンキャスト
+      </label>
+    
+    <a href="./" title="ダウンキャスト" class="md-nav__link md-nav__link--active">
       ダウンキャスト
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dynamic_cast" title="dynamic_cast によるダウンキャスト" class="md-nav__link">
+    dynamic_cast によるダウンキャスト
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#static_cast" title="static_cast によるダウンキャスト" class="md-nav__link">
+    static_cast によるダウンキャスト
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1459,29 +1445,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#nullptr" title="nullptr" class="md-nav__link">
-    nullptr
+  <a href="#dynamic_cast" title="dynamic_cast によるダウンキャスト" class="md-nav__link">
+    dynamic_cast によるダウンキャスト
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="デリファレンス（逆参照）" class="md-nav__link">
-    デリファレンス（逆参照）
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#const" title="constポインタ" class="md-nav__link">
-    constポインタ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="参照" class="md-nav__link">
-    参照
+  <a href="#static_cast" title="static_cast によるダウンキャスト" class="md-nav__link">
+    static_cast によるダウンキャスト
   </a>
   
 </li>
@@ -1502,70 +1474,107 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-04-pointers.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/appendix-downcasts.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">ポインタ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>ポインタというのは他の変数を参照する仕組みの1つです。
-Windows のショートカットや Linux のシンボリックリンクと同じような機能です。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+                <h1 id="_1">ダウンキャスト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>基底クラスの参照やポインタから派生クラスの参照やポインタへの型変換をダウンキャストといいます。
+C++ では、ダウンキャストをする際に <code>dynamic_cast</code> や <code>static_cast</code> を使います。</p>
+<p>ダウンキャストをしたクラスを扱う場合、
+キャスト失敗を考慮したコードを書く必要があったり、
+メモリアクセス違反を引き起こすようなコードになる可能性があります。
+そのため、ダウンキャストを行わないで済むようなコードを書くことが望ましいです。</p>
+<h2 id="dynamic_cast">dynamic_cast によるダウンキャスト<a class="headerlink" href="#dynamic_cast" title="Permanent link">&para;</a></h2>
+<p><code>dynamic_cast</code> が使えるのは仮想関数を持ったクラスに限定されます。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Base</span><span class="p">(){}</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Sub1</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{};</span>
+
+<span class="n">Sub1</span><span class="o">*</span> <span class="n">sub1</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Sub1</span><span class="o">*&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">Base</span><span class="p">());</span>  <span class="c1">// ダウンキャスト</span>
 </pre></div>
 
-<p><code>int*</code> と書くと <code>int</code> 型の変数を指すポインタ型となります。
-<code>&amp;x</code> というのは <code>x</code> を指すポインタを得るための演算です。</p>
-<h2 id="nullptr">nullptr<a class="headerlink" href="#nullptr" title="Permanent link">&para;</a></h2>
-<p>どの変数も参照していないポインタのことをヌルポインタと呼びます。C++ではヌルポインタを表すキーワードとして <code>nullptr</code> が用意されています。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+<p><code>dynamic_cast</code> は他のキャスト演算子と異なり、実行時にキャストの成否を判断します。
+<code>dynamic_cast</code> は実行時の型の情報を確認した上で、継承関係が不正であった場合、キャストに失敗します。
+「ポインタでのキャスト」と「参照でのキャスト」では、失敗時の挙動が異なります。</p>
+<p>ポインタでのキャストでは、失敗時に <code>nullptr</code> を返却します。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Base</span><span class="p">(){}</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Sub1</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{};</span>
+<span class="k">class</span> <span class="nc">Sub2</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Base</span><span class="o">*</span> <span class="n">base</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Sub1</span><span class="p">;</span>
+    <span class="n">Sub2</span><span class="o">*</span> <span class="n">sub2</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Sub2</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">base</span><span class="p">);</span>  <span class="c1">// ダウンキャスト</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">sub2</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;ダウンキャスト失敗&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
-<div class="admonition warning">
-<p class="admonition-title">NULL マクロ</p>
-<p>C++11 までは <code>nullptr</code> というキーワードがなく、代わりに <code>NULL</code> を使用するのが一般的でした。
-<code>NULL</code> の実体はポインタ型ではなく <code>int</code> 型の <code>0</code> などであるため不都合が生じることもありました。</p>
-<p>C++11 ではこの問題を解決するために <code>nullptr</code> が導入されました。
-そのため C++11 以降では <code>NULL</code> ではなく <code>nullptr</code> を使うようにしましょう。</p>
-<p>詳細は <a href="https://cpprefjp.github.io/lang/cpp11/nullptr.html">nullptr - cpprefjp C++日本語リファレンス</a> を参照してください。</p>
-</div>
-<h2 id="_2">デリファレンス（逆参照）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>ポインタが指す変数の値を参照するには次のように書きます。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+<p>参照でのキャストでは、失敗時に <code>std::bad_cast</code> 例外を送出します。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Base</span><span class="p">(){}</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Sub1</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{};</span>
+<span class="k">class</span> <span class="nc">Sub2</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="n">Base</span><span class="o">*</span> <span class="n">base</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Sub1</span><span class="p">();</span>
+        <span class="n">Sub2</span><span class="o">&amp;</span> <span class="n">sub2</span> <span class="o">=</span> <span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Sub2</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">base</span><span class="p">);</span>  <span class="c1">// ダウンキャスト</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">bad_cast</span><span class="o">&amp;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;ダウンキャスト失敗&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
-<p>変数からポインタを得るときには <code>&amp;</code> を付け、ポインタから値を得るには <code>*</code> を付けます。</p>
-<h2 id="const">constポインタ<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
-<p>ポインタ型に <code>const</code> を付ける場合、 <code>const</code> の付ける位置によって意味合いが変わります。</p>
-<p><code>*</code> の前に <code>const</code> を付けると、ポインタが指し示す値を書き換えることができなくなります。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
-<span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
-<span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">456</span><span class="p">;</span> <span class="c1">// エラー</span>
+<h2 id="static_cast">static_cast によるダウンキャスト<a class="headerlink" href="#static_cast" title="Permanent link">&para;</a></h2>
+<p>キャスト元のポインタが正しくキャスト後のオブジェクトを指していることが自明であれば、
+<code>static_cast</code> を利用してダウンキャストを行うことも可能です。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Base</span><span class="p">(){}</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Sub1</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">x_</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Sub2</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{}</span>
+
+<span class="n">Base</span><span class="o">*</span> <span class="n">base</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Sub1</span><span class="p">();</span>  <span class="c1">// Sub1 からのアップキャスト</span>
+<span class="n">Sub1</span><span class="o">*</span> <span class="n">sub1</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Sub1</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">base</span><span class="p">);</span>  <span class="c1">// Sub1 へのダウンキャスト</span>
+                                        <span class="c1">// base の実体は Sub1 なので問題なし</span>
 </pre></div>
 
-<p><code>*</code> の後に <code>const</code> を付けると、ポインタ自身を書き換えることができなくなります。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
-<span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
-<span class="n">p</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span> <span class="c1">// エラー</span>
+<p><code>static_cast</code> は <code>dynamic_cast</code> とは違い、
+実行時の型の情報をチェックしていないので、
+次のような危険なダウンキャストも出来てしまいます。
+<code>static_cast</code> の場合、キャストが成功しても動作は保証されないので注意が必要です。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="k">virtual</span> <span class="o">~</span><span class="n">Base</span><span class="p">(){}</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Sub1</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">x_</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="k">class</span> <span class="nc">Sub2</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Base</span> <span class="p">{}</span>
+
+<span class="n">Base</span><span class="o">*</span> <span class="n">base</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Sub2</span><span class="p">();</span>  <span class="c1">// Sub2 からのアップキャスト</span>
+<span class="n">Sub1</span><span class="o">*</span> <span class="n">sub1</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Sub1</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">base</span><span class="p">);</span>  <span class="c1">// Sub1 へのダウンキャスト</span>
+
+<span class="n">sub1</span><span class="o">-&gt;</span><span class="n">x_</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>  <span class="c1">// sub1 は Sub2 のメモリ領域を指したポインタ</span>
+                 <span class="c1">// Sub2 には存在しない領域 x_ を参照しようとして不正なメモリアクセスになる</span>
 </pre></div>
-
-<p>併用することも可能です。</p>
-<div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
-</pre></div>
-
-<h2 id="_3">参照<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>ポインタに似た仕組みとして参照があります。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span> <span class="c1">// pはポインタ型</span>
-<span class="kt">int</span><span class="o">&amp;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// rは参照型</span>
-
-<span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-<span class="n">r</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
-</pre></div>
-
-<p><code>int&amp;</code> と書くと <code>int</code> の参照型となります。</p>
-<p>ポインタが指し示す値を扱うには <code>*</code> を付けてデリファレンスする必要がありますが、
-参照では何も付与する必要がないため、見た目上では値型のように使うことが出来ます。</p>
                 
                   
                 
@@ -1586,7 +1595,7 @@ Windows のショートカットや Linux のシンボリックリンクと同�
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch02-03-literals/" title="2.3. リテラル" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../appendix-preprocessor-directives/" title="プリプロセッサ司令" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1595,25 +1604,11 @@ Windows のショートカットや Linux のシンボリックリンクと同�
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                2.3. リテラル
+                プリプロセッサ司令
               </span>
             </div>
           </a>
         
-        
-          <a href="../ch02-05-comments/" title="2.5. コメント" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  次
-                </span>
-                2.5. コメント
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
