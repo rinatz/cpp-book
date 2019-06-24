@@ -1547,8 +1547,19 @@
                 
                 <h1 id="google-test">Google Test の使い方<a class="headerlink" href="#google-test" title="Permanent link">&para;</a></h1>
 <h2 id="google-test_1">Google Test のインストール<a class="headerlink" href="#google-test_1" title="Permanent link">&para;</a></h2>
-<p>msys2 のターミナルを起動して下記コマンドを打ってインストールします。</p>
-<div class="codehilite"><pre><span></span>$ pacman -S mingw-w64-x86_64-toolchain mingw-w64-x86_64-gtest
+<p>msys2 のターミナルを起動して下記コマンドを打ってインストールします。
+<a href="../make-make/">Make</a> と <a href="../make-cmake/">CMake</a> が必要なのでインストールしていない場合は先にインストールしてください。</p>
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> /tmp
+$ wget <span class="s1">&#39;https://github.com/google/googletest/archive/release-1.8.1.tar.gz&#39;</span>
+$ tar zxvf release-1.8.1.tar.gz
+$ mkdir -p /usr/local/src
+$ mv googletest-release-1.8.1 /usr/local/src
+$ <span class="nb">cd</span> /usr/local/src/googletest-release-1.8.1
+$ mkdir build
+$ <span class="nb">cd</span> build
+$ cmake ..
+$ make
+$ make install
 </pre></div>
 
 <h2 id="_1">実行例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -1630,13 +1641,13 @@
 テストコードでは、Google Test を利用するために <code>gtest/gtest.h</code> をインクルードし、テスト対象となる <code>sample.h</code> もインクルードしています。</p>
 <p>次のコマンドでテスト実行ファイルを作成します。ここではコマンドの詳細については割愛します。</p>
 <div class="codehilite"><pre><span></span><span class="c1"># ビルド</span>
-$ g++ -std<span class="o">=</span>c++11 sample.cc sample_test.cc -o <span class="nb">test</span> -I/mingw64/include -L/mingw64/lib -lgtest -lgtest_main -D_GLIBCXX_USE_CXX11_ABI<span class="o">=</span><span class="m">1</span>
+$ g++ -std<span class="o">=</span>c++11 sample.cc sample_test.cc -o <span class="nb">test</span> -L/usr/local/lib -lgtest -lgtest_main
 <span class="c1"># 実行</span>
 $ ./test.exe
 </pre></div>
 
 <div class="codehilite"><pre><span></span><span class="c1"># 実行結果</span>
-Running main<span class="o">()</span> from C:/repo/mingw-w64-gtest/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
+Running main<span class="o">()</span> from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
 <span class="o">[==========]</span> Running <span class="m">3</span> tests from <span class="m">1</span> <span class="nb">test</span> <span class="k">case</span>.
 <span class="o">[</span>----------<span class="o">]</span> Global <span class="nb">test</span> environment set-up.
 <span class="o">[</span>----------<span class="o">]</span> <span class="m">3</span> tests from IsEvenTest
@@ -1789,7 +1800,7 @@ Running main<span class="o">()</span> from C:/repo/mingw-w64-gtest/src/googletes
 28
 29
 30
-31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Running main<span class="o">()</span> from C:/repo/mingw-w64-gtest/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Running main<span class="o">()</span> from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
 <span class="o">[==========]</span> Running <span class="m">2</span> tests from <span class="m">1</span> <span class="nb">test</span> <span class="k">case</span>.
 <span class="o">[</span>----------<span class="o">]</span> Global <span class="nb">test</span> environment set-up.
 <span class="o">[</span>----------<span class="o">]</span> <span class="m">2</span> tests from IsEvenTest
