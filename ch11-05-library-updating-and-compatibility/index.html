@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch06-01-memory-areas/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch11-05-library-updating-and-compatibility/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>6.1. メモリ領域 - ゼロから学ぶ C++</title>
+        <title>11.5 ライブラリ更新と互換性 - ゼロから学ぶ C++</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              6.1. メモリ領域
+              11.5 ライブラリ更新と互換性
             </span>
           
         </div>
@@ -685,12 +685,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       6. メモリの管理
@@ -706,56 +704,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        6.1. メモリ領域
-      </label>
-    
-    <a href="./" title="6.1. メモリ領域" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch06-01-memory-areas/" title="6.1. メモリ領域" class="md-nav__link">
       6.1. メモリ領域
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="スタック" class="md-nav__link">
-    スタック
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" title="ヒープ" class="md-nav__link">
-    ヒープ
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1140,10 +1093,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" checked>
     
     <label class="md-nav__link" for="nav-12">
       11. ビルドと実行
@@ -1207,11 +1162,63 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch11-05-library-updating-and-compatibility/" title="11.5 ライブラリ更新と互換性" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11.5 ライブラリ更新と互換性
+      </label>
+    
+    <a href="./" title="11.5 ライブラリ更新と互換性" class="md-nav__link md-nav__link--active">
       11.5 ライブラリ更新と互換性
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#api" title="API 互換性" class="md-nav__link">
+    API 互換性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="静的ライブラリと動的ライブラリ" class="md-nav__link">
+    静的ライブラリと動的ライブラリ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abi" title="ABI 互換性" class="md-nav__link">
+    ABI 互換性
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1457,15 +1464,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" title="スタック" class="md-nav__link">
-    スタック
+  <a href="#api" title="API 互換性" class="md-nav__link">
+    API 互換性
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" title="ヒープ" class="md-nav__link">
-    ヒープ
+  <a href="#_2" title="静的ライブラリと動的ライブラリ" class="md-nav__link">
+    静的ライブラリと動的ライブラリ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abi" title="ABI 互換性" class="md-nav__link">
+    ABI 互換性
   </a>
   
 </li>
@@ -1486,32 +1500,98 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch06-01-memory-areas.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch11-05-library-updating-and-compatibility.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">メモリ領域<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>プログラムが利用するメモリには様々な領域が存在します。ここでは、スタックとヒープについて紹介します。</p>
-<h2 id="_2">スタック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>スタックはデータ構造上、ヒープに比べて高速に扱えます。スタックへのメモリの確保と解放はコンパイラ・OSが自動的に行います。</p>
-<p>代わりに、使用できるスタックには限りがあるので、大きなデータを取り扱うのには向いていません。
-また、スタックのサイズはプログラムのコンパイル・リンク時に決定しているので、実行前にメモリの確保期間が分かっているものに利用は限られます。</p>
-<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">Function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// ローカル変数xはスタックに確保される。</span>
-    <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span> <span class="c1">// ローカル変数yはスタックに確保される。</span>
-
-<span class="p">}</span> <span class="c1">// 関数の終了とともに変数 x, y はスタックから取り除かれる。</span>
-  <span class="c1">// スタックはLIFO（後入れ先出し）形式のため y, x の順で取り除かれる。</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">Function</span><span class="p">();</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-<h2 id="_3">ヒープ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>ヒープのサイズはプログラム実行時に動的に変化します。ヒープはスタックのような制限がなく自由度が高いですが、アプリケーション側でメモリの確保と解放を行う必要があります。</p>
-<p>メモリの確保期間が明確でない場合や、実行時にサイズが確定するようなものについてはヒープを利用します。例えば、 <code>std::vector</code> は、保持する要素をヒープ上に確保することで、要素数を実行時に変更できるという仕組みを実現しています。</p>
+                <h1 id="_1">ライブラリ更新と互換性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<div class="admonition info">
+<p class="admonition-title">説明に使用する環境</p>
+<p>Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。</p>
+</div>
+<p>ライブラリの更新があった場合に、
+ライブラリを使用するプログラムで必要な作業は以下の項目で決まります。</p>
+<ul>
+<li>静的ライブラリと動的ライブラリのどちらであるか</li>
+<li>更新前後での API 互換性</li>
+<li>更新前後での ABI 互換性</li>
+</ul>
+<p><img alt="ライブラリ更新で必要な手順を表した図" src="../img/library_updating.svg" /></p>
+<h2 id="api">API 互換性<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<p>API はアプリケーションプログラミングインタフェースの略で、
+ソースコードレベルでのインターフェースのことをいいます。
+更新前のライブラリに存在する API を
+更新後のライブラリでそのまま使用できる場合に API 互換性があるといいます。</p>
+<p>API 互換性があれば
+ライブラリを使用するプログラムのコード修正は必要ありません。</p>
+<p>API の変化を伴わない以下のような変更は API 互換性があります。</p>
+<ul>
+<li>コメントの変更 (誤字修正など)</li>
+<li>ソースファイルに記述されている実装の変更 (リファクタリングやバグ修正など)</li>
+</ul>
+<p>API の変化を伴う変更は、
+次のように API 互換性のあるものとないものがあります。</p>
+<ul>
+<li>API 互換性のある変更<ul>
+<li>API の新規追加</li>
+<li>更新前の仕様を維持して API を変更 (拡張)</li>
+</ul>
+</li>
+<li>API 互換性のない変更<ul>
+<li>API の削除</li>
+<li>更新前の仕様を維持せず API を変更</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">静的ライブラリと動的ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">静的ライブラリ</p>
+<p><img alt="静的ライブラリ" src="../img/static_library.svg" /></p>
+</div>
+<p>静的ライブラリはライブラリを使用するプログラムに取り込まれるため、
+ライブラリを使用するプログラムの再ビルドが必要です。</p>
+<div class="admonition info">
+<p class="admonition-title">動的ライブラリ</p>
+<p><img alt="動的ライブラリ" src="../img/dynamic_library.svg" /></p>
+</div>
+<p>動的ライブラリはライブラリを使用するプログラムに取り込まれないため、
+ライブラリを使用するプログラムの再ビルドは不要です。
+ただし、後述の ABI 互換性がない場合には再ビルドが必要となります。</p>
+<h2 id="abi">ABI 互換性<a class="headerlink" href="#abi" title="Permanent link">&para;</a></h2>
+<p>ABI はアプリケーションバイナリインタフェースの略で、
+バイナリレベルでのインターフェースのことをいいます。
+更新前のライブラリに存在する ABI を
+更新後のライブラリでそのまま使用できる場合に ABI 互換性があるといいます。</p>
+<p>ABI 互換性があれば
+実行環境の動的ライブラリを変更するだけで動作します。</p>
+<p>通常は
+API の変更がなければ ABI 互換性があり、
+API 互換性がなければ ABI 互換性はありません。</p>
+<details class="question"><summary>ABI のコンパイラ依存</summary><p>ABI はコンパイラ依存です。</p>
+<p>同じコンパイラであってもバージョンが異なれば ABI 互換性はないことがあります。
+たとえば GCC 4.x と GCC 5.x ではデフォルトの ABI は互換性がありません。
+GCC 5.x では <code>_GLIBCXX_USE_CXX11_ABI</code> マクロを <code>0</code> に定義することで
+GCC 4.x と ABI 互換性があるようにビルドすることができます。
+詳細は <a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/using_dual_abi.html">Dual ABI - The GNU C++ Library</a> を参照してください。</p>
+<p>一方で、異なるコンパイラ間でも ABI 互換性がある場合もあります。
+たとえば Clang でビルドしたライブラリを GCC で使用できることがあります。</p>
+</details>
+<p>API 互換性のある API の変更は、
+次のように ABI 互換性のあるものとないものがあります。</p>
+<ul>
+<li>ABI 互換性のある変更<ul>
+<li>クラスに属さない関数や変数の追加</li>
+</ul>
+</li>
+<li>ABI 互換性のない変更<ul>
+<li>クラスにメンバ変数を追加 (オブジェクトのサイズ変更)</li>
+<li>クラスのメンバ変数の宣言順序を変更 (オブジェクトのメモリ配置変更)</li>
+<li>仮想関数の追加 (vtable のサイズ変更)</li>
+</ul>
+</li>
+</ul>
+<p>詳細は
+<a href="https://community.kde.org/Policies/Binary_Compatibility_Issues_With_C%2B%2B">Policies/Binary Compatibility Issues With C++ - KDE Community Wiki</a>
+を参照してください。</p>
                 
                   
                 
@@ -1532,7 +1612,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch05-02-file-operations/" title="5.2. ファイル操作" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch11-04-dynamic-loading-and-name-mangling/" title="11.4 動的ロードと名前マングリング" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1541,19 +1621,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                5.2. ファイル操作
+                11.4 動的ロードと名前マングリング
               </span>
             </div>
           </a>
         
         
-          <a href="../ch06-02-new-and-delete/" title="6.2. new/delete" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../test-how-to-gtest/" title="Google Test の使い方" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                6.2. new/delete
+                Google Test の使い方
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
