@@ -21,7 +21,10 @@ int x = static_cast<int>(dx);
 ## dynamic_cast
 
 ダウンキャストをする際に、 `dynamic_cast` を使います。
-<!-- MEMO: 付録へのリンクを張る -->
+`dynamic_cast` の詳細については [ダウンキャスト][downcasts] を参照してください。
+
+[downcasts]: appendix-downcasts.md
+
 
 ## const_cast
 

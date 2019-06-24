@@ -392,9 +392,10 @@ try {
 
 ### std::bad_cast
 
-dynamic_cast で失敗した場合に送出されます。
+`dynamic_cast` で失敗した場合に送出されます。
+`dynamic_cast` の詳細については [ダウンキャスト][downcasts] を参照してください。
 
-<!-- TODO: ダウンキャストのページへのリンクを貼る -->
+[downcasts]: appendix-downcasts.md
 
 ## デストラクタと例外
 
