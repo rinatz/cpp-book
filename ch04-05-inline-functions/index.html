@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch03-09-range-based-for/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch04-05-inline-functions/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>3.9. 範囲 for - ゼロから学ぶ C++</title>
+        <title>4.5. inline 関数 - ゼロから学ぶ C++</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#for" tabindex="1" class="md-skip">
+      <a href="#inline" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              3.9. 範囲 for
+              4.5. inline 関数
             </span>
           
         </div>
@@ -433,12 +433,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
     
     <label class="md-nav__link" for="nav-4">
       3. コンテナ
@@ -550,56 +548,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        3.9. 範囲 for
-      </label>
-    
-    <a href="./" title="3.9. 範囲 for" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch03-09-range-based-for/" title="3.9. 範囲 for" class="md-nav__link">
       3.9. 範囲 for
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="コンテナ" class="md-nav__link">
-    コンテナ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="配列" class="md-nav__link">
-    配列
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -612,10 +565,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       4. ファイル分割とスコープ
@@ -679,11 +634,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch04-05-inline-functions/" title="4.5. inline 関数" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="4.5. inline 関数" class="md-nav__link md-nav__link--active">
       4.5. inline 関数
     </a>
+    
   </li>
 
         
@@ -1477,29 +1441,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="コンテナ" class="md-nav__link">
-    コンテナ
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="配列" class="md-nav__link">
-    配列
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1510,45 +1451,109 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch03-09-range-based-for.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch04-05-inline-functions.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="for">範囲 for<a class="headerlink" href="#for" title="Permanent link">&para;</a></h1>
-<h2 id="_1">コンテナ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>イテレータを使用できるコンテナでは、
-コンテナのループを次のように書くことができます。</p>
-<div class="codehilite"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+                <h1 id="inline">inline 関数<a class="headerlink" href="#inline" title="Permanent link">&para;</a></h1>
+<p>関数に <code>inline</code> をつけると
+コンパイラに <a href="https://ja.wikipedia.org/wiki/インライン展開">インライン展開</a> するように指示することができます。
+この指示をした関数のことを inline 関数といいます。</p>
+<p>実際にインライン展開をするかどうかはコンパイラの判断次第です。
+<code>inline</code> をつけてもインライン展開されないことや、
+<code>inline</code> をつけなくてもインライン展開されることがあります。</p>
+<p>inline 関数は定義が同一である場合に限って、
+異なるソースファイルで同一の定義をしてもいいと決められています。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">main.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="hll"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">HelloWorld</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">HelloWorld</span><span class="p">();</span>
+    <span class="n">Something</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">something.h</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#ifndef SOMETHING_H_</span>
+<span class="cp">#define SOMETHING_H_</span>
 
-<p>以下のように書いた場合と同じ挙動になります。</p>
-<div class="codehilite"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">();</span>
 
-<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="cp">#endif  </span><span class="c1">// SOMETHING_H_</span>
+</pre></div></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">something.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="hll"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">HelloWorld</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">HelloWorld</span><span class="p">();</span>
 <span class="p">}</span>
-</pre></div>
+</pre></div></div>
+</div>
+<p>この例では <code>main.cc</code> と <code>something.cc</code> で
+定義が同一である inline 関数 <code>HelloWorld()</code> がそれぞれ存在します。</p>
+<p>これによって inline 関数であればヘッダファイルで関数定義をしてもリンク時にエラーにはなりません。</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">hello_world.h</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#ifndef HELLO_WORLD_H_</span>
+<span class="cp">#define HELLO_WORLD_H_</span>
 
-<h2 id="_2">配列<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>配列のサイズを確定できる箇所では、
-配列のループを次のように書くことができます。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="hll"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">HelloWorld</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="cp">#endif  </span><span class="c1">// HELLO_WORLD_H_</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_1" />
+<label for="__tab_2_1">main.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;hello_world.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">HelloWorld</span><span class="p">();</span>
+    <span class="n">Something</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
-</pre></div>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_2" />
+<label for="__tab_2_2">something.h</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#ifndef SOMETHING_H_</span>
+<span class="cp">#define SOMETHING_H_</span>
 
-<p>以下のように書いた場合と同じ挙動になります。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">();</span>
 
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="cp">#endif  </span><span class="c1">// SOMETHING_H_</span>
+</pre></div></div>
+<input name="__tabs_2" type="radio" id="__tab_2_3" />
+<label for="__tab_2_3">something.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;hello_world.h&quot;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">HelloWorld</span><span class="p">();</span>
 <span class="p">}</span>
-</pre></div>
+</pre></div></div>
+</div>
                 
                   
                 
@@ -1569,7 +1574,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch03-08-iterators/" title="3.8. イテレータ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch04-04-internal-linkages/" title="4.4. 内部リンケージ" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1578,19 +1583,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                3.8. イテレータ
+                4.4. 内部リンケージ
               </span>
             </div>
           </a>
         
         
-          <a href="../ch04-01-declarations-and-definitions/" title="4.1. 宣言と定義" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch05-01-standard-inout/" title="5.1. 標準入出力" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                4.1. 宣言と定義
+                5.1. 標準入出力
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

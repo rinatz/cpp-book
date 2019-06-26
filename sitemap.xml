@@ -126,6 +126,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://rinatz.github.io/cpp-book/ch04-05-inline-functions/</loc>
+     <lastmod>2019-06-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://rinatz.github.io/cpp-book/ch05-01-standard-inout/</loc>
      <lastmod>2019-06-26</lastmod>
      <changefreq>daily</changefreq>
