@@ -46,6 +46,115 @@ int Rectangle::Area() {
 
 どのクラスのメンバ関数であるかを表すために `Rectangle::` が必要になります。
 
+??? question "暗黙的な inline 指定"
+    クラス宣言の中でメンバ関数を定義した場合、暗黙的に `inline` 指定されます。
+    そのため、ヘッダファイルのクラス宣言の中でメンバ関数を定義しても
+    リンク時にエラーにはなりません。
+
+    ```cpp linenums="1" tab="rectangle.h" hl_lines="6 7 8"
+    #ifndef RECTANGLE_H_
+    #define RECTANGLE_H_
+
+    class Rectangle {
+     public:
+        int Area() {
+            return height_ * width_;
+        }
+
+        int height_;
+        int width_;
+    };
+
+    #endif  // RECTANGLE_H_
+    ```
+
+    ```cpp linenums="1" tab="something.h"
+    #ifndef SOMETHING_H_
+    #define SOMETHING_H_
+
+    void Something();
+
+    #endif  // SOMETHING_H_
+    ```
+
+    ```cpp linenums="1" tab="something.cc"
+    #include "something.h"
+
+    #include <iostream>
+
+    #include "rectangle.h"
+
+    void Something() {
+        Rectangle r;
+
+        r.height_ = 2;
+        r.width_ = 3;
+        std::cout << r.Area() << std::endl;
+    }
+    ```
+
+    ```cpp linenums="1" tab="main.cc"
+    #include <iostream>
+
+    #include "rectangle.h"
+    #include "something.h"
+
+    int main() {
+        Rectangle r;
+        r.height_ = 10;
+        r.width_ = 20;
+        std::cout << r.Area() << std::endl;
+
+        Something();
+
+        return 0;
+    }
+    ```
+
+    クラス宣言とは別にメンバ関数を定義すると暗黙的な inline 指定はされなくなります。
+    ヘッダファイル中でクラス宣言とは別にメンバ関数の定義を行うとリンク時にエラーとなります。
+
+    ```cpp linenums="1" tab="rectangle.h" hl_lines="12 13 14"
+    #ifndef RECTANGLE_H_
+    #define RECTANGLE_H_
+
+    class Rectangle {
+     public:
+        int Area();
+
+        int height_;
+        int width_;
+    };
+
+    int Rectangle::Area() {
+        return height_ * width_;
+    }
+
+    #endif  // RECTANGLE_H_
+    ```
+
+    ヘッダファイル中でクラス宣言とは別にメンバ関数の定義を行うには、
+    明示的に `inline` 指定する必要があります。
+
+    ```cpp linenums="1" tab="rectangle.h" hl_lines="12"
+    #ifndef RECTANGLE_H_
+    #define RECTANGLE_H_
+
+    class Rectangle {
+     public:
+        int Area();
+
+        int height_;
+        int width_;
+    };
+
+    inline int Rectangle::Area() {
+        return height_ * width_;
+    }
+
+    #endif  // RECTANGLE_H_
+    ```
+
 ## const メンバ関数
 
 引数リストのあとに `const` をつけることで `const` メンバ関数になります。
