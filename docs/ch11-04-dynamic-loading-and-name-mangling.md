@@ -10,8 +10,11 @@
 動的ロードは C++ の標準機能ではないため、処理系固有の処理が必要です。
 Linux 環境で使用する API の詳細は
 [Man page of DLOPEN - JM Project][linuxjm_dlopen] を参照してください。
+また、これらの API で使用される void ポインタについては
+[void ポインタ][void-pointer] を参照してください。
 
 [linuxjm_dlopen]: https://linuxjm.osdn.jp/html/LDP_man-pages/man3/dlopen.3.html
+[void-pointer]: appendix-void-pointer.md
 
 次のコードで説明します。
 
