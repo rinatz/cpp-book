@@ -5,8 +5,8 @@
 [CMake]: https://ja.wikipedia.org/wiki/CMake
 
 実際には CMake によってコンパイラに依存するビルド手順を生成し、
-ビルドの実行はその手順を元に他のツールで行います。
-たとえば CMake によって Makefile を生成して Make でビルドします。
+ビルドの実行はその手順を元に他のツールが行います。
+たとえば CMake によって Makefile の生成と Make の実行が行われます。
 
 ## インストール
 
@@ -15,6 +15,10 @@ msys2 のターミナルを起動して下記コマンドを打ってインス�
 ```bash
 $ pacman -S cmake
 ```
+
+[Make] も必要なのでインストールしていない場合はインストールしてください。
+
+[Make]: make-make.md
 
 ## ビルド実行
 
@@ -33,10 +37,8 @@ add_executable(a main.cc)
 
 ```bash
 $ cmake .
-$ make
+$ cmake --build .
 ```
-
-`cmake .` で `Makefile` を生成して `make` でビルドが行われます。
 
 ### out-of-source ビルド
 
@@ -44,12 +46,12 @@ $ make
 上記の方法だと `CMakeLists.txt` のあるディレクトリに配置されます。
 
 一般に生成されるファイルはビルド用ディレクトリ配下とするのが望ましいです。
-`cmake` で生成されるファイルをビルド用ディレクトリ配下にするには
-次のようにビルド用ディレクトリ内で `cmake` (や `make`) を実行します。
+`cmake` で生成されるファイルをビルド用ディレクトリ `out` 配下にするには次のようにします。
 
 ```bash
-$ mkdir -p build
-$ cd build
+$ mkdir -p out
+$ cd out
 $ cmake ..
-$ make
+$ cd ..
+$ cmake --build out
 ```
