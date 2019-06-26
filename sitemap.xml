@@ -330,4 +330,9 @@
      <lastmod>2019-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    <url>
+     <loc>http://rinatz.github.io/cpp-book/appendix-void-pointer/</loc>
+     <lastmod>2019-06-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
 </urlset>
