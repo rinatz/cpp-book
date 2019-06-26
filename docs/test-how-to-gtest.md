@@ -217,12 +217,11 @@ Expected: true
 テストが失敗した場合、失敗箇所と失敗理由が出力されます。
 
 ## 参考
-- [入門ガイド — Google Test ドキュメント日本語訳][gtest-primer]
-- [上級ガイド — Google Test ドキュメント日本語訳][gtest-advanced]
-- [よくある質問 — Google Test ドキュメント日本語訳][gtest-faq]
+
+- [Google Test ドキュメント日本語訳][gtest-docs-jp]
+- [Google Mock ドキュメント日本語訳][gmock-docs-jp]
 - [サンプル集 — google/googletest (GitHub)][gtest-samples]
 
-[gtest-primer]: http://opencv.jp/googletestdocs/primer.html
-[gtest-advanced]: http://opencv.jp/googletestdocs/advancedguide.html
-[gtest-faq]: http://opencv.jp/googletestdocs/FAQ.html
+[gtest-docs-jp]: http://opencv.jp/googletestdocs/index.html
+[gmock-docs-jp]: http://opencv.jp/googlemockdocs/index.html
 [gtest-samples]: https://github.com/google/googletest/tree/master/googletest/samples
