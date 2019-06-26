@@ -115,7 +115,7 @@ nav:
       - 10.1 例外処理: ch10-01-exceptions.md
       - 10.2 シグナル: ch10-02-signals.md
       - 10.3 アサーション: ch10-03-assertions.md
-  - 11. ビルドと実行:
+  - 11. ビルドとライブラリ:
       - 11.1 ビルド: ch11-01-build.md
       - 11.2 静的ライブラリと静的リンク: ch11-02-static-libraries-and-static-linking.md
       - 11.3 動的ライブラリと動的リンク: ch11-03-dynamic-libraries-and-dynamic-linking.md
