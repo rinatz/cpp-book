@@ -49,6 +49,9 @@ $ cmake --build .
 `cmake` で生成されるファイルをビルド用ディレクトリ `out` 配下にするには次のようにします。
 
 ```bash
-$ cmake -Bout .
+$ mkdir -p out
+$ cd out
+$ cmake ..
+$ cd ..
 $ cmake --build out
 ```
