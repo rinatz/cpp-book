@@ -112,7 +112,7 @@ int Rectangle::Area() {
     ```
 
     クラス宣言とは別にメンバ関数を定義すると暗黙的な inline 指定はされなくなります。
-    ヘッダファイル中でクラス宣言とは別にメンバ関数の定義を行うとリンク時にエラーとなります。
+    ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うとリンク時にエラーとなります。
 
     ```cpp linenums="1" tab="rectangle.h" hl_lines="12 13 14"
     #ifndef RECTANGLE_H_
@@ -133,7 +133,7 @@ int Rectangle::Area() {
     #endif  // RECTANGLE_H_
     ```
 
-    ヘッダファイル中でクラス宣言とは別にメンバ関数の定義を行うには、
+    ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うには、
     明示的に `inline` 指定する必要があります。
 
     ```cpp linenums="1" tab="rectangle.h" hl_lines="12"
