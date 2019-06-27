@@ -86,8 +86,7 @@ namespace {
     int hoge = 0;  // main.cc 内の hoge
 }
 
-int main()
-{
+int main() {
     hoge += 2;
 
     IncrementHoge();
