@@ -67,7 +67,62 @@ void Print() {
 }
 ```
 
-C++ において `static` は[様々な意味を持つ][cppreference-static]ため、分かりづらいキーワードとなっています。
+C++ において `static` は [様々な意味を持つ][cppreference-static] ため、分かりづらいキーワードとなっています。
 宣言に内部リンケージを持たせる場合は、 `static` ではなく無名名前空間を使うようにしましょう。
 
 [cppreference-static]: https://ja.cppreference.com/w/cpp/keyword/static
+
+## 内部リンケージと定義重複
+
+ソースファイル間で定義が重複している時、通常は定義の重複によるエラーになりますが、
+各々に内部リンケージを持たせて別のファイルから見えなくしていれば、別の定義として扱うことができます。
+
+```cpp tab="main.cc" hl_lines="6"
+#include <iostream>
+
+#include "other.h"
+
+namespace {
+    int hoge = 0;  // main.cc 内の hoge
+}
+
+int main() {
+    hoge += 2;
+
+    IncrementHoge();
+
+    std::cout << "main.cc: " << hoge << std::endl;  // main.cc: 2
+
+    PrintHoge();
+
+    return 0;
+}
+```
+
+```cpp tab="other.h"
+#ifndef OTHER_H_
+#define OTHER_H_
+
+void IncrementHoge();
+void PrintHoge();
+
+#endif  // OTHER_H_
+```
+
+```cpp tab="other.cc" hl_lines="6"
+#include "other.h"
+
+#include <iostream>
+
+namespace {
+    int hoge = 0;  // other.cc 内の hoge
+}
+
+void IncrementHoge() {
+    ++hoge;
+}
+
+void PrintHoge() {
+    std::cout << "other.cc: " << hoge << std::endl;  // other.cc: 1
+}
+```
