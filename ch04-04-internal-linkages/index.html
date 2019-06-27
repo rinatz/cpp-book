@@ -664,6 +664,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="内部リンケージと定義重複" class="md-nav__link">
+    内部リンケージと定義重複
+  </a>
+  
+</li>
+      
       
       
       
@@ -1494,6 +1501,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" title="内部リンケージと定義重複" class="md-nav__link">
+    内部リンケージと定義重複
+  </a>
+  
+</li>
+      
       
       
       
@@ -1578,8 +1592,63 @@
 <span class="p">}</span>
 </pre></div></div>
 </div>
-<p>C++ において <code>static</code> は<a href="https://ja.cppreference.com/w/cpp/keyword/static">様々な意味を持つ</a>ため、分かりづらいキーワードとなっています。
+<p>C++ において <code>static</code> は <a href="https://ja.cppreference.com/w/cpp/keyword/static">様々な意味を持つ</a> ため、分かりづらいキーワードとなっています。
 宣言に内部リンケージを持たせる場合は、 <code>static</code> ではなく無名名前空間を使うようにしましょう。</p>
+<h2 id="_3">内部リンケージと定義重複<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>ソースファイル間で定義が重複している時、通常は定義の重複によるエラーになりますが、
+各々に内部リンケージを持たせて別のファイルから見えなくしていれば、別の定義として扱うことができます。</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">main.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;other.h&quot;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="p">{</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">hoge</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// main.cc 内の hoge</span>
+</span><span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">hoge</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="n">IncrementHoge</span><span class="p">();</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;main.cc: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">hoge</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// main.cc: 2</span>
+
+    <span class="n">PrintHoge</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_1" />
+<label for="__tab_3_1">other.h</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#ifndef OTHER_H_</span>
+<span class="cp">#define OTHER_H_</span>
+
+<span class="kt">void</span> <span class="nf">IncrementHoge</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">PrintHoge</span><span class="p">();</span>
+
+<span class="cp">#endif  </span><span class="c1">// OTHER_H_</span>
+</pre></div></div>
+<input name="__tabs_3" type="radio" id="__tab_3_2" />
+<label for="__tab_3_2">other.cc</label>
+<div class="superfences-content"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;other.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="p">{</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">hoge</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// other.cc 内の hoge</span>
+</span><span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">IncrementHoge</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">hoge</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">PrintHoge</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;other.cc: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">hoge</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// other.cc: 1</span>
+<span class="p">}</span>
+</pre></div></div>
+</div>
                 
                   
                 
