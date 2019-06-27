@@ -1565,6 +1565,198 @@
 </span></pre></div>
 
 <p>どのクラスのメンバ関数であるかを表すために <code>Rectangle::</code> が必要になります。</p>
+<details class="question"><summary>暗黙的な inline 指定</summary><p>クラス宣言の中でメンバ関数を定義した場合、暗黙的に <code>inline</code> 指定されます。
+そのため、ヘッダファイルのクラス宣言の中でメンバ関数を定義しても
+リンク時にエラーにはなりません。</p>
+<div class="superfences-tabs">
+<input name="__tabs_1" type="radio" id="__tab_1_0" checked="checked" />
+<label for="__tab_1_0">rectangle.h</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#ifndef RECTANGLE_H_</span>
+<span class="cp">#define RECTANGLE_H_</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#endif  </span><span class="c1">// RECTANGLE_H_</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_1" />
+<label for="__tab_1_1">something.h</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#ifndef SOMETHING_H_</span>
+<span class="cp">#define SOMETHING_H_</span>
+
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">();</span>
+
+<span class="cp">#endif  </span><span class="c1">// SOMETHING_H_</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_2" />
+<label for="__tab_1_2">something.cc</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;rectangle.h&quot;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Rectangle</span> <span class="n">r</span><span class="p">;</span>
+
+    <span class="n">r</span><span class="p">.</span><span class="n">height_</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">width_</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">Area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<input name="__tabs_1" type="radio" id="__tab_1_3" />
+<label for="__tab_1_3">main.cc</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;rectangle.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Rectangle</span> <span class="n">r</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">height_</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">width_</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">Area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">Something</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>クラス宣言とは別にメンバ関数を定義すると暗黙的な inline 指定はされなくなります。
+ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うとリンク時にエラーとなります。</p>
+<div class="superfences-tabs">
+<input name="__tabs_2" type="radio" id="__tab_2_0" checked="checked" />
+<label for="__tab_2_0">rectangle.h</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#ifndef RECTANGLE_H_</span>
+<span class="cp">#define RECTANGLE_H_</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">Area</span><span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="cp">#endif  </span><span class="c1">// RECTANGLE_H_</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うには、
+明示的に <code>inline</code> 指定する必要があります。</p>
+<div class="superfences-tabs">
+<input name="__tabs_3" type="radio" id="__tab_3_0" checked="checked" />
+<label for="__tab_3_0">rectangle.h</label>
+<div class="superfences-content"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#ifndef RECTANGLE_H_</span>
+<span class="cp">#define RECTANGLE_H_</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">Area</span><span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="kr">inline</span> <span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+</span>    <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#endif  </span><span class="c1">// RECTANGLE_H_</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</details>
 <h2 id="const">const メンバ関数<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
 <p>引数リストのあとに <code>const</code> をつけることで <code>const</code> メンバ関数になります。</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
