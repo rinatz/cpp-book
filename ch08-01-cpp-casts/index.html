@@ -1597,6 +1597,29 @@
 
 <p>変換後の型から変換前の型に戻すことができる点は保証されていますが、
 変換したものが正しく機能するかは実装に依存するため、なるべく <code>reinterpret_cast</code> を使わないようなコードを書くことが望ましいです。</p>
+<p><code>reinterpret_cast</code> はバイナリデータの読み書き時に使われることがあります。
+入力ストリームの <code>read()</code> や出力ストリームの <code>write()</code> の第 1 引数のポインタの型が決まっているためです。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">nums</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+
+    <span class="c1">// バイナリ + 出力モードでストリームを開く</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">ofs</span><span class="p">(</span><span class="s">&quot;nums.bin&quot;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">binary</span> <span class="o">|</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">ofs</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">size</span> <span class="o">=</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="n">nums</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// int のサイズ * 配列要素数</span>
+
+    <span class="c1">// 配列の先頭から配列全体のサイズ分をファイルに書き込む</span>
+    <span class="c1">// 先頭ポインタはキャストが必要</span>
+<span class="hll">    <span class="n">ofs</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">size</span><span class="p">);</span>
+</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
                 
                   
                 

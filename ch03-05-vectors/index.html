@@ -545,6 +545,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="配列の先頭ポインタを取得" class="md-nav__link">
+    配列の先頭ポインタを取得
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bool" title="bool に対する特殊化" class="md-nav__link">
     bool に対する特殊化
   </a>
@@ -1502,6 +1509,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_4" title="配列の先頭ポインタを取得" class="md-nav__link">
+    配列の先頭ポインタを取得
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bool" title="bool に対する特殊化" class="md-nav__link">
     bool に対する特殊化
   </a>
@@ -1564,6 +1578,15 @@
 
 <span class="n">x</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
 <span class="k">auto</span> <span class="n">size2</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 4</span>
+</pre></div>
+
+<h2 id="_4">配列の先頭ポインタを取得<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><code>x.data()</code> とすると配列の先頭ポインタが取得できます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">};</span>
+<span class="k">auto</span> <span class="n">px</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>  <span class="c1">// 先頭ポインタ</span>
+<span class="k">auto</span> <span class="n">num</span> <span class="o">=</span> <span class="o">*</span><span class="n">px</span><span class="p">;</span>  <span class="c1">// 4</span>
 </pre></div>
 
 <h2 id="bool">bool に対する特殊化<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h2>
