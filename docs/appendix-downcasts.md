@@ -23,7 +23,10 @@ Sub1* sub1 = dynamic_cast<Sub1*>(new Base());  // ダウンキャスト
 ```
 
 `dynamic_cast` は他のキャスト演算子と異なり、実行時にキャストの成否を判断します。
-`dynamic_cast` は実行時の型の情報を確認した上で、継承関係が不正であった場合、キャストに失敗します。
+`dynamic_cast` は [実行時型情報 (RTTI)][wikipedia_RTTI] を確認した上で、継承関係が不正であった場合、キャストに失敗します。
+
+[wikipedia_RTTI]: https://ja.wikipedia.org/wiki/実行時型情報
+
 「ポインタでのキャスト」と「参照でのキャスト」では、失敗時の挙動が異なります。
 
 ポインタでのキャストでは、失敗時に `nullptr` を返却します。
