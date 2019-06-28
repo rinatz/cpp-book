@@ -50,6 +50,18 @@ x.pop_back();
 auto size2 = x.size();  // 4
 ```
 
+## 配列の先頭ポインタを取得
+
+`x.data()` とすると配列の先頭ポインタが取得できます。
+
+```cpp
+#include <vector>
+
+std::vector<int> x = {4, 3, 2, 1, 0};
+auto px = x.data();  // 先頭ポインタ
+auto num = *px;  // 4
+```
+
 ## bool に対する特殊化
 
 `std::vector` は `bool` に対してテンプレート特殊化されており、
