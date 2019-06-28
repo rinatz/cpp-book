@@ -137,3 +137,4 @@ nav:
       - プリプロセッサ司令: appendix-preprocessor-directives.md
       - ダウンキャスト: appendix-downcasts.md
       - void ポインタ: appendix-void-pointer.md
+      - キャストの詳しい説明: appendix-cast-details.md

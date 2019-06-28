@@ -9,6 +9,11 @@ C++ では4種類のキャスト演算子が用意されています。
 | const_cast       | const修飾子を外す                                |
 | reinterpret_cast | ポインタの型変換を行う                             |
 
+本節では基本的な使い方だけを説明します。
+詳しい説明は [キャストの詳しい説明][cast-details] を参照してください。
+
+[cast-details]: appendix-cast-details.md
+
 ## static_cast
 
 型変換を明示的に行うためのキャストです。
