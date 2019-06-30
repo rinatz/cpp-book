@@ -1570,9 +1570,38 @@
 </tbody>
 </table>
 <h2 id="static_cast">static_cast<a class="headerlink" href="#static_cast" title="Permanent link">&para;</a></h2>
-<p>暗黙的な型変換を明示的に行うためのキャストです。</p>
+<p>型変換を明示的に行うためのキャストです。</p>
 <div class="codehilite"><pre><span></span><span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dx</span><span class="p">);</span>
+<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dx</span><span class="p">);</span>  <span class="c1">// 3</span>
+</pre></div>
+
+<p>列挙型と数値型の変換など
+暗黙的に変換されない型変換も行うことができます。</p>
+<div class="codehilite"><pre><span></span><span class="k">enum</span> <span class="k">class</span> <span class="nc">Day</span> <span class="p">{</span>
+    <span class="n">Sun</span><span class="p">,</span>  <span class="c1">// 0</span>
+    <span class="n">Mon</span><span class="p">,</span>  <span class="c1">// 1</span>
+    <span class="n">Tue</span><span class="p">,</span>  <span class="c1">// 2</span>
+    <span class="n">Wed</span><span class="p">,</span>  <span class="c1">// 3</span>
+    <span class="n">Thu</span><span class="p">,</span>  <span class="c1">// 4</span>
+    <span class="n">Fri</span><span class="p">,</span>  <span class="c1">// 5</span>
+    <span class="n">Sat</span>   <span class="c1">// 6</span>
+<span class="p">};</span>
+
+<span class="n">Day</span> <span class="n">day1</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Day</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>         <span class="c1">// Day::Mon</span>
+<span class="kt">int</span> <span class="n">day2</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Day</span><span class="o">::</span><span class="n">Tue</span><span class="p">);</span>  <span class="c1">// 2</span>
+</pre></div>
+
+<p>型変換を明示的に行うことで、
+<code>explicit</code> 指定された変換コンストラクタによる変換も行うことができます。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Square</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="k">explicit</span> <span class="n">Square</span><span class="p">(</span><span class="kt">int</span> <span class="n">size</span><span class="p">)</span> <span class="o">:</span> <span class="n">size_</span><span class="p">(</span><span class="n">size</span><span class="p">)</span> <span class="p">{}</span>
+
+ <span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">size_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="n">Square</span> <span class="n">square</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Square</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </pre></div>
 
 <h2 id="dynamic_cast">dynamic_cast<a class="headerlink" href="#dynamic_cast" title="Permanent link">&para;</a></h2>
