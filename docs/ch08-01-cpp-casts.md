@@ -11,11 +11,44 @@ C++ では4種類のキャスト演算子が用意されています。
 
 ## static_cast
 
-暗黙的な型変換を明示的に行うためのキャストです。
+型変換を明示的に行うためのキャストです。
 
 ```cpp
 double dx = 3.14;
-int x = static_cast<int>(dx);
+int x = static_cast<int>(dx);  // 3
+```
+
+列挙型と数値型の変換など
+暗黙的に変換されない型変換も行うことができます。
+
+```cpp
+enum class Day {
+    Sun,  // 0
+    Mon,  // 1
+    Tue,  // 2
+    Wed,  // 3
+    Thu,  // 4
+    Fri,  // 5
+    Sat   // 6
+};
+
+Day day1 = static_cast<Day>(1);         // Day::Mon
+int day2 = static_cast<int>(Day::Tue);  // 2
+```
+
+型変換を明示的に行うことで、
+`explicit` 指定された変換コンストラクタによる変換も行うことができます。
+
+```cpp
+class Square {
+ public:
+    explicit Square(int size) : size_(size) {}
+
+ private:
+    int size_;
+};
+
+Square square = static_cast<Square>(10);
 ```
 
 ## dynamic_cast
@@ -24,7 +57,6 @@ int x = static_cast<int>(dx);
 `dynamic_cast` の詳細については [ダウンキャスト][downcasts] を参照してください。
 
 [downcasts]: appendix-downcasts.md
-
 
 ## const_cast
 
@@ -37,7 +69,6 @@ std::string& x = const_cast<std::string&>(str);
 
 「オブジェクトに変更を加えないようにする」ために `const` が付いているにも関わらず、
 `const_cast` で「オブジェクトに変更を加えられるようにする」ことは望ましくないので、基本的には使いません。
-
 
 ## reinterpret_cast
 
