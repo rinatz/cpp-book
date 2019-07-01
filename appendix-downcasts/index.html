@@ -1532,8 +1532,8 @@ C++ では、ダウンキャストをする際に <code>dynamic_cast</code> や 
 </pre></div>
 
 <p><code>dynamic_cast</code> は他のキャスト演算子と異なり、実行時にキャストの成否を判断します。
-<code>dynamic_cast</code> は実行時の型の情報を確認した上で、継承関係が不正であった場合、キャストに失敗します。
-「ポインタでのキャスト」と「参照でのキャスト」では、失敗時の挙動が異なります。</p>
+<code>dynamic_cast</code> は <a href="https://ja.wikipedia.org/wiki/実行時型情報">実行時型情報 (RTTI)</a> を確認した上で、継承関係が不正であった場合、キャストに失敗します。</p>
+<p>「ポインタでのキャスト」と「参照でのキャスト」では、失敗時の挙動が異なります。</p>
 <p>ポインタでのキャストでは、失敗時に <code>nullptr</code> を返却します。</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
