@@ -55,6 +55,8 @@ std::cout << r << std::endl;  // 4611686018427387904 (IEEE 754 の場合)
 たとえば [多重継承][wikipedia_multiple_inheritance] をしている場合に、
 オフセットが 0 ではない基底クラスへアップキャストすると正しい値を参照することができません。
 
+<!-- TODO: メモリ上でのクラスの表現を説明せずにオフセットという概念を使用している -->
+
 [wikipedia_multiple_inheritance]: https://ja.wikipedia.org/wiki/継承_(プログラミング)#多重継承と仮想継承
 
 ```cpp linenums="1" hl_lines="31"
