@@ -52,5 +52,25 @@ std::cout << f.i << std::endl;  // -1   (2の補数表現の場合)
 std::cout << f.d << std::endl;  // -nan (IEEE 754 の場合)
 ```
 
-<!-- std::memcpy -->
+### std::memcpy
+
+バイト列をコピーします。
+仕様は [memcpy, memcpy_s - cppreference.com][cppreference_memcpy] を参照してください。
+
+[cppreference_memcpy]: https://ja.cppreference.com/w/c/string/byte/memcpy
+
+```cpp
+FundamentalTypes f1;
+f1.i = -2;
+f1.d = 2.71;
+
+FundamentalTypes f2;
+
+// f1 から f2 へバイト列をコピー
+std::memcpy(&f2, &f1, sizeof(FundamentalTypes));
+
+std::cout << f2.i << std::endl;  // -2
+std::cout << f2.d << std::endl;  // 2.71
+```
+
 <!-- std::memcmp -->
