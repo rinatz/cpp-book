@@ -4,7 +4,7 @@ POD (Plain Old Data) とは C とABI互換性が保証されるデータ構造�
 
 データ構造が POD であるかは `std::is_pod` で判定することができます。
 `std::is_pod` を使用するには `<type_traits>` のインクルードが必要です。
-データ構造が POD であることが必要な場合には `static_assert` で保証するとよいです。
+データ構造を POD にしたい場合には `static_assert` で保証するとよいです。
 
 ```cpp
 #include <type_traits>
