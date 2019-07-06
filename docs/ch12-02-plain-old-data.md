@@ -73,4 +73,41 @@ std::cout << f2.i << std::endl;  // -2
 std::cout << f2.d << std::endl;  // 2.71
 ```
 
-<!-- std::memcmp -->
+### std::memcmp
+
+バイト列を比較します。
+仕様は [std::memcmp - cppreference.com][cppreference_memcmp] を参照してください。
+
+[cppreference_memcmp]: https://ja.cppreference.com/w/cpp/string/byte/memcmp
+
+```cpp
+FundamentalTypes f1;
+f1.i = -2;
+f1.d = 2.71;
+
+FundamentalTypes f2;
+f2.i = 3 - 5;
+f2.d = 2.71;
+
+FundamentalTypes f3;
+std::memset(&f3, 0, sizeof(f3));
+
+if (std::memcmp(&f1, &f2, sizeof(FundamentalTypes)) == 0) {
+    std::cout << "f1 and f2 are same" << std::endl;
+} else {
+    std::cout << "f1 and f2 are different" << std::endl;
+}
+
+if (std::memcmp(&f1, &f3, sizeof(FundamentalTypes)) == 0) {
+    std::cout << "f1 and f3 are same" << std::endl;
+} else {
+    std::cout << "f1 and f3 are different" << std::endl;
+}
+```
+
+実行結果は次のようになります。
+
+```
+f1 and f2 are same
+f1 and f3 are different
+```
