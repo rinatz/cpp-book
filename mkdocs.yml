@@ -124,6 +124,7 @@ nav:
       - 11.5 ライブラリ更新と互換性: ch11-05-library-updating-and-compatibility.md
   - 12. メモリレイアウト:
       - 12.1 バイトを表す型: ch12-01-type-for-byte.md
+      - 12.2 POD: ch12-02-plain-old-data.md
   - 単体テスト:
       - Google Test の使い方: test-how-to-gtest.md
   - デバッグ:
