@@ -122,6 +122,8 @@ nav:
       - 11.3 動的ライブラリと動的リンク: ch11-03-dynamic-libraries-and-dynamic-linking.md
       - 11.4 動的ロードと名前マングリング: ch11-04-dynamic-loading-and-name-mangling.md
       - 11.5 ライブラリ更新と互換性: ch11-05-library-updating-and-compatibility.md
+  - 12. メモリレイアウト:
+      - 12.1 バイトを表す型: ch12-01-type-for-byte.md
   - 単体テスト:
       - Google Test の使い方: test-how-to-gtest.md
   - デバッグ:
