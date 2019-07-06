@@ -125,6 +125,7 @@ nav:
   - 12. メモリレイアウト:
       - 12.1 バイトを表す型: ch12-01-type-for-bytes.md
       - 12.2 POD: ch12-02-plain-old-data.md
+      - 12.3 バイト列操作: ch12-03-byte-array-manipulations.md
   - 単体テスト:
       - Google Test の使い方: test-how-to-gtest.md
   - デバッグ:
