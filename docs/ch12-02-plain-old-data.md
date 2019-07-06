@@ -1,6 +1,6 @@
 # POD
 
-POD (Plain Old Data) とは C とABI互換性が保証されるデータ構造のことです。
+POD (Plain Old Data) とは C と ABI 互換性が保証されるデータ構造のことです。
 
 データ構造が POD であるかは [std::is_pod][cpprefjp_is_pod] で判定することができます。
 `std::is_pod` を使用するには `<type_traits>` のインクルードが必要です。
