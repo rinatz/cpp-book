@@ -1,4 +1,4 @@
-## バイト列操作
+# バイト列操作
 
 POD であれば以下の関数でデータを扱うことができます。
 使用するには `<cstring>` のインクルードが必要です。
@@ -12,7 +12,7 @@ POD であれば以下の関数でデータを扱うことができます。
 
 [void-pointer]: appendix-void-pointer.md
 
-### std::memset
+## std::memset
 
 バイト列に指定した値をセットします。
 仕様は [std::memset - cppreference.com][cppreference_memset] を参照してください。
@@ -35,7 +35,7 @@ std::cout << f.i << std::endl;  // -1   (2の補数表現の場合)
 std::cout << f.d << std::endl;  // -nan (IEEE 754 の場合)
 ```
 
-### std::memcpy
+## std::memcpy
 
 バイト列をコピーします。
 仕様は [memcpy, memcpy_s - cppreference.com][cppreference_memcpy] を参照してください。
@@ -56,7 +56,7 @@ std::cout << f2.i << std::endl;  // -2
 std::cout << f2.d << std::endl;  // 2.71
 ```
 
-### std::memcmp
+## std::memcmp
 
 バイト列を比較します。
 仕様は [std::memcmp - cppreference.com][cppreference_memcmp] を参照してください。
