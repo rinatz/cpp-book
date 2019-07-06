@@ -32,15 +32,9 @@ POD であれば以下の関数でデータを扱うことができます。
 ### std::memset
 
 バイト列に指定した値をセットします。
+仕様は [std::memset - cppreference.com][cppreference_memset] を参照してください。
 
-```cpp
-void* memset(void* s, int c, size_t n);
-```
-
-- 第1引数 `s` はバイト列の先頭を表すポインタ
-- 第2引数 `c` はバイト単位にセットする値 (内部で `unsigned char` にキャストされます)
-- 第3引数 `n` はバイト列の先頭から何バイトセットするか
-- 戻り値は `s` を返却
+[cppreference_memset]: https://ja.cppreference.com/w/cpp/string/byte/memset
 
 ```cpp
 static_assert(CHAR_BIT == 8, "Not support 1byte != 8bits");
