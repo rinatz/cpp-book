@@ -2,9 +2,11 @@
 
 POD (Plain Old Data) とは C とABI互換性が保証されるデータ構造のことです。
 
-データ構造が POD であるかは `std::is_pod` で判定することができます。
+データ構造が POD であるかは [std::is_pod][cpprefjp_is_pod] で判定することができます。
 `std::is_pod` を使用するには `<type_traits>` のインクルードが必要です。
 データ構造を POD にしたい場合には `static_assert` で保証するとよいです。
+
+[cpprefjp_is_pod]: https://cpprefjp.github.io/reference/type_traits/is_pod.html
 
 ```cpp
 #include <type_traits>
