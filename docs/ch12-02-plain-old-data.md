@@ -191,3 +191,17 @@ struct MultipleAccessSpecifierTypes {
 };
 static_assert(std::is_pod<MultipleAccessSpecifierTypes>::value, "Should be POD.");  // failed
 ```
+
+## クラス
+
+C++ における構造体とクラスの違いはデフォルトのアクセス指定子だけなので、
+構造体と同じ条件でクラスも POD になります。
+
+```cpp
+class FundamentalTypes {
+ public:
+    int16_t i;
+    double d;
+};
+static_assert(std::is_pod<FundamentalTypes>::value, "Should be POD.");
+```
