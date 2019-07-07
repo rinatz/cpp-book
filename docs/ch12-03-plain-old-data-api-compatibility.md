@@ -61,3 +61,39 @@ struct FundamentalTypes {
     double d;
 };
 ```
+
+## C++ には存在しない C の機能
+
+C++ は C と高い互換性がありますが、完全上位互換ではありません。
+C++ に存在しない機能を使用していると API 互換性はありません。
+C++11 は [C99] というバージョンの C の機能を概ね取り込んでいますが、
+すべての機能を取り込んでいる訳ではありません。
+
+[C99]: https://ja.wikipedia.org/wiki/C99
+
+たとえば C99 には複合リテラルという機能がありますが C++ では使用できません。
+
+```c hl_lines="9 10"
+int Sum(const int v[], int n) {
+    int sum = 0;
+    for (int i = 0; i < n; ++i) {
+        sum += v[i];
+    }
+    return sum;
+}
+
+// 複合リテラルによる配列の生成
+int sum = Sum((int[]){1, 2, 3, 4, 5}, 5);
+```
+
+同様の処理を C++ で行うには `std::array` などを使用する必要があります。
+
+```cpp
+int sum = Sum(std::array<int, 5>({1, 2, 3, 4, 5}).data(), 5);
+```
+
+詳細は
+[複合リテラル - cppreference.com][cppreference_compound_literal]
+を参照してください。
+
+[cppreference_compound_literal]: https://ja.cppreference.com/w/c/language/compound_literal
