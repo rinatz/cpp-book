@@ -32,7 +32,7 @@ API 互換性を保つためには、
 
 ```cpp
 struct Sample {
-    int i;
+    unsigned char c;
     double d;
 };
 ```
@@ -128,7 +128,7 @@ C では定義されないことを利用して次のようにすることがで
     #endif  // __cplusplus
 
     struct Sample {
-        int i;
+        unsigned char c;
         double d;
     };
 
@@ -146,12 +146,12 @@ C では定義されないことを利用して次のようにすることがで
 
     ```cpp linenums="1"
     struct Sample {
-        int i;
+        unsigned char c;
         double d;
 
     #ifdef __cplusplus
-        int GetI() const {
-            return i;
+        double GetD() const {
+            return d;
         }
     #endif  // __cplusplus
     };
@@ -161,15 +161,15 @@ C では定義されないことを利用して次のようにすることがで
 
     ```cpp linenums="1"
     struct Sample {
-        int i;
+        unsigned char c;
         double d;
     };
 
     #ifdef __cplusplus
     class SampleCpp : public Sample {
      public:
-        int GetI() const {
-            return i;
+        double GetD() const {
+            return d;
         }
     };
     #endif  // __cplusplus
