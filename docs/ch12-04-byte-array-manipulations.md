@@ -12,6 +12,17 @@ POD であれば以下の関数でデータを扱うことができます。
 
 [void-pointer]: appendix-void-pointer.md
 
+次のコードで説明します。
+
+```cpp
+static_assert(CHAR_BIT == 8, "Not support 1byte != 8bits");
+
+struct FundamentalTypes {
+    int16_t i;
+    double d;
+};
+```
+
 ## std::memset
 
 バイト列に指定した値をセットします。
@@ -20,8 +31,6 @@ POD であれば以下の関数でデータを扱うことができます。
 [cppreference_memset]: https://ja.cppreference.com/w/cpp/string/byte/memset
 
 ```cpp
-static_assert(CHAR_BIT == 8, "Not support 1byte != 8bits");
-
 FundamentalTypes f;
 
 // すべてのビットを0にする
