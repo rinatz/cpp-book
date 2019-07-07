@@ -97,3 +97,80 @@ int sum = Sum(std::array<int, 5>({1, 2, 3, 4, 5}).data(), 5);
 を参照してください。
 
 [cppreference_compound_literal]: https://ja.cppreference.com/w/c/language/compound_literal
+
+## C と C++ で異なるソースコードにする
+
+[プリプロセッサ司令] を使用して C と C++ で異なるソースコードにすることができます。
+
+[プリプロセッサ司令]: appendix-preprocessor-directives.md
+
+C++ では `__cplusplus` というマクロが定義されますが、
+C では定義されないことを利用して次のようにすることができます。
+
+```cpp
+#ifdef __cplusplus
+// C++ だけで有効なソースコード
+#else
+// C だけで有効なソースコード
+#endif  // __cplusplus
+```
+
+これを利用すれば C には存在しない C++ の機能を C++ だけで有効にすることができますが、
+メモリレイアウトが同一になることを担保するのが難しいため基本的には推奨しません。
+
+??? question "C++ だけで名前空間を有効にする"
+    名前空間は名前マングリングに影響しますが、メモリレイアウトには影響しません。
+    名前マングリングが問題になれなければ C++ だけで名前空間を有効にすることができます。
+
+    ```cpp linenums="1"
+    #ifdef __cplusplus
+    namespace sample {
+    #endif  // __cplusplus
+
+    struct Sample {
+        int i;
+        double d;
+    };
+
+    #ifdef __cplusplus
+    }
+    #endif  // __cplusplus
+    ```
+
+??? question "C++ だけでメンバ関数を有効にする"
+    仮想関数がある場合は POD ではありませんが、
+    仮想関数ではないメンバ関数があっても POD になります。
+
+    仮想関数ではないメンバ関数の有無はメモリレイアウトに影響しないため、
+    C++ だけでメンバ関数を有効にすることができます。
+
+    ```cpp linenums="1"
+    struct Sample {
+        int i;
+        double d;
+
+    #ifdef __cplusplus
+        int GetI() const {
+            return i;
+        }
+    #endif  // __cplusplus
+    };
+    ```
+
+    メンバ関数を追加するだけの派生クラスを C++ だけで使用する方法もあります。
+
+    ```cpp linenums="1"
+    struct Sample {
+        int i;
+        double d;
+    };
+
+    #ifdef __cplusplus
+    class SampleCpp : public Sample {
+     public:
+        int GetI() const {
+            return i;
+        }
+    };
+    #endif  // __cplusplus
+    ```
