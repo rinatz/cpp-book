@@ -168,7 +168,7 @@ static_assert(std::is_pod<VirtualFunction>::value, "Should be POD.");  // failed
 
 #### 非 POD のメンバ変数
 
-`static` ではないメンバ変数に POD ではない型がある構造体は POD ではありません。
+POD ではない型の非 `static` メンバ変数を持つ構造体は POD ではありません。
 
 ```cpp hl_lines="4"
 struct NonPodMemberVariable {
