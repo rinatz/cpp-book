@@ -180,7 +180,7 @@ static_assert(std::is_pod<NonPodMemberVariable>::value, "Should be POD.");  // f
 #### メンバ変数に対するアクセス指定子が2種類以上
 
 暗黙的なものを含めて、
-メンバ変数に対するアクセス指定子が2種類以上ある構造体は POD ではありません。
+`static` ではないメンバ変数に対するアクセス指定子が2種類以上ある構造体は POD ではありません。
 
 ```cpp hl_lines="7"
 struct MultipleAccessSpecifierTypes {
