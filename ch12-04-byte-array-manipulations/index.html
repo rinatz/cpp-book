@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-01-variables/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch12-04-byte-array-manipulations/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>2.1. 変数 - ゼロから学ぶ C++</title>
+        <title>12.4 バイト列操作 - ゼロから学ぶ C++</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              2.1. 変数
+              12.4 バイト列操作
             </span>
           
         </div>
@@ -301,12 +301,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. 基本構文
@@ -322,63 +320,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.1. 変数
-      </label>
-    
-    <a href="./" title="2.1. 変数" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch02-01-variables/" title="2.1. 変数" class="md-nav__link">
       2.1. 変数
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#const" title="const" class="md-nav__link">
-    const
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#constexpr" title="constexpr" class="md-nav__link">
-    constexpr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="型推論" class="md-nav__link">
-    型推論
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1243,10 +1189,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" checked>
     
     <label class="md-nav__link" for="nav-13">
       12. メモリレイアウト
@@ -1298,11 +1246,63 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch12-04-byte-array-manipulations/" title="12.4 バイト列操作" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        12.4 バイト列操作
+      </label>
+    
+    <a href="./" title="12.4 バイト列操作" class="md-nav__link md-nav__link--active">
       12.4 バイト列操作
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#stdmemset" title="std::memset" class="md-nav__link">
+    std::memset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdmemcpy" title="std::memcpy" class="md-nav__link">
+    std::memcpy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdmemcmp" title="std::memcmp" class="md-nav__link">
+    std::memcmp
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1572,22 +1572,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#const" title="const" class="md-nav__link">
-    const
+  <a href="#stdmemset" title="std::memset" class="md-nav__link">
+    std::memset
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#constexpr" title="constexpr" class="md-nav__link">
-    constexpr
+  <a href="#stdmemcpy" title="std::memcpy" class="md-nav__link">
+    std::memcpy
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="型推論" class="md-nav__link">
-    型推論
+  <a href="#stdmemcmp" title="std::memcmp" class="md-nav__link">
+    std::memcmp
   </a>
   
 </li>
@@ -1608,43 +1608,92 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-01-variables.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch12-04-byte-array-manipulations.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">変数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>C++ で変数を使用する方法について説明します。
-整数値の変数を宣言するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <h1 id="_1">バイト列操作<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>POD であれば以下の関数でデータを扱うことができます。
+使用するには <code>&lt;cstring&gt;</code> のインクルードが必要です。</p>
+<ul>
+<li><code>std::memset</code></li>
+<li><code>std::memcpy</code></li>
+<li><code>std::memcmp</code></li>
+</ul>
+<p>これらは C の関数であるため、
+任意の型を扱うために <a href="../appendix-void-pointer/">void ポインタ</a> が使用されます。</p>
+<p>次のコードで説明します。</p>
+<div class="codehilite"><pre><span></span><span class="k">static_assert</span><span class="p">(</span><span class="n">CHAR_BIT</span> <span class="o">==</span> <span class="mi">8</span><span class="p">,</span> <span class="s">&quot;Not support 1byte != 8bits&quot;</span><span class="p">);</span>
+
+<span class="k">struct</span> <span class="n">FundamentalTypes</span> <span class="p">{</span>
+    <span class="kt">int16_t</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 
-<p><code>int</code> は整数を表現する型です。
-宣言時に初期化をせずにあとで値を代入することもできます。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<h2 id="stdmemset">std::memset<a class="headerlink" href="#stdmemset" title="Permanent link">&para;</a></h2>
+<p>バイト列に指定した値をセットします。
+仕様は <a href="https://ja.cppreference.com/w/cpp/string/byte/memset">std::memset - cppreference.com</a> を参照してください。</p>
+<div class="codehilite"><pre><span></span><span class="n">FundamentalTypes</span> <span class="n">f</span><span class="p">;</span>
+
+<span class="c1">// すべてのビットを0にする</span>
+<span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 0</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 0</span>
+
+<span class="c1">// すべてのビットを1にする</span>
+<span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f</span><span class="p">,</span> <span class="mh">0xff</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">f</span><span class="p">));</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// -1   (2の補数表現の場合)</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f</span><span class="p">.</span><span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// -nan (IEEE 754 の場合)</span>
 </pre></div>
 
-<p>初期値を設定しないまま変数を使用すると不定な値が入るので注意して下さい。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<!-- MEMO: C++11 の言語仕様では1の補数表現が許容されているため注釈を入れている -->
 
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 不定な値が出力される</span>
+<h2 id="stdmemcpy">std::memcpy<a class="headerlink" href="#stdmemcpy" title="Permanent link">&para;</a></h2>
+<p>バイト列をコピーします。
+仕様は <a href="https://ja.cppreference.com/w/c/string/byte/memcpy">memcpy, memcpy_s - cppreference.com</a> を参照してください。</p>
+<div class="codehilite"><pre><span></span><span class="n">FundamentalTypes</span> <span class="n">f1</span><span class="p">;</span>
+<span class="n">f1</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">f1</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="mf">2.71</span><span class="p">;</span>
+
+<span class="n">FundamentalTypes</span> <span class="n">f2</span><span class="p">;</span>
+
+<span class="c1">// f1 から f2 へバイト列をコピー</span>
+<span class="n">std</span><span class="o">::</span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f1</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">FundamentalTypes</span><span class="p">));</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f2</span><span class="p">.</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// -2</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">f2</span><span class="p">.</span><span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2.71</span>
 </pre></div>
 
-<h2 id="const">const<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
-<p><code>const</code> を付けると値の書き換えが禁止できます。</p>
-<div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// エラー</span>
+<h2 id="stdmemcmp">std::memcmp<a class="headerlink" href="#stdmemcmp" title="Permanent link">&para;</a></h2>
+<p>バイト列を比較します。
+仕様は <a href="https://ja.cppreference.com/w/cpp/string/byte/memcmp">std::memcmp - cppreference.com</a> を参照してください。</p>
+<div class="codehilite"><pre><span></span><span class="n">FundamentalTypes</span> <span class="n">f1</span><span class="p">;</span>
+<span class="n">f1</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">f1</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="mf">2.71</span><span class="p">;</span>
+
+<span class="n">FundamentalTypes</span> <span class="n">f2</span><span class="p">;</span>
+<span class="n">f2</span><span class="p">.</span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">f2</span><span class="p">.</span><span class="n">d</span> <span class="o">=</span> <span class="mf">2.71</span><span class="p">;</span>
+
+<span class="n">FundamentalTypes</span> <span class="n">f3</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">f3</span><span class="p">));</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memcmp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f2</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">FundamentalTypes</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;f1 and f2 are same&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;f1 and f2 are different&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">memcmp</span><span class="p">(</span><span class="o">&amp;</span><span class="n">f1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">f3</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">FundamentalTypes</span><span class="p">))</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;f1 and f3 are same&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;f1 and f3 are different&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 
-<h2 id="constexpr">constexpr<a class="headerlink" href="#constexpr" title="Permanent link">&para;</a></h2>
-<p><code>constexpr</code> を付けると定数にできます。</p>
-<div class="codehilite"><pre><span></span><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-</pre></div>
-
-<p><code>const</code> の値は実行時に決定しますが <code>constexpr</code> の値はコンパイル時に決定します。</p>
-<h2 id="_2">型推論<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>変数の宣言時には明示的に型を指定しなくても <code>auto</code> を使うと
-右辺の値から型を推論することができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// x は int と推論</span>
+<p>実行結果は次のようになります。</p>
+<div class="codehilite"><pre><span></span>f1 and f2 are same
+f1 and f3 are different
 </pre></div>
                 
                   
@@ -1666,7 +1715,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch12-03-plain-old-data-api-compatibility/" title="12.3 POD の API 互換性" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1675,19 +1724,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                1.2. Hello, World!
+                12.3 POD の API 互換性
               </span>
             </div>
           </a>
         
         
-          <a href="../ch02-02-primitive-types/" title="2.2. 基本型" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../test-how-to-gtest/" title="Google Test の使い方" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                2.2. 基本型
+                Google Test の使い方
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

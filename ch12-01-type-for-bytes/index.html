@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-01-variables/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch12-01-type-for-bytes/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>2.1. 変数 - ゼロから学ぶ C++</title>
+        <title>12.1 バイトを表す型 - ゼロから学ぶ C++</title>
       
     
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              2.1. 変数
+              12.1 バイトを表す型
             </span>
           
         </div>
@@ -301,12 +301,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. 基本構文
@@ -322,63 +320,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.1. 変数
-      </label>
-    
-    <a href="./" title="2.1. 変数" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch02-01-variables/" title="2.1. 変数" class="md-nav__link">
       2.1. 変数
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#const" title="const" class="md-nav__link">
-    const
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#constexpr" title="constexpr" class="md-nav__link">
-    constexpr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="型推論" class="md-nav__link">
-    型推論
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1243,10 +1189,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" checked>
     
     <label class="md-nav__link" for="nav-13">
       12. メモリレイアウト
@@ -1262,11 +1210,49 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch12-01-type-for-bytes/" title="12.1 バイトを表す型" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        12.1 バイトを表す型
+      </label>
+    
+    <a href="./" title="12.1 バイトを表す型" class="md-nav__link md-nav__link--active">
       12.1 バイトを表す型
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#18" title="1バイトは8ビットとは限らない" class="md-nav__link">
+    1バイトは8ビットとは限らない
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1572,22 +1558,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#const" title="const" class="md-nav__link">
-    const
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#constexpr" title="constexpr" class="md-nav__link">
-    constexpr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="型推論" class="md-nav__link">
-    型推論
+  <a href="#18" title="1バイトは8ビットとは限らない" class="md-nav__link">
+    1バイトは8ビットとは限らない
   </a>
   
 </li>
@@ -1608,43 +1580,101 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-01-variables.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch12-01-type-for-bytes.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">変数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>C++ で変数を使用する方法について説明します。
-整数値の変数を宣言するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <h1 id="_1">バイトを表す型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>C++ では以下の型のサイズが1バイトと規定されています。
+C でも同様です。</p>
+<ul>
+<li><code>char</code></li>
+<li><code>signed char</code></li>
+<li><code>unsigned char</code></li>
+</ul>
+<p>ビットを取り扱う際には符号なしであることが望ましいため、
+バイトを表す型としては <code>unsigned char</code> を使用します。</p>
+<details class="warning"><summary>char は signed char とは異なる型</summary><p>以下の型はすべて異なる型として扱われます。</p>
+<ul>
+<li><code>char</code></li>
+<li><code>signed char</code></li>
+<li><code>unsigned char</code></li>
+</ul>
+<p>異なる型であるため、次のようなオーバーロードが可能です。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">Hoge</span><span class="p">(</span><span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;char: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Hoge</span><span class="p">(</span><span class="kt">signed</span> <span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;signed char: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">Hoge</span><span class="p">(</span><span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;unsigned char: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Hoge</span><span class="p">(</span><span class="sc">&#39;A&#39;</span><span class="p">);</span>                              <span class="c1">// char: A</span>
+    <span class="n">Hoge</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">&#39;B&#39;</span><span class="p">));</span>           <span class="c1">// char: B</span>
+    <span class="n">Hoge</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">signed</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">&#39;C&#39;</span><span class="p">));</span>    <span class="c1">// signed char: C</span>
+    <span class="n">Hoge</span><span class="p">(</span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">unsigned</span> <span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="sc">&#39;D&#39;</span><span class="p">));</span>  <span class="c1">// unsigned char: D</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
+</td></tr></table>
 
-<p><code>int</code> は整数を表現する型です。
-宣言時に初期化をせずにあとで値を代入することもできます。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-</pre></div>
-
-<p>初期値を設定しないまま変数を使用すると不定な値が入るので注意して下さい。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 不定な値が出力される</span>
-</pre></div>
-
-<h2 id="const">const<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
-<p><code>const</code> を付けると値の書き換えが禁止できます。</p>
-<div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// エラー</span>
-</pre></div>
-
-<h2 id="constexpr">constexpr<a class="headerlink" href="#constexpr" title="Permanent link">&para;</a></h2>
-<p><code>constexpr</code> を付けると定数にできます。</p>
-<div class="codehilite"><pre><span></span><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-</pre></div>
-
-<p><code>const</code> の値は実行時に決定しますが <code>constexpr</code> の値はコンパイル時に決定します。</p>
-<h2 id="_2">型推論<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>変数の宣言時には明示的に型を指定しなくても <code>auto</code> を使うと
-右辺の値から型を推論することができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// x は int と推論</span>
+<p><code>char</code> は処理系で最も効率的に処理できる文字表現の型です。
+<code>char</code> のビット表現は <code>signed char</code> または <code>unsigned char</code>
+のいずれか一方と一致しますが、どちらと一致するかは処理系依存です。</p>
+</details>
+<details class="question"><summary>C++17 で追加された std::byte</summary><p>文字とバイトデータの用途を明確にするため、
+C++17 で <a href="https://cpprefjp.github.io/reference/cstddef/byte.html">std::byte</a> という型が追加されました。</p>
+<p>C++17 の機能であるため C++11 では使用できません。</p>
+</details>
+<h2 id="18">1バイトは8ビットとは限らない<a class="headerlink" href="#18" title="Permanent link">&para;</a></h2>
+<p>2008年に発行された <a href="https://ja.wikipedia.org/wiki/バイト_(情報)">IEC 80000-13</a> にて
+<span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> と正式に定義されました。</p>
+<p>それ以前は
+処理系が1つのアドレスで扱うビット数 (メモリ操作の最小単位) を
+1バイトと定めることが多く、
+<span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> とは限らず
+<span><span class="MathJax_Preview">1 byte = 7 bits</span><script type="math/tex">1 byte = 7 bits</script></span> や <span><span class="MathJax_Preview">1 byte = 9 bits</span><script type="math/tex">1 byte = 9 bits</script></span> となることもありました。</p>
+<p>C や C++ では以下の制約によって <span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> 以上と規定しています。</p>
+<ul>
+<li><code>char</code> 型のサイズを1バイトとする</li>
+<li><code>char</code> 型のビット数 <a href="https://cpprefjp.github.io/reference/climits/char_bit.html">CHAR_BIT</a> は8ビット以上とする</li>
+</ul>
+<p>C や C++ では
+<span><span class="MathJax_Preview">1 byte = 7 bits</span><script type="math/tex">1 byte = 7 bits</script></span> は許容されませんが、
+<span><span class="MathJax_Preview">1 byte = 9 bits</span><script type="math/tex">1 byte = 9 bits</script></span> は許容されています。</p>
+<p>実際には
+<span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> ではない処理系は非常に少ないため、
+<span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> だけを想定した実装にすることも多いです。</p>
+<p><span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> しか想定していないことを表明する必要があれば
+次のようにします。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="cp"></span>
+<span class="k">static_assert</span><span class="p">(</span><span class="n">CHAR_BIT</span> <span class="o">==</span> <span class="mi">8</span><span class="p">,</span> <span class="s">&quot;Not support 1byte != 8bits&quot;</span><span class="p">);</span>
 </pre></div>
                 
                   
@@ -1666,7 +1696,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch11-05-library-updating-and-compatibility/" title="11.5 ライブラリ更新と互換性" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1675,19 +1705,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                1.2. Hello, World!
+                11.5 ライブラリ更新と互換性
               </span>
             </div>
           </a>
         
         
-          <a href="../ch02-02-primitive-types/" title="2.2. 基本型" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch12-02-plain-old-data/" title="12.2 POD" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                2.2. 基本型
+                12.2 POD
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

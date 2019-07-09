@@ -13,7 +13,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-01-variables/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch12-03-plain-old-data-api-compatibility/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -42,7 +42,7 @@
     
     
       
-        <title>2.1. 変数 - ゼロから学ぶ C++</title>
+        <title>12.3 POD の API 互換性 - ゼロから学ぶ C++</title>
       
     
     
@@ -108,7 +108,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#_1" tabindex="1" class="md-skip">
+      <a href="#pod-api" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -133,7 +133,7 @@
               ゼロから学ぶ C++
             </span>
             <span class="md-header-nav__topic">
-              2.1. 変数
+              12.3 POD の API 互換性
             </span>
           
         </div>
@@ -301,12 +301,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. 基本構文
@@ -322,63 +320,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.1. 変数
-      </label>
-    
-    <a href="./" title="2.1. 変数" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch02-01-variables/" title="2.1. 変数" class="md-nav__link">
       2.1. 変数
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">目次</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#const" title="const" class="md-nav__link">
-    const
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#constexpr" title="constexpr" class="md-nav__link">
-    constexpr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="型推論" class="md-nav__link">
-    型推論
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1243,10 +1189,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" checked>
     
     <label class="md-nav__link" for="nav-13">
       12. メモリレイアウト
@@ -1286,11 +1234,83 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch12-03-plain-old-data-api-compatibility/" title="12.3 POD の API 互換性" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        12.3 POD の API 互換性
+      </label>
+    
+    <a href="./" title="12.3 POD の API 互換性" class="md-nav__link md-nav__link--active">
       12.3 POD の API 互換性
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目次</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#c-c" title="C には存在しない C++ の機能" class="md-nav__link">
+    C には存在しない C++ の機能
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="クラス" class="md-nav__link">
+    クラス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" title="C++ の標準ヘッダファイル" class="md-nav__link">
+    C++ の標準ヘッダファイル
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-c_1" title="C++ には存在しない C の機能" class="md-nav__link">
+    C++ には存在しない C の機能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-c_2" title="C と C++ で異なるソースコードにする" class="md-nav__link">
+    C と C++ で異なるソースコードにする
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1572,22 +1592,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#const" title="const" class="md-nav__link">
-    const
+  <a href="#c-c" title="C には存在しない C++ の機能" class="md-nav__link">
+    C には存在しない C++ の機能
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="クラス" class="md-nav__link">
+    クラス
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" title="C++ の標準ヘッダファイル" class="md-nav__link">
+    C++ の標準ヘッダファイル
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-c_1" title="C++ には存在しない C の機能" class="md-nav__link">
+    C++ には存在しない C の機能
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#constexpr" title="constexpr" class="md-nav__link">
-    constexpr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" title="型推論" class="md-nav__link">
-    型推論
+  <a href="#c-c_2" title="C と C++ で異なるソースコードにする" class="md-nav__link">
+    C と C++ で異なるソースコードにする
   </a>
   
 </li>
@@ -1608,44 +1648,184 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-01-variables.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch12-03-plain-old-data-api-compatibility.md" title="編集" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="_1">変数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>C++ で変数を使用する方法について説明します。
-整数値の変数を宣言するには次のようにします。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <h1 id="pod-api">POD の API 互換性<a class="headerlink" href="#pod-api" title="Permanent link">&para;</a></h1>
+<p>C と C++ でヘッダファイルを共有して、
+同じ型宣言を使用するには API 互換性が必要です。
+POD であれば ABI 互換性は保証されますが、 API 互換性は保証されません。</p>
+<p>POD にする場合には API 互換性もあるように定義しましょう。</p>
+<h2 id="c-c">C には存在しない C++ の機能<a class="headerlink" href="#c-c" title="Permanent link">&para;</a></h2>
+<p>C に存在しない機能を使用していると API 互換性はありません。
+C に存在しない機能の一例として次のものがあります。</p>
+<ul>
+<li>クラス</li>
+<li>名前空間</li>
+<li>テンプレート</li>
+<li>C++ の標準ヘッダファイル</li>
+</ul>
+<!-- WARNING: stdbool.h の bool と C++ の bool は互換性があるか不明 -->
+
+<h3 id="_1">クラス<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>C にはクラスはありませんが構造体はあります。
+そのため POD の型はクラスではなく構造体にするのが一般的です。</p>
+<p>C の構造体はメンバ変数をもつ以外の機能はなく、以下の機能は使用できません。</p>
+<ul>
+<li>メンバ関数</li>
+<li>継承</li>
+<li>メンバ変数に対するアクセス指定子</li>
+</ul>
+<p>API 互換性を保つためには、
+これらの機能を一切使用しないで構造体を定義するとよいです。</p>
+<div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">Sample</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 
-<p><code>int</code> は整数を表現する型です。
-宣言時に初期化をせずにあとで値を代入することもできます。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<h3 id="c">C++ の標準ヘッダファイル<a class="headerlink" href="#c" title="Permanent link">&para;</a></h3>
+<p>C++ の標準ヘッダファイルは C では使用できませんが、
+C の標準ヘッダファイルは C++ でも使用できます。</p>
+<p>C の標準ヘッダファイルに対して、
+C++ では先頭に <code>c</code> をつけて拡張子を除いたものが用意されています。
+たとえば C の標準ヘッダファイル <code>&lt;stdint.h&gt;</code> に対して
+C++ の標準ヘッダファイル <code>&lt;cstdint&gt;</code> があります。</p>
+<p>通常 C++ では C++ の標準ヘッダファイルを使用するのが望ましいのですが、
+C の標準ヘッダファイルを使用することができます。
+この2つの違いは C++ のものは <code>std</code> 名前空間に属するようになることです。</p>
+<p>API 互換性を保つためには、 C の標準ヘッダファイルを使用します。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdint.h&gt;</span><span class="cp"></span>
+
+<span class="k">struct</span> <span class="n">FundamentalTypes</span> <span class="p">{</span>
+    <span class="kt">int16_t</span> <span class="n">i</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">};</span>
 </pre></div>
 
-<p>初期値を設定しないまま変数を使用すると不定な値が入るので注意して下さい。</p>
-<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+<h2 id="c-c_1">C++ には存在しない C の機能<a class="headerlink" href="#c-c_1" title="Permanent link">&para;</a></h2>
+<p>C++ は C と高い互換性がありますが、完全上位互換ではありません。
+C++ に存在しない機能を使用していると API 互換性はありません。
+C++11 は <a href="https://ja.wikipedia.org/wiki/C99">C99</a> というバージョンの C の機能を概ね取り込んでいますが、
+すべての機能を取り込んでいる訳ではありません。</p>
+<p>たとえば C99 には複合リテラルという機能がありますが C++ では使用できません。</p>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">Sum</span><span class="p">(</span><span class="k">const</span> <span class="kt">int</span> <span class="n">v</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">sum</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">sum</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 不定な値が出力される</span>
+<span class="hll"><span class="c1">// 複合リテラルによる配列の生成</span>
+</span><span class="hll"><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">((</span><span class="kt">int</span><span class="p">[]){</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">},</span> <span class="mi">5</span><span class="p">);</span>
+</span></pre></div>
+
+<p>同様の処理を C++ で行うには <code>std::array</code> などを使用する必要があります。</p>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">Sum</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}).</span><span class="n">data</span><span class="p">(),</span> <span class="mi">5</span><span class="p">);</span>
 </pre></div>
 
-<h2 id="const">const<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
-<p><code>const</code> を付けると値の書き換えが禁止できます。</p>
-<div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// エラー</span>
+<p>詳細は
+<a href="https://ja.cppreference.com/w/c/language/compound_literal">複合リテラル - cppreference.com</a>
+を参照してください。</p>
+<h2 id="c-c_2">C と C++ で異なるソースコードにする<a class="headerlink" href="#c-c_2" title="Permanent link">&para;</a></h2>
+<p><a href="../appendix-preprocessor-directives/">プリプロセッサ司令</a> を使用して C と C++ で異なるソースコードにすることができます。</p>
+<p>C++ では <code>__cplusplus</code> というマクロが定義されますが、
+C では定義されないことを利用して次のようにすることができます。</p>
+<div class="codehilite"><pre><span></span><span class="cp">#ifdef __cplusplus</span>
+<span class="c1">// C++ だけで有効なソースコード</span>
+<span class="cp">#else</span>
+<span class="c1">// C だけで有効なソースコード</span>
+<span class="cp">#endif  </span><span class="c1">// __cplusplus</span>
 </pre></div>
 
-<h2 id="constexpr">constexpr<a class="headerlink" href="#constexpr" title="Permanent link">&para;</a></h2>
-<p><code>constexpr</code> を付けると定数にできます。</p>
-<div class="codehilite"><pre><span></span><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-</pre></div>
+<p>これを利用すれば C には存在しない C++ の機能を C++ だけで有効にすることができますが、
+メモリレイアウトが同一になることを担保するのが難しいため基本的には推奨しません。</p>
+<details class="question"><summary>C++ だけで名前空間を有効にする</summary><p>名前空間は名前マングリングに影響しますが、メモリレイアウトには影響しません。
+名前マングリングが問題にならなければ C++ だけで名前空間を有効にすることができます。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#ifdef __cplusplus</span>
+<span class="k">namespace</span> <span class="n">sample</span> <span class="p">{</span>
+<span class="cp">#endif  </span><span class="c1">// __cplusplus</span>
 
-<p><code>const</code> の値は実行時に決定しますが <code>constexpr</code> の値はコンパイル時に決定します。</p>
-<h2 id="_2">型推論<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>変数の宣言時には明示的に型を指定しなくても <code>auto</code> を使うと
-右辺の値から型を推論することができます。</p>
-<div class="codehilite"><pre><span></span><span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// x は int と推論</span>
+<span class="k">struct</span> <span class="n">Sample</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="p">}</span>
+<span class="cp">#endif  </span><span class="c1">// __cplusplus</span>
 </pre></div>
+</td></tr></table>
+
+</details>
+<details class="question"><summary>C++ だけでメンバ関数を有効にする</summary><p>仮想関数がある場合は POD ではありませんが、
+仮想関数ではないメンバ関数があっても POD になります。</p>
+<p>仮想関数ではないメンバ関数の有無はメモリレイアウトに影響しないため、
+C++ だけでメンバ関数を有効にすることができます。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">Sample</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+    <span class="kt">double</span> <span class="nf">GetD</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="cp">#endif  </span><span class="c1">// __cplusplus</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<p>メンバ関数を追加するだけの派生クラスを C++ だけで使用する方法もあります。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">struct</span> <span class="n">Sample</span> <span class="p">{</span>
+    <span class="kt">unsigned</span> <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#ifdef __cplusplus</span>
+<span class="k">class</span> <span class="nc">SampleCpp</span> <span class="o">:</span> <span class="k">public</span> <span class="n">Sample</span> <span class="p">{</span>
+ <span class="k">public</span><span class="o">:</span>
+    <span class="kt">double</span> <span class="n">GetD</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="cp">#endif  </span><span class="c1">// __cplusplus</span>
+</pre></div>
+</td></tr></table>
+
+</details>
                 
                   
                 
@@ -1666,7 +1846,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ch01-02-hello-world/" title="1.2. Hello, World!" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch12-02-plain-old-data/" title="12.2 POD" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1675,19 +1855,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                1.2. Hello, World!
+                12.2 POD
               </span>
             </div>
           </a>
         
         
-          <a href="../ch02-02-primitive-types/" title="2.2. 基本型" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch12-04-byte-array-manipulations/" title="12.4 バイト列操作" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                2.2. 基本型
+                12.4 バイト列操作
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
