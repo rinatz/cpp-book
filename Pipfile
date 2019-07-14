@@ -4,10 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-mkdocs = "*"
-mkdocs-material = "*"
-pymdown-extensions = "*"
-pyyaml = ">=4.2b1"
+mkdocs = "==1.0.4"
+mkdocs-material = "==4.1.1"
+pymdown-extensions = "==6.0"
+pyyaml = "==5.1"
 
 [dev-packages]
 
@@ -18,6 +18,3 @@ python_version = "3"
 build = "mkdocs build"
 serve = "mkdocs serve -a 0.0.0.0:8000"
 gh-deploy = "mkdocs gh-deploy"
-
-[pipenv]
-allow_prereleases = true
