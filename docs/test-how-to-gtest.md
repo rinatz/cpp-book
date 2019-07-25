@@ -126,13 +126,16 @@ EXPECT_TRUE(condition);  // condition が true か
 EXPECT_FALSE(condition);  // condition が false か
 
 // 2つの値を比較するアサーション
-EXPECT_EQ(val1, val2);  // val1 == val2 か
-EXPECT_NE(val1, val2);  // val1 != val2 か
-EXPECT_LT(val1, val2);  // val1 < val2 か
-EXPECT_LE(val1, val2);  // val1 <= val2 か
-EXPECT_GT(val1, val2);  // val1 > val2 か
-EXPECT_GE(val1, val2);  // val1 >= val2 か
+EXPECT_EQ(expected, actual);  // expected == actual か
+EXPECT_NE(expected, actual);  // expected != actual か
+EXPECT_LT(expected, actual);  // expected < actual か
+EXPECT_LE(expected, actual);  // expected <= actual か
+EXPECT_GT(expected, actual);  // expected > actual か
+EXPECT_GE(expected, actual);  // expected >= actual か
 ```
+
+等号を評価するアサーションを利用する場合は、
+期待結果 (expected)、 テスト対象 (actual)の順で記述します。
 
 `EXPECT_` で始まるアサーションの他に、 `ASSERT_` で始まるアサーションがあります。
 `EXPECT_` の場合は、テストに失敗してもテスト関数がそのまま続行されますが、
