@@ -134,7 +134,7 @@ EXPECT_GT(expected, actual);  // expected > actual か
 EXPECT_GE(expected, actual);  // expected >= actual か
 ```
 
-等号を評価するアサーションを利用する場合は、
+これらのアサーションを利用する場合は、
 期待結果 (expected)、 テスト対象 (actual)の順で記述します。
 
 `EXPECT_` で始まるアサーションの他に、 `ASSERT_` で始まるアサーションがあります。
