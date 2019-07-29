@@ -1804,14 +1804,16 @@ Running main<span class="o">()</span> from /usr/local/src/googletest-release-1.8
 <span class="n">EXPECT_FALSE</span><span class="p">(</span><span class="n">condition</span><span class="p">);</span>  <span class="c1">// condition が false か</span>
 
 <span class="c1">// 2つの値を比較するアサーション</span>
-<span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">);</span>  <span class="c1">// val1 == val2 か</span>
-<span class="n">EXPECT_NE</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">);</span>  <span class="c1">// val1 != val2 か</span>
-<span class="n">EXPECT_LT</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">);</span>  <span class="c1">// val1 &lt; val2 か</span>
-<span class="n">EXPECT_LE</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">);</span>  <span class="c1">// val1 &lt;= val2 か</span>
-<span class="n">EXPECT_GT</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">);</span>  <span class="c1">// val1 &gt; val2 か</span>
-<span class="n">EXPECT_GE</span><span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">);</span>  <span class="c1">// val1 &gt;= val2 か</span>
+<span class="n">EXPECT_EQ</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>  <span class="c1">// expected == actual か</span>
+<span class="n">EXPECT_NE</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>  <span class="c1">// expected != actual か</span>
+<span class="n">EXPECT_LT</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>  <span class="c1">// expected &lt; actual か</span>
+<span class="n">EXPECT_LE</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>  <span class="c1">// expected &lt;= actual か</span>
+<span class="n">EXPECT_GT</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>  <span class="c1">// expected &gt; actual か</span>
+<span class="n">EXPECT_GE</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">);</span>  <span class="c1">// expected &gt;= actual か</span>
 </pre></div>
 
+<p>これらのアサーションを利用する場合は、
+期待結果 (expected)、 テスト対象 (actual)の順で記述します。</p>
 <p><code>EXPECT_</code> で始まるアサーションの他に、 <code>ASSERT_</code> で始まるアサーションがあります。
 <code>EXPECT_</code> の場合は、テストに失敗してもテスト関数がそのまま続行されますが、
 <code>ASSERT_</code> の場合は、テストに失敗するとその時点でテストを中断してテスト関数を抜けます。</p>
