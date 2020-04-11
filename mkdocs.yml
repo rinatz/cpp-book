@@ -105,6 +105,7 @@ nav:
       - 7.9. default/delete: ch07-09-default-and-delete.md
       - 7.10. static メンバ: ch07-10-static-members.md
       - 7.11. 構造体: ch07-11-structs.md
+      - 7.12. 共用体: ch07-12-unions.md
   - 8. キャスト:
       - 8.1. C++ のキャスト: ch08-01-cpp-casts.md
       - 8.2. C言語形式のキャスト: ch08-02-c-cast.md
