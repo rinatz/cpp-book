@@ -2,7 +2,7 @@
 name = "cpp-book"
 version = "1.0.0"
 description = "Learning C++ from scratch"
-authors = ["Ida Kenichiro"]
+authors = ["Ida Kenichiro", "Kamei Shogo", "Kubo Koki"]
 license = "MIT"
 
 [tool.poetry.dependencies]
