@@ -11,7 +11,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/debug-build/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch07-12-unions/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -21,7 +21,7 @@
     
     
       
-        <title>デバッグビルド - ゼロから学ぶ C++</title>
+        <title>7.12. 共用体 - ゼロから学ぶ C++</title>
       
     
     
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              デバッグビルド
+              7.12. 共用体
             
           </span>
         </div>
@@ -762,10 +762,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
     
     <label class="md-nav__link" for="nav-8">
       7. クラス
@@ -919,11 +921,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch07-12-unions/" title="7.12. 共用体" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="7.12. 共用体" class="md-nav__link md-nav__link--active">
       7.12. 共用体
     </a>
+    
   </li>
 
         
@@ -1332,12 +1343,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
     
     <label class="md-nav__link" for="nav-15">
       デバッグ
@@ -1371,20 +1380,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-    <a href="./" title="デバッグビルド" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../debug-build/" title="デバッグビルド" class="md-nav__link">
       デバッグビルド
     </a>
-    
   </li>
 
         
@@ -1588,7 +1588,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/debug-build.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch07-12-unions.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -1596,15 +1596,22 @@
                   
                 
                 
-                <h1 id="_1">デバッグビルド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>通常のビルドはリリースビルドと呼ばれ、
-実行時に不要な情報を省いて最適化を行うことで高いパフォーマンスを実現しています。</p>
-<p>コードにおけるファイルや行番号をはじめ、
-デバッグで必要な情報の多くはリリースビルドでは省かれてしまうため、
-デバッグを行うためにはデバッグビルドでビルドしたものを使用します。</p>
-<p>デバッグビルドを行うためには <code>-g</code> を指定します。</p>
-<div class="highlight"><pre><span></span><code>$ g++ -std<span class="o">=</span>c++11 -g main.cc
+                <h1 id="_1">共用体<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>共用体は 1 つのポインタを複数の変数で共有できる仕組みのことです。</p>
+<div class="highlight"><pre><span></span><code><span class="k">union</span> <span class="n">Data</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">int_value</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">char_value</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="p">};</span>
 </code></pre></div>
+
+<p>上記の定義は構造体とよく似ていますが、<code>int_value</code> と <code>char_value</code> のポインタは同じになっており、片方の変数に代入すればもう片方の変数も値が変化します。</p>
+<div class="highlight"><pre><span></span><code><span class="n">Data</span> <span class="n">data</span><span class="p">;</span>
+<span class="n">data</span><span class="p">.</span><span class="n">int_value</span> <span class="o">=</span> <span class="mi">65535</span><span class="p">;</span>
+<span class="n">data</span><span class="p">.</span><span class="n">char_value</span><span class="p">;</span>    <span class="c1">// {-1, -1, 0, 0}</span>
+</code></pre></div>
+
+<p>上記の例だと <code>int_value</code> に代入したことで <code>char_value</code> の値も変化しています。</p>
+<p>共用体は <a href="../ch08-01-cpp-casts/#reinterpret_cast">reinterpret_cast</a> の代替として使うことができるので、こちらの説明も合わせて参考にしてください。</p>
                 
               
               
@@ -1623,7 +1630,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="">
         
-          <a href="../debug-debugger/" title="デバッガ" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch07-11-structs/" title="7.11. 構造体" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -1632,19 +1639,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                デバッガ
+                7.11. 構造体
               </div>
             </div>
           </a>
         
         
-          <a href="../debug-gdb/" title="GDB による CUI デバッグ" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch08-01-cpp-casts/" title="8.1. C++ のキャスト" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                GDB による CUI デバッグ
+                8.1. C++ のキャスト
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
