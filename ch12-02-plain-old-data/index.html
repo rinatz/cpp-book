@@ -1838,7 +1838,7 @@
 </code></pre></div>
 
 <h2 id="_1">基本型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>基本形は POD です。</p>
+<p>基本型は POD です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="n">Direction</span> <span class="p">{</span>
     <span class="n">kLeft</span><span class="p">,</span>
     <span class="n">kRight</span><span class="p">,</span>
@@ -1897,7 +1897,7 @@ POD ではない型に対するポインタも POD です。</p>
 <span class="k">struct</span> <span class="n">Empty</span> <span class="p">{};</span>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">Empty</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 
-<span class="c1">// すべてのメンバ変数が基本形</span>
+<span class="c1">// すべてのメンバ変数が基本型</span>
 <span class="k">struct</span> <span class="n">FundamentalTypes</span> <span class="p">{</span>
     <span class="kt">int16_t</span> <span class="n">i</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
