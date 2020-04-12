@@ -19,7 +19,7 @@ static_assert(std::is_pod<FundamentalTypes>::value, "Should be POD.");
 
 ## 基本型
 
-基本形は POD です。
+基本型は POD です。
 
 ```cpp
 enum Direction {
@@ -98,7 +98,7 @@ static_assert(std::is_pod<std::vector<int>*>::value, "Should be POD.");
 struct Empty {};
 static_assert(std::is_pod<Empty>::value, "Should be POD.");
 
-// すべてのメンバ変数が基本形
+// すべてのメンバ変数が基本型
 struct FundamentalTypes {
     int16_t i;
     double d;
