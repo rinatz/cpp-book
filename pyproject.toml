@@ -7,10 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-mkdocs = "^1.1"
 mkdocs-material = "^5.0.2"
-pymdown-extensions = "^7.0"
-pyyaml = "^5.3.1"
 
 [tool.poetry.dev-dependencies]
 
