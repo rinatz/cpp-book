@@ -128,6 +128,7 @@ nav:
       - 12.2 POD: ch12-02-plain-old-data.md
       - 12.3 POD の API 互換性: ch12-03-plain-old-data-api-compatibility.md
       - 12.4 バイト列操作: ch12-04-byte-array-manipulations.md
+      - 12.5 ビットフィールド: ch12-05-bitfields.md
   - 単体テスト:
       - Google Test の使い方: test-how-to-gtest.md
   - デバッグ:
