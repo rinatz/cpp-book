@@ -11,7 +11,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-06-control-flow/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch12-05-bitfields/">
       
       
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
@@ -21,7 +21,7 @@
     
     
       
-        <title>2.6. 制御文 - ゼロから学ぶ C++</title>
+        <title>12.5 ビットフィールド - ゼロから学ぶ C++</title>
       
     
     
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.6. 制御文
+              12.5 ビットフィールド
             
           </span>
         </div>
@@ -252,12 +252,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       2. 基本構文
@@ -339,127 +337,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.6. 制御文
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="2.6. 制御文" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../ch02-06-control-flow/" title="2.6. 制御文" class="md-nav__link">
       2.6. 制御文
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#if" class="md-nav__link">
-    if
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#switch" class="md-nav__link">
-    switch
-  </a>
-  
-    <nav class="md-nav" aria-label="switch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    フォールスルー
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#while" class="md-nav__link">
-    while
-  </a>
-  
-    <nav class="md-nav" aria-label="while">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#do-while" class="md-nav__link">
-    do-while
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#for" class="md-nav__link">
-    for
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    ループ処理の中断
-  </a>
-  
-    <nav class="md-nav" aria-label="ループ処理の中断">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#break" class="md-nav__link">
-    break
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#continue" class="md-nav__link">
-    continue
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1330,10 +1212,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" checked>
     
     <label class="md-nav__link" for="nav-13">
       12. メモリレイアウト
@@ -1403,11 +1287,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ch12-05-bitfields/" title="12.5 ビットフィールド" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="12.5 ビットフィールド" class="md-nav__link md-nav__link--active">
       12.5 ビットフィールド
     </a>
+    
   </li>
 
         
@@ -1697,97 +1590,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#if" class="md-nav__link">
-    if
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#switch" class="md-nav__link">
-    switch
-  </a>
-  
-    <nav class="md-nav" aria-label="switch">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    フォールスルー
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#while" class="md-nav__link">
-    while
-  </a>
-  
-    <nav class="md-nav" aria-label="while">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#do-while" class="md-nav__link">
-    do-while
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#for" class="md-nav__link">
-    for
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    ループ処理の中断
-  </a>
-  
-    <nav class="md-nav" aria-label="ループ処理の中断">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#break" class="md-nav__link">
-    break
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#continue" class="md-nav__link">
-    continue
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1798,7 +1600,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-06-control-flow.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch12-05-bitfields.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -1806,207 +1608,27 @@
                   
                 
                 
-                <h1 id="_1">制御文<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="if">if<a class="headerlink" href="#if" title="Permanent link">&para;</a></h2>
-<p>条件分岐をしたい時には <code>if</code> を使用します。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span>
-<span class="p">}</span>
+                <h1 id="_1">ビットフィールド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>構造体のメンバ変数はバイト単位でサイズが確保されますが、ビット単位でもサイズを確保することができます。
+そのようなメンバ変数をビットフィールドといいます。</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">Bits</span> <span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="nl">a</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>     <span class="c1">//  1 ビット</span>
+    <span class="kt">uint8_t</span> <span class="nl">b</span> <span class="p">:</span> <span class="mi">3</span><span class="p">;</span>     <span class="c1">//  3 ビット</span>
+    <span class="kt">uint8_t</span> <span class="nl">c</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>     <span class="c1">//  4 ビット</span>
+<span class="p">};</span>
 </code></pre></div>
 
-<p><code>if</code> の条件を満たさなかった場合に何か処理をしたければ <code>else</code> を使用します。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="p">...</span>
-<span class="p">}</span>
+<p>メンバ変数 <code>a, b, c</code> は <code>uint8_t</code> 型の領域をそれぞれ指定したビット数で分割して利用します。
+構造体のサイズをなるべく小さく抑えたいときなどに使用されます。</p>
+<p>例えば 1 ビットのビットフィールドを用意すれば <code>0, 1</code> の 2 値を表現できるため、
+<code>bool</code> の代わりとして使用することができます。</p>
+<div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="n">Bool</span> <span class="p">{</span>
+    <span class="kt">uint8_t</span> <span class="nl">flag</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div>
 
-<p>さらに別の条件で処理を分岐したければ <code>else if</code> を使用します。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
-    <span class="p">...</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="p">...</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h2 id="switch">switch<a class="headerlink" href="#switch" title="Permanent link">&para;</a></h2>
-<p>一つの変数の値を調べながら分岐するような処理を書きたい場合は <code>switch</code> 文を使います。</p>
-<div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
-        <span class="c1">// x == 0 のときの処理</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-        <span class="c1">// x == 1 のときの処理</span>
-        <span class="k">break</span><span class="p">;</span>
-    <span class="k">default</span><span class="o">:</span>
-        <span class="c1">// x がそれ以外のときの処理</span>
-        <span class="k">break</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>ただし <code>switch</code> 文が使用できるのは基本型のみです。
-上記の構文は <code>if</code> で書き直すと次と等価になります。</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// x == 0 のときの処理</span>
-<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// x == 1 のときの処理</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-    <span class="c1">// x がそれ以外のときの処理</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>ただし <code>switch</code> 文のほうが <code>if</code> よりも比較回数が少ないため効率的です。
-<code>if</code> はまずはじめに <code>x == 0</code> が <code>true</code> かどうかを調べ <code>false</code> であれば
-次に <code>x == 1</code> を評価しますが、<code>switch</code> 文はいきなり特定の <code>case</code> にジャンプします。</p>
-<h3 id="_2">フォールスルー<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p><code>switch</code> の各 <code>case</code> 内に書かれている <code>break</code> は書かなくてもよいのですが、
-その場合振る舞いが変わります。</p>
-<div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
-        <span class="c1">// x == 0 のときの処理</span>
-    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-        <span class="c1">// x == 1 のときの処理</span>
-    <span class="k">default</span><span class="o">:</span>
-        <span class="c1">// x がそれ以外のときの処理</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><code>break</code> を書いた場合は <code>switch</code> 文の処理はそこで終わりますが、
-<code>break</code> を書かなかった場合はそのまま下の <code>case</code> に処理が流れてしまいます。
-つまり上記のコードは <code>x == 0</code> であれば <code>case 0</code> 内の処理を行った後に
-<code>case 1</code> 内の処理を行い、最後に <code>default</code> の処理を行います。
-<code>x == 1</code> であれば同様の振る舞いが <code>case 1</code> から始まります。
-このような <code>switch</code> 文の仕様をフォールスルーと言います。
-これは <code>case 0</code> と <code>case 1</code> の処理が同じものになる場合に使用すると便利です。</p>
-<div class="highlight"><pre><span></span><code><span class="k">switch</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
-    <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
-        <span class="c1">// x == 0 または x == 1 のときの処理</span>
-    <span class="k">default</span><span class="o">:</span>
-        <span class="c1">// x がそれ以外のときの処理</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>それ以外のケースでフォールスルーをさせるシーンはまずないため、
-<code>break</code> を忘れずに付けておく必要があります。</p>
-<h2 id="while">while<a class="headerlink" href="#while" title="Permanent link">&para;</a></h2>
-<p><code>while</code> は <code>()</code> に渡された条件が <code>true</code> である限り
-<code>{ ... }</code> 内の処理を実行し続けます。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">done</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-
-<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">done</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">;</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">done</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h3 id="do-while">do-while<a class="headerlink" href="#do-while" title="Permanent link">&para;</a></h3>
-<p>最初の1回は無条件で <code>do { ... }</code> 内の処理を実行し、
-2回目以降は <code>while ()</code> に渡された条件が <code>true</code> である限り
-<code>do { ... }</code> 内の処理を実行し続けます。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="kt">bool</span> <span class="n">done</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
-
-<span class="k">do</span> <span class="p">{</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">;</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">done</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">done</span><span class="p">);</span>
-</code></pre></div>
-
-<h2 id="for">for<a class="headerlink" href="#for" title="Permanent link">&para;</a></h2>
-<p><code>for</code> はループするたびに変化する変数を使うことができます。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><code>i</code> はループするたびに <code>0, 1, 2, ..., 9</code> と値が変化し続けます。
-<code>for (int i = 0; i &lt; 10; ++i)</code> というのは <code>i</code> に <code>0</code> を設定して
-<code>i &lt; 10</code> を満たすまで <code>i</code> を <code>+1</code> しながらループを継続するという意味になります。</p>
-<p><code>for</code> はこの書き方以外に <code>範囲 for</code> という書き方もあります。
-詳細は <a href="../ch03-09-range-based-for/">3.9. 範囲 for</a> を参照してください。</p>
-<h2 id="_3">ループ処理の中断<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>ループ文 <code>while</code>、 <code>do-while</code>、 <code>for</code> のループ処理は
-<code>break</code> または <code>continue</code> で中断することができます。</p>
-<h3 id="break">break<a class="headerlink" href="#break" title="Permanent link">&para;</a></h3>
-<p>現在のループ処理を中断してループ文を終了します。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-
-<span class="k">while</span> <span class="p">(</span><span class="nb">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">x</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">;</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">break</span><span class="p">;</span>  <span class="c1">// while 文を抜ける</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>ループ文がネストしている場合には、最も内側にある文のみが対象になります。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">break</span><span class="p">;</span>  <span class="c1">// j のループ文を抜ける</span>
-        <span class="p">}</span>
-
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;,&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<h3 id="continue">continue<a class="headerlink" href="#continue" title="Permanent link">&para;</a></h3>
-<p>現在のループ処理を中断して、次のループ処理を行います。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">continue</span><span class="p">;</span>  <span class="c1">// 5 だけスキップ</span>
-    <span class="p">}</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>ループ文がネストしている場合には、最も内側にある文のみが対象になります。</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">continue</span><span class="p">;</span>  <span class="c1">// j のループ処理をスキップ</span>
-        <span class="p">}</span>
-
-        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;,&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p><code>contiune</code> では次のループ処理を行うため、
-<code>do-while</code> では先頭に戻るのではなく末尾へ移動する動作となります。</p>
-<div class="highlight"><pre><span></span><code><span class="k">do</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;done&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="k">continue</span><span class="p">;</span>  <span class="c1">// ループ処理をスキップ (先頭に戻る動作なら無限ループとなる)</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;never reached&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 実行されない</span>
-<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nb">false</span><span class="p">);</span>  <span class="c1">// 条件が false であるため1回目で終了</span>
-</code></pre></div>
+<p>ただし上記のような 1 ビットのビットフィールドを定義しても <code>Bool</code> のサイズは <code>uint8_t</code> 分のサイズを確保します。
+すなわち <code>uint8_t</code> の残り 7 ビットは未使用な領域になります。</p>
                 
               
               
@@ -2025,7 +1647,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="">
         
-          <a href="../ch02-05-comments/" title="2.5. コメント" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch12-04-byte-array-manipulations/" title="12.4 バイト列操作" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
             </div>
@@ -2034,19 +1656,19 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                2.5. コメント
+                12.4 バイト列操作
               </div>
             </div>
           </a>
         
         
-          <a href="../ch02-07-operators/" title="2.7. 演算子" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../test-how-to-gtest/" title="Google Test の使い方" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                2.7. 演算子
+                Google Test の使い方
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
