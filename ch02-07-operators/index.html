@@ -1799,6 +1799,32 @@
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">^</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 0x33</span>
 </code></pre></div>
 
+<details class="question"><summary>ビット演算で符号あり整数型を避ける理由</summary><p>符号あり整数型のシフト演算の動作は言語仕様で未定義や処理系定義になっているものがあります。
+それらを考慮しないで済むように、ビット演算では符号なし整数型を利用することが望ましいです。</p>
+<!-- MEMO: C++11 の言語仕様では1の補数表現が許容されているため注釈を入れている -->
+
+<div class="highlight"><pre><span></span><code><span class="c1">// 2の補数表現の場合の例</span>
+
+<span class="c1">// 0以上の数値の左シフト</span>
+<span class="kt">int8_t</span> <span class="n">a1</span> <span class="o">=</span> <span class="mh">0x40</span><span class="p">;</span>        <span class="c1">// 01000000</span>
+<span class="kt">int8_t</span> <span class="n">s11</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// 未定義 (C++14 以上では 10000000)</span>
+<span class="kt">int8_t</span> <span class="n">s12</span> <span class="o">=</span> <span class="p">(</span><span class="n">a1</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span><span class="p">);</span>  <span class="c1">// 未定義 (C++20 以上では 00000000)</span>
+
+<span class="c1">// 0未満の数値の左シフト</span>
+<span class="kt">int8_t</span> <span class="n">a2</span> <span class="o">=</span> <span class="mh">0x80</span><span class="p">;</span>       <span class="c1">// 10000000</span>
+<span class="kt">int8_t</span> <span class="n">s2</span> <span class="o">=</span> <span class="p">(</span><span class="n">a2</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// 未定義 (C++20 以上では 00000000)</span>
+
+<span class="c1">// 0以上の数値の右シフト</span>
+<span class="kt">int8_t</span> <span class="n">a3</span> <span class="o">=</span> <span class="mh">0x41</span><span class="p">;</span>       <span class="c1">// 01000000</span>
+<span class="kt">int8_t</span> <span class="n">s3</span> <span class="o">=</span> <span class="p">(</span><span class="n">a3</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// 00100000</span>
+
+<span class="c1">// 0未満の数値の右シフト</span>
+<span class="kt">int8_t</span> <span class="n">a4</span> <span class="o">=</span> <span class="mh">0x80</span><span class="p">;</span>       <span class="c1">// 10000000</span>
+<span class="kt">int8_t</span> <span class="n">s4</span> <span class="o">=</span> <span class="p">(</span><span class="n">a4</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">);</span>  <span class="c1">// 処理系定義 (C++20 以上では 11000000)</span>
+</code></pre></div>
+
+<p>詳細は <a href="https://ja.cppreference.com/w/cpp/language/operator_arithmetic">算術演算子 - cppreference.com</a> を参照してください。</p>
+</details>
 <h2 id="_5">複合代入<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>算術演算子と代入演算子を組み合わせることで、算術と代入を同時に行うことが可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">+=</span> <span class="n">b</span>   <span class="c1">// a = a + b と同じ</span>
