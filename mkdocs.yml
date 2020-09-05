@@ -11,6 +11,7 @@ theme:
   language: ja
   logo: img/cpp.svg
   palette:
+    scheme: preference
     primary: indigo
     accent: amber
   font:
