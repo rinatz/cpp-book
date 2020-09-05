@@ -17,7 +17,7 @@
         <meta name="author" content="Ida Kenichiro, Kamei Shogo, Kubo Koki">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.0.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
     
     
       
@@ -25,14 +25,14 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.07c9fbf5.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.4dd2dd8d.min.css">
       
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ecd4686e.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.6a5ad368.min.css">
       
       
         
         
-        <meta name="theme-color" content="#3f51b5">
+        <meta name="theme-color" content="#4051b5">
       
     
     
@@ -54,8 +54,12 @@
   
     
     
-    <body dir="" data-md-color-primary="indigo" data-md-color-accent="amber">
+    
+    <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="indigo" data-md-color-accent="amber">
   
+    
+      <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
+    
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
@@ -72,14 +76,14 @@
     </div>
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="">
+  <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="http://rinatz.github.io/cpp-book" title="ゼロから学ぶ C++" class="md-header-nav__button md-logo" aria-label="ゼロから学ぶ C++">
       
   <img src="../img/cpp.svg" alt="logo">
 
     </a>
     <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
       
@@ -97,7 +101,7 @@
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
       
 <div class="md-search" data-md-component="search" role="dialog">
@@ -106,18 +110,18 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
       </button>
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            検索キーワードを入力してください
+            Initializing search
           </div>
           <ol class="md-search-result__list"></ol>
         </div>
@@ -132,7 +136,7 @@
 <a href="https://github.com/rinatz/cpp-book/" title="リポジトリへ" class="md-source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     rinatz/cpp-book
@@ -157,7 +161,7 @@
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="" data-md-level="0">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="http://rinatz.github.io/cpp-book" title="ゼロから学ぶ C++" class="md-nav__button md-logo" aria-label="ゼロから学ぶ C++">
       
@@ -172,7 +176,7 @@
 <a href="https://github.com/rinatz/cpp-book/" title="リポジトリへ" class="md-source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     rinatz/cpp-book
@@ -205,15 +209,11 @@
     
     <label class="md-nav__link" for="nav-2">
       1. C++ を始める
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="1. C++ を始める" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         1. C++ を始める
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -259,15 +259,11 @@
     
     <label class="md-nav__link" for="nav-3">
       2. 基本構文
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="2. 基本構文" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         2. 基本構文
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -397,15 +393,11 @@
     
     <label class="md-nav__link" for="nav-4">
       3. コンテナ
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="3. コンテナ" data-md-level="1">
       <label class="md-nav__title" for="nav-4">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         3. コンテナ
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -535,15 +527,11 @@
     
     <label class="md-nav__link" for="nav-5">
       4. ファイル分割とスコープ
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="4. ファイル分割とスコープ" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         4. ファイル分割とスコープ
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -625,15 +613,11 @@
     
     <label class="md-nav__link" for="nav-6">
       5. ストリーム操作
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="5. ストリーム操作" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         5. ストリーム操作
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -679,15 +663,11 @@
     
     <label class="md-nav__link" for="nav-7">
       6. メモリの管理
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="6. メモリの管理" data-md-level="1">
       <label class="md-nav__title" for="nav-7">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         6. メモリの管理
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -769,15 +749,11 @@
     
     <label class="md-nav__link" for="nav-8">
       7. クラス
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="7. クラス" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         7. クラス
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -943,15 +919,11 @@
     
     <label class="md-nav__link" for="nav-9">
       8. キャスト
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="8. キャスト" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         8. キャスト
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -997,15 +969,11 @@
     
     <label class="md-nav__link" for="nav-10">
       9. テンプレート
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="9. テンプレート" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         9. テンプレート
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1063,15 +1031,11 @@
     
     <label class="md-nav__link" for="nav-11">
       10. エラー処理
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="10. エラー処理" data-md-level="1">
       <label class="md-nav__title" for="nav-11">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         10. エラー処理
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1131,15 +1095,11 @@
     
     <label class="md-nav__link" for="nav-12">
       11. ビルドとライブラリ
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="11. ビルドとライブラリ" data-md-level="1">
       <label class="md-nav__title" for="nav-12">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         11. ビルドとライブラリ
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1195,76 +1155,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        11.4 動的ロードと名前マングリング
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
-        </span>
-      </label>
-    
     <a href="./" title="11.4 動的ロードと名前マングリング" class="md-nav__link md-nav__link--active">
       11.4 動的ロードと名前マングリング
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="目次">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    動的ロード
-  </a>
-  
-    <nav class="md-nav" aria-label="動的ロード">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    動的ライブラリを開く
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    関数や変数のポインタを取得
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    動的ライブラリを閉じる
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    名前マングリング
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -1297,15 +1190,11 @@
     
     <label class="md-nav__link" for="nav-13">
       12. メモリレイアウト
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="12. メモリレイアウト" data-md-level="1">
       <label class="md-nav__title" for="nav-13">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         12. メモリレイアウト
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1387,15 +1276,11 @@
     
     <label class="md-nav__link" for="nav-14">
       単体テスト
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="単体テスト" data-md-level="1">
       <label class="md-nav__title" for="nav-14">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         単体テスト
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1429,15 +1314,11 @@
     
     <label class="md-nav__link" for="nav-15">
       デバッグ
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="デバッグ" data-md-level="1">
       <label class="md-nav__title" for="nav-15">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         デバッグ
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1507,15 +1388,11 @@
     
     <label class="md-nav__link" for="nav-16">
       ビルド自動化
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="ビルド自動化" data-md-level="1">
       <label class="md-nav__title" for="nav-16">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         ビルド自動化
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1561,15 +1438,11 @@
     
     <label class="md-nav__link" for="nav-17">
       付録
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="付録" data-md-level="1">
       <label class="md-nav__title" for="nav-17">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         付録
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1657,57 +1530,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
-      </span>
-      目次
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    動的ロード
-  </a>
-  
-    <nav class="md-nav" aria-label="動的ロード">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    動的ライブラリを開く
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    関数や変数のポインタを取得
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    動的ライブラリを閉じる
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    名前マングリング
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1719,7 +1541,7 @@
               
                 
                   <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch11-04-dynamic-loading-and-name-mangling.md" title="編集" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
@@ -1740,122 +1562,77 @@ Linux 環境で使用する API の詳細は
 また、これらの API で使用される void ポインタについては
 <a href="../appendix-void-pointer/">void ポインタ</a> を参照してください。</p>
 <p>次のコードで説明します。</p>
-<div class="tabbed-set" data-tabs="1:3">
-<input name="__tabbed_1" type="radio" id="__tabbed_1_1" checked="checked" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<p>```cpp linenums="1" tab="main.cc"</p>
+<h1 id="include">include <iostream><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
+<h1 id="include_1">include <dlfcn.h><a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h1>
+<p>int main() {
+    void* handle = dlopen("libhoge.so", RTLD_NOW);
+    if (handle == NULL) {
+        const char* const error_message = dlerror();
+        std::cerr &lt;&lt; error_message &lt;&lt; std::endl;
+        return 1;
+    }</p>
+<div class="codehilite"><pre><span></span><code>void* const symbol_add = dlsym(handle, &quot;_Z3Addii&quot;);
+{
+    const char* const error_message = dlerror();
+    if (error_message != NULL) {
+        std::cerr &lt;&lt; error_message &lt;&lt; std::endl;
+        dlclose(handle);
+        return 1;
+    }
+}
 
-<span class="cp">#include</span> <span class="cpf">&lt;dlfcn.h&gt;</span><span class="cp"></span>
+void* const symbol_sub = dlsym(handle, &quot;_Z3Subii&quot;);
+{
+    const char* const error_message = dlerror();
+    if (error_message != NULL) {
+        std::cerr &lt;&lt; error_message &lt;&lt; std::endl;
+        dlclose(handle);
+        return 1;
+    }
+}
 
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">void</span><span class="o">*</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">dlopen</span><span class="p">(</span><span class="s">&quot;libhoge.so&quot;</span><span class="p">,</span> <span class="n">RTLD_NOW</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">error_message</span> <span class="o">=</span> <span class="n">dlerror</span><span class="p">();</span>
-        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">error_message</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="p">}</span>
+auto Add = reinterpret_cast&lt;int(*)(int, int)&gt;(symbol_add);
+auto Sub = reinterpret_cast&lt;int(*)(int, int)&gt;(symbol_sub);
 
-    <span class="kt">void</span><span class="o">*</span> <span class="k">const</span> <span class="n">symbol_add</span> <span class="o">=</span> <span class="n">dlsym</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s">&quot;_Z3Addii&quot;</span><span class="p">);</span>
-    <span class="p">{</span>
-        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">error_message</span> <span class="o">=</span> <span class="n">dlerror</span><span class="p">();</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">error_message</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">error_message</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-            <span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
-            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+std::cout &lt;&lt; Add(1, 2) &lt;&lt; std::endl;
+std::cout &lt;&lt; Sub(3, 4) &lt;&lt; std::endl;
 
-    <span class="kt">void</span><span class="o">*</span> <span class="k">const</span> <span class="n">symbol_sub</span> <span class="o">=</span> <span class="n">dlsym</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s">&quot;_Z3Subii&quot;</span><span class="p">);</span>
-    <span class="p">{</span>
-        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">error_message</span> <span class="o">=</span> <span class="n">dlerror</span><span class="p">();</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">error_message</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">error_message</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-            <span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
-            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="k">auto</span> <span class="n">Add</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">symbol_add</span><span class="p">);</span>
-    <span class="k">auto</span> <span class="n">Sub</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">symbol_sub</span><span class="p">);</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table></div>
-<input name="__tabbed_1" type="radio" id="__tabbed_1_2" /><label for="__tabbed_1_2">add.cc</label><div class="tabbed-content"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table></div>
-<input name="__tabbed_1" type="radio" id="__tabbed_1_3" /><label for="__tabbed_1_3">sub.cc</label><div class="tabbed-content"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-</td></tr></table></div>
-</div>
-<h2 id="_2">動的ロード<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>add.cc</code> と <code>sub.cc</code> をコンパイルして生成される
-2つのオブジェクトファイル <code>add.o</code> と <code>sub.o</code> から
-作成した動的ライブラリを <code>libhoge.so</code> とします。</p>
-<p>Linux 環境で動的ロードを行うためには
-OS が提供する <code>libdl.so</code> を動的リンクする必要があります。
-<code>libdl.so</code> を動的リンクして実行ファイルをビルドするには <code>-ldl</code> をつけます。</p>
-<div class="highlight"><pre><span></span><code>g++ -std<span class="o">=</span>c++11 main.o -ldl
+dlclose(handle);
+return 0;
 </code></pre></div>
 
+
+<p>}
+<code></code>cpp linenums="1" tab="add.cc"
+int Add(int a, int b) {
+    return a + b;
+}
+```</p>
+<p>```cpp linenums="1" tab="sub.cc"
+int Sub(int a, int b) {
+    return a - b;
+}
+<div class="highlight"><pre><span></span><code>## 動的ロード
+
+`add.cc` と `sub.cc` をコンパイルして生成される
+2つのオブジェクトファイル `add.o` と `sub.o` から
+作成した動的ライブラリを `libhoge.so` とします。
+
+Linux 環境で動的ロードを行うためには
+OS が提供する `libdl.so` を動的リンクする必要があります。
+`libdl.so` を動的リンクして実行ファイルをビルドするには `-ldl` をつけます。
+
+```bash
+g++ -std=c++11 main.o -ldl
+</code></pre></div></p>
 <p>動的ロードは以下の手順で行います。</p>
 <ol>
 <li>動的ライブラリを開く</li>
 <li>関数や変数のポインタを取得</li>
 <li>動的ライブラリを閉じる</li>
 </ol>
-<h3 id="_3">動的ライブラリを開く<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_2">動的ライブラリを開く<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>動的ライブラリを開くには <code>dlopen()</code> を使います。
 動的ロードに関する処理を使うには <code>&lt;dlfcn.h&gt;</code> のインクルードが必要です。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1881,7 +1658,7 @@ libhoge.so: cannot open shared object file: No such file or directory
 
 <p><code>dlopen()</code> が正常に終了した場合はハンドルが返却されます。
 このハンドルを用いて動的ライブラリを操作します。</p>
-<h3 id="_4">関数や変数のポインタを取得<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_3">関数や変数のポインタを取得<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><code>dlopen()</code> で取得したハンドルから
 関数や変数のポインタを取得するには <code>dlsym()</code> を使用します。</p>
 <p><code>dlsym()</code> では第1引数にハンドル、第2引数にシンボル名を指定します。
@@ -1948,13 +1725,13 @@ $ nm libhoge.so
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </code></pre></div>
 
-<h3 id="_5">動的ライブラリを閉じる<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_4">動的ライブラリを閉じる<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>開いた動的ライブラリは使用が終わったら閉じる必要があります。
 動的ライブラリを閉じるには <code>dlclose()</code> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
 </code></pre></div>
 
-<h2 id="_6">名前マングリング<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_5">名前マングリング<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>オブジェクトファイルでは変数や関数を名前だけで識別する必要があります。</p>
 <p>C 言語はリンケージ指定が内部リンケージではない変数や関数を名前だけで識別していますが、
 C++ は C 言語にはない以下の機能によって名前だけで識別することができません。</p>
@@ -2015,11 +1792,11 @@ $ nm add.o <span class="p">|</span> c++filt
 <footer class="md-footer">
   
     <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
           <a href="../ch11-03-dynamic-libraries-and-dynamic-linking/" title="11.3 動的ライブラリと動的リンク" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
@@ -2042,7 +1819,7 @@ $ nm add.o <span class="p">|</span> c++filt
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
             </div>
           </a>
         
@@ -2069,15 +1846,15 @@ $ nm add.o <span class="p">|</span> c++filt
       
     </div>
     
-      <script src="../assets/javascripts/vendor.36cbf620.min.js"></script>
-      <script src="../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f"}</script>
+      <script src="../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f"}</script>
       
       <script>
         app = initialize({
           base: "..",
           features: [],
           search: Object.assign({
-            worker: "../assets/javascripts/worker/search.7f7c8775.min.js"
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>

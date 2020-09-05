@@ -1,303 +1,303 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>http://rinatz.github.io/cpp-book/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch01-01-installation/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch01-02-hello-world/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-01-variables/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-02-primitive-types/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-03-literals/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-04-pointers/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-05-comments/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-06-control-flow/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-07-operators/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-08-functions/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch02-09-function-objects/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-01-arrays/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-02-strings/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-03-tuples/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-04-pairs/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-05-vectors/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-06-maps/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-07-sets/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-08-iterators/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch03-09-range-based-for/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch04-01-declarations-and-definitions/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch04-02-multiple-files/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch04-03-scopes/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch04-04-internal-linkages/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch04-05-inline-functions/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch05-01-standard-inout/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch05-02-file-operations/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch06-01-memory-areas/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch06-02-new-and-delete/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch06-03-deep-and-shallow-copy/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch06-04-move-semantics/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch06-05-smart-pointers/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-01-member-variables/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-02-member-functions/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-03-inheritance/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-04-polymorphism/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-05-constructors/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-06-destructors/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-07-operator-overloading/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-08-assignment-operator/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-09-default-and-delete/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-10-static-members/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-11-structs/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch07-12-unions/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch08-01-cpp-casts/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch08-02-c-cast/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch09-01-function-templates/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch09-02-class-templates/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch09-03-template-specializations/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch10-01-exceptions/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch10-02-signals/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch10-03-assertions/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch11-01-build/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch11-02-static-libraries-and-static-linking/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch11-03-dynamic-libraries-and-dynamic-linking/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch11-04-dynamic-loading-and-name-mangling/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch11-05-library-updating-and-compatibility/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch12-01-type-for-bytes/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch12-02-plain-old-data/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch12-03-plain-old-data-api-compatibility/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch12-04-byte-array-manipulations/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/ch12-05-bitfields/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/test-how-to-gtest/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/debug-debugger/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/debug-build/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/debug-gdb/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/debug-vscode/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/make-make/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/make-cmake/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/appendix-malloc-and-free/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/appendix-preprocessor-directives/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/appendix-downcasts/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/appendix-void-pointer/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>http://rinatz.github.io/cpp-book/appendix-cast-details/</loc>
-     <lastmod>2020-06-13</lastmod>
+     <lastmod>2020-09-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
