@@ -1,10 +1,10 @@
 site_name: ゼロから学ぶ C++
 site_description: ゼロから学ぶ C++
-site_author: Ida Kenichiro, Kamei Shogo, Kubo Koki
+site_author: IDA Kenichiro, KAMEI Shogo, KUBO Koki
 site_url: http://rinatz.github.io/cpp-book
 repo_name: rinatz/cpp-book
 repo_url: https://github.com/rinatz/cpp-book
-copyright: Copyright &copy 2020 Ida Kenichiro
+copyright: Copyright &copy 2020 IDA Kenichiro
 
 theme:
   name: material
