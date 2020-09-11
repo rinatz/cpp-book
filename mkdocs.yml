@@ -10,6 +10,9 @@ theme:
   name: material
   language: ja
   logo: img/cpp.svg
+  favicon: img/cpp.svg
+  icon:
+    repo: fontawesome/brands/github
   palette:
     scheme: preference
     primary: indigo
