@@ -28,15 +28,6 @@ markdown_extensions:
   - toc:
       permalink: true
   - footnotes
-  - pymdownx.arithmate
-
-markdown_extensions:
-  - admonition
-  - codehilite:
-      guess_lang: false
-  - toc:
-      permalink: true
-  - footnotes
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
