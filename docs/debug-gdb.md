@@ -52,33 +52,39 @@ GDB は起動時にバージョンなどの情報を出力します。
 
 以下のコードで説明します。
 
-```cpp tab="main.cc" linenums="1"
-#include <iostream>
+=== "main.cc"
 
-#include "sum.h"
+    ```cpp linenums="1"
+    #include <iostream>
 
-int main() {
-    std::cout << Sum(1, 2) << std::endl;
-    return 0;
-}
-```
+    #include "sum.h"
 
-```cpp tab="sum.h" linenums="1"
-#ifndef SUM_H_
-#define SUM_H_
+    int main() {
+        std::cout << Sum(1, 2) << std::endl;
+        return 0;
+    }
+    ```
 
-int Sum(int a, int b);
+=== "sum.h"
 
-#endif  // SUM_H_
-```
+    ```cpp linenums="1"
+    #ifndef SUM_H_
+    #define SUM_H_
 
-```cpp tab="sum.cc" linenums="1"
-#include "sum.h"
+    int Sum(int a, int b);
 
-int Sum(int a, int b) {
-    return a + b;
-}
-```
+    #endif  // SUM_H_
+    ```
+
+=== "sum.cc"
+
+    ```cpp linenums="1"
+    #include "sum.h"
+
+    int Sum(int a, int b) {
+        return a + b;
+    }
+    ```
 
 ### 追加
 
@@ -198,54 +204,60 @@ No breakpoints or watchpoints.
 
 以下のコードで説明します。
 
-```cpp tab="main.cc" linenums="1"
-#include <iostream>
+=== "main.cc"
 
-#include "swap.h"
+    ```cpp linenums="1"
+    #include <iostream>
 
-// 最大公約数
-int GreatestCommonDivisor(int a, int b) {
-    while (a != 0) {
-        b = b % a;
-        Swap(&a, &b);
+    #include "swap.h"
+
+    // 最大公約数
+    int GreatestCommonDivisor(int a, int b) {
+        while (a != 0) {
+            b = b % a;
+            Swap(&a, &b);
+        }
+        return b;
     }
-    return b;
-}
 
-// 最小公倍数
-int LeastCommonMultiple(int a, int b) {
-    int gcd = GreatestCommonDivisor(a, b);
-    return a * b / gcd;
-}
+    // 最小公倍数
+    int LeastCommonMultiple(int a, int b) {
+        int gcd = GreatestCommonDivisor(a, b);
+        return a * b / gcd;
+    }
 
-int main() {
-    int a = 12;
-    int b = 18;
-    std::cout << a << " と " << b << " の最小公倍数は "
-              << LeastCommonMultiple(a, b) << " です" << std::endl;
-    return 0;
-}
-```
+    int main() {
+        int a = 12;
+        int b = 18;
+        std::cout << a << " と " << b << " の最小公倍数は "
+                << LeastCommonMultiple(a, b) << " です" << std::endl;
+        return 0;
+    }
+    ```
 
-```cpp tab="swap.h" linenums="1"
-#ifndef SWAP_H_
-#define SWAP_H_
+=== "swap.h"
 
-// 2つの変数の値を入れ替える
-void Swap(int* a, int* b);
+    ```cpp  linenums="1"
+    #ifndef SWAP_H_
+    #define SWAP_H_
 
-#endif  // SWAP_H_
-```
+    // 2つの変数の値を入れ替える
+    void Swap(int* a, int* b);
 
-```cpp tab="swap.cc" linenums="1"
-#include "swap.h"
+    #endif  // SWAP_H_
+    ```
 
-void Swap(int* a, int* b) {
-    int tmp = *a;
-    *a = *b;
-    *b = tmp;
-}
-```
+=== "swap.cc"
+
+    ```cpp linenums="1"
+    #include "swap.h"
+
+    void Swap(int* a, int* b) {
+        int tmp = *a;
+        *a = *b;
+        *b = tmp;
+    }
+    ```
 
 ### 変数の値を確認
 
@@ -366,88 +378,94 @@ $3 = 12
 
 以下のコードで説明します。
 
-```cpp tab="main.cc" linenums="1"
-#include <iostream>
+=== "main.cc"
 
-#include "circle.h"
+    ```cpp linenums="1"
+    #include <iostream>
 
-double SquareOf(double v) {
-    return v * v;
-}
+    #include "circle.h"
 
-double SquareOfDistance(const Point& p, const Point& q) {
-    return SquareOf(q.X() - p.X()) + SquareOf(q.Y() - p.Y());
-}
-
-bool Intersects(const Circle& c1, const Circle& c2) {
-    auto c = SquareOfDistance(c1.Center(), c2.Center());
-    auto r = SquareOf(c1.Radius() + c2.Radius());
-    return c < r;
-}
-
-int main() {
-    Circle c1(Point(1, 2), 3);
-    Circle c2(Point(5, 0), 2);
-
-    if (Intersects(c1, c2)) {
-        std::cout << "2つの円は交差します" << std::endl;
-    } else {
-        std::cout << "2つの円は交差しません" << std::endl;
-    }
-    return 0;
-}
-```
-
-```cpp tab="circle.h" linenums="1"
-#ifndef CIRCLE_H_
-#define CIRCLE_H_
-
-#include "point.h"
-
-class Circle {
- public:
-    Circle(const Point& center, double radius)
-        : center_(center), radius_(radius) {}
-
-    Point Center() const {
-        return center_;
+    double SquareOf(double v) {
+        return v * v;
     }
 
-    double Radius() const {
-        return radius_;
+    double SquareOfDistance(const Point& p, const Point& q) {
+        return SquareOf(q.X() - p.X()) + SquareOf(q.Y() - p.Y());
     }
 
- private:
-    Point center_;
-    double radius_;
-};
-
-#endif  // CIRCLE_H_
-```
-
-```cpp tab="point.h" linenums="1"
-#ifndef POINT_H_
-#define POINT_H_
-
-class Point {
- public:
-    Point(double x, double y) : x_(x), y_(y) {}
-
-    double X() const {
-        return x_;
+    bool Intersects(const Circle& c1, const Circle& c2) {
+        auto c = SquareOfDistance(c1.Center(), c2.Center());
+        auto r = SquareOf(c1.Radius() + c2.Radius());
+        return c < r;
     }
 
-    double Y() const {
-        return y_;
+    int main() {
+        Circle c1(Point(1, 2), 3);
+        Circle c2(Point(5, 0), 2);
+
+        if (Intersects(c1, c2)) {
+            std::cout << "2つの円は交差します" << std::endl;
+        } else {
+            std::cout << "2つの円は交差しません" << std::endl;
+        }
+        return 0;
     }
+    ```
 
- private:
-    double x_;
-    double y_;
-};
+=== "circle.h"
 
-#endif  // POINT_H_
-```
+    ```cpp linenums="1"
+    #ifndef CIRCLE_H_
+    #define CIRCLE_H_
+
+    #include "point.h"
+
+    class Circle {
+    public:
+        Circle(const Point& center, double radius)
+            : center_(center), radius_(radius) {}
+
+        Point Center() const {
+            return center_;
+        }
+
+        double Radius() const {
+            return radius_;
+        }
+
+    private:
+        Point center_;
+        double radius_;
+    };
+
+    #endif  // CIRCLE_H_
+    ```
+
+=== "point.h"
+
+    ```cpp linenums="1"
+    #ifndef POINT_H_
+    #define POINT_H_
+
+    class Point {
+    public:
+        Point(double x, double y) : x_(x), y_(y) {}
+
+        double X() const {
+            return x_;
+        }
+
+        double Y() const {
+            return y_;
+        }
+
+    private:
+        double x_;
+        double y_;
+    };
+
+    #endif  // POINT_H_
+    ```
 
 ### ステップオーバー
 
@@ -569,25 +587,27 @@ Value returned is $1 = true
 
 以下のコードで説明します。
 
-```cpp tab="main.cc" linenums="1"
-#include <iostream>
+=== "main.cc"
 
-int GreatestCommonDivisor(int a, int b) {
-    if (a == 0) {
-        return b;
+    ```cpp linenums="1"
+    #include <iostream>
+
+    int GreatestCommonDivisor(int a, int b) {
+        if (a == 0) {
+            return b;
+        }
+
+        return GreatestCommonDivisor(b % a, a);
     }
 
-    return GreatestCommonDivisor(b % a, a);
-}
-
-int main() {
-    int a = 12;
-    int b = 18;
-    std::cout << a << " と " << b << " の最大公約数は "
-              << GreatestCommonDivisor(a, b) << " です" << std::endl;
-    return 0;
-}
-```
+    int main() {
+        int a = 12;
+        int b = 18;
+        std::cout << a << " と " << b << " の最大公約数は "
+                << GreatestCommonDivisor(a, b) << " です" << std::endl;
+        return 0;
+    }
+    ```
 
 ### 表示
 
@@ -687,28 +707,30 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 ??? example "使用例"
     以下のコードで説明します。
 
-    ```c++ tab="main.cc" linenums="1"
-    struct Point {
-        double x;
-        double y;
+    === "main.cc"
 
-        Point(double x, double y) : x(x), y(y) {}
-    };
+        ```c++ linenums="1"
+        struct Point {
+            double x;
+            double y;
 
-    struct Triangle {
-        Point a;
-        Point b;
-        Point c;
+            Point(double x, double y) : x(x), y(y) {}
+        };
 
-        Triangle(const Point& a, const Point& b, const Point& c)
-            : a(a), b(b), c(c) {}
-    };
+        struct Triangle {
+            Point a;
+            Point b;
+            Point c;
 
-    int main() {
-        Triangle t(Point(1, 1), Point(2, 0), Point(3, 2));
-        return 0;
-    }
-    ```
+            Triangle(const Point& a, const Point& b, const Point& c)
+                : a(a), b(b), c(c) {}
+        };
+
+        int main() {
+            Triangle t(Point(1, 1), Point(2, 0), Point(3, 2));
+            return 0;
+        }
+        ```
 
     `print` で `t` の値を確認する際に整形の有無で次のように出力が変化します。
 
@@ -749,23 +771,25 @@ GDB の参照箇所が移動するだけでプログラムの実行箇所は移�
 ??? example "使用例"
     以下のコードで説明します。
 
-    ```cpp tab="main.cc" linenums="1"
-    #include <iostream>
+    === "main.cc"
 
-    int Fibonacchi(int n) {
-        if (n == 0) {
-            return 0;
-        }
-        if (n == 1) {
-            return 1;
-        }
-        return Fibonacchi(n - 1) + Fibonacchi(n - 2);
-    }
+        ```cpp linenums="1"
+        #include <iostream>
 
-    int main() {
-        std::cout << Fibonacchi(100) << std::endl;
-    }
-    ```
+        int Fibonacchi(int n) {
+            if (n == 0) {
+                return 0;
+            }
+            if (n == 1) {
+                return 1;
+            }
+            return Fibonacchi(n - 1) + Fibonacchi(n - 2);
+        }
+
+        int main() {
+            std::cout << Fibonacchi(100) << std::endl;
+        }
+        ```
 
     スタックフレームの一覧が画面内に収まらない場合に
     ページ送りの有無で次のように出力が変化します。

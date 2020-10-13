@@ -18,61 +18,67 @@ Linux 環境で使用する API の詳細は
 
 次のコードで説明します。
 
-```cpp linenums="1" tab="main.cc"
-#include <iostream>
+=== "main.cc"
 
-#include <dlfcn.h>
+    ```cpp linenums="1"
+    #include <iostream>
 
-int main() {
-    void* handle = dlopen("libhoge.so", RTLD_NOW);
-    if (handle == NULL) {
-        const char* const error_message = dlerror();
-        std::cerr << error_message << std::endl;
-        return 1;
-    }
+    #include <dlfcn.h>
 
-    void* const symbol_add = dlsym(handle, "_Z3Addii");
-    {
-        const char* const error_message = dlerror();
-        if (error_message != NULL) {
+    int main() {
+        void* handle = dlopen("libhoge.so", RTLD_NOW);
+        if (handle == NULL) {
+            const char* const error_message = dlerror();
             std::cerr << error_message << std::endl;
-            dlclose(handle);
             return 1;
         }
-    }
 
-    void* const symbol_sub = dlsym(handle, "_Z3Subii");
-    {
-        const char* const error_message = dlerror();
-        if (error_message != NULL) {
-            std::cerr << error_message << std::endl;
-            dlclose(handle);
-            return 1;
+        void* const symbol_add = dlsym(handle, "_Z3Addii");
+        {
+            const char* const error_message = dlerror();
+            if (error_message != NULL) {
+                std::cerr << error_message << std::endl;
+                dlclose(handle);
+                return 1;
+            }
         }
+
+        void* const symbol_sub = dlsym(handle, "_Z3Subii");
+        {
+            const char* const error_message = dlerror();
+            if (error_message != NULL) {
+                std::cerr << error_message << std::endl;
+                dlclose(handle);
+                return 1;
+            }
+        }
+
+        auto Add = reinterpret_cast<int(*)(int, int)>(symbol_add);
+        auto Sub = reinterpret_cast<int(*)(int, int)>(symbol_sub);
+
+        std::cout << Add(1, 2) << std::endl;
+        std::cout << Sub(3, 4) << std::endl;
+
+        dlclose(handle);
+        return 0;
     }
+    ```
 
-    auto Add = reinterpret_cast<int(*)(int, int)>(symbol_add);
-    auto Sub = reinterpret_cast<int(*)(int, int)>(symbol_sub);
+=== "add.cc"
 
-    std::cout << Add(1, 2) << std::endl;
-    std::cout << Sub(3, 4) << std::endl;
+    ```cpp linenums="1"
+    int Add(int a, int b) {
+        return a + b;
+    }
+    ```
 
-    dlclose(handle);
-    return 0;
-}
-```
+=== "sub.cc"
 
-```cpp linenums="1" tab="add.cc"
-int Add(int a, int b) {
-    return a + b;
-}
-```
-
-```cpp linenums="1" tab="sub.cc"
-int Sub(int a, int b) {
-    return a - b;
-}
-```
+    ```cpp linenums="1"
+    int Sub(int a, int b) {
+        return a - b;
+    }
+    ```
 
 ## 動的ロード
 

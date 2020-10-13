@@ -29,56 +29,64 @@ int Sum(int a, int b) {
 特殊化はコンパイラによって行われるため、
 ヘッダファイルで関数テンプレートを使用する場合にはそのヘッダファイルで定義も行います。
 
-```cpp tab="sum.h"
-#ifndef SUM_H_
-#define SUM_H_
+=== "sum.h"
 
-template <typename T>
-inline T Sum(T a, T b) {  // inline 指定が必要
-    return a + b;
-}
+    ```cpp
+    #ifndef SUM_H_
+    #define SUM_H_
 
-#endif  // SUM_H_
-```
+    template <typename T>
+    inline T Sum(T a, T b) {  // inline 指定が必要
+        return a + b;
+    }
 
-```cpp tab="main.cc"
-#include <iostream>
+    #endif  // SUM_H_
+    ```
 
-#include "sum.h"
+=== "main.cc"
 
-int main() {
-    std::cout << Sum(1, 2) << std::endl;
-    return 0;
-}
-```
+    ```cpp
+    #include <iostream>
+
+    #include "sum.h"
+
+    int main() {
+        std::cout << Sum(1, 2) << std::endl;
+        return 0;
+    }
+    ```
 
 ??? question "テンプレートの明示的インスタンス化"
     テンプレートを使用する箇所で関数やクラスを生成する代わりに、
     ソースファイルで明示的に関数やクラスを生成することで
     ヘッダファイルでは宣言だけ行うことは可能ではあります。
 
-    ```cpp tab="sum.h"
-    #ifndef SUM_H_
-    #define SUM_H_
+    === "sum.h"
 
-    template <typename T>
-    T Sum(T a, T b);  // 宣言だけ行う (inline もつけない)
+        ```cpp
+        #ifndef SUM_H_
+        #define SUM_H_
 
-    #endif  // SUM_H_
-    ```
+        template <typename T>
+        T Sum(T a, T b);  // 宣言だけ行う (inline もつけない)
 
-    ```cpp tab="sum.cc"
-    #include "sum.h"
+        #endif  // SUM_H_
+        ```
 
-    // 関数テンプレートの定義
-    template <typename T>
-    T Sum(T a, T b) {
-        return a + b;
-    }
+    === "sum.cc"
 
-    // 明示的インスタンス化
-    template int Sum<int>(int, int);
-    ```
+        ```cpp
+        #include "sum.h"
+
+        // 関数テンプレートの定義
+        template <typename T>
+        T Sum(T a, T b) {
+            return a + b;
+        }
+
+        // 明示的インスタンス化
+        template int Sum<int>(int, int);
+        ```
 
     こうした構成にするとヘッダファイルでテンプレートが提供されていても
     使用可能な型はソースファイルで明示的な生成を行う型のみとなってしまいます。
@@ -89,33 +97,37 @@ int main() {
     ヘッダファイルでは関数テンプレートをやめてオーバーロードされた関数を提供し、
     ソースファイルで関数テンプレートを使用します。
 
-    ```cpp tab="sum.h"
-    #ifndef SUM_H_
-    #define SUM_H_
+    === "sum.h"
 
-    int Sum(int a, int b);
-    double Sum(double a, double b);
+        ```cpp
+        #ifndef SUM_H_
+        #define SUM_H_
 
-    #endif  // SUM_H_
-    ```
+        int Sum(int a, int b);
+        double Sum(double a, double b);
 
-    ```cpp tab="sum.cc"
-    #include "sum.h"
+        #endif  // SUM_H_
+        ```
 
-    // 実装に関数テンプレートを使用
-    template <typename T>
-    T SumImpl(T a, T b) {
-        return a + b;
-    }
+    === "sum.cc"
 
-    int Sum(int a, int b) {
-        return SumImpl(a, b);
-    }
+        ```cpp
+        #include "sum.h"
 
-    double Sum(double a, double b) {
-        return SumImpl(a, b);
-    }
-    ```
+        // 実装に関数テンプレートを使用
+        template <typename T>
+        T SumImpl(T a, T b) {
+            return a + b;
+        }
+
+        int Sum(int a, int b) {
+            return SumImpl(a, b);
+        }
+
+        double Sum(double a, double b) {
+            return SumImpl(a, b);
+        }
+        ```
 
 ## 完全特殊化
 

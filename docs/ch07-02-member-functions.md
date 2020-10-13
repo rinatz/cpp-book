@@ -51,109 +51,121 @@ int Rectangle::Area() {
     そのため、ヘッダファイルのクラス宣言の中でメンバ関数を定義しても
     リンク時にエラーにはなりません。
 
-    ```cpp linenums="1" tab="rectangle.h" hl_lines="6 7 8"
-    #ifndef RECTANGLE_H_
-    #define RECTANGLE_H_
+    === "rectangle.h"
 
-    class Rectangle {
-     public:
-        int Area() {
-            return height_ * width_;
+        ```cpp linenums="1" hl_lines="6 7 8"
+        #ifndef RECTANGLE_H_
+        #define RECTANGLE_H_
+
+        class Rectangle {
+        public:
+            int Area() {
+                return height_ * width_;
+            }
+
+            int height_;
+            int width_;
+        };
+
+        #endif  // RECTANGLE_H_
+        ```
+
+    === "something.h"
+
+        ```cpp linenums="1"
+        #ifndef SOMETHING_H_
+        #define SOMETHING_H_
+
+        void Something();
+
+        #endif  // SOMETHING_H_
+        ```
+
+    === "something.cc"
+
+        ```cpp linenums="1"
+        #include "something.h"
+
+        #include <iostream>
+
+        #include "rectangle.h"
+
+        void Something() {
+            Rectangle r;
+
+            r.height_ = 2;
+            r.width_ = 3;
+            std::cout << r.Area() << std::endl;
         }
+        ```
 
-        int height_;
-        int width_;
-    };
+    === "main.cc"
 
-    #endif  // RECTANGLE_H_
-    ```
+        ```cpp linenums="1"
+        #include <iostream>
 
-    ```cpp linenums="1" tab="something.h"
-    #ifndef SOMETHING_H_
-    #define SOMETHING_H_
+        #include "rectangle.h"
+        #include "something.h"
 
-    void Something();
+        int main() {
+            Rectangle r;
+            r.height_ = 10;
+            r.width_ = 20;
+            std::cout << r.Area() << std::endl;
 
-    #endif  // SOMETHING_H_
-    ```
+            Something();
 
-    ```cpp linenums="1" tab="something.cc"
-    #include "something.h"
-
-    #include <iostream>
-
-    #include "rectangle.h"
-
-    void Something() {
-        Rectangle r;
-
-        r.height_ = 2;
-        r.width_ = 3;
-        std::cout << r.Area() << std::endl;
-    }
-    ```
-
-    ```cpp linenums="1" tab="main.cc"
-    #include <iostream>
-
-    #include "rectangle.h"
-    #include "something.h"
-
-    int main() {
-        Rectangle r;
-        r.height_ = 10;
-        r.width_ = 20;
-        std::cout << r.Area() << std::endl;
-
-        Something();
-
-        return 0;
-    }
-    ```
+            return 0;
+        }
+        ```
 
     クラス宣言とは別にメンバ関数を定義すると暗黙的な inline 指定はされなくなります。
     ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うとリンク時にエラーとなります。
 
-    ```cpp linenums="1" tab="rectangle.h" hl_lines="12 13 14"
-    #ifndef RECTANGLE_H_
-    #define RECTANGLE_H_
+    === "rectangle.h"
 
-    class Rectangle {
-     public:
-        int Area();
+        ```cpp linenums="1" hl_lines="12 13 14"
+        #ifndef RECTANGLE_H_
+        #define RECTANGLE_H_
 
-        int height_;
-        int width_;
-    };
+        class Rectangle {
+        public:
+            int Area();
 
-    int Rectangle::Area() {
-        return height_ * width_;
-    }
+            int height_;
+            int width_;
+        };
 
-    #endif  // RECTANGLE_H_
-    ```
+        int Rectangle::Area() {
+            return height_ * width_;
+        }
+
+        #endif  // RECTANGLE_H_
+        ```
 
     ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うには、
     明示的に `inline` 指定する必要があります。
 
-    ```cpp linenums="1" tab="rectangle.h" hl_lines="12"
-    #ifndef RECTANGLE_H_
-    #define RECTANGLE_H_
+    === "rectangle.h"
 
-    class Rectangle {
-     public:
-        int Area();
+        ```cpp linenums="1" hl_lines="12"
+        #ifndef RECTANGLE_H_
+        #define RECTANGLE_H_
 
-        int height_;
-        int width_;
-    };
+        class Rectangle {
+        public:
+            int Area();
 
-    inline int Rectangle::Area() {
-        return height_ * width_;
-    }
+            int height_;
+            int width_;
+        };
 
-    #endif  // RECTANGLE_H_
-    ```
+        inline int Rectangle::Area() {
+            return height_ * width_;
+        }
+
+        #endif  // RECTANGLE_H_
+        ```
 
 ## const メンバ関数
 

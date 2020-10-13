@@ -10,28 +10,34 @@
 
 次のコードで説明します。
 
-```cpp linenums="1" tab="main.cc"
-int Add(int a, int b);
-int Sub(int a, int b);
+=== "main.cc"
 
-int main() {
-    Add(1, 2);
-    Sub(3, 4);
-    return 0;
-}
-```
+    ```cpp linenums="1"
+    int Add(int a, int b);
+    int Sub(int a, int b);
 
-```cpp linenums="1" tab="add.cc"
-int Add(int a, int b) {
-    return a + b;
-}
-```
+    int main() {
+        Add(1, 2);
+        Sub(3, 4);
+        return 0;
+    }
+    ```
 
-```cpp linenums="1" tab="sub.cc"
-int Sub(int a, int b) {
-    return a - b;
-}
-```
+=== "add.cc"
+
+    ```cpp linenums="1"
+    int Add(int a, int b) {
+        return a + b;
+    }
+    ```
+
+=== "sub.cc"
+
+    ```cpp linenums="1"
+    int Sub(int a, int b) {
+        return a - b;
+    }
+    ```
 
 `add.cc` と `sub.cc` をコンパイルして生成される
 2つのオブジェクトファイル `add.o` と `sub.o` から

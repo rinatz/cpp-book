@@ -62,20 +62,24 @@ $ g++ -std=c++11 main.o util.o
 たとえば以下のコードの関数 `Sum` は `main.cc` ではプロトタイプ宣言だけで定義がないため、
 `main.o` には `Sum` が未定義であるという情報が格納されます。
 
-```cpp tab="main.cc"
-int Sum(int a, int b);
+=== "main.cc"
 
-int main() {
-    Sum(1, 2);
-    return 0;
-}
-```
+    ```cpp
+    int Sum(int a, int b);
 
-```cpp tab="util.cc"
-int Sum(int a, int b) {
-    return a + b;
-}
-```
+    int main() {
+        Sum(1, 2);
+        return 0;
+    }
+    ```
+
+=== "util.cc"
+
+    ```cpp
+    int Sum(int a, int b) {
+        return a + b;
+    }
+    ```
 
 `Sum` は `util.cc` で定義が行われているため、
 `main.o` から実行ファイルを生成するには `util.o` が必要となります。

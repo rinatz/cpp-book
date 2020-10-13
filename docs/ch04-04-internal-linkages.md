@@ -11,19 +11,23 @@
 
 シンボルの宣言に `static` 指定子を付与することで内部リンケージを持たせることが出来ます。
 
-```cpp tab="main.cc"
-#include <iostream>
+=== "main.cc"
 
-int main() {
-    std::cout << x << std::endl;  // リンクエラー。main.cc からは other.cc の x が参照できない。
+    ```cpp
+    #include <iostream>
 
-    return 0;
-}
-```
+    int main() {
+        std::cout << x << std::endl;  // リンクエラー。main.cc からは other.cc の x が参照できない。
 
-```cpp tab="other.cc"
-static int x = 246;  // 内部リンケージ。 other.cc 内でのみ参照可能
-```
+        return 0;
+    }
+    ```
+
+=== "other.cc"
+
+    ```cpp
+    static int x = 246;  // 内部リンケージ。 other.cc 内でのみ参照可能
+    ```
 
 ## 無名名前空間
 
@@ -32,40 +36,46 @@ static int x = 246;  // 内部リンケージ。 other.cc 内でのみ参照可�
 
 無名名前空間内に宣言された変数や関数は、 `static` 指定子と同様に内部リンケージを持ちます。
 
-```cpp tab="main.cc"
-#include <iostream>
+=== "main.cc"
 
-#include "other.h"
+    ```cpp
+    #include <iostream>
 
-int main() {
-    Print();
+    #include "other.h"
 
-    std::cout << x << std::endl;  // ここから x は参照できない
-}
-```
+    int main() {
+        Print();
 
-```cpp tab="other.h"
-#ifndef OTHER_H_
-#define OTHER_H_
+        std::cout << x << std::endl;  // ここから x は参照できない
+    }
+    ```
 
-void Print();
+=== "other.h"
 
-#endif  // OTHER_H_
-```
+    ```cpp
+    #ifndef OTHER_H_
+    #define OTHER_H_
 
-```cpp tab="other.cc" hl_lines="5 6 7"
-#include "other.h"
+    void Print();
 
-#include <iostream>
+    #endif  // OTHER_H_
+    ```
 
-namespace {
-    int x = 50;  // x に内部リンケージを持たせる
-}  // unnamed namespace
+=== "other.cc"
 
-void Print() {
-    std::cout << x << std::endl;  // ここから x は参照可能
-}
-```
+    ```cpp hl_lines="5 6 7"
+    #include "other.h"
+
+    #include <iostream>
+
+    namespace {
+        int x = 50;  // x に内部リンケージを持たせる
+    }  // unnamed namespace
+
+    void Print() {
+        std::cout << x << std::endl;  // ここから x は参照可能
+    }
+    ```
 
 C++ において `static` は [様々な意味を持つ][cppreference-static] ため、分かりづらいキーワードとなっています。
 宣言に内部リンケージを持たせる場合は、 `static` ではなく無名名前空間を使うようにしましょう。
@@ -77,52 +87,58 @@ C++ において `static` は [様々な意味を持つ][cppreference-static] �
 ソースファイル間で定義が重複している時、通常は定義の重複によるエラーになりますが、
 各々に内部リンケージを持たせて別のファイルから見えなくしていれば、別の定義として扱うことができます。
 
-```cpp tab="main.cc" hl_lines="6"
-#include <iostream>
+=== "main.cc"
 
-#include "other.h"
+    ```cpp hl_lines="6"
+    #include <iostream>
 
-namespace {
-    int hoge = 0;  // main.cc 内の hoge
-}
+    #include "other.h"
 
-int main() {
-    hoge += 2;
+    namespace {
+        int hoge = 0;  // main.cc 内の hoge
+    }
 
-    IncrementHoge();
+    int main() {
+        hoge += 2;
 
-    std::cout << "main.cc: " << hoge << std::endl;  // main.cc: 2
+        IncrementHoge();
 
-    PrintHoge();
+        std::cout << "main.cc: " << hoge << std::endl;  // main.cc: 2
 
-    return 0;
-}
-```
+        PrintHoge();
 
-```cpp tab="other.h"
-#ifndef OTHER_H_
-#define OTHER_H_
+        return 0;
+    }
+    ```
 
-void IncrementHoge();
-void PrintHoge();
+=== "other.h"
 
-#endif  // OTHER_H_
-```
+    ```cpp
+    #ifndef OTHER_H_
+    #define OTHER_H_
 
-```cpp tab="other.cc" hl_lines="6"
-#include "other.h"
+    void IncrementHoge();
+    void PrintHoge();
 
-#include <iostream>
+    #endif  // OTHER_H_
+    ```
 
-namespace {
-    int hoge = 0;  // other.cc 内の hoge
-}
+=== "other.cc"
 
-void IncrementHoge() {
-    ++hoge;
-}
+    ```cpp hl_lines="6"
+    #include "other.h"
 
-void PrintHoge() {
-    std::cout << "other.cc: " << hoge << std::endl;  // other.cc: 1
-}
-```
+    #include <iostream>
+
+    namespace {
+        int hoge = 0;  // other.cc 内の hoge
+    }
+
+    void IncrementHoge() {
+        ++hoge;
+    }
+
+    void PrintHoge() {
+        std::cout << "other.cc: " << hoge << std::endl;  // other.cc: 1
+    }
+    ```

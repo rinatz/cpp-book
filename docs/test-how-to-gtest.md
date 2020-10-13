@@ -26,45 +26,51 @@ $ make install
 
 例として、 `sample.h (.cc)` に偶数を判定する関数 `IsEven` を作成し、この関数の動作をテストするには次のようにします。
 
-```cpp tab="sample.h" linenums="1"
-#ifndef SAMPLE_H_
-#define SAMPLE_H_
+=== "sample.h"
 
-/**
- * 入力値が偶数か判定する関数
- */
-bool IsEven(int x);
+    ```cpp linenums="1"
+    #ifndef SAMPLE_H_
+    #define SAMPLE_H_
 
-#endif  // SAMPLE_H_
-```
+    /**
+    * 入力値が偶数か判定する関数
+    */
+    bool IsEven(int x);
 
-```cpp tab="sample.cc" linenums="1"
-#include "sample.h"
+    #endif  // SAMPLE_H_
+    ```
 
-bool IsEven(int x) {
-    return x % 2 == 0;
-}
-```
+=== "sample.cc"
 
-```cpp tab="sample_test.cc" hl_lines="1 3" linenums="1"
-#include <gtest/gtest.h>
+    ```cpp linenums="1"
+    #include "sample.h"
 
-#include "sample.h"
+    bool IsEven(int x) {
+        return x % 2 == 0;
+    }
+    ```
 
-TEST(IsEvenTest, Negative) {
-    EXPECT_FALSE(IsEven(-1));
-    EXPECT_TRUE(IsEven(-2));
-}
+=== "sample_test.cc"
 
-TEST(IsEvenTest, Zero) {
-    EXPECT_TRUE(IsEven(0));
-}
+    ```cpp  hl_lines="1 3" linenums="1"
+    #include <gtest/gtest.h>
 
-TEST(IsEvenTest, Positive) {
-    EXPECT_FALSE(IsEven(1));
-    EXPECT_TRUE(IsEven(2));
-}
-```
+    #include "sample.h"
+
+    TEST(IsEvenTest, Negative) {
+        EXPECT_FALSE(IsEven(-1));
+        EXPECT_TRUE(IsEven(-2));
+    }
+
+    TEST(IsEvenTest, Zero) {
+        EXPECT_TRUE(IsEven(0));
+    }
+
+    TEST(IsEvenTest, Positive) {
+        EXPECT_FALSE(IsEven(1));
+        EXPECT_TRUE(IsEven(2));
+    }
+    ```
 
 `sample_test.cc` にテストコードを記述しています。
 テストコードでは、Google Test を利用するために `gtest/gtest.h` をインクルードし、テスト対象となる `sample.h` もインクルードしています。
@@ -143,79 +149,87 @@ EXPECT_GE(expected, actual);  // expected >= actual か
 
 試しに、誤った実装がなされた関数 `IsEven` を利用して、テスト失敗時の出力を確認すると次のようになります。
 
-```cpp tab="sample.h" linenums="1"
-#ifndef SAMPLE_H_
-#define SAMPLE_H_
+=== "sample.h"
 
-/**
- * 入力値が偶数か判定する関数
- */
-bool IsEven(int x);
+    ```cpp linenums="1"
+    #ifndef SAMPLE_H_
+    #define SAMPLE_H_
 
-#endif  // SAMPLE_H_
-```
+    /**
+    * 入力値が偶数か判定する関数
+    */
+    bool IsEven(int x);
 
-```cpp tab="sample.cc" hl_lines="4" linenums="1"
-#include "sample.h"
+    #endif  // SAMPLE_H_
+    ```
 
-bool IsEven(int x) {
-    return x % 2 == 1; // 誤り。 x が奇数のときに true になってしまう…
-}
-```
+=== "sample.cc"
 
-```cpp tab="sample_test.cpp" hl_lines="8 14" linenums="1"
-#include <iostream>
+    ```cpp hl_lines="4" linenums="1"
+    #include "sample.h"
 
-#include <gtest/gtest.h>
+    bool IsEven(int x) {
+        return x % 2 == 1; // 誤り。 x が奇数のときに true になってしまう…
+    }
+    ```
 
-#include "sample.h"
+=== "sample_test.cpp"
 
-TEST(IsEvenTest, AssertPositive) {
-    ASSERT_FALSE(IsEven(1));  // ASSERTテストは失敗すると中断
-    std::cout << "中断により、この文字列は出力されない" << std::endl;
-    ASSERT_TRUE(IsEven(2));
-}
+    ```cpp hl_lines="8 14" linenums="1"
+    #include <iostream>
 
-TEST(IsEvenTest, ExpectPositive) {
-    EXPECT_FALSE(IsEven(1));  // EXPECTテストは失敗しても続行
-    std::cout << "続行のため、この文字列は出力される" << std::endl;
-    EXPECT_TRUE(IsEven(2));
-}
-```
+    #include <gtest/gtest.h>
 
-```bash tab="実行結果" hl_lines="6 7 8 9 10 12 13 14 15 16 17 18 19 20 21" linenums="1"
-Running main() from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
-[==========] Running 2 tests from 1 test case.
-[----------] Global test environment set-up.
-[----------] 2 tests from IsEvenTest
-[ RUN      ] IsEvenTest.AssertPositive
-sample_test.cc:8: Failure
-Value of: IsEven(1)
-  Actual: true
-Expected: false
-[  FAILED  ] IsEvenTest.AssertPositive (1 ms)
-[ RUN      ] IsEvenTest.ExpectPositive
-sample_test.cc:14: Failure
-Value of: IsEven(1)
-  Actual: true
-Expected: false
-続行のため、この文字列は出力される
-sample_test.cc:16: Failure
-Value of: IsEven(2)
-  Actual: false
-Expected: true
-[  FAILED  ] IsEvenTest.ExpectPositive (0 ms)
-[----------] 2 tests from IsEvenTest (1 ms total)
+    #include "sample.h"
 
-[----------] Global test environment tear-down
-[==========] 2 tests from 1 test case ran. (1 ms total)
-[  PASSED  ] 0 tests.
-[  FAILED  ] 2 tests, listed below:
-[  FAILED  ] IsEvenTest.AssertPositive
-[  FAILED  ] IsEvenTest.ExpectPositive
+    TEST(IsEvenTest, AssertPositive) {
+        ASSERT_FALSE(IsEven(1));  // ASSERTテストは失敗すると中断
+        std::cout << "中断により、この文字列は出力されない" << std::endl;
+        ASSERT_TRUE(IsEven(2));
+    }
 
- 2 FAILED TESTS
-```
+    TEST(IsEvenTest, ExpectPositive) {
+        EXPECT_FALSE(IsEven(1));  // EXPECTテストは失敗しても続行
+        std::cout << "続行のため、この文字列は出力される" << std::endl;
+        EXPECT_TRUE(IsEven(2));
+    }
+    ```
+
+=== "実行結果"
+
+    ```bash hl_lines="6 7 8 9 10 12 13 14 15 16 17 18 19 20 21" linenums="1"
+    Running main() from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
+    [==========] Running 2 tests from 1 test case.
+    [----------] Global test environment set-up.
+    [----------] 2 tests from IsEvenTest
+    [ RUN      ] IsEvenTest.AssertPositive
+    sample_test.cc:8: Failure
+    Value of: IsEven(1)
+    Actual: true
+    Expected: false
+    [  FAILED  ] IsEvenTest.AssertPositive (1 ms)
+    [ RUN      ] IsEvenTest.ExpectPositive
+    sample_test.cc:14: Failure
+    Value of: IsEven(1)
+    Actual: true
+    Expected: false
+    続行のため、この文字列は出力される
+    sample_test.cc:16: Failure
+    Value of: IsEven(2)
+    Actual: false
+    Expected: true
+    [  FAILED  ] IsEvenTest.ExpectPositive (0 ms)
+    [----------] 2 tests from IsEvenTest (1 ms total)
+
+    [----------] Global test environment tear-down
+    [==========] 2 tests from 1 test case ran. (1 ms total)
+    [  PASSED  ] 0 tests.
+    [  FAILED  ] 2 tests, listed below:
+    [  FAILED  ] IsEvenTest.AssertPositive
+    [  FAILED  ] IsEvenTest.ExpectPositive
+
+    2 FAILED TESTS
+    ```
 
 テストが失敗した場合、失敗箇所と失敗理由が出力されます。
 

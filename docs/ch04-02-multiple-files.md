@@ -18,31 +18,35 @@ C++ では2種類のファイルを扱います。
 複数のファイルを跨いだコードを書くには次のようにします。
 `main.cc` 内で `a.cc` の関数を使うためにプロトタイプ宣言をしています。
 
-```cpp tab="main.cc" linenums="1" hl_lines="1 2 3 4 5"
-void DoSomething();   // プロトタイプ宣言
-void DoSomething2();  // プロトタイプ宣言
-void DoSomething3();  // プロトタイプ宣言
-void DoSomething4();  // プロトタイプ宣言
-void DoSomething5();  // プロトタイプ宣言
+=== "main.cc"
 
-int main() {
-    DoSomething();
-    DoSomething2();
-    DoSomething3();
-    DoSomething4();
-    DoSomething5();
+    ```cpp linenums="1" hl_lines="1 2 3 4 5"
+    void DoSomething();   // プロトタイプ宣言
+    void DoSomething2();  // プロトタイプ宣言
+    void DoSomething3();  // プロトタイプ宣言
+    void DoSomething4();  // プロトタイプ宣言
+    void DoSomething5();  // プロトタイプ宣言
 
-    return 0;
-}
-```
+    int main() {
+        DoSomething();
+        DoSomething2();
+        DoSomething3();
+        DoSomething4();
+        DoSomething5();
 
-```cpp tab="a.cc" linenums="1"
-void DoSomething() { /* 実装省略 */ }
-void DoSomething2() { /* 実装省略 */ }
-void DoSomething3() { /* 実装省略 */ }
-void DoSomething4() { /* 実装省略 */ }
-void DoSomething5() { /* 実装省略 */ }
-```
+        return 0;
+    }
+    ```
+
+=== "a.cc"
+
+    ```cpp linenums="1"
+    void DoSomething() { /* 実装省略 */ }
+    void DoSomething2() { /* 実装省略 */ }
+    void DoSomething3() { /* 実装省略 */ }
+    void DoSomething4() { /* 実装省略 */ }
+    void DoSomething5() { /* 実装省略 */ }
+    ```
 
 !!! info "複数ファイルのコンパイル"
     複数ファイルをコンパイルして実行ファイルを生成する場合は、
@@ -61,35 +65,41 @@ void DoSomething5() { /* 実装省略 */ }
 ソースファイルを分けるだけでは、手間がかかりますが、合わせてヘッダを使うことで簡潔になります。
 プロトタイプ宣言だけヘッダに記述することで、宣言を 1 回書くだけで済むようになります。
 
-```cpp tab="main.cc" linenums="1" hl_lines="1"
-#include "a.h"
+=== "main.cc"
 
-int main() {
-    DoSomething();
-    DoSomething2();
-    DoSomething3();
-    DoSomething4();
-    DoSomething5();
+    ```cpp linenums="1" hl_lines="1"
+    #include "a.h"
 
-    return 0;
-}
-```
+    int main() {
+        DoSomething();
+        DoSomething2();
+        DoSomething3();
+        DoSomething4();
+        DoSomething5();
 
-```cpp tab="a.h" linenums="1" hl_lines="1 2 3 4 5"
-void DoSomething();   // プロトタイプ宣言
-void DoSomething2();  // プロトタイプ宣言
-void DoSomething3();  // プロトタイプ宣言
-void DoSomething4();  // プロトタイプ宣言
-void DoSomething5();  // プロトタイプ宣言
-```
+        return 0;
+    }
+    ```
 
-```cpp tab="a.cc" linenums="1"
-void DoSomething() { /* 実装省略 */ }
-void DoSomething2() { /* 実装省略 */ }
-void DoSomething3() { /* 実装省略 */ }
-void DoSomething4() { /* 実装省略 */ }
-void DoSomething5() { /* 実装省略 */ }
-```
+=== "a.h"
+
+    ```cpp linenums="1" hl_lines="1 2 3 4 5"
+    void DoSomething();   // プロトタイプ宣言
+    void DoSomething2();  // プロトタイプ宣言
+    void DoSomething3();  // プロトタイプ宣言
+    void DoSomething4();  // プロトタイプ宣言
+    void DoSomething5();  // プロトタイプ宣言
+    ```
+
+=== "a.cc"
+
+    ```cpp linenums="1"
+    void DoSomething() { /* 実装省略 */ }
+    void DoSomething2() { /* 実装省略 */ }
+    void DoSomething3() { /* 実装省略 */ }
+    void DoSomething4() { /* 実装省略 */ }
+    void DoSomething5() { /* 実装省略 */ }
+    ```
 
 `main.cc` 内で `a.cc` の関数を利用できるようにするために
 
@@ -110,16 +120,18 @@ g++ -std=c++11 main.cc a.cc
 
 ヘッダにはインクルードガードが必要です。
 
-```cpp tab="a.h" linenums="1" hl_lines="1 2 7"
+=== "a.h"
 
-#ifndef A_H_
-#define A_H_
+    ```cpp linenums="1" hl_lines="1 2 7"
 
-void DoSomething();
-void DoSomething2();
+    #ifndef A_H_
+    #define A_H_
 
-#endif  // A_H_
-```
+    void DoSomething();
+    void DoSomething2();
+
+    #endif  // A_H_
+    ```
 
 インクルードガードがあることで、ソースが同じヘッダを複数回取り込む事がなくなり、
 変数や関数の定義が重複することを防げます。

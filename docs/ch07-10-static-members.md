@@ -29,23 +29,27 @@ int Counter::count_ = 10;  // 値 10 で初期化
 ヘッダファイルで実体の定義を行うと多重定義となりリンクエラーになってしまいます。
 この問題を避けるために static メンバ変数の実体の定義はソースファイルで行います。
 
-```cpp tab="counter.cc"
-#include "counter.h"
+=== "counter.cc"
 
-int Counter::count_ = 10;
-```
+    ```cpp
+    #include "counter.h"
 
-```cpp tab="counter.h"
-#ifndef COUNTER_H_
-#define COUNTER_H_
+    int Counter::count_ = 10;
+    ```
 
-class Counter {
- public:
-    static int count_;
-};
+=== "counter.h"
 
-#endif  // COUNTER_H_
-```
+    ```cpp
+    #ifndef COUNTER_H_
+    #define COUNTER_H_
+
+    class Counter {
+    public:
+        static int count_;
+    };
+
+    #endif  // COUNTER_H_
+    ```
 
 static メンバ変数を参照するには `Counter::count_` のようにします。
 

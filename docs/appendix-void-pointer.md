@@ -9,63 +9,69 @@
 void ポインタを使用すると
 型を公開せずにオブジェクトを扱うことができます。
 
-```cpp tab="integer.h"
-#ifndef INTEGER_H_
-#define INTEGER_H_
+=== "integer.h"
 
-void* integer_create(int v);
-int integer_get(const void* instance);
-void integer_destroy(void* instance);
+    ```cpp
+    #ifndef INTEGER_H_
+    #define INTEGER_H_
 
-#endif  // INTEGER_H_
-```
+    void* integer_create(int v);
+    int integer_get(const void* instance);
+    void integer_destroy(void* instance);
 
-```cpp tab="integer.cc"
-#include "integer.h"
+    #endif  // INTEGER_H_
+    ```
 
-namespace {
+=== "integer.cc"
 
-class Integer {
- public:
-    explicit Integer(int x) : x_(x) {}
+    ```cpp
+    #include "integer.h"
 
-    int Get() const {
-        return x_;
+    namespace {
+
+    class Integer {
+    public:
+        explicit Integer(int x) : x_(x) {}
+
+        int Get() const {
+            return x_;
+        }
+
+    private:
+        int x_;
+    };
+
+    }  // namespace
+
+    void* integer_create(int v) {
+        return new Integer(v);
     }
 
- private:
-    int x_;
-};
+    int integer_get(const void* instance) {
+        return reinterpret_cast<const Integer*>(instance)->Get();
+    }
 
-}  // namespace
+    void integer_destroy(void* instance) {
+        delete reinterpret_cast<Integer*>(instance);
+    }
+    ```
 
-void* integer_create(int v) {
-    return new Integer(v);
-}
+=== "main.cc"
 
-int integer_get(const void* instance) {
-    return reinterpret_cast<const Integer*>(instance)->Get();
-}
+    ```cpp
+    #include <iostream>
 
-void integer_destroy(void* instance) {
-    delete reinterpret_cast<Integer*>(instance);
-}
-```
+    #include "integer.h"
 
-```cpp tab="main.cc"
-#include <iostream>
+    int main() {
+        void* obj = integer_create(5);
+        std::cout << integer_get(obj) << std::endl;
+        integer_destroy(obj);
+        obj = nullptr;
 
-#include "integer.h"
-
-int main() {
-    void* obj = integer_create(5);
-    std::cout << integer_get(obj) << std::endl;
-    integer_destroy(obj);
-    obj = nullptr;
-
-    return 0;
-}
-```
+        return 0;
+    }
+    ```
 
 この例では `Integer` クラスを公開せずに void ポインタとして扱っています。
 

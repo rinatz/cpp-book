@@ -49,39 +49,42 @@ free(p);  // メモリの解放
 `new/delete` と違い、 `malloc/free` で生成されたオブジェクトはコンストラクタ・デストラクタの呼び出しが行われません。
 プログラムが予期せぬ動作をする原因になることがあるので、基本的に `new/delete` を使用するようにしましょう。
 
-```cpp tab="サンプルコード"
-#include <cstdlib>
+=== "サンプルコード"
 
-class MyClass {
- public:
-    MyClass() {
-      std::cout << "MyClass' constructor is called." << std::endl;
+    ```cpp
+    #include <cstdlib>
+
+    class MyClass {
+    public:
+        MyClass() {
+        std::cout << "MyClass' constructor is called." << std::endl;
+        }
+        ~MyClass() {
+        std::cout << "MyClass' destructor is called." << std::endl;
+        }
+    };
+
+    int main() {
+        std::cout << "---new/delete---" << std::endl;
+
+        MyClass* mc1 = new MyClass();
+        delete mc1;
+
+        std::cout << "---malloc/free---" << std::endl;
+
+        MyClass* mc2 = (MyClass*)malloc(sizeof(MyClass));
+        free(mc2);
+
+        return 0;
     }
-    ~MyClass() {
-      std::cout << "MyClass' destructor is called." << std::endl;
-    }
-};
+    ```
 
-int main() {
-    std::cout << "---new/delete---" << std::endl;
+=== "実行結果"
 
-    MyClass* mc1 = new MyClass();
-    delete mc1;
+    ```bash
+    ---new/delete---
+    MyClass' constructor is called.
+    MyClass' destructor is called.
+    ---malloc/free---
 
-    std::cout << "---malloc/free---" << std::endl;
-
-    MyClass* mc2 = (MyClass*)malloc(sizeof(MyClass));
-    free(mc2);
-
-    return 0;
-}
-
-```
-
-```tab="実行結果"
----new/delete---
-MyClass' constructor is called.
-MyClass' destructor is called.
----malloc/free---
-
-```
+    ```

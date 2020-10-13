@@ -13,91 +13,105 @@
 inline 関数は定義が同一である場合に限って、
 異なるソースファイルで同一の定義をしてもいいと決められています。
 
-```cpp tab="main.cc" hl_lines="5 6 7"
-#include <iostream>
+=== "main.cc"
 
-#include "something.h"
+    ```cpp hl_lines="5 6 7"
+    #include <iostream>
 
-inline void HelloWorld() {
-    std::cout << "Hello World!" << std::endl;
-}
+    #include "something.h"
 
-int main() {
-    HelloWorld();
-    Something();
+    inline void HelloWorld() {
+        std::cout << "Hello World!" << std::endl;
+    }
 
-    return 0;
-}
-```
+    int main() {
+        HelloWorld();
+        Something();
 
-```cpp tab="something.h"
-#ifndef SOMETHING_H_
-#define SOMETHING_H_
+        return 0;
+    }
+    ```
 
-void Something();
+=== "something.h"
 
-#endif  // SOMETHING_H_
-```
+    ```cpp
+    #ifndef SOMETHING_H_
+    #define SOMETHING_H_
 
-```cpp tab="something.cc" hl_lines="5 6 7"
-#include "something.h"
+    void Something();
 
-#include <iostream>
+    #endif  // SOMETHING_H_
+    ```
 
-inline void HelloWorld() {
-    std::cout << "Hello World!" << std::endl;
-}
+=== "something.cc"
 
-void Something() {
-    HelloWorld();
-}
-```
+    ```cpp hl_lines="5 6 7"
+    #include "something.h"
+
+    #include <iostream>
+
+    inline void HelloWorld() {
+        std::cout << "Hello World!" << std::endl;
+    }
+
+    void Something() {
+        HelloWorld();
+    }
+    ```
 
 この例では `main.cc` と `something.cc` で
 定義が同一である inline 関数 `HelloWorld()` がそれぞれ存在します。
 
 これによって inline 関数であればヘッダファイルで関数定義をしてもリンク時にエラーにはなりません。
 
-```cpp tab="hello_world.h" hl_lines="6 7 8"
-#ifndef HELLO_WORLD_H_
-#define HELLO_WORLD_H_
+=== "hello_world.h"
 
-#include <iostream>
+    ```cpp hl_lines="6 7 8"
+    #ifndef HELLO_WORLD_H_
+    #define HELLO_WORLD_H_
 
-inline void HelloWorld() {
-    std::cout << "Hello World!" << std::endl;
-}
+    #include <iostream>
 
-#endif  // HELLO_WORLD_H_
-```
+    inline void HelloWorld() {
+        std::cout << "Hello World!" << std::endl;
+    }
 
-```cpp tab="main.cc"
-#include "hello_world.h"
-#include "something.h"
+    #endif  // HELLO_WORLD_H_
+    ```
 
-int main() {
-    HelloWorld();
-    Something();
+=== "main.cc"
 
-    return 0;
-}
-```
+    ```cpp
+    #include "hello_world.h"
+    #include "something.h"
 
-```cpp tab="something.h"
-#ifndef SOMETHING_H_
-#define SOMETHING_H_
+    int main() {
+        HelloWorld();
+        Something();
 
-void Something();
+        return 0;
+    }
+    ```
 
-#endif  // SOMETHING_H_
-```
+=== "something.h"
 
-```cpp tab="something.cc"
-#include "something.h"
+    ```cpp
+    #ifndef SOMETHING_H_
+    #define SOMETHING_H_
 
-#include "hello_world.h"
+    void Something();
 
-void Something() {
-    HelloWorld();
-}
-```
+    #endif  // SOMETHING_H_
+    ```
+
+=== "something.cc"
+
+    ```cpp
+    #include "something.h"
+
+    #include "hello_world.h"
+
+    void Something() {
+        HelloWorld();
+    }
+    ```
