@@ -1155,9 +1155,72 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        11.4 動的ロードと名前マングリング
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" title="11.4 動的ロードと名前マングリング" class="md-nav__link md-nav__link--active">
       11.4 動的ロードと名前マングリング
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    動的ロード
+  </a>
+  
+    <nav class="md-nav" aria-label="動的ロード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    動的ライブラリを開く
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    関数や変数のポインタを取得
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    動的ライブラリを閉じる
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    名前マングリング
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1530,6 +1593,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    動的ロード
+  </a>
+  
+    <nav class="md-nav" aria-label="動的ロード">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    動的ライブラリを開く
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    関数や変数のポインタを取得
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    動的ライブラリを閉じる
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    名前マングリング
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1562,77 +1674,130 @@ Linux 環境で使用する API の詳細は
 また、これらの API で使用される void ポインタについては
 <a href="../appendix-void-pointer/">void ポインタ</a> を参照してください。</p>
 <p>次のコードで説明します。</p>
-<p>```cpp linenums="1" tab="main.cc"</p>
-<h1 id="include">include <iostream><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
-<h1 id="include_1">include <dlfcn.h><a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h1>
-<p>int main() {
-    void* handle = dlopen("libhoge.so", RTLD_NOW);
-    if (handle == NULL) {
-        const char* const error_message = dlerror();
-        std::cerr &lt;&lt; error_message &lt;&lt; std::endl;
-        return 1;
-    }</p>
-<div class="codehilite"><pre><span></span><code>void* const symbol_add = dlsym(handle, &quot;_Z3Addii&quot;);
-{
-    const char* const error_message = dlerror();
-    if (error_message != NULL) {
-        std::cerr &lt;&lt; error_message &lt;&lt; std::endl;
-        dlclose(handle);
-        return 1;
-    }
-}
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-void* const symbol_sub = dlsym(handle, &quot;_Z3Subii&quot;);
-{
-    const char* const error_message = dlerror();
-    if (error_message != NULL) {
-        std::cerr &lt;&lt; error_message &lt;&lt; std::endl;
-        dlclose(handle);
-        return 1;
-    }
-}
+<span class="cp">#include</span> <span class="cpf">&lt;dlfcn.h&gt;</span><span class="cp"></span>
 
-auto Add = reinterpret_cast&lt;int(*)(int, int)&gt;(symbol_add);
-auto Sub = reinterpret_cast&lt;int(*)(int, int)&gt;(symbol_sub);
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">void</span><span class="o">*</span> <span class="n">handle</span> <span class="o">=</span> <span class="n">dlopen</span><span class="p">(</span><span class="s">&quot;libhoge.so&quot;</span><span class="p">,</span> <span class="n">RTLD_NOW</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">handle</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">error_message</span> <span class="o">=</span> <span class="n">dlerror</span><span class="p">();</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">error_message</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
 
-std::cout &lt;&lt; Add(1, 2) &lt;&lt; std::endl;
-std::cout &lt;&lt; Sub(3, 4) &lt;&lt; std::endl;
+    <span class="kt">void</span><span class="o">*</span> <span class="k">const</span> <span class="n">symbol_add</span> <span class="o">=</span> <span class="n">dlsym</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s">&quot;_Z3Addii&quot;</span><span class="p">);</span>
+    <span class="p">{</span>
+        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">error_message</span> <span class="o">=</span> <span class="n">dlerror</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">error_message</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">error_message</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+            <span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-dlclose(handle);
-return 0;
+    <span class="kt">void</span><span class="o">*</span> <span class="k">const</span> <span class="n">symbol_sub</span> <span class="o">=</span> <span class="n">dlsym</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="s">&quot;_Z3Subii&quot;</span><span class="p">);</span>
+    <span class="p">{</span>
+        <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="k">const</span> <span class="n">error_message</span> <span class="o">=</span> <span class="n">dlerror</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">error_message</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="n">error_message</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+            <span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">auto</span> <span class="n">Add</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">symbol_add</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">Sub</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">symbol_sub</span><span class="p">);</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">add.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">sub.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+</div>
+<h2 id="_2">動的ロード<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><code>add.cc</code> と <code>sub.cc</code> をコンパイルして生成される
+2つのオブジェクトファイル <code>add.o</code> と <code>sub.o</code> から
+作成した動的ライブラリを <code>libhoge.so</code> とします。</p>
+<p>Linux 環境で動的ロードを行うためには
+OS が提供する <code>libdl.so</code> を動的リンクする必要があります。
+<code>libdl.so</code> を動的リンクして実行ファイルをビルドするには <code>-ldl</code> をつけます。</p>
+<div class="highlight"><pre><span></span><code>g++ -std<span class="o">=</span>c++11 main.o -ldl
 </code></pre></div>
 
-
-<p>}
-<code></code>cpp linenums="1" tab="add.cc"
-int Add(int a, int b) {
-    return a + b;
-}
-```</p>
-<p>```cpp linenums="1" tab="sub.cc"
-int Sub(int a, int b) {
-    return a - b;
-}
-<div class="highlight"><pre><span></span><code>## 動的ロード
-
-`add.cc` と `sub.cc` をコンパイルして生成される
-2つのオブジェクトファイル `add.o` と `sub.o` から
-作成した動的ライブラリを `libhoge.so` とします。
-
-Linux 環境で動的ロードを行うためには
-OS が提供する `libdl.so` を動的リンクする必要があります。
-`libdl.so` を動的リンクして実行ファイルをビルドするには `-ldl` をつけます。
-
-```bash
-g++ -std=c++11 main.o -ldl
-</code></pre></div></p>
 <p>動的ロードは以下の手順で行います。</p>
 <ol>
 <li>動的ライブラリを開く</li>
 <li>関数や変数のポインタを取得</li>
 <li>動的ライブラリを閉じる</li>
 </ol>
-<h3 id="_2">動的ライブラリを開く<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">動的ライブラリを開く<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>動的ライブラリを開くには <code>dlopen()</code> を使います。
 動的ロードに関する処理を使うには <code>&lt;dlfcn.h&gt;</code> のインクルードが必要です。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1658,7 +1823,7 @@ libhoge.so: cannot open shared object file: No such file or directory
 
 <p><code>dlopen()</code> が正常に終了した場合はハンドルが返却されます。
 このハンドルを用いて動的ライブラリを操作します。</p>
-<h3 id="_3">関数や変数のポインタを取得<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_4">関数や変数のポインタを取得<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><code>dlopen()</code> で取得したハンドルから
 関数や変数のポインタを取得するには <code>dlsym()</code> を使用します。</p>
 <p><code>dlsym()</code> では第1引数にハンドル、第2引数にシンボル名を指定します。
@@ -1725,13 +1890,13 @@ $ nm libhoge.so
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </code></pre></div>
 
-<h3 id="_4">動的ライブラリを閉じる<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_5">動的ライブラリを閉じる<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>開いた動的ライブラリは使用が終わったら閉じる必要があります。
 動的ライブラリを閉じるには <code>dlclose()</code> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
 </code></pre></div>
 
-<h2 id="_5">名前マングリング<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">名前マングリング<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>オブジェクトファイルでは変数や関数を名前だけで識別する必要があります。</p>
 <p>C 言語はリンケージ指定が内部リンケージではない変数や関数を名前だけで識別していますが、
 C++ は C 言語にはない以下の機能によって名前だけで識別することができません。</p>

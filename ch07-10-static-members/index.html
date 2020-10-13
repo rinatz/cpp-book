@@ -912,6 +912,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#static_2" class="md-nav__link">
+    static メンバ関数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1572,6 +1579,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#static_2" class="md-nav__link">
+    static メンバ関数
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1615,20 +1629,27 @@
 <p>ヘッダファイルが2つ以上のファイルでインクルードされる場合、
 ヘッダファイルで実体の定義を行うと多重定義となりリンクエラーになってしまいます。
 この問題を避けるために static メンバ変数の実体の定義はソースファイルで行います。</p>
-<p>```cpp tab="counter.cc"</p>
-<h1 id="include-counterh">include "counter.h"<a class="headerlink" href="#include-counterh" title="Permanent link">&para;</a></h1>
-<p>int Counter::count_ = 10;
-<div class="highlight"><pre><span></span><code>```cpp tab=&quot;counter.h&quot;
-#ifndef COUNTER_H_
-#define COUNTER_H_
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">counter.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;counter.h&quot;</span><span class="cp"></span>
 
-class Counter {
- public:
-    static int count_;
-};
+<span class="kt">int</span> <span class="n">Counter</span><span class="o">::</span><span class="n">count_</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</code></pre></div>
 
-#endif  // COUNTER_H_
-</code></pre></div></p>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">counter.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef COUNTER_H_</span>
+<span class="cp">#define COUNTER_H_</span>
+
+<span class="k">class</span> <span class="nc">Counter</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">count_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#endif  </span><span class="c1">// COUNTER_H_</span>
+</code></pre></div>
+
+</div>
+</div>
 <p>static メンバ変数を参照するには <code>Counter::count_</code> のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 

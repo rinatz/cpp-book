@@ -1327,6 +1327,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    初歩的なテストコードの書き方
+  </a>
+  
+    <nav class="md-nav" aria-label="初歩的なテストコードの書き方">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    テスト関数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    アサーション
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1586,6 +1620,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    初歩的なテストコードの書き方
+  </a>
+  
+    <nav class="md-nav" aria-label="初歩的なテストコードの書き方">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    テスト関数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    アサーション
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1625,47 +1693,90 @@ $ make install
 
 <h2 id="_1">実行例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>例として、 <code>sample.h (.cc)</code> に偶数を判定する関数 <code>IsEven</code> を作成し、この関数の動作をテストするには次のようにします。</p>
-<p>```cpp tab="sample.h" linenums="1"</p>
-<h1 id="ifndef-sample_h_">ifndef SAMPLE_H_<a class="headerlink" href="#ifndef-sample_h_" title="Permanent link">&para;</a></h1>
-<h1 id="define-sample_h_">define SAMPLE_H_<a class="headerlink" href="#define-sample_h_" title="Permanent link">&para;</a></h1>
-<p>/**
- * 入力値が偶数か判定する関数
- */
-bool IsEven(int x);</p>
-<h1 id="endif-sample_h_">endif  // SAMPLE_H_<a class="headerlink" href="#endif-sample_h_" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>```cpp tab=&quot;sample.cc&quot; linenums=&quot;1&quot;
-#include &quot;sample.h&quot;
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">sample.h</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#ifndef SAMPLE_H_</span>
+<span class="cp">#define SAMPLE_H_</span>
 
-bool IsEven(int x) {
-    return x % 2 == 0;
-}
+<span class="cm">/**</span>
+<span class="cm">* 入力値が偶数か判定する関数</span>
+<span class="cm">*/</span>
+<span class="kt">bool</span> <span class="nf">IsEven</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>
+
+<span class="cp">#endif  </span><span class="c1">// SAMPLE_H_</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">sample.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;sample.h&quot;</span><span class="cp"></span>
+
+<span class="kt">bool</span> <span class="nf">IsEven</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">sample_test.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="cp">#include</span> <span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
+</span>
+<span class="hll"><span class="cp">#include</span> <span class="cpf">&quot;sample.h&quot;</span><span class="cp"></span>
+</span>
+<span class="n">TEST</span><span class="p">(</span><span class="n">IsEvenTest</span><span class="p">,</span> <span class="n">Negative</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">EXPECT_FALSE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+    <span class="n">EXPECT_TRUE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">IsEvenTest</span><span class="p">,</span> <span class="n">Zero</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">EXPECT_TRUE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">IsEvenTest</span><span class="p">,</span> <span class="n">Positive</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">EXPECT_FALSE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+    <span class="n">EXPECT_TRUE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+</div>
+<p><code>sample_test.cc</code> にテストコードを記述しています。
+テストコードでは、Google Test を利用するために <code>gtest/gtest.h</code> をインクルードし、テスト対象となる <code>sample.h</code> もインクルードしています。</p>
+<p>次のコマンドでテスト実行ファイルを作成します。ここではコマンドの詳細については割愛します。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ビルド</span>
+$ g++ -std<span class="o">=</span>c++11 sample.cc sample_test.cc -o <span class="nb">test</span> -L/usr/local/lib -lgtest -lgtest_main
+<span class="c1"># 実行</span>
+$ ./test.exe
 </code></pre></div>
 
-<p>```cpp tab="sample_test.cc" hl_lines="1 3" linenums="1"</p>
-<h1 id="include">include <gtest/gtest.h><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
-<h1 id="include-sampleh">include "sample.h"<a class="headerlink" href="#include-sampleh" title="Permanent link">&para;</a></h1>
-<p>TEST(IsEvenTest, Negative) {
-    EXPECT_FALSE(IsEven(-1));
-    EXPECT_TRUE(IsEven(-2));
-}</p>
-<p>TEST(IsEvenTest, Zero) {
-    EXPECT_TRUE(IsEven(0));
-}</p>
-<p>TEST(IsEvenTest, Positive) {
-    EXPECT_FALSE(IsEven(1));
-    EXPECT_TRUE(IsEven(2));
-}
-<div class="highlight"><pre><span></span><code>`sample_test.cc` にテストコードを記述しています。
-テストコードでは、Google Test を利用するために `gtest/gtest.h` をインクルードし、テスト対象となる `sample.h` もインクルードしています。
-
-次のコマンドでテスト実行ファイルを作成します。ここではコマンドの詳細については割愛します。
-
-```bash
-# ビルド
-$ g++ -std=c++11 sample.cc sample_test.cc -o test -L/usr/local/lib -lgtest -lgtest_main
-# 実行
-$ ./test.exe
-</code></pre></div></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 実行結果</span>
 Running main<span class="o">()</span> from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
 <span class="o">[==========]</span> Running <span class="m">3</span> tests from <span class="m">1</span> <span class="nb">test</span> <span class="k">case</span>.
@@ -1718,69 +1829,147 @@ Running main<span class="o">()</span> from /usr/local/src/googletest-release-1.8
 <code>EXPECT_</code> の場合は、テストに失敗してもテスト関数がそのまま続行されますが、
 <code>ASSERT_</code> の場合は、テストに失敗するとその時点でテストを中断してテスト関数を抜けます。</p>
 <p>試しに、誤った実装がなされた関数 <code>IsEven</code> を利用して、テスト失敗時の出力を確認すると次のようになります。</p>
-<p>```cpp tab="sample.h" linenums="1"</p>
-<h1 id="ifndef-sample_h__1">ifndef SAMPLE_H_<a class="headerlink" href="#ifndef-sample_h__1" title="Permanent link">&para;</a></h1>
-<h1 id="define-sample_h__1">define SAMPLE_H_<a class="headerlink" href="#define-sample_h__1" title="Permanent link">&para;</a></h1>
-<p>/**
- * 入力値が偶数か判定する関数
- */
-bool IsEven(int x);</p>
-<h1 id="endif-sample_h__1">endif  // SAMPLE_H_<a class="headerlink" href="#endif-sample_h__1" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>```cpp tab=&quot;sample.cc&quot; hl_lines=&quot;4&quot; linenums=&quot;1&quot;
-#include &quot;sample.h&quot;
+<div class="tabbed-set" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">sample.h</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#ifndef SAMPLE_H_</span>
+<span class="cp">#define SAMPLE_H_</span>
 
-bool IsEven(int x) {
-    return x % 2 == 1; // 誤り。 x が奇数のときに true になってしまう…
-}
+<span class="cm">/**</span>
+<span class="cm">* 入力値が偶数か判定する関数</span>
+<span class="cm">*/</span>
+<span class="kt">bool</span> <span class="nf">IsEven</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">);</span>
+
+<span class="cp">#endif  </span><span class="c1">// SAMPLE_H_</span>
 </code></pre></div>
+</td></tr></table>
 
-<p>```cpp tab="sample_test.cpp" hl_lines="8 14" linenums="1"</p>
-<h1 id="include_1">include <iostream><a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h1>
-<h1 id="include_2">include <gtest/gtest.h><a class="headerlink" href="#include_2" title="Permanent link">&para;</a></h1>
-<h1 id="include-sampleh_1">include "sample.h"<a class="headerlink" href="#include-sampleh_1" title="Permanent link">&para;</a></h1>
-<p>TEST(IsEvenTest, AssertPositive) {
-    ASSERT_FALSE(IsEven(1));  // ASSERTテストは失敗すると中断
-    std::cout &lt;&lt; "中断により、この文字列は出力されない" &lt;&lt; std::endl;
-    ASSERT_TRUE(IsEven(2));
-}</p>
-<p>TEST(IsEvenTest, ExpectPositive) {
-    EXPECT_FALSE(IsEven(1));  // EXPECTテストは失敗しても続行
-    std::cout &lt;&lt; "続行のため、この文字列は出力される" &lt;&lt; std::endl;
-    EXPECT_TRUE(IsEven(2));
-}
-<div class="highlight"><pre><span></span><code>```bash tab=&quot;実行結果&quot; hl_lines=&quot;6 7 8 9 10 12 13 14 15 16 17 18 19 20 21&quot; linenums=&quot;1&quot;
-Running main() from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
-[==========] Running 2 tests from 1 test case.
-[----------] Global test environment set-up.
-[----------] 2 tests from IsEvenTest
-[ RUN      ] IsEvenTest.AssertPositive
-sample_test.cc:8: Failure
-Value of: IsEven(1)
-  Actual: true
-Expected: false
-[  FAILED  ] IsEvenTest.AssertPositive (1 ms)
-[ RUN      ] IsEvenTest.ExpectPositive
-sample_test.cc:14: Failure
-Value of: IsEven(1)
-  Actual: true
-Expected: false
-続行のため、この文字列は出力される
-sample_test.cc:16: Failure
-Value of: IsEven(2)
-  Actual: false
-Expected: true
-[  FAILED  ] IsEvenTest.ExpectPositive (0 ms)
-[----------] 2 tests from IsEvenTest (1 ms total)
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">sample.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;sample.h&quot;</span><span class="cp"></span>
 
-[----------] Global test environment tear-down
-[==========] 2 tests from 1 test case ran. (1 ms total)
-[  PASSED  ] 0 tests.
-[  FAILED  ] 2 tests, listed below:
-[  FAILED  ] IsEvenTest.AssertPositive
-[  FAILED  ] IsEvenTest.ExpectPositive
+<span class="kt">bool</span> <span class="nf">IsEven</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">    <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// 誤り。 x が奇数のときに true になってしまう…</span>
+</span><span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
 
- 2 FAILED TESTS
-</code></pre></div></p>
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">sample_test.cpp</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;gtest/gtest.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;sample.h&quot;</span><span class="cp"></span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">IsEvenTest</span><span class="p">,</span> <span class="n">AssertPositive</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">    <span class="n">ASSERT_FALSE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>  <span class="c1">// ASSERTテストは失敗すると中断</span>
+</span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;中断により、この文字列は出力されない&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">ASSERT_TRUE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="n">TEST</span><span class="p">(</span><span class="n">IsEvenTest</span><span class="p">,</span> <span class="n">ExpectPositive</span><span class="p">)</span> <span class="p">{</span>
+<span class="hll">    <span class="n">EXPECT_FALSE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>  <span class="c1">// EXPECTテストは失敗しても続行</span>
+</span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;続行のため、この文字列は出力される&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">EXPECT_TRUE</span><span class="p">(</span><span class="n">IsEven</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">実行結果</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>Running main<span class="o">()</span> from /usr/local/src/googletest-release-1.8.1/googletest/src/gtest_main.cc
+<span class="o">[==========]</span> Running <span class="m">2</span> tests from <span class="m">1</span> <span class="nb">test</span> <span class="k">case</span>.
+<span class="o">[</span>----------<span class="o">]</span> Global <span class="nb">test</span> environment set-up.
+<span class="o">[</span>----------<span class="o">]</span> <span class="m">2</span> tests from IsEvenTest
+<span class="o">[</span> RUN      <span class="o">]</span> IsEvenTest.AssertPositive
+<span class="hll">sample_test.cc:8: Failure
+</span><span class="hll">Value of: IsEven<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</span><span class="hll">Actual: <span class="nb">true</span>
+</span><span class="hll">Expected: <span class="nb">false</span>
+</span><span class="hll"><span class="o">[</span>  FAILED  <span class="o">]</span> IsEvenTest.AssertPositive <span class="o">(</span><span class="m">1</span> ms<span class="o">)</span>
+</span><span class="o">[</span> RUN      <span class="o">]</span> IsEvenTest.ExpectPositive
+<span class="hll">sample_test.cc:14: Failure
+</span><span class="hll">Value of: IsEven<span class="o">(</span><span class="m">1</span><span class="o">)</span>
+</span><span class="hll">Actual: <span class="nb">true</span>
+</span><span class="hll">Expected: <span class="nb">false</span>
+</span><span class="hll">続行のため、この文字列は出力される
+</span><span class="hll">sample_test.cc:16: Failure
+</span><span class="hll">Value of: IsEven<span class="o">(</span><span class="m">2</span><span class="o">)</span>
+</span><span class="hll">Actual: <span class="nb">false</span>
+</span><span class="hll">Expected: <span class="nb">true</span>
+</span><span class="hll"><span class="o">[</span>  FAILED  <span class="o">]</span> IsEvenTest.ExpectPositive <span class="o">(</span><span class="m">0</span> ms<span class="o">)</span>
+</span><span class="o">[</span>----------<span class="o">]</span> <span class="m">2</span> tests from IsEvenTest <span class="o">(</span><span class="m">1</span> ms total<span class="o">)</span>
+
+<span class="o">[</span>----------<span class="o">]</span> Global <span class="nb">test</span> environment tear-down
+<span class="o">[==========]</span> <span class="m">2</span> tests from <span class="m">1</span> <span class="nb">test</span> <span class="k">case</span> ran. <span class="o">(</span><span class="m">1</span> ms total<span class="o">)</span>
+<span class="o">[</span>  PASSED  <span class="o">]</span> <span class="m">0</span> tests.
+<span class="o">[</span>  FAILED  <span class="o">]</span> <span class="m">2</span> tests, listed below:
+<span class="o">[</span>  FAILED  <span class="o">]</span> IsEvenTest.AssertPositive
+<span class="o">[</span>  FAILED  <span class="o">]</span> IsEvenTest.ExpectPositive
+
+<span class="m">2</span> FAILED TESTS
+</code></pre></div>
+</td></tr></table>
+
+</div>
+</div>
 <p>テストが失敗した場合、失敗箇所と失敗理由が出力されます。</p>
 <h2 id="_5">参考<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>

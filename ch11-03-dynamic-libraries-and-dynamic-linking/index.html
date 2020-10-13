@@ -1558,30 +1558,53 @@
 この外部ファイルを動的ライブラリといい、
 そのファイルをリンクして依存関係を設定することを動的リンクといいます。</p>
 <p>次のコードで説明します。</p>
-<p>```cpp linenums="1" tab="main.cc"
-int Add(int a, int b);
-int Sub(int a, int b);</p>
-<p>int main() {
-    Add(1, 2);
-    Sub(3, 4);
-    return 0;
-}
-<div class="highlight"><pre><span></span><code>```cpp linenums=&quot;1&quot; tab=&quot;add.cc&quot;
-int Add(int a, int b) {
-    return a + b;
-}
-</code></pre></div></p>
-<p>```cpp linenums="1" tab="sub.cc"
-int Sub(int a, int b) {
-    return a - b;
-}
-<div class="highlight"><pre><span></span><code>`add.cc` と `sub.cc` をコンパイルして生成される
-2つのオブジェクトファイル `add.o` と `sub.o` から
-動的ライブラリ `libhoge.so` を作成するには下記コマンドを実行します。
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">Sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
 
-```bash
-$ g++ -std=c++11 -shared -o libhoge.so add.o sub.o
-</code></pre></div></p>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="n">Sub</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">add.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">sub.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Sub</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+</div>
+<p><code>add.cc</code> と <code>sub.cc</code> をコンパイルして生成される
+2つのオブジェクトファイル <code>add.o</code> と <code>sub.o</code> から
+動的ライブラリ <code>libhoge.so</code> を作成するには下記コマンドを実行します。</p>
+<div class="highlight"><pre><span></span><code>$ g++ -std<span class="o">=</span>c++11 -shared -o libhoge.so add.o sub.o
+</code></pre></div>
+
 <p><code>-shared</code> をつけることで動的ライブラリの生成が行われます。
 生成する動的ライブラリのファイル名は <code>-o</code> で指定します。</p>
 <p><code>libhoge.so</code> を動的リンクするには下記コマンドを実行します。</p>

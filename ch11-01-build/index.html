@@ -1665,17 +1665,24 @@ $ g++ -std<span class="o">=</span>c++11 -c util.cc
 リンクではこうした未定義の関数や変数の定義を他のオブジェクトファイルなどから探して対応付けを行います。</p>
 <p>たとえば以下のコードの関数 <code>Sum</code> は <code>main.cc</code> ではプロトタイプ宣言だけで定義がないため、
 <code>main.o</code> には <code>Sum</code> が未定義であるという情報が格納されます。</p>
-<p>```cpp tab="main.cc"
-int Sum(int a, int b);</p>
-<p>int main() {
-    Sum(1, 2);
-    return 0;
-}
-<div class="highlight"><pre><span></span><code>```cpp tab=&quot;util.cc&quot;
-int Sum(int a, int b) {
-    return a + b;
-}
-</code></pre></div></p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">util.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
 <p><code>Sum</code> は <code>util.cc</code> で定義が行われているため、
 <code>main.o</code> から実行ファイルを生成するには <code>util.o</code> が必要となります。
 次のように <code>main.o</code> だけでリンクを行うと <code>main.o</code> で未定義の <code>Sum</code> を定義と対応付けできずエラーとなります。</p>

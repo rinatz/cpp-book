@@ -816,6 +816,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#const" class="md-nav__link">
+    const メンバ関数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this ポインタ
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1572,6 +1586,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#const" class="md-nav__link">
+    const メンバ関数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this" class="md-nav__link">
+    this ポインタ
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1633,98 +1661,197 @@
 <details class="question"><summary>暗黙的な inline 指定</summary><p>クラス宣言の中でメンバ関数を定義した場合、暗黙的に <code>inline</code> 指定されます。
 そのため、ヘッダファイルのクラス宣言の中でメンバ関数を定義しても
 リンク時にエラーにはなりません。</p>
-<p>```cpp linenums="1" tab="rectangle.h" hl_lines="6 7 8"</p>
-<h1 id="ifndef-rectangle_h_">ifndef RECTANGLE_H_<a class="headerlink" href="#ifndef-rectangle_h_" title="Permanent link">&para;</a></h1>
-<h1 id="define-rectangle_h_">define RECTANGLE_H_<a class="headerlink" href="#define-rectangle_h_" title="Permanent link">&para;</a></h1>
-<p>class Rectangle {
- public:
-    int Area() {
-        return height_ * width_;
-    }</p>
-<div class="codehilite"><pre><span></span><code>int height_;
-int width_;
+<div class="tabbed-set" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">rectangle.h</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#ifndef RECTANGLE_H_</span>
+<span class="cp">#define RECTANGLE_H_</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">        <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+</span><span class="hll">    <span class="p">}</span>
+</span>
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cp">#endif  </span><span class="c1">// RECTANGLE_H_</span>
 </code></pre></div>
+</td></tr></table>
 
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">something.h</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#ifndef SOMETHING_H_</span>
+<span class="cp">#define SOMETHING_H_</span>
 
-<p>};</p>
-<h1 id="endif-rectangle_h_">endif  // RECTANGLE_H_<a class="headerlink" href="#endif-rectangle_h_" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>```cpp linenums=&quot;1&quot; tab=&quot;something.h&quot;
-#ifndef SOMETHING_H_
-#define SOMETHING_H_
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">();</span>
 
-void Something();
-
-#endif  // SOMETHING_H_
+<span class="cp">#endif  </span><span class="c1">// SOMETHING_H_</span>
 </code></pre></div>
+</td></tr></table>
 
-<p>```cpp linenums="1" tab="something.cc"</p>
-<h1 id="include-somethingh">include "something.h"<a class="headerlink" href="#include-somethingh" title="Permanent link">&para;</a></h1>
-<h1 id="include">include <iostream><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
-<h1 id="include-rectangleh">include "rectangle.h"<a class="headerlink" href="#include-rectangleh" title="Permanent link">&para;</a></h1>
-<p>void Something() {
-    Rectangle r;</p>
-<div class="codehilite"><pre><span></span><code>r.height_ = 2;
-r.width_ = 3;
-std::cout &lt;&lt; r.Area() &lt;&lt; std::endl;
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">something.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;rectangle.h&quot;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Rectangle</span> <span class="n">r</span><span class="p">;</span>
+
+    <span class="n">r</span><span class="p">.</span><span class="n">height_</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">width_</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">Area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">main.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
-<p>}
-<code></code>cpp linenums="1" tab="main.cc"</p>
-<h1 id="include_1">include <iostream><a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h1>
-<h1 id="include-rectangleh_1">include "rectangle.h"<a class="headerlink" href="#include-rectangleh_1" title="Permanent link">&para;</a></h1>
-<h1 id="include-somethingh_1">include "something.h"<a class="headerlink" href="#include-somethingh_1" title="Permanent link">&para;</a></h1>
-<p>int main() {
-    Rectangle r;
-    r.height_ = 10;
-    r.width_ = 20;
-    std::cout &lt;&lt; r.Area() &lt;&lt; std::endl;
+<span class="cp">#include</span> <span class="cpf">&quot;rectangle.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
 
-    Something();
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Rectangle</span> <span class="n">r</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">height_</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">width_</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">r</span><span class="p">.</span><span class="n">Area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-    return 0;
-}
-```</p>
+    <span class="n">Something</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+</div>
 <p>クラス宣言とは別にメンバ関数を定義すると暗黙的な inline 指定はされなくなります。
 ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うとリンク時にエラーとなります。</p>
-<p>```cpp linenums="1" tab="rectangle.h" hl_lines="12 13 14"</p>
-<h1 id="ifndef-rectangle_h__1">ifndef RECTANGLE_H_<a class="headerlink" href="#ifndef-rectangle_h__1" title="Permanent link">&para;</a></h1>
-<h1 id="define-rectangle_h__1">define RECTANGLE_H_<a class="headerlink" href="#define-rectangle_h__1" title="Permanent link">&para;</a></h1>
-<p>class Rectangle {
- public:
-    int Area();</p>
-<div class="codehilite"><pre><span></span><code>int height_;
-int width_;
+<div class="tabbed-set" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">rectangle.h</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#ifndef RECTANGLE_H_</span>
+<span class="cp">#define RECTANGLE_H_</span>
+
+<span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">Area</span><span class="p">();</span>
+
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="hll"><span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="cp">#endif  </span><span class="c1">// RECTANGLE_H_</span>
 </code></pre></div>
+</td></tr></table>
 
+</div>
+</div>
+<p>ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うには、
+明示的に <code>inline</code> 指定する必要があります。</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">rectangle.h</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#ifndef RECTANGLE_H_</span>
+<span class="cp">#define RECTANGLE_H_</span>
 
-<p>};</p>
-<p>int Rectangle::Area() {
-    return height_ * width_;
-}</p>
-<h1 id="endif-rectangle_h__1">endif  // RECTANGLE_H_<a class="headerlink" href="#endif-rectangle_h__1" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>ヘッダファイル内でクラス宣言とは別にメンバ関数の定義を行うには、
-明示的に `inline` 指定する必要があります。
+<span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">Area</span><span class="p">();</span>
 
-```cpp linenums=&quot;1&quot; tab=&quot;rectangle.h&quot; hl_lines=&quot;12&quot;
-#ifndef RECTANGLE_H_
-#define RECTANGLE_H_
+    <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">};</span>
 
-class Rectangle {
- public:
-    int Area();
+<span class="hll"><span class="kr">inline</span> <span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
+</span>    <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
+<span class="p">}</span>
 
-    int height_;
-    int width_;
-};
-
-inline int Rectangle::Area() {
-    return height_ * width_;
-}
-
-#endif  // RECTANGLE_H_
+<span class="cp">#endif  </span><span class="c1">// RECTANGLE_H_</span>
 </code></pre></div>
+</td></tr></table>
 
+</div>
+</div>
 </details>
 <h2 id="const">const メンバ関数<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
 <p>引数リストのあとに <code>const</code> をつけることで <code>const</code> メンバ関数になります。</p>

@@ -608,6 +608,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    インクルードガード
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1600,6 +1607,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    インクルードガード
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1639,30 +1653,55 @@
 適度にコードを複数のファイルに分ける必要があります。</p>
 <p>複数のファイルを跨いだコードを書くには次のようにします。
 <code>main.cc</code> 内で <code>a.cc</code> の関数を使うためにプロトタイプ宣言をしています。</p>
-<p>```cpp tab="main.cc" linenums="1" hl_lines="1 2 3 4 5"
-void DoSomething();   // プロトタイプ宣言
-void DoSomething2();  // プロトタイプ宣言
-void DoSomething3();  // プロトタイプ宣言
-void DoSomething4();  // プロトタイプ宣言
-void DoSomething5();  // プロトタイプ宣言</p>
-<p>int main() {
-    DoSomething();
-    DoSomething2();
-    DoSomething3();
-    DoSomething4();
-    DoSomething5();</p>
-<div class="codehilite"><pre><span></span><code>return 0;
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">();</span>   <span class="c1">// プロトタイプ宣言</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething2</span><span class="p">();</span>  <span class="c1">// プロトタイプ宣言</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething3</span><span class="p">();</span>  <span class="c1">// プロトタイプ宣言</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething4</span><span class="p">();</span>  <span class="c1">// プロトタイプ宣言</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething5</span><span class="p">();</span>  <span class="c1">// プロトタイプ宣言</span>
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">DoSomething</span><span class="p">();</span>
+    <span class="n">DoSomething2</span><span class="p">();</span>
+    <span class="n">DoSomething3</span><span class="p">();</span>
+    <span class="n">DoSomething4</span><span class="p">();</span>
+    <span class="n">DoSomething5</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
+</td></tr></table>
 
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">a.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">DoSomething2</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">DoSomething3</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">DoSomething4</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">DoSomething5</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
 
-<p>}
-<code></code>cpp tab="a.cc" linenums="1"
-void DoSomething() { /* 実装省略 <em>/ }
-void DoSomething2() { /</em> 実装省略 <em>/ }
-void DoSomething3() { /</em> 実装省略 <em>/ }
-void DoSomething4() { /</em> 実装省略 <em>/ }
-void DoSomething5() { /</em> 実装省略 */ }
-```</p>
+</div>
+</div>
 <div class="admonition info">
 <p class="admonition-title">複数ファイルのコンパイル</p>
 <p>複数ファイルをコンパイルして実行ファイルを生成する場合は、
@@ -1677,55 +1716,94 @@ void DoSomething5() { /</em> 実装省略 */ }
 <h2 id="_4">ヘッダファイルを利用する<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>ソースファイルを分けるだけでは、手間がかかりますが、合わせてヘッダを使うことで簡潔になります。
 プロトタイプ宣言だけヘッダに記述することで、宣言を 1 回書くだけで済むようになります。</p>
-<p>```cpp tab="main.cc" linenums="1" hl_lines="1"</p>
-<h1 id="include-ah">include "a.h"<a class="headerlink" href="#include-ah" title="Permanent link">&para;</a></h1>
-<p>int main() {
-    DoSomething();
-    DoSomething2();
-    DoSomething3();
-    DoSomething4();
-    DoSomething5();</p>
-<div class="codehilite"><pre><span></span><code>return 0;
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">main.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="cp">#include</span> <span class="cpf">&quot;a.h&quot;</span><span class="cp"></span>
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">DoSomething</span><span class="p">();</span>
+    <span class="n">DoSomething2</span><span class="p">();</span>
+    <span class="n">DoSomething3</span><span class="p">();</span>
+    <span class="n">DoSomething4</span><span class="p">();</span>
+    <span class="n">DoSomething5</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">a.h</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">();</span>   <span class="c1">// プロトタイプ宣言</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething2</span><span class="p">();</span>  <span class="c1">// プロトタイプ宣言</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething3</span><span class="p">();</span>  <span class="c1">// プロトタイプ宣言</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething4</span><span class="p">();</span>  <span class="c1">// プロトタイプ宣言</span>
+</span><span class="hll"><span class="kt">void</span> <span class="nf">DoSomething5</span><span class="p">();</span>  <span class="c1">// プロトタイプ宣言</span>
+</span></code></pre></div>
+</td></tr></table>
+
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">a.cc</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">DoSomething2</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">DoSomething3</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">DoSomething4</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+<span class="kt">void</span> <span class="nf">DoSomething5</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* 実装省略 */</span> <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+
+</div>
+</div>
+<p><code>main.cc</code> 内で <code>a.cc</code> の関数を利用できるようにするために</p>
+<ol>
+<li><code>a.h</code> で <code>a.cc</code> の関数のプロトタイプ宣言をします。</li>
+<li><code>main.cc</code> で <code>a.h</code> を取り込むために <code>#include "a.h"</code> と記述します。</li>
+</ol>
+<p>これで <code>main.cc</code> から <code>a.cc</code> の関数を利用することが出来ます。
+例え、他のソースから <code>a.cc</code> の関数を利用したいとなっても、そのソース毎に <code>#include "a.h"</code> を記述するだけで済みます。</p>
+<p>コンパイル時には、ヘッダファイルを指定する必要はありません。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># a.h は指定しなくて良い</span>
+g++ -std<span class="o">=</span>c++11 main.cc a.cc
 </code></pre></div>
 
-
-<p>}
-<code></code>cpp tab="a.h" linenums="1" hl_lines="1 2 3 4 5"
-void DoSomething();   // プロトタイプ宣言
-void DoSomething2();  // プロトタイプ宣言
-void DoSomething3();  // プロトタイプ宣言
-void DoSomething4();  // プロトタイプ宣言
-void DoSomething5();  // プロトタイプ宣言
-```</p>
-<p>```cpp tab="a.cc" linenums="1"
-void DoSomething() { /* 実装省略 <em>/ }
-void DoSomething2() { /</em> 実装省略 <em>/ }
-void DoSomething3() { /</em> 実装省略 <em>/ }
-void DoSomething4() { /</em> 実装省略 <em>/ }
-void DoSomething5() { /</em> 実装省略 */ }
-<div class="highlight"><pre><span></span><code>`main.cc` 内で `a.cc` の関数を利用できるようにするために
-
-1. `a.h` で `a.cc` の関数のプロトタイプ宣言をします。
-1. `main.cc` で `a.h` を取り込むために `#include &quot;a.h&quot;` と記述します。
-
-これで `main.cc` から `a.cc` の関数を利用することが出来ます。
-例え、他のソースから `a.cc` の関数を利用したいとなっても、そのソース毎に `#include &quot;a.h&quot;` を記述するだけで済みます。
-
-コンパイル時には、ヘッダファイルを指定する必要はありません。
-
-```bash
-# a.h は指定しなくて良い
-g++ -std=c++11 main.cc a.cc
-</code></pre></div></p>
 <h2 id="_5">インクルードガード<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>ヘッダにはインクルードガードが必要です。</p>
-<p>```cpp tab="a.h" linenums="1" hl_lines="1 2 7"</p>
-<h1 id="ifndef-a_h_">ifndef A_H_<a class="headerlink" href="#ifndef-a_h_" title="Permanent link">&para;</a></h1>
-<h1 id="define-a_h_">define A_H_<a class="headerlink" href="#define-a_h_" title="Permanent link">&para;</a></h1>
-<p>void DoSomething();
-void DoSomething2();</p>
-<h1 id="endif-a_h_">endif  // A_H_<a class="headerlink" href="#endif-a_h_" title="Permanent link">&para;</a></h1>
-<p>```</p>
+<div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">a.h</label><div class="tabbed-content">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="hll"><span class="cp">#ifndef A_H_</span>
+</span><span class="hll"><span class="cp">#define A_H_</span>
+</span>
+<span class="kt">void</span> <span class="nf">DoSomething</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">DoSomething2</span><span class="p">();</span>
+
+<span class="hll"><span class="cp">#endif  </span><span class="c1">// A_H_</span>
+</span></code></pre></div>
+</td></tr></table>
+
+</div>
+</div>
 <p>インクルードガードがあることで、ソースが同じヘッダを複数回取り込む事がなくなり、
 変数や関数の定義が重複することを防げます。</p>
 <p>インクルードガードは一般的にプロジェクトごとに命名規則を設けます。</p>
@@ -1733,10 +1811,10 @@ void DoSomething2();</p>
 <p class="admonition-title">使用してはいけない名前</p>
 <p><code>_</code> で始まる名前や <code>__</code> を含むような名前は、
 コンパイラや標準ライブラリにて予約されている識別子と名前が被る恐れがあるため使ってはいけません。</p>
-<p>```cpp</p>
-<h1 id="define-a_h-_-ng">define <em>A_H</em>  //  _ で始まるのでNG<a class="headerlink" href="#define-a_h-_-ng" title="Permanent link">&para;</a></h1>
-<h1 id="define-a__h_-__-ng">define A__H_  // __ を含むのでNG<a class="headerlink" href="#define-a__h_-__-ng" title="Permanent link">&para;</a></h1>
-<p>```</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#define _A_H_  </span><span class="c1">//  _ で始まるのでNG</span>
+<span class="cp">#define A__H_  </span><span class="c1">// __ を含むのでNG</span>
+</code></pre></div>
+
 </div>
 <p>インクルードガードはプリプロセッサ司令の仕組みを用いて実現しています。
 プリプロセッサ司令の詳細については、 <a href="../appendix-preprocessor-directives/">プリプロセッサ司令</a> を参照してください。</p>

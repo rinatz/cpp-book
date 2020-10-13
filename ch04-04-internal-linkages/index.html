@@ -618,6 +618,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    無名名前空間
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    内部リンケージと定義重複
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1572,6 +1586,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    無名名前空間
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    内部リンケージと定義重複
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1600,102 +1628,125 @@
 
 <h2 id="static">static<a class="headerlink" href="#static" title="Permanent link">&para;</a></h2>
 <p>シンボルの宣言に <code>static</code> 指定子を付与することで内部リンケージを持たせることが出来ます。</p>
-<p>```cpp tab="main.cc"</p>
-<h1 id="include">include <iostream><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
-<p>int main() {
-    std::cout &lt;&lt; x &lt;&lt; std::endl;  // リンクエラー。main.cc からは other.cc の x が参照できない。</p>
-<div class="codehilite"><pre><span></span><code>return 0;
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// リンクエラー。main.cc からは other.cc の x が参照できない。</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">other.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="k">static</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">246</span><span class="p">;</span>  <span class="c1">// 内部リンケージ。 other.cc 内でのみ参照可能</span>
+</code></pre></div>
 
-<p>}
-<code></code>cpp tab="other.cc"
-static int x = 246;  // 内部リンケージ。 other.cc 内でのみ参照可能
-```</p>
+</div>
+</div>
 <h2 id="_2">無名名前空間<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>namespace 名前 {}</code> で名前空間を定義することが出来ますが、
 名前を付けずに <code>namespace {}</code> とすることで無名名前空間を定義することが出来ます。</p>
 <p>無名名前空間内に宣言された変数や関数は、 <code>static</code> 指定子と同様に内部リンケージを持ちます。</p>
-<p>```cpp tab="main.cc"</p>
-<h1 id="include_1">include <iostream><a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h1>
-<h1 id="include-otherh">include "other.h"<a class="headerlink" href="#include-otherh" title="Permanent link">&para;</a></h1>
-<p>int main() {
-    Print();</p>
-<div class="codehilite"><pre><span></span><code>std::cout &lt;&lt; x &lt;&lt; std::endl;  // ここから x は参照できない
+<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;other.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Print</span><span class="p">();</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// ここから x は参照できない</span>
+<span class="p">}</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">other.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef OTHER_H_</span>
+<span class="cp">#define OTHER_H_</span>
 
-<p>}
-<code></code>cpp tab="other.h"</p>
-<h1 id="ifndef-other_h_">ifndef OTHER_H_<a class="headerlink" href="#ifndef-other_h_" title="Permanent link">&para;</a></h1>
-<h1 id="define-other_h_">define OTHER_H_<a class="headerlink" href="#define-other_h_" title="Permanent link">&para;</a></h1>
-<p>void Print();
-</p>
-<h1 id="endif-other_h_">endif  // OTHER_H_<a class="headerlink" href="#endif-other_h_" title="Permanent link">&para;</a></h1>
-<p>```</p>
-<p>```cpp tab="other.cc" hl_lines="5 6 7"</p>
-<h1 id="include-otherh_1">include "other.h"<a class="headerlink" href="#include-otherh_1" title="Permanent link">&para;</a></h1>
-<h1 id="include_2">include <iostream><a class="headerlink" href="#include_2" title="Permanent link">&para;</a></h1>
-<p>namespace {
-    int x = 50;  // x に内部リンケージを持たせる
-}  // unnamed namespace</p>
-<p>void Print() {
-    std::cout &lt;&lt; x &lt;&lt; std::endl;  // ここから x は参照可能
-}
-<div class="highlight"><pre><span></span><code>C++ において `static` は [様々な意味を持つ][cppreference-static] ため、分かりづらいキーワードとなっています。
-宣言に内部リンケージを持たせる場合は、 `static` ではなく無名名前空間を使うようにしましょう。
+<span class="kt">void</span> <span class="nf">Print</span><span class="p">();</span>
 
-[cppreference-static]: https://ja.cppreference.com/w/cpp/keyword/static
-
-## 内部リンケージと定義重複
-
-ソースファイル間で定義が重複している時、通常は定義の重複によるエラーになりますが、
-各々に内部リンケージを持たせて別のファイルから見えなくしていれば、別の定義として扱うことができます。
-
-```cpp tab=&quot;main.cc&quot; hl_lines=&quot;6&quot;
-#include &lt;iostream&gt;
-
-#include &quot;other.h&quot;
-
-namespace {
-    int hoge = 0;  // main.cc 内の hoge
-}
-
-int main() {
-    hoge += 2;
-
-    IncrementHoge();
-
-    std::cout &lt;&lt; &quot;main.cc: &quot; &lt;&lt; hoge &lt;&lt; std::endl;  // main.cc: 2
-
-    PrintHoge();
-
-    return 0;
-}
-</code></pre></div></p>
-<p>```cpp tab="other.h"</p>
-<h1 id="ifndef-other_h__1">ifndef OTHER_H_<a class="headerlink" href="#ifndef-other_h__1" title="Permanent link">&para;</a></h1>
-<h1 id="define-other_h__1">define OTHER_H_<a class="headerlink" href="#define-other_h__1" title="Permanent link">&para;</a></h1>
-<p>void IncrementHoge();
-void PrintHoge();</p>
-<h1 id="endif-other_h__1">endif  // OTHER_H_<a class="headerlink" href="#endif-other_h__1" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>```cpp tab=&quot;other.cc&quot; hl_lines=&quot;6&quot;
-#include &quot;other.h&quot;
-
-#include &lt;iostream&gt;
-
-namespace {
-    int hoge = 0;  // other.cc 内の hoge
-}
-
-void IncrementHoge() {
-    ++hoge;
-}
-
-void PrintHoge() {
-    std::cout &lt;&lt; &quot;other.cc: &quot; &lt;&lt; hoge &lt;&lt; std::endl;  // other.cc: 1
-}
+<span class="cp">#endif  </span><span class="c1">// OTHER_H_</span>
 </code></pre></div>
+
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">other.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;other.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="hll"><span class="k">namespace</span> <span class="p">{</span>
+</span><span class="hll">    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>  <span class="c1">// x に内部リンケージを持たせる</span>
+</span><span class="hll"><span class="p">}</span>  <span class="c1">// unnamed namespace</span>
+</span>
+<span class="kt">void</span> <span class="n">Print</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// ここから x は参照可能</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
+<p>C++ において <code>static</code> は <a href="https://ja.cppreference.com/w/cpp/keyword/static">様々な意味を持つ</a> ため、分かりづらいキーワードとなっています。
+宣言に内部リンケージを持たせる場合は、 <code>static</code> ではなく無名名前空間を使うようにしましょう。</p>
+<h2 id="_3">内部リンケージと定義重複<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>ソースファイル間で定義が重複している時、通常は定義の重複によるエラーになりますが、
+各々に内部リンケージを持たせて別のファイルから見えなくしていれば、別の定義として扱うことができます。</p>
+<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;other.h&quot;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="p">{</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">hoge</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// main.cc 内の hoge</span>
+</span><span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">hoge</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="n">IncrementHoge</span><span class="p">();</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;main.cc: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">hoge</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// main.cc: 2</span>
+
+    <span class="n">PrintHoge</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">other.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef OTHER_H_</span>
+<span class="cp">#define OTHER_H_</span>
+
+<span class="kt">void</span> <span class="nf">IncrementHoge</span><span class="p">();</span>
+<span class="kt">void</span> <span class="nf">PrintHoge</span><span class="p">();</span>
+
+<span class="cp">#endif  </span><span class="c1">// OTHER_H_</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">other.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;other.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="k">namespace</span> <span class="p">{</span>
+<span class="hll">    <span class="kt">int</span> <span class="n">hoge</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// other.cc 内の hoge</span>
+</span><span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">IncrementHoge</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">++</span><span class="n">hoge</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="n">PrintHoge</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;other.cc: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">hoge</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// other.cc: 1</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
                 
               
               

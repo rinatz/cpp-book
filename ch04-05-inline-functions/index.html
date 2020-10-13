@@ -1557,78 +1557,102 @@
 <code>inline</code> をつけなくてもインライン展開されることがあります。</p>
 <p>inline 関数は定義が同一である場合に限って、
 異なるソースファイルで同一の定義をしてもいいと決められています。</p>
-<p>```cpp tab="main.cc" hl_lines="5 6 7"</p>
-<h1 id="include">include <iostream><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
-<h1 id="include-somethingh">include "something.h"<a class="headerlink" href="#include-somethingh" title="Permanent link">&para;</a></h1>
-<p>inline void HelloWorld() {
-    std::cout &lt;&lt; "Hello World!" &lt;&lt; std::endl;
-}</p>
-<p>int main() {
-    HelloWorld();
-    Something();</p>
-<div class="codehilite"><pre><span></span><code>return 0;
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="hll"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">HelloWorld</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">HelloWorld</span><span class="p">();</span>
+    <span class="n">Something</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">something.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef SOMETHING_H_</span>
+<span class="cp">#define SOMETHING_H_</span>
 
-<p>}
-<code></code>cpp tab="something.h"</p>
-<h1 id="ifndef-something_h_">ifndef SOMETHING_H_<a class="headerlink" href="#ifndef-something_h_" title="Permanent link">&para;</a></h1>
-<h1 id="define-something_h_">define SOMETHING_H_<a class="headerlink" href="#define-something_h_" title="Permanent link">&para;</a></h1>
-<p>void Something();
-</p>
-<h1 id="endif-something_h_">endif  // SOMETHING_H_<a class="headerlink" href="#endif-something_h_" title="Permanent link">&para;</a></h1>
-<p>```</p>
-<p>```cpp tab="something.cc" hl_lines="5 6 7"</p>
-<h1 id="include-somethingh_1">include "something.h"<a class="headerlink" href="#include-somethingh_1" title="Permanent link">&para;</a></h1>
-<h1 id="include_1">include <iostream><a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h1>
-<p>inline void HelloWorld() {
-    std::cout &lt;&lt; "Hello World!" &lt;&lt; std::endl;
-}</p>
-<p>void Something() {
-    HelloWorld();
-}
-<div class="highlight"><pre><span></span><code>この例では `main.cc` と `something.cc` で
-定義が同一である inline 関数 `HelloWorld()` がそれぞれ存在します。
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">();</span>
 
-これによって inline 関数であればヘッダファイルで関数定義をしてもリンク時にエラーにはなりません。
-
-```cpp tab=&quot;hello_world.h&quot; hl_lines=&quot;6 7 8&quot;
-#ifndef HELLO_WORLD_H_
-#define HELLO_WORLD_H_
-
-#include &lt;iostream&gt;
-
-inline void HelloWorld() {
-    std::cout &lt;&lt; &quot;Hello World!&quot; &lt;&lt; std::endl;
-}
-
-#endif  // HELLO_WORLD_H_
-</code></pre></div></p>
-<p>```cpp tab="main.cc"</p>
-<h1 id="include-hello_worldh">include "hello_world.h"<a class="headerlink" href="#include-hello_worldh" title="Permanent link">&para;</a></h1>
-<h1 id="include-somethingh_2">include "something.h"<a class="headerlink" href="#include-somethingh_2" title="Permanent link">&para;</a></h1>
-<p>int main() {
-    HelloWorld();
-    Something();</p>
-<div class="codehilite"><pre><span></span><code>return 0;
+<span class="cp">#endif  </span><span class="c1">// SOMETHING_H_</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">something.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
 
-<p>}
-<code></code>cpp tab="something.h"</p>
-<h1 id="ifndef-something_h__1">ifndef SOMETHING_H_<a class="headerlink" href="#ifndef-something_h__1" title="Permanent link">&para;</a></h1>
-<h1 id="define-something_h__1">define SOMETHING_H_<a class="headerlink" href="#define-something_h__1" title="Permanent link">&para;</a></h1>
-<p>void Something();
-</p>
-<h1 id="endif-something_h__1">endif  // SOMETHING_H_<a class="headerlink" href="#endif-something_h__1" title="Permanent link">&para;</a></h1>
-<p>```</p>
-<p>```cpp tab="something.cc"</p>
-<h1 id="include-somethingh_3">include "something.h"<a class="headerlink" href="#include-somethingh_3" title="Permanent link">&para;</a></h1>
-<h1 id="include-hello_worldh_1">include "hello_world.h"<a class="headerlink" href="#include-hello_worldh_1" title="Permanent link">&para;</a></h1>
-<p>void Something() {
-    HelloWorld();
-}
-```</p>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="hll"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">HelloWorld</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">HelloWorld</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
+<p>この例では <code>main.cc</code> と <code>something.cc</code> で
+定義が同一である inline 関数 <code>HelloWorld()</code> がそれぞれ存在します。</p>
+<p>これによって inline 関数であればヘッダファイルで関数定義をしてもリンク時にエラーにはなりません。</p>
+<div class="tabbed-set" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">hello_world.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef HELLO_WORLD_H_</span>
+<span class="cp">#define HELLO_WORLD_H_</span>
+
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="hll"><span class="kr">inline</span> <span class="kt">void</span> <span class="nf">HelloWorld</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Hello World!&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="cp">#endif  </span><span class="c1">// HELLO_WORLD_H_</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;hello_world.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">HelloWorld</span><span class="p">();</span>
+    <span class="n">Something</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">something.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef SOMETHING_H_</span>
+<span class="cp">#define SOMETHING_H_</span>
+
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">();</span>
+
+<span class="cp">#endif  </span><span class="c1">// SOMETHING_H_</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><label for="__tabbed_2_4">something.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;something.h&quot;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;hello_world.h&quot;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">Something</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">HelloWorld</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
                 
               
               

@@ -1672,38 +1672,44 @@
 <h2 id="newdelete">new/deleteとの違い<a class="headerlink" href="#newdelete" title="Permanent link">&para;</a></h2>
 <p><code>new/delete</code> と違い、 <code>malloc/free</code> で生成されたオブジェクトはコンストラクタ・デストラクタの呼び出しが行われません。
 プログラムが予期せぬ動作をする原因になることがあるので、基本的に <code>new/delete</code> を使用するようにしましょう。</p>
-<p>```cpp tab="サンプルコード"</p>
-<h1 id="include">include <cstdlib><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
-<p>class MyClass {
- public:
-    MyClass() {
-      std::cout &lt;&lt; "MyClass' constructor is called." &lt;&lt; std::endl;
-    }
-    ~MyClass() {
-      std::cout &lt;&lt; "MyClass' destructor is called." &lt;&lt; std::endl;
-    }
-};</p>
-<p>int main() {
-    std::cout &lt;&lt; "---new/delete---" &lt;&lt; std::endl;</p>
-<div class="codehilite"><pre><span></span><code>MyClass* mc1 = new MyClass();
-delete mc1;
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">サンプルコード</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
 
-std::cout &lt;&lt; &quot;---malloc/free---&quot; &lt;&lt; std::endl;
+<span class="k">class</span> <span class="nc">MyClass</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">MyClass</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;MyClass&#39; constructor is called.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="o">~</span><span class="n">MyClass</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;MyClass&#39; destructor is called.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
 
-MyClass* mc2 = (MyClass*)malloc(sizeof(MyClass));
-free(mc2);
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;---new/delete---&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 
-return 0;
+    <span class="n">MyClass</span><span class="o">*</span> <span class="n">mc1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyClass</span><span class="p">();</span>
+    <span class="k">delete</span> <span class="n">mc1</span><span class="p">;</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;---malloc/free---&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="n">MyClass</span><span class="o">*</span> <span class="n">mc2</span> <span class="o">=</span> <span class="p">(</span><span class="n">MyClass</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">MyClass</span><span class="p">));</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">mc2</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
-
-<p>}</p>
-<div class="highlight"><pre><span></span><code>```tab=&quot;実行結果&quot;
----new/delete---
-MyClass&#39; constructor is called.
-MyClass&#39; destructor is called.
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">実行結果</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>---new/delete---
+MyClass<span class="s1">&#39; constructor is called.</span>
+<span class="s1">MyClass&#39;</span> destructor is called.
 ---malloc/free---
 </code></pre></div>
+
+</div>
+</div>
                 
               
               

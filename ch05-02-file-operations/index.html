@@ -680,6 +680,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ファイル書き出し
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1572,6 +1579,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    ファイル書き出し
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1597,89 +1611,107 @@
 <h2 id="_2">ファイル読み込み<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>ファイルを読み込む場合は <code>std::ifstream</code> を使います。
 <code>&lt;string&gt;</code> に用意されている <code>std::getline</code> で1行ずつ読み込むことが出来ます。</p>
-<p>```cpp tab="main.cc"</p>
-<h1 id="include">include <fstream><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
-<h1 id="include_1">include <iostream><a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h1>
-<h1 id="include_2">include <string><a class="headerlink" href="#include_2" title="Permanent link">&para;</a></h1>
-<p>int main() {
-    std::ifstream file("file.txt");  // 読み込むファイルのパスを指定
-    std::string line;</p>
-<div class="codehilite"><pre><span></span><code>while (std::getline(file, line)) {  // 1行ずつ読み込む
-    std::cout &lt;&lt; line &lt;&lt; std::endl;
-}
+<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 
-return 0;
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ifstream</span> <span class="n">file</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">);</span>  <span class="c1">// 読み込むファイルのパスを指定</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">line</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">line</span><span class="p">))</span> <span class="p">{</span>  <span class="c1">// 1行ずつ読み込む</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">line</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
-
-<p>}
-<code></code>tab="file.txt"
-Good friend, for Jesus' sake forbear,
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">file.txt</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>Good friend, for Jesus&#39; sake forbear,
 To dig the dust enclosed here.
 Blest be the man that spares these stones,
 And cursed be he that moves my bones.
-```</p>
-<p>```tab="実行結果"
-Good friend, for Jesus' sake forbear,
+</code></pre></div>
+
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">実行結果</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>Good friend, for Jesus&#39; sake forbear,
 To dig the dust enclosed here.
 Blest be the man that spares these stones,
 And cursed be he that moves my bones.
-<div class="highlight"><pre><span></span><code>## ファイル書き出し
+</code></pre></div>
 
-ファイルへ書き出す場合は `std::ofstream` を使います。
+</div>
+</div>
+<h2 id="_3">ファイル書き出し<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>ファイルへ書き出す場合は <code>std::ofstream</code> を使います。</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
-```cpp tab=&quot;main.cc&quot;
-#include &lt;fstream&gt;
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-#include &lt;vector&gt;
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">file</span><span class="p">(</span><span class="s">&quot;fruits.txt&quot;</span><span class="p">);</span>  <span class="c1">// 書き出すファイルのパスを指定</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;strawberry&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">,</span> <span class="s">&quot;grape&quot;</span> <span class="p">};</span>
 
-int main() {
-    std::ofstream file(&quot;fruits.txt&quot;);  // 書き出すファイルのパスを指定
-    std::vector&lt;std::string&gt; fruits = { &quot;apple&quot;, &quot;strawberry&quot;, &quot;pear&quot;, &quot;grape&quot; };
+    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="nl">fruit</span> <span class="p">:</span> <span class="n">fruits</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">fruit</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 書き出し</span>
+    <span class="p">}</span>
 
-    for (const auto fruit : fruits) {
-        file &lt;&lt; fruit &lt;&lt; std::endl;  // 書き出し
-    }
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
 
-    return 0;
-}
-</code></pre></div></p>
-<p>```tab="プログラム実行後のfruits.txt"
-apple
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">プログラム実行後のfruits.txt</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>apple
 strawberry
 pear
-grape</p>
-<div class="highlight"><pre><span></span><code>書き出す前に、既に同名のファイルが存在していた場合、中身は上書きされます。
-上書きせずに追記する場合は、コンストラクタの引数に `std::ios::app` を追加します。
-
-```cpp tab=&quot;main.cc&quot; hl_lines=&quot;6&quot;
-#include &lt;fstream&gt;
-#include &lt;iostream&gt;
-#include &lt;string&gt;
-
-int main() {
-    std::ofstream file(&quot;file.txt&quot;, std::ios::app);
-    std::string quotation(&quot;--- William Shakespeare&#39;s Epitaph&quot;);
-
-    file &lt;&lt; std::endl &lt;&lt; quotation;
-
-    return 0;
-}
+grape
 </code></pre></div>
 
-<p>```tab="プログラム実行前のfile.txt"
-Good friend, for Jesus' sake forbear,
+</div>
+</div>
+<p>書き出す前に、既に同名のファイルが存在していた場合、中身は上書きされます。
+上書きせずに追記する場合は、コンストラクタの引数に <code>std::ios::app</code> を追加します。</p>
+<div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="hll">    <span class="n">std</span><span class="o">::</span><span class="n">ofstream</span> <span class="n">file</span><span class="p">(</span><span class="s">&quot;file.txt&quot;</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">app</span><span class="p">);</span>
+</span>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">quotation</span><span class="p">(</span><span class="s">&quot;--- William Shakespeare&#39;s Epitaph&quot;</span><span class="p">);</span>
+
+    <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span> <span class="o">&lt;&lt;</span> <span class="n">quotation</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">プログラム実行前のfile.txt</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>Good friend, for Jesus&#39; sake forbear,
 To dig the dust enclosed here.
 Blest be the man that spares these stones,
 And cursed be he that moves my bones.
-<div class="highlight"><pre><span></span><code>```tab=&quot;プログラム実行後のfile.txt&quot;
-Good friend, for Jesus&#39; sake forbear,
+</code></pre></div>
+
+</div>
+<input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><label for="__tabbed_3_3">プログラム実行後のfile.txt</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>Good friend, for Jesus&#39; sake forbear,
 To dig the dust enclosed here.
 Blest be the man that spares these stones,
 And cursed be he that moves my bones.
 --- William Shakespeare&#39;s Epitaph
-</code></pre></div></p>
+</code></pre></div>
+
+</div>
+</div>
                 
               
               

@@ -1019,9 +1019,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        9.3. 特殊化
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" title="9.3. 特殊化" class="md-nav__link md-nav__link--active">
       9.3. 特殊化
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    完全特殊化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    部分特殊化
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1530,6 +1566,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    完全特殊化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    部分特殊化
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1572,47 +1630,61 @@
 クラステンプレートからクラスを生成することを特殊化 (または暗黙的インスタンス化) といいます。</p>
 <p>特殊化はコンパイラによって行われるため、
 ヘッダファイルで関数テンプレートを使用する場合にはそのヘッダファイルで定義も行います。</p>
-<p>```cpp tab="sum.h"</p>
-<h1 id="ifndef-sum_h_">ifndef SUM_H_<a class="headerlink" href="#ifndef-sum_h_" title="Permanent link">&para;</a></h1>
-<h1 id="define-sum_h_">define SUM_H_<a class="headerlink" href="#define-sum_h_" title="Permanent link">&para;</a></h1>
-<p>template <typename T>
-inline T Sum(T a, T b) {  // inline 指定が必要
-    return a + b;
-}</p>
-<h1 id="endif-sum_h_">endif  // SUM_H_<a class="headerlink" href="#endif-sum_h_" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>```cpp tab=&quot;main.cc&quot;
-#include &lt;iostream&gt;
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">sum.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef SUM_H_</span>
+<span class="cp">#define SUM_H_</span>
 
-#include &quot;sum.h&quot;
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kr">inline</span> <span class="n">T</span> <span class="n">Sum</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>  <span class="c1">// inline 指定が必要</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
 
-int main() {
-    std::cout &lt;&lt; Sum(1, 2) &lt;&lt; std::endl;
-    return 0;
-}
+<span class="cp">#endif  </span><span class="c1">// SUM_H_</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">main.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="cp">#include</span> <span class="cpf">&quot;sum.h&quot;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
 <details class="question"><summary>テンプレートの明示的インスタンス化</summary><p>テンプレートを使用する箇所で関数やクラスを生成する代わりに、
 ソースファイルで明示的に関数やクラスを生成することで
 ヘッダファイルでは宣言だけ行うことは可能ではあります。</p>
-<p>```cpp tab="sum.h"</p>
-<h1 id="ifndef-sum_h__1">ifndef SUM_H_<a class="headerlink" href="#ifndef-sum_h__1" title="Permanent link">&para;</a></h1>
-<h1 id="define-sum_h__1">define SUM_H_<a class="headerlink" href="#define-sum_h__1" title="Permanent link">&para;</a></h1>
-<p>template <typename T>
-T Sum(T a, T b);  // 宣言だけ行う (inline もつけない)</p>
-<h1 id="endif-sum_h__1">endif  // SUM_H_<a class="headerlink" href="#endif-sum_h__1" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>```cpp tab=&quot;sum.cc&quot;
-#include &quot;sum.h&quot;
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">sum.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef SUM_H_</span>
+<span class="cp">#define SUM_H_</span>
 
-// 関数テンプレートの定義
-template &lt;typename T&gt;
-T Sum(T a, T b) {
-    return a + b;
-}
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">Sum</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">);</span>  <span class="c1">// 宣言だけ行う (inline もつけない)</span>
 
-// 明示的インスタンス化
-template int Sum&lt;int&gt;(int, int);
+<span class="cp">#endif  </span><span class="c1">// SUM_H_</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">sum.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;sum.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// 関数テンプレートの定義</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">Sum</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// 明示的インスタンス化</span>
+<span class="k">template</span> <span class="kt">int</span> <span class="n">Sum</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
+</code></pre></div>
+
+</div>
+</div>
 <p>こうした構成にするとヘッダファイルでテンプレートが提供されていても
 使用可能な型はソースファイルで明示的な生成を行う型のみとなってしまいます。
 たとえば <code>Sum&lt;double&gt;(double, double)</code> は生成されていないため
@@ -1620,30 +1692,37 @@ template int Sum&lt;int&gt;(int, int);
 <p>こうした問題を避けるためには、
 ヘッダファイルでは関数テンプレートをやめてオーバーロードされた関数を提供し、
 ソースファイルで関数テンプレートを使用します。</p>
-<p>```cpp tab="sum.h"</p>
-<h1 id="ifndef-sum_h__2">ifndef SUM_H_<a class="headerlink" href="#ifndef-sum_h__2" title="Permanent link">&para;</a></h1>
-<h1 id="define-sum_h__2">define SUM_H_<a class="headerlink" href="#define-sum_h__2" title="Permanent link">&para;</a></h1>
-<p>int Sum(int a, int b);
-double Sum(double a, double b);</p>
-<h1 id="endif-sum_h__2">endif  // SUM_H_<a class="headerlink" href="#endif-sum_h__2" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>```cpp tab=&quot;sum.cc&quot;
-#include &quot;sum.h&quot;
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">sum.h</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#ifndef SUM_H_</span>
+<span class="cp">#define SUM_H_</span>
 
-// 実装に関数テンプレートを使用
-template &lt;typename T&gt;
-T SumImpl(T a, T b) {
-    return a + b;
-}
+<span class="kt">int</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">);</span>
 
-int Sum(int a, int b) {
-    return SumImpl(a, b);
-}
-
-double Sum(double a, double b) {
-    return SumImpl(a, b);
-}
+<span class="cp">#endif  </span><span class="c1">// SUM_H_</span>
 </code></pre></div>
 
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">sum.cc</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;sum.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// 実装に関数テンプレートを使用</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">SumImpl</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="n">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">SumImpl</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">double</span> <span class="n">Sum</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">SumImpl</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+</div>
+</div>
 </details>
 <h2 id="_2">完全特殊化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>特殊化によって関数テンプレートやクラステンプレートから関数やクラスを生成する代わりに、
