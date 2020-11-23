@@ -1650,8 +1650,10 @@ Windows のショートカットや Linux のシンボリックリンクと同�
 
 <div class="admonition warning">
 <p class="admonition-title">NULL マクロ</p>
-<p>C++11 までは <code>nullptr</code> というキーワードがなく、代わりに <code>NULL</code> を使用するのが一般的でした。
-<code>NULL</code> の実体はポインタ型ではなく <code>int</code> 型の <code>0</code> などであるため不都合が生じることもありました。</p>
+<p>C++11 より前はヌルポインタを表すのに <code>nullptr</code> というキーワードではなくC言語から受け継いだ <code>NULL</code> を使用するのが一般的でした。
+C言語の処理系では、 <code>void*</code> 型の変数は任意のポインタ型に暗黙変換される仕様があるため、 <code>NULL</code> を <code>(void*)0</code> などと定義している例が見られました。
+C++ではそのような暗黙変換は許されていないため、 <code>NULL</code> は単に <code>0</code> と定義される例が見られました。
+しかし <code>0</code> というリテラルは文脈によってヌルポインタと解釈されたり <code>int</code> 型と解釈されたりするため不都合が生じることもありました。</p>
 <p>C++11 ではこの問題を解決するために <code>nullptr</code> が導入されました。
 そのため C++11 以降では <code>NULL</code> ではなく <code>nullptr</code> を使うようにしましょう。</p>
 <p>詳細は <a href="https://cpprefjp.github.io/lang/cpp11/nullptr.html">nullptr - cpprefjp C++日本語リファレンス</a> を参照してください。</p>

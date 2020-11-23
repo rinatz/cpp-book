@@ -1784,20 +1784,20 @@ GCC では 8, 16, 32, 64 ビットで定義されています。
 移植性の面で問題が発生することがあります。
 そのようなときはサイズ指定付き整数型を使用します。</p>
 <ul>
-<li><code>int8_t</code></li>
-<li><code>int16_t</code></li>
-<li><code>int32_t</code></li>
-<li><code>int64_t</code></li>
-<li><code>uint8_t</code></li>
-<li><code>uint16_t</code></li>
-<li><code>uint32_t</code></li>
-<li><code>uint64_t</code></li>
+<li><code>std::int8_t</code></li>
+<li><code>std::int16_t</code></li>
+<li><code>std::int32_t</code></li>
+<li><code>std::int64_t</code></li>
+<li><code>std::uint8_t</code></li>
+<li><code>std::uint16_t</code></li>
+<li><code>std::uint32_t</code></li>
+<li><code>std::uint64_t</code></li>
 </ul>
 <p>数値は型のビットサイズを表しており、u は <code>unsigned</code> を表しています。
 サイズ指定付き整数型を使用する場合は <code>#include &lt;cstdint&gt;</code> と記述する必要があります。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
 
-<span class="kt">int32_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="kt">int32_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div>
 
 <h3 id="_6">浮動小数点型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
