@@ -57,14 +57,14 @@ unsigned int x = 4000000000;
 移植性の面で問題が発生することがあります。
 そのようなときはサイズ指定付き整数型を使用します。
 
-* `int8_t`
-* `int16_t`
-* `int32_t`
-* `int64_t`
-* `uint8_t`
-* `uint16_t`
-* `uint32_t`
-* `uint64_t`
+* `std::int8_t`
+* `std::int16_t`
+* `std::int32_t`
+* `std::int64_t`
+* `std::uint8_t`
+* `std::uint16_t`
+* `std::uint32_t`
+* `std::uint64_t`
 
 数値は型のビットサイズを表しており、u は `unsigned` を表しています。
 サイズ指定付き整数型を使用する場合は `#include <cstdint>` と記述する必要があります。
@@ -72,7 +72,7 @@ unsigned int x = 4000000000;
 ```cpp
 #include <cstdint>
 
-int32_t x = 5;
+std::int32_t x = 5;
 ```
 
 ### 浮動小数点型
