@@ -24,7 +24,7 @@ auto size = x.size();  // 5
 
 ## 末尾へ要素追加
 
-`x.push_back()` とすると末尾へ要素を追加することができます。
+`x.emplace_back()` とすると末尾へ要素を追加することができます。
 
 ```cpp
 #include <vector>
@@ -32,7 +32,7 @@ auto size = x.size();  // 5
 std::vector<int> x = {0, 1, 2, 3, 4};
 auto size1 = x.size();  // 5
 
-x.push_back(5);
+x.emplace_back(5);
 auto size2 = x.size();  // 6
 ```
 
