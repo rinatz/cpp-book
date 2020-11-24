@@ -52,4 +52,4 @@ persons.erase("Bob");
 `std::map` はキーでソートしてデータを管理するのに対し、
 `std::unordered_map` はキーから計算するハッシュと呼ばれる値でデータを管理します。
 
-効率のよいハッシュ計算を行える場合には `std::unordered_map` の方が適しています。
+キーの順番を保持したい場合を除いて常に `std::unordered_map` の方が優れています。
