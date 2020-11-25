@@ -1650,22 +1650,22 @@
 </tr>
 <tr>
 <td>dynamic_cast</td>
-<td align="left">基底クラス型のポインタを派生クラス型のポインタに変換する</td>
+<td align="left">基底クラス型のポインタと派生クラス型のポインタを変換する</td>
 </tr>
 <tr>
 <td>const_cast</td>
-<td align="left">const修飾子を外す</td>
+<td align="left">const修飾を変化させる</td>
 </tr>
 <tr>
 <td>reinterpret_cast</td>
-<td align="left">ポインタの型変換を行う</td>
+<td align="left">型情報だけ変える</td>
 </tr>
 </tbody>
 </table>
 <p>本節では基本的な使い方だけを説明します。
 詳しい説明は <a href="../appendix-cast-details/">キャストの詳しい説明</a> を参照してください。</p>
 <h2 id="static_cast">static_cast<a class="headerlink" href="#static_cast" title="Permanent link">&para;</a></h2>
-<p>型変換を明示的に行うためのキャストです。</p>
+<p>型変換を明示的に行うためのキャストです。必要があれば値を変化させます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dx</span><span class="p">);</span>  <span class="c1">// 3</span>
 </code></pre></div>
@@ -1700,10 +1700,10 @@
 </code></pre></div>
 
 <h2 id="dynamic_cast">dynamic_cast<a class="headerlink" href="#dynamic_cast" title="Permanent link">&para;</a></h2>
-<p>ダウンキャストをする際に、 <code>dynamic_cast</code> を使います。
+<p>一般にダウンキャストをする際に、 <code>dynamic_cast</code> を使います。アップキャストに使うときは <code>static_cast</code> と同じ意味を持ちます。
 <code>dynamic_cast</code> の詳細については <a href="../appendix-downcasts/">ダウンキャスト</a> を参照してください。</p>
 <h2 id="const_cast">const_cast<a class="headerlink" href="#const_cast" title="Permanent link">&para;</a></h2>
-<p>const修飾子を外すことができるキャストです。</p>
+<p>一般にconst修飾子を外すときに用いるキャストです。const修飾を付加するときは <code>static_cast</code> と同じ意味を持ちます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span><span class="p">(</span><span class="s">&quot;hoge&quot;</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">x</span> <span class="o">=</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
 </code></pre></div>
@@ -1711,16 +1711,12 @@
 <p>「オブジェクトに変更を加えないようにする」ために <code>const</code> が付いているにも関わらず、
 <code>const_cast</code> で「オブジェクトに変更を加えられるようにする」ことは望ましくないので、基本的には使いません。</p>
 <h2 id="reinterpret_cast">reinterpret_cast<a class="headerlink" href="#reinterpret_cast" title="Permanent link">&para;</a></h2>
-<p>ポインタの型変換を行うキャストです。</p>
-<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{};</span>
-<span class="k">class</span> <span class="nc">B</span> <span class="p">{};</span>
-
-<span class="n">A</span> <span class="n">a</span><span class="p">;</span>
-<span class="n">B</span><span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">B</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
-</code></pre></div>
-
-<p>変換後の型から変換前の型に戻すことができる点は保証されていますが、
-変換したものが正しく機能するかは実装に依存するため、なるべく <code>reinterpret_cast</code> を使わないようなコードを書くことが望ましいです。</p>
+<p>値はそのまま型情報の変換を行うキャストです。安全に使用するためにはいくつもの落とし穴があります。
+<a href="https://yohhoy.hatenadiary.jp/entry/20120220/p1">Strict Aliasing Rules</a>のようにキャスト単体でみれば問題なくても全体としてみると未定義動作を引き起こすこともあります。
+<code>std::nullptr_t -&gt; T -&gt; std::nullptr_t</code> が反例で、常にA→B→Aというふうに変換できるという保証もありません。
+<code>reinterpret_cast</code> とはこうした未定義動作と未規定の動作などがそこかしこに横たわる魔境といえるでしょう。
+事実として <code>reinterpret_cast</code> の誤った用法をしばしば目にします。先人が書いたコードや解説を信用してはいけません。
+したがってなるべく <code>reinterpret_cast</code> を使わないようなコードを書くことが望ましいです。</p>
 <p><code>reinterpret_cast</code> はバイナリデータの読み書き時に使われることがあります。
 入力ストリームの <code>read()</code> や出力ストリームの <code>write()</code> の第 1 引数のポインタの型が決まっているためです。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
@@ -1739,11 +1735,59 @@
 
     <span class="c1">// 配列の先頭から配列全体のサイズ分をファイルに書き込む</span>
     <span class="c1">// 先頭ポインタはキャストが必要</span>
-<span class="hll">    <span class="n">ofs</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">size</span><span class="p">);</span>
-</span>
+<span class="hll">    <span class="c1">// const char*型への変換はStrict Aliasing Rulesに反しない</span>
+</span>    <span class="n">ofs</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">size</span><span class="p">);</span>
+
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+
+<div class="admonition question">
+<p class="admonition-title">Strict Aliasing Rules</p>
+<p>ポインタがどう使われているかコンパイラが解析することは極めて困難なため、最適化を行いやすくするために定められた規則の一つです。
+もう少し言うとどのようなとき2つの変数が実際には同じメモリ位置を参照するかもしれないと仮定すべきかが定められています。
+特に <code>reinterpret_cast</code> を用いるとき、Strict Aliasing Rulesに十分注意する必要があります。規則に反すれば未定義動作になります。</p>
+<ul>
+<li><a href="https://yohhoy.hatenadiary.jp/entry/20120220/p1">（翻訳）C/C++のStrict Aliasingを理解する または - どうして#$@##@^%コンパイラは僕がしたい事をさせてくれないの！ - yohhoyの日記</a></li>
+<li><a href="https://timsong-cpp.github.io/cppwp/n4861/basic.lval#11">C++20規格書 [basic.lval#11]</a></li>
+</ul>
+<p>このルールの判定は実際にメモリーへのアクセスが行われたタイミングでどう振る舞うかというものであり、単一のキャストだけで判断できるものでは有りません。
+例えば次のコードは、 <code>A</code> と <code>B</code> という全く関係のない型へのポインタを変換しようとしています。しかしキャストしているだけではStrict Aliasing Rulesに反していません
+このあと実際に変数 <code>b</code> にアクセスしたときに違反し、未定義動作となります。</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{};</span>
+<span class="k">class</span> <span class="nc">B</span> <span class="p">{};</span>
+
+<span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+<span class="n">B</span><span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">B</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+
+<p>よくあるStrict Aliasing Rulesを破っているコードの例を示します。これはネットワーク通信などでよく見られるエンディアンを変換しようとするコードです。
+32bitのストレージを16bitごとに区切ってswapしようと試みていますが、未定義動作を踏んでいます。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iomanip&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint32_t</span><span class="p">;</span>
+<span class="k">using</span> <span class="n">std</span><span class="o">::</span><span class="kt">uint16_t</span><span class="p">;</span>
+<span class="kt">uint32_t</span> <span class="nf">swaphalves</span><span class="p">(</span><span class="kt">uint32_t</span> <span class="n">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kt">uint32_t</span> <span class="n">acopy</span><span class="o">=</span><span class="n">a</span><span class="p">;</span>
+    <span class="kt">uint16_t</span> <span class="o">*</span><span class="n">ptr</span><span class="o">=</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">uint16_t</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">acopy</span><span class="p">);</span><span class="c1">// ptrはacopyのaliasにならない</span>
+    <span class="kt">uint16_t</span> <span class="n">tmp</span><span class="o">=</span><span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">ptr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="c1">// Undefined Behavior: ptrへの変更操作があるがaliasではない</span>
+    <span class="n">ptr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">tmp</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">acopy</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kt">uint32_t</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">hex</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setfill</span><span class="p">(</span><span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">swaphalves</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">setw</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Strict Aliasing Rulesを回避するには <code>std::memcpy</code> を用いるかC++20で追加された <a href="https://cpprefjp.github.io/reference/bit/bit_cast.html"><code>std::bit_cast</code></a> を用います</p>
+</div>
                 
               
               

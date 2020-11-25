@@ -907,9 +907,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7.12. 共用体
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" title="7.12. 共用体" class="md-nav__link md-nav__link--active">
       7.12. 共用体
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    実用的な例: JSONのパース
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    アクティブな共用体のメンバ変数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1530,6 +1566,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    実用的な例: JSONのパース
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    アクティブな共用体のメンバ変数
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1549,21 +1607,142 @@
                 
                 
                 <h1 id="_1">共用体<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>共用体は 1 つのポインタを複数の変数で共有できる仕組みのことです。</p>
-<div class="highlight"><pre><span></span><code><span class="k">union</span> <span class="n">Data</span> <span class="p">{</span>
+<p>共用体は複数の型のどれかを格納したい、という場合に用いるものです。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="k">union</span> <span class="n">X</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="n">m1</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">m2</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">m3</span><span class="p">;</span>
+    <span class="n">X</span><span class="p">()</span> <span class="o">:</span> <span class="n">m1</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{}</span>
+    <span class="o">~</span><span class="n">X</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">};</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">destroy_at</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">location</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">location</span><span class="o">-&gt;~</span><span class="n">T</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">X</span> <span class="n">x</span><span class="p">;</span>
+    <span class="k">new</span> <span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">.</span><span class="n">m3</span><span class="p">)</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;aaa&quot;</span><span class="p">);</span>
+    <span class="n">destroy_at</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">.</span><span class="n">m3</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>共用体に暗黙ではない特殊メンバ関数(コンストラクタなど)が定義されているようなクラス型を入れる場合、いくつか注意があります。</p>
+<ul>
+<li>共用体の対応する特殊メンバ関数は削除されるので自力で定義しなければならない</li>
+<li>そのクラス型の値を入れる場合、<a href="https://cpprefjp.github.io/reference/new/op_new.html">配置new</a>という機能を使ってクラスのコンストラクタを呼び出さなければならない。またデストラクタも同様</li>
+</ul>
+<p>デストラクタの呼び出しは上の例では <code>destory_at</code> という関数を定義して行っています。同様の処理をしてくれるものがC++17以降では <code>&lt;memory&gt;</code> ヘッダーに <a href="https://cpprefjp.github.io/reference/memory/destroy_at.html"><code>std::destory_at</code></a> としてあります。</p>
+<p>構造体の大きさがメンバーのすべての型の大きさの総和にパディングなどを足したものであったのに対して、
+共用体ではメンバーの型の大きさの最大値にパディングなどを足したものとなります。
+結果としてメモリーを節約することができるので、複数の型のどれかを格納したいという場合にはよく用いられます。</p>
+<h2 id="json">実用的な例: JSONのパース<a class="headerlink" href="#json" title="Permanent link">&para;</a></h2>
+<p>例えば<a href="https://www.json.org/json-en.html">JSON</a>をパースすることを考えます。
+JSONの値はオブジェクト、配列、文字列、数値、bool、nullを持つことができます。
+とりあえず最もわかりやすく表現するデータ構造を考えると次のようになります。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;map&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">destroy_at</span><span class="p">(</span><span class="n">T</span><span class="o">*</span> <span class="n">location</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">location</span><span class="o">-&gt;~</span><span class="n">T</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="n">value</span> <span class="p">{</span>
+    <span class="k">enum</span> <span class="k">class</span> <span class="nc">kind</span> <span class="p">{</span>
+        <span class="n">null</span><span class="p">,</span>
+        <span class="n">object</span><span class="p">,</span>
+        <span class="n">array</span><span class="p">,</span>
+        <span class="n">string</span><span class="p">,</span>
+        <span class="n">number</span><span class="p">,</span>
+        <span class="n">boolean</span>
+    <span class="p">};</span>
+    <span class="n">kind</span> <span class="n">k_</span><span class="p">;</span>
+    <span class="k">union</span> <span class="n">data</span> <span class="p">{</span>
+        <span class="kt">bool</span> <span class="n">b_</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">num_</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str_</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">value</span><span class="o">&gt;</span> <span class="n">arr_</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="n">value</span><span class="o">&gt;</span> <span class="n">obj_</span><span class="p">;</span>
+        <span class="n">data</span><span class="p">()</span> <span class="o">:</span> <span class="n">b_</span><span class="p">{}</span> <span class="p">{}</span>
+        <span class="o">~</span><span class="n">data</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="p">}</span> <span class="n">data_</span><span class="p">;</span>
+    <span class="n">value</span><span class="p">()</span>  <span class="o">:</span> <span class="n">k_</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="n">value</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> <span class="o">:</span> <span class="n">k_</span><span class="p">(</span><span class="n">kind</span><span class="o">::</span><span class="n">string</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data_</span><span class="p">.</span><span class="n">str_</span><span class="p">)</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="o">~</span><span class="n">value</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">switch</span><span class="p">(</span><span class="n">k_</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">kind</span><span class="o">::</span><span class="nl">object</span><span class="p">:</span>
+            <span class="n">destroy_at</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data_</span><span class="p">.</span><span class="n">obj_</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">kind</span><span class="o">::</span><span class="nl">array</span><span class="p">:</span>
+            <span class="n">destroy_at</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data_</span><span class="p">.</span><span class="n">arr_</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="n">kind</span><span class="o">::</span><span class="nl">string</span><span class="p">:</span>
+            <span class="n">destroy_at</span><span class="p">(</span><span class="o">&amp;</span><span class="n">data_</span><span class="p">.</span><span class="n">str_</span><span class="p">);</span> <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">kind</span> <span class="n">get_kind</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="n">k_</span><span class="p">;</span> <span class="p">}</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">get_string_or</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">default_value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">k_</span> <span class="o">==</span> <span class="n">kind</span><span class="o">::</span><span class="n">string</span><span class="p">)</span> <span class="o">?</span> <span class="n">data_</span><span class="p">.</span><span class="nl">str_</span> <span class="p">:</span> <span class="n">default_value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">value</span> <span class="n">v1</span><span class="p">;</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n">get_kind</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="n">v2</span><span class="p">.</span><span class="n">get_string_or</span><span class="p">(</span><span class="s">&quot;bbb&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+    <span class="n">value</span> <span class="n">v2</span><span class="p">(</span><span class="s">&quot;aaa&quot;</span><span class="p">);</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">v2</span><span class="p">.</span><span class="n">get_kind</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="n">v2</span><span class="p">.</span><span class="n">get_string_or</span><span class="p">(</span><span class="s">&quot;bbb&quot;</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>共用体にどんなデータが入っているかを別途変数で持っておき、読み出す時に条件分岐して処理するというのが一般的な扱いです。上の例では <code>value</code> クラスの中に <code>kind</code> という列挙型を定義してその型の変数 <code>k_</code> も定義しました。この <code>k_</code> に今なんのデータが共用体に入っているかを記録し、共用体にアクセスするときはこの <code>k_</code> を確認してからアクセスします。</p>
+<h2 id="_2">アクティブな共用体のメンバ変数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>共用体のあるメンバ変数にデータを入れたとき、そのメンバ変数の寿命が開始しアクティブになります。</p>
+<p>別のメンバ変数にデータを入れるとそれまでアクティブだったメンバー変数の寿命が尽き、新たにデータが入ったメンバー変数の寿命が開始しアクティブになります。</p>
+<p>アクティブになることができるメンバ変数は最大で1つまでです。</p>
+<div class="highlight"><pre><span></span><code><span class="k">union</span> <span class="n">A</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="kt">int</span> <span class="n">y</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="p">};</span>
+<span class="k">struct</span> <span class="n">B</span> <span class="p">{</span> <span class="n">A</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">union</span> <span class="n">C</span> <span class="p">{</span> <span class="n">B</span> <span class="n">b</span><span class="p">;</span> <span class="kt">int</span> <span class="n">k</span><span class="p">;</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="nf">f</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">C</span> <span class="n">c</span><span class="p">;</span>                  <span class="c1">// どの共用体のメンバの寿命も開始しない</span>
+  <span class="n">c</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>       <span class="c1">// OK: c.bとc.b.a.yの寿命が開始してオブジェクトが作られる</span>
+  <span class="k">return</span> <span class="n">c</span><span class="p">.</span><span class="n">b</span><span class="p">.</span><span class="n">a</span><span class="p">.</span><span class="n">y</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>    <span class="c1">// OK: c.b.a.yは作られたオブジェクトを指す</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="n">X</span> <span class="p">{</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span> <span class="kt">int</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>
+<span class="k">union</span> <span class="n">Y</span> <span class="p">{</span> <span class="n">X</span> <span class="n">x</span><span class="p">;</span> <span class="kt">int</span> <span class="n">k</span><span class="p">;</span> <span class="p">};</span>
+<span class="kt">int</span> <span class="nf">g</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Y</span> <span class="n">y</span> <span class="o">=</span> <span class="p">{</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">};</span>   <span class="c1">// OK: y.x はアクティブな共用体のメンバ</span>
+  <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">;</span>
+  <span class="n">y</span><span class="p">.</span><span class="n">k</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>              <span class="c1">// OK: y.xの寿命が尽き、y.kの寿命が開始、y.kはアクティブな共用体のメンバ</span>
+  <span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="p">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>            <span class="c1">// undefined behavior: Xのデフォルトコンストラクタは削除されています</span>
+                        <span class="c1">// したがってy.xの寿命は暗黙のうちに開始できません</span>
+<span class="p">}</span>
+<span class="k">union</span> <span class="n">Z</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">int_value</span><span class="p">;</span>
     <span class="kt">char</span> <span class="n">char_value</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
 <span class="p">};</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">f</span><span class="p">();</span>
+    <span class="n">g</span><span class="p">();</span>
+    <span class="n">Z</span> <span class="n">z</span><span class="p">;</span><span class="c1">// どの共用体のメンバの寿命も開始しない</span>
+    <span class="n">z</span><span class="p">.</span><span class="n">int_value</span> <span class="o">=</span> <span class="mi">65535</span><span class="p">;</span><span class="c1">// OK: z.int_valueの寿命が開始してオブジェクトが作られる</span>
+    <span class="n">z</span><span class="p">.</span><span class="n">char_value</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>    <span class="c1">// NG: z.char_valueの寿命は開始していない</span>
+<span class="p">}</span>
 </code></pre></div>
 
-<p>上記の定義は構造体とよく似ていますが、<code>int_value</code> と <code>char_value</code> のポインタは同じになっており、片方の変数に代入すればもう片方の変数も値が変化します。</p>
-<div class="highlight"><pre><span></span><code><span class="n">Data</span> <span class="n">data</span><span class="p">;</span>
-<span class="n">data</span><span class="p">.</span><span class="n">int_value</span> <span class="o">=</span> <span class="mi">65535</span><span class="p">;</span>
-<span class="n">data</span><span class="p">.</span><span class="n">char_value</span><span class="p">;</span>    <span class="c1">// {-1, -1, 0, 0}</span>
-</code></pre></div>
-
-<p>上記の例だと <code>int_value</code> に代入したことで <code>char_value</code> の値も変化しています。</p>
-<p>共用体は <a href="../ch08-01-cpp-casts/#reinterpret_cast">reinterpret_cast</a> の代替として使うことができるので、こちらの説明も合わせて参考にしてください。</p>
+<div class="admonition error">
+<p class="admonition-title">C++には存在しないtrap representation</p>
+<p>C言語のC99以降にはtrap representationと言われる仕様があります。上の例でいう共用体 <code>Z</code> をみたとき、 <code>z.char_value[0]</code> のようなアクセスをすると新しい型のオブジェクト表現として再解釈されるというものです。しかしながらC++には存在しません。よくある誤りなので、共用体に値を入れたらその入れたものからだけ読み取るように注意しましょう。</p>
+</div>
                 
               
               

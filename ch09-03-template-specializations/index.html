@@ -1656,9 +1656,10 @@
 
 </div>
 </div>
-<details class="question"><summary>テンプレートの明示的インスタンス化</summary><p>テンプレートを使用する箇所で関数やクラスを生成する代わりに、
-ソースファイルで明示的に関数やクラスを生成することで
-ヘッダファイルでは宣言だけ行うことは可能ではあります。</p>
+<details class="question"><summary>テンプレートの明示的インスタンス化とextern template</summary><p>ヘッダーファイルなどのテンプレートを使用する箇所で関数やクラスを生成すると、
+コンパイル速度が低下してしまいます。
+ヘッダファイルでは宣言だけ行い、ソースファイルで明示的に関数やクラスを生成することで
+予めtenmplateを実体化できるのでコンパイル速度が向上します。</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">sum.h</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="cp">#ifndef SUM_H_</span>
 <span class="cp">#define SUM_H_</span>
@@ -1685,20 +1686,26 @@
 
 </div>
 </div>
-<p>こうした構成にするとヘッダファイルでテンプレートが提供されていても
-使用可能な型はソースファイルで明示的な生成を行う型のみとなってしまいます。
+<p>こうした構成にすると使用可能な型はソースファイルで明示的な生成を行う型のみとなってしまいます。
 たとえば <code>Sum&lt;double&gt;(double, double)</code> は生成されていないため
-<code>Sum(1.2, 3.4)</code> のように関数テンプレートの関数を呼び出すとリンクエラーになります。</p>
-<p>こうした問題を避けるためには、
-ヘッダファイルでは関数テンプレートをやめてオーバーロードされた関数を提供し、
-ソースファイルで関数テンプレートを使用します。</p>
+<code>Sum(1.2, 3.4)</code> のように関数テンプレートの関数を呼び出すとリンクエラーになります。
+かといって明示的なインスタンス化を増やしていくと、それを共有ライブラリにすることを考えた場合、
+ライブラリサイズが肥大化してしまいます。</p>
+<p>こうした問題を避けるためには、extern templateを利用します。
+通常通りヘッダファイルでtemplate関数/クラスの定義を行うのですが
+実体化する頻度が高いものだけをexternし、ソースファイルで実体化させます</p>
 <div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">sum.h</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="cp">#ifndef SUM_H_</span>
 <span class="cp">#define SUM_H_</span>
 
-<span class="kt">int</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">);</span>
-<span class="kt">double</span> <span class="nf">Sum</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">);</span>
+<span class="c1">// 関数テンプレートの定義</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="n">T</span> <span class="n">Sum</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+<span class="p">}</span>
 
+<span class="c1">//暗黙的実体化を阻止</span>
+<span class="k">extern</span> <span class="k">template</span> <span class="kt">int</span> <span class="n">Sum</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
 <span class="cp">#endif  </span><span class="c1">// SUM_H_</span>
 </code></pre></div>
 
@@ -1706,19 +1713,8 @@
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">sum.cc</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;sum.h&quot;</span><span class="cp"></span>
 
-<span class="c1">// 実装に関数テンプレートを使用</span>
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
-<span class="n">T</span> <span class="n">SumImpl</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">T</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="n">Sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">SumImpl</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kt">double</span> <span class="n">Sum</span><span class="p">(</span><span class="kt">double</span> <span class="n">a</span><span class="p">,</span> <span class="kt">double</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">SumImpl</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="c1">//よく使うものだけ実体化させる</span>
+<span class="k">template</span> <span class="kt">int</span> <span class="n">Sum</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
 </code></pre></div>
 
 </div>

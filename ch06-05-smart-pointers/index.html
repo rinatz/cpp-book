@@ -774,13 +774,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stdweak_ptr" class="md-nav__link">
-    std::weak_ptr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#stdunique_ptr" class="md-nav__link">
     std::unique_ptr
   </a>
@@ -790,6 +783,13 @@
         <li class="md-nav__item">
   <a href="#stdauto_ptr" class="md-nav__link">
     std::auto_ptr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdweak_ptr" class="md-nav__link">
+    std::weak_ptr
   </a>
   
 </li>
@@ -1608,13 +1608,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stdweak_ptr" class="md-nav__link">
-    std::weak_ptr
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#stdunique_ptr" class="md-nav__link">
     std::unique_ptr
   </a>
@@ -1624,6 +1617,13 @@
         <li class="md-nav__item">
   <a href="#stdauto_ptr" class="md-nav__link">
     std::auto_ptr
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stdweak_ptr" class="md-nav__link">
+    std::weak_ptr
   </a>
   
 </li>
@@ -1687,8 +1687,42 @@
 <span class="p">}</span> <span class="c1">// 所有者が0人になるので、 x のデストラクタで自動的に delete が行われる。</span>
 </code></pre></div>
 
+<h2 id="stdunique_ptr">std::unique_ptr<a class="headerlink" href="#stdunique_ptr" title="Permanent link">&para;</a></h2>
+<p><code>std::unique_ptr</code> は、 <code>std::shared_ptr</code> と違い、コピーが出来ません。
+そのため、確保したリソースの所有者が常に1人になります。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+    <span class="c1">// std::unique_ptr&lt;int&gt; y = x; // コピー出来ない。コンパイルエラー。</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// x が所有しているリソースが解放される。</span>
+</code></pre></div>
+
+<p>所有権の共有はできませんが、<code>std::move</code> を使うことで所有権の移動は出来ます。このことで <code>std::shared_ptr</code> よりも軽快に動作します。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">));</span> <span class="c1">// ムーブは出来るため、所有権の移動は可能。</span>
+                                          <span class="c1">// 所有権を移動したため、x は何も所有していない。</span>
+
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// y が所有しているリソースが解放される。</span>
+</code></pre></div>
+
+<h2 id="stdauto_ptr">std::auto_ptr<a class="headerlink" href="#stdauto_ptr" title="Permanent link">&para;</a></h2>
+<p><code>std::auto_ptr</code> は C++11 では非推奨となっており C++17 では削除されているため使用しないでください。</p>
+<p>詳細は <a href="https://ja.cppreference.com/w/cpp/memory/auto_ptr">std::auto_ptr - cppreference.com</a> を参照してください。</p>
 <h2 id="stdweak_ptr">std::weak_ptr<a class="headerlink" href="#stdweak_ptr" title="Permanent link">&para;</a></h2>
-<p><code>std::shared_ptr</code> のリソースの所有権を持つことなく、
+<p><code>std::weak_ptr</code> は普段使うことは有りませんが、 <code>std::shared_ptr</code> を使う時に循環参照するような場合で <code>std::shared_ptr</code> のリソースの所有権を持つことなく、
 そのリソースを監視する（弱参照）ことが出来るスマートポインタとして <code>std::weak_ptr</code> があります。
 <code>lock()</code> を使うことで、監視している <code>std::shared_ptr</code> のリソースが有効な場合、
 監視先とリソースを共有する <code>std::shared_ptr</code> が取得できます。</p>
@@ -1709,41 +1743,6 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-
-<h2 id="stdunique_ptr">std::unique_ptr<a class="headerlink" href="#stdunique_ptr" title="Permanent link">&para;</a></h2>
-<p><code>std::unique_ptr</code> は、 <code>std::shared_ptr</code> と違い、コピーが出来ません。
-そのため、確保したリソースの所有者が常に1人になります。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
-    <span class="c1">// std::unique_ptr&lt;int&gt; y = x; // コピー出来ない。コンパイルエラー。</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span> <span class="c1">// x が所有しているリソースが解放される。</span>
-</code></pre></div>
-
-<p>所有権の共有はできませんが、<code>std::move</code> を使うことで所有権の移動は出来ます。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-<span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span><span class="p">(</span><span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">100</span><span class="p">));</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">y</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">));</span> <span class="c1">// ムーブは出来るため、所有権の移動は可能。</span>
-                                          <span class="c1">// 所有権を移動したため、x は何も所有していない。</span>
-
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">y</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span> <span class="c1">// y が所有しているリソースが解放される。</span>
-</code></pre></div>
-
-<h2 id="stdauto_ptr">std::auto_ptr<a class="headerlink" href="#stdauto_ptr" title="Permanent link">&para;</a></h2>
-<p><code>std::auto_ptr</code> は C++11 では非推奨となっており C++17 では削除されているため使用しないでください。</p>
-<p>詳細は <a href="https://ja.cppreference.com/w/cpp/memory/auto_ptr">std::auto_ptr - cppreference.com</a> を参照してください。</p>
                 
               
               
