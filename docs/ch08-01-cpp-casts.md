@@ -58,7 +58,7 @@ Square square = static_cast<Square>(10);
 
 ## dynamic_cast
 
-ダウンキャストをする際に、 `dynamic_cast` を使います。
+一般にダウンキャストをする際に、 `dynamic_cast` を使います。アップキャストに使うときは `static_cast` と同じ意味を持ちます。
 `dynamic_cast` の詳細については [ダウンキャスト][downcasts] を参照してください。
 
 [downcasts]: appendix-downcasts.md
