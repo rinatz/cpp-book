@@ -56,10 +56,11 @@ int Sum(int a, int b) {
     }
     ```
 
-??? question "テンプレートの明示的インスタンス化"
-    テンプレートを使用する箇所で関数やクラスを生成する代わりに、
-    ソースファイルで明示的に関数やクラスを生成することで
-    ヘッダファイルでは宣言だけ行うことは可能ではあります。
+??? question "テンプレートの明示的インスタンス化とextern template"
+    ヘッダーファイルなどのテンプレートを使用する箇所で関数やクラスを生成すると、
+    コンパイル速度が低下してしまいます。
+    ヘッダファイルでは宣言だけ行い、ソースファイルで明示的に関数やクラスを生成することで
+    予めtenmplateを実体化できるのでコンパイル速度が向上します。
 
     === "sum.h"
 
@@ -88,14 +89,15 @@ int Sum(int a, int b) {
         template int Sum<int>(int, int);
         ```
 
-    こうした構成にするとヘッダファイルでテンプレートが提供されていても
-    使用可能な型はソースファイルで明示的な生成を行う型のみとなってしまいます。
+    こうした構成にすると使用可能な型はソースファイルで明示的な生成を行う型のみとなってしまいます。
     たとえば `Sum<double>(double, double)` は生成されていないため
     `Sum(1.2, 3.4)` のように関数テンプレートの関数を呼び出すとリンクエラーになります。
+    かといって明示的なインスタンス化を増やしていくと、それを共有ライブラリにすることを考えた場合、
+    ライブラリサイズが肥大化してしまいます。
 
-    こうした問題を避けるためには、
-    ヘッダファイルでは関数テンプレートをやめてオーバーロードされた関数を提供し、
-    ソースファイルで関数テンプレートを使用します。
+    こうした問題を避けるためには、extern templateを利用します。
+    通常通りヘッダファイルでtemplate関数/クラスの定義を行うのですが
+    実体化する頻度が高いものだけをexternし、ソースファイルで実体化させます
 
     === "sum.h"
 
@@ -103,9 +105,14 @@ int Sum(int a, int b) {
         #ifndef SUM_H_
         #define SUM_H_
 
-        int Sum(int a, int b);
-        double Sum(double a, double b);
+        // 関数テンプレートの定義
+        template <typename T>
+        T Sum(T a, T b) {
+            return a + b;
+        }
 
+        //暗黙的実体化を阻止
+        extern template int Sum<int>(int, int);
         #endif  // SUM_H_
         ```
 
@@ -114,19 +121,8 @@ int Sum(int a, int b) {
         ```cpp
         #include "sum.h"
 
-        // 実装に関数テンプレートを使用
-        template <typename T>
-        T SumImpl(T a, T b) {
-            return a + b;
-        }
-
-        int Sum(int a, int b) {
-            return SumImpl(a, b);
-        }
-
-        double Sum(double a, double b) {
-            return SumImpl(a, b);
-        }
+        //よく使うものだけ実体化させる
+        template int Sum<int>(int, int);
         ```
 
 ## 完全特殊化
