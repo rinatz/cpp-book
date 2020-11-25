@@ -48,32 +48,6 @@ int main() {
 } // 所有者が0人になるので、 x のデストラクタで自動的に delete が行われる。
 ```
 
-## std::weak_ptr
-
-`std::shared_ptr` のリソースの所有権を持つことなく、
-そのリソースを監視する（弱参照）ことが出来るスマートポインタとして `std::weak_ptr` があります。
-`lock()` を使うことで、監視している `std::shared_ptr` のリソースが有効な場合、
-監視先とリソースを共有する `std::shared_ptr` が取得できます。
-
-```cpp
-#include <iostream>
-#include <memory>
-
-int main() {
-    std::shared_ptr<int> sp = std::make_shared<int>(246);
-    std::weak_ptr<int> wp = sp; // sp を監視対象として wp に登録する
-
-    std::shared_ptr<int> sp2 = wp.lock(); // 有効な場合は sp とリソースを共有する sp2 が作られる
-    if (sp2) {
-        std::cout << *sp2 << std::endl;
-    } else {
-        std::cout << "リソースは解放済み" << std::endl;
-    }
-
-    return 0;
-}
-```
-
 ## std::unique_ptr
 
 `std::unique_ptr` は、 `std::shared_ptr` と違い、コピーが出来ません。
@@ -93,7 +67,7 @@ int main() {
 } // x が所有しているリソースが解放される。
 ```
 
-所有権の共有はできませんが、`std::move` を使うことで所有権の移動は出来ます。
+所有権の共有はできませんが、`std::move` を使うことで所有権の移動は出来ます。このことで `std::shared_ptr` よりも軽快に動作します。
 
 ```cpp
 #include <iostream>
@@ -117,3 +91,30 @@ int main() {
 詳細は [std::auto_ptr - cppreference.com][cppreference_auto_ptr] を参照してください。
 
 [cppreference_auto_ptr]: https://ja.cppreference.com/w/cpp/memory/auto_ptr
+
+
+## std::weak_ptr
+
+`std::weak_ptr` は普段使うことは有りませんが、 `std::shared_ptr` を使う時に循環参照するような場合で `std::shared_ptr` のリソースの所有権を持つことなく、
+そのリソースを監視する（弱参照）ことが出来るスマートポインタとして `std::weak_ptr` があります。
+`lock()` を使うことで、監視している `std::shared_ptr` のリソースが有効な場合、
+監視先とリソースを共有する `std::shared_ptr` が取得できます。
+
+```cpp
+#include <iostream>
+#include <memory>
+
+int main() {
+    std::shared_ptr<int> sp = std::make_shared<int>(246);
+    std::weak_ptr<int> wp = sp; // sp を監視対象として wp に登録する
+
+    std::shared_ptr<int> sp2 = wp.lock(); // 有効な場合は sp とリソースを共有する sp2 が作られる
+    if (sp2) {
+        std::cout << *sp2 << std::endl;
+    } else {
+        std::cout << "リソースは解放済み" << std::endl;
+    }
+
+    return 0;
+}
+```
