@@ -106,8 +106,58 @@ int main() {
 
     // 配列の先頭から配列全体のサイズ分をファイルに書き込む
     // 先頭ポインタはキャストが必要
+    // const char*型への変換はStrict Aliasing Rulesに反しない
     ofs.write(reinterpret_cast<const char *>(nums.data()), size);
 
     return 0;
 }
 ```
+
+!!! question "Strict Aliasing Rules"
+    ポインタがどう使われているかコンパイラが解析することは極めて困難なため、最適化を行いやすくするために定められた規則の一つです。
+    もう少し言うとどのようなとき2つの変数が実際には同じメモリ位置を参照するかもしれないと仮定すべきかが定められています。
+    特に `reinterpret_cast` を用いるとき、Strict Aliasing Rulesに十分注意する必要があります。規則に反すれば未定義動作になります。
+
+    - [（翻訳）C/C++のStrict Aliasingを理解する または - どうして#$@##@^%コンパイラは僕がしたい事をさせてくれないの！ - yohhoyの日記](https://yohhoy.hatenadiary.jp/entry/20120220/p1)
+    - [C++20規格書 [basic.lval#11]](https://timsong-cpp.github.io/cppwp/n4861/basic.lval#11)
+
+    このルールの判定は実際にメモリーへのアクセスが行われたタイミングでどう振る舞うかというものであり、単一のキャストだけで判断できるものでは有りません。
+    例えば次のコードは、 `A` と `B` という全く関係のない型へのポインタを変換しようとしています。しかしキャストしているだけではStrict Aliasing Rulesに反していません
+    このあと実際に変数 `b` にアクセスしたときに違反し、未定義動作となります。
+
+    ```cpp
+    class A {};
+    class B {};
+
+    A a;
+    B* b = reinterpret_cast<B*>(&a);
+    ```
+
+    よくあるStrict Aliasing Rulesを破っているコードの例を示します。これはネットワーク通信などでよく見られるエンディアンを変換しようとするコードです。
+    32bitのストレージを16bitごとに区切ってswapしようと試みていますが、未定義動作を踏んでいます。
+
+    ```cpp
+    #include <cstdint>
+    #include <iostream>
+    #include <iomanip>
+    using std::uint32_t;
+    using std::uint16_t;
+    uint32_t swaphalves(uint32_t a) {
+        uint32_t acopy=a;
+        uint16_t *ptr=reinterpret_cast<uint16_t*>(&acopy);// ptrはacopyのaliasにならない
+        uint16_t tmp=ptr[0];
+        ptr[0]=ptr[1];// Undefined Behavior: ptrへの変更操作があるがaliasではない
+        ptr[1]=tmp;
+        return acopy;
+    }
+
+    int main()
+    {
+        uint32_t a = 32;
+        std::cout << std::hex << std::setfill('0') << std::setw(8) << a << std::endl;
+        a = swaphalves(a);
+        std::cout << std::setw(8) << a << std::endl;
+    }
+    ```
+
+    Strict Aliasing Rulesを回避するには `std::memcpy` を用いるかC++20で追加された [`std::bit_cast`](https://cpprefjp.github.io/reference/bit/bit_cast.html) を用います
