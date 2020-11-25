@@ -57,30 +57,7 @@ int main() {
 
 ## デストラクタから例外を投げてはいけない
 
-```cpp
-#include <stdexcept>
-#include <iostream>
-class bad {
-public:
-    ~bad() {
-        throw std::runtime_error("bad");
-    }
-};
-int main(){
-    try {
-        bad b;
-        throw std::runtime_error("foo");
-    }
-    catch(const std::exception& er) {
-        std::cerr << er.what() << std::endl;
-    }
-}
-```
-
-上のコードをC++03としてコンパイルすると、 `try` ～ `catch` 文で囲っているにも関わらずデストラクタからの例外が捕捉されません。
-これは `try` 文内の `throw std::runtime_error("foo");` によって `try` 文を抜ける時に、変数 `b` を破棄するためにデストラクタを呼び出すが、そのデストラクタが例外を投げてしまうために `catch` 文に行くことがないからです。
-
-これを防ぐためにデストラクタからは例外を投げてはいけません。C++11からはデストラクタは暗黙のうちに `noexcept` 指定されます。このためデストラクタから例外を投げた時点で `std::terminate()` 関数が呼び出されてプログラムは異常終了します。
+C++11からはデストラクタは暗黙のうちに `noexcept` 指定されます。したがってデストラクタから例外を投げてはいけません。詳しくは[例外の解説](ch10-01-exceptions.md)を参照してください。
 
 ## RAII(Resource Acquisition Is Initialization)
 
