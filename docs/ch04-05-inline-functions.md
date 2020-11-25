@@ -108,7 +108,7 @@ inline 関数は定義が同一である場合に限って、
     }
     ```
 
-??? question "lnlineとインライン展開"
+??? question "inlineとインライン展開"
     しばしば `inline` 指定を関数につけるのは「関数を強制的に[インライン展開]させるための機能」と誤解されていますが誤りです。
     [インライン展開]: https://github.com/EzoeRyou/cpp17book/blob/master/035-cpp17-core-inline-variables.md
     現代のコンパイラは十分に賢いので、 `inline` はインライン展開と関係が無くなっています。
