@@ -36,6 +36,13 @@ x.emplace_back(5);
 auto size2 = x.size();  // 6
 ```
 
+!!! question "emplace_backとpush_back"
+    C++11より前は `push_back` という関数のみが末尾への要素追加を担っていました。
+    C++11で追加された `emplace_back` は要素型のコンストラクタに直接引数を渡すことができるので
+    `push_back` と同じかそれ以上のパフォーマンスを得られます。
+    多くの処理系では `push_back` を実装するのに `emplace_back` を呼び出していますから
+    現代において `push_back` を使うべき理由は存在しません。
+
 ## 末尾から要素削除
 
 `x.pop_back()` とすると末尾から要素を削除することができます。
