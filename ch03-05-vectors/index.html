@@ -1652,16 +1652,24 @@
 </code></pre></div>
 
 <h2 id="_2">末尾へ要素追加<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>x.push_back()</code> とすると末尾へ要素を追加することができます。</p>
+<p><code>x.emplace_back()</code> とすると末尾へ要素を追加することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
 <span class="k">auto</span> <span class="n">size1</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 5</span>
 
-<span class="n">x</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="n">x</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <span class="k">auto</span> <span class="n">size2</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 6</span>
 </code></pre></div>
 
+<div class="admonition question">
+<p class="admonition-title">emplace_backとpush_back</p>
+<p>C++11より前は <code>push_back</code> という関数のみが末尾への要素追加を担っていました。
+C++11で追加された <code>emplace_back</code> は要素型のコンストラクタに直接引数を渡すことができるので
+<code>push_back</code> と同じかそれ以上のパフォーマンスを得られます。
+多くの処理系では <code>push_back</code> を実装するのに <code>emplace_back</code> を呼び出していますから
+現代において <code>push_back</code> を使うべき理由は存在しません。</p>
+</div>
 <h2 id="_3">末尾から要素削除<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>x.pop_back()</code> とすると末尾から要素を削除することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
