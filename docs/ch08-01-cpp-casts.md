@@ -65,7 +65,7 @@ Square square = static_cast<Square>(10);
 
 ## const_cast
 
-const修飾子を外すことができるキャストです。
+一般にconst修飾子を外すときに用いるキャストです。const修飾を付加するときは `static_cast` と同じ意味を持ちます。
 
 ```cpp
 const std::string str("hoge");
