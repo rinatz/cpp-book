@@ -216,7 +216,7 @@ class Array<bool> {
     その場合はSFINAE(Substitution Failure Is Not An Error)を利用した書き方をします
     
     ```cpp
-    tempalte<bool cond, typename T>
+    template <bool cond, typename T>
     using enable_if_t = typename std::enable_if<cond, T>::type;
     template <typename T, enable_if_t<(なんか条件式), std::nullptr_t> = nullptr>
     void foo(T t) {}
