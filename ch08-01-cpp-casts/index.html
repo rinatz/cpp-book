@@ -1735,24 +1735,22 @@
 
     <span class="c1">// 配列の先頭から配列全体のサイズ分をファイルに書き込む</span>
     <span class="c1">// 先頭ポインタはキャストが必要</span>
-<span class="hll">    <span class="c1">// const char*型への変換はStrict Aliasing Rulesに反しない</span>
-</span>    <span class="n">ofs</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">size</span><span class="p">);</span>
-
+    <span class="c1">// const char*型への変換はStrict Aliasing Rulesに反しない</span>
+<span class="hll">    <span class="n">ofs</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*&gt;</span><span class="p">(</span><span class="n">nums</span><span class="p">.</span><span class="n">data</span><span class="p">()),</span> <span class="n">size</span><span class="p">);</span>
+</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="admonition question">
-<p class="admonition-title">Strict Aliasing Rules</p>
-<p>ポインタがどう使われているかコンパイラが解析することは極めて困難なため、最適化を行いやすくするために定められた規則の一つです。
-もう少し言うとどのようなとき2つの変数が実際には同じメモリ位置を参照するかもしれないと仮定すべきかが定められています。
+<details class="question"><summary>Strict Aliasing Rules</summary><p>ポインタがどう使われているかコンパイラが解析することは極めて困難なため、最適化を行いやすくするために定められた規則の一つです。<br />
+もう少し言うとどのようなとき2つの変数が実際には同じメモリ位置を参照するかもしれないと仮定すべきかが定められています。<br />
 特に <code>reinterpret_cast</code> を用いるとき、Strict Aliasing Rulesに十分注意する必要があります。規則に反すれば未定義動作になります。</p>
 <ul>
 <li><a href="https://yohhoy.hatenadiary.jp/entry/20120220/p1">（翻訳）C/C++のStrict Aliasingを理解する または - どうして#$@##@^%コンパイラは僕がしたい事をさせてくれないの！ - yohhoyの日記</a></li>
 <li><a href="https://timsong-cpp.github.io/cppwp/n4861/basic.lval#11">C++20規格書 [basic.lval#11]</a></li>
 </ul>
-<p>このルールの判定は実際にメモリーへのアクセスが行われたタイミングでどう振る舞うかというものであり、単一のキャストだけで判断できるものでは有りません。
-例えば次のコードは、 <code>A</code> と <code>B</code> という全く関係のない型へのポインタを変換しようとしています。しかしキャストしているだけではStrict Aliasing Rulesに反していません
+<p>このルールの判定は実際にメモリーへのアクセスが行われたタイミングでどう振る舞うかというものであり、単一のキャストだけで判断できるものでは有りません。<br />
+例えば次のコードは、 <code>A</code> と <code>B</code> という全く関係のない型へのポインタを変換しようとしています。しかしキャストしているだけではStrict Aliasing Rulesに反していません<br />
 このあと実際に変数 <code>b</code> にアクセスしたときに違反し、未定義動作となります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span> <span class="p">{};</span>
 <span class="k">class</span> <span class="nc">B</span> <span class="p">{};</span>
@@ -1761,7 +1759,7 @@
 <span class="n">B</span><span class="o">*</span> <span class="n">b</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="n">B</span><span class="o">*&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span>
 </code></pre></div>
 
-<p>よくあるStrict Aliasing Rulesを破っているコードの例を示します。これはネットワーク通信などでよく見られるエンディアンを変換しようとするコードです。
+<p>よくあるStrict Aliasing Rulesを破っているコードの例を示します。これはネットワーク通信などでよく見られるエンディアンを変換しようとするコードです。<br />
 32bitのストレージを16bitごとに区切ってswapしようと試みていますが、未定義動作を踏んでいます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;cstdint&gt;</span><span class="cp"></span>
 <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1787,7 +1785,7 @@
 </code></pre></div>
 
 <p>Strict Aliasing Rulesを回避するには <code>std::memcpy</code> を用いるかC++20で追加された <a href="https://cpprefjp.github.io/reference/bit/bit_cast.html"><code>std::bit_cast</code></a> を用います</p>
-</div>
+</details>
                 
               
               
