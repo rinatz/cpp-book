@@ -311,8 +311,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch02-04-pointers/" title="2.4. ポインタ" class="md-nav__link">
-      2.4. ポインタ
+    <a href="../ch02-04-pointers-and-references/" title="2.4. ポインタと参照" class="md-nav__link">
+      2.4. ポインタと参照
     </a>
   </li>
 
@@ -1608,16 +1608,7 @@
                 
                 <h1 id="for">範囲 for<a class="headerlink" href="#for" title="Permanent link">&para;</a></h1>
 <h2 id="_1">コンテナ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>イテレータを使用できるコンテナでは、
-コンテナのループを次のように書くことができます。</p>
-<div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>以下のように書いた場合と同じ挙動になります。</p>
+<p>イテレータを使ったコンテナのループ</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">x</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span>
@@ -1625,20 +1616,20 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<h2 id="_2">配列<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>配列のループを次のように書くことができます。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
-
-<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+<p>は範囲 for 文という構文を使って下記の様によりシンプルに書くことが出来ます。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>以下のように書いた場合と同じ挙動になります。</p>
+<p><code>&amp;&amp;</code> という記法については <a href="../ch06-04-move-semantics/#_4">6.4. ムーブセマンティクス</a> の章で説明しますので、
+今はおまじないだと思って下さい。</p>
+<h2 id="_2">配列<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>配列に対しても範囲 for 文は使用できます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
 
-<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;&amp;</span> <span class="nl">e</span> <span class="p">:</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
                 

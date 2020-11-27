@@ -11,7 +11,7 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-04-pointers/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-04-pointers-and-references/">
       
       
         <meta name="author" content="IDA Kenichiro, KAMEI Shogo, KUBO Koki">
@@ -21,7 +21,7 @@
     
     
       
-        <title>2.4. ポインタ - ゼロから学ぶ C++</title>
+        <title>2.4. ポインタと参照 - ゼロから学ぶ C++</title>
       
     
     
@@ -93,7 +93,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.4. ポインタ
+              2.4. ポインタと参照
             
           </span>
         </div>
@@ -322,12 +322,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.4. ポインタ
+        2.4. ポインタと参照
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="2.4. ポインタ" class="md-nav__link md-nav__link--active">
-      2.4. ポインタ
+    <a href="./" title="2.4. ポインタと参照" class="md-nav__link md-nav__link--active">
+      2.4. ポインタと参照
     </a>
     
       
@@ -344,6 +344,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ポインタ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nullptr" class="md-nav__link">
     nullptr
   </a>
@@ -351,7 +358,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     デリファレンス（逆参照）
   </a>
   
@@ -365,7 +372,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     参照
   </a>
   
@@ -1587,6 +1594,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    ポインタ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#nullptr" class="md-nav__link">
     nullptr
   </a>
@@ -1594,7 +1608,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     デリファレンス（逆参照）
   </a>
   
@@ -1608,7 +1622,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     参照
   </a>
   
@@ -1626,7 +1640,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-04-pointers.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-04-pointers-and-references.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -1634,7 +1648,8 @@
                   
                 
                 
-                <h1 id="_1">ポインタ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">ポインタと参照<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">ポインタ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>ポインタというのは他の変数を参照する仕組みの1つです。
 Windows のショートカットや Linux のシンボリックリンクと同じような機能です。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
@@ -1658,7 +1673,7 @@ C++ではそのような暗黙変換は許されていないため、 <code>NULL
 そのため C++11 以降では <code>NULL</code> ではなく <code>nullptr</code> を使うようにしましょう。</p>
 <p>詳細は <a href="https://cpprefjp.github.io/lang/cpp11/nullptr.html">nullptr - cpprefjp C++日本語リファレンス</a> を参照してください。</p>
 </div>
-<h2 id="_2">デリファレンス（逆参照）<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">デリファレンス（逆参照）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ポインタが指す変数の値を参照するには次のように書きます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
@@ -1684,7 +1699,7 @@ C++ではそのような暗黙変換は許されていないため、 <code>NULL
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
 </code></pre></div>
 
-<h2 id="_3">参照<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">参照<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>ポインタに似た仕組みとして参照があります。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span> <span class="c1">// pはポインタ型</span>
