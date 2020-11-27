@@ -30,7 +30,7 @@ for (auto it = x.begin(); it != x.end(); ++it) {
 ```cpp
 int x[] = {0, 1, 2, 3, 4};
 
-for (auto e : x) {
+for (auto&& e : x) {
     std::cout << e << std::endl;
 }
 ```
