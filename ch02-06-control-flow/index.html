@@ -1787,8 +1787,13 @@
 <span class="p">}</span>
 </code></pre></div>
 
-<p>ただし <code>switch</code> 文が使用できるのは基本型のみです。
-上記の構文は <code>if</code> で書き直すと次と等価になります。</p>
+<p>ただし <code>switch</code> 文が使用できるのは下記のいずれかの場合に限ります。</p>
+<ul>
+<li><a href="../ch02-02-primitive-types/#_3">整数型</a></li>
+<li><a href="../ch02-02-primitive-types/#_7">列挙型</a></li>
+<li>整数型か列挙型へ暗黙に変換できるクラス型</li>
+</ul>
+<p>上記の構文は <code>if</code> で書き直すと次と等価になります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// x == 0 のときの処理</span>
 <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
