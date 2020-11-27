@@ -89,7 +89,7 @@ std::string& x = const_cast<std::string&>(str);
 `reinterpret_cast` はバイナリデータの読み書き時に使われることがあります。
 入力ストリームの `read()` や出力ストリームの `write()` の第 1 引数のポインタの型が決まっているためです。
 
-```cpp hl_lines="17"
+```cpp hl_lines="18"
 #include <fstream>
 #include <vector>
 
