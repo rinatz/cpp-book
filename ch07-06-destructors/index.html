@@ -859,20 +859,41 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    クラス宣言とは別に定義
+    デストラクタを書かない
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    継承
+    デストラクタから例外を投げてはいけない
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raiiresource-acquisition-is-initialization" class="md-nav__link">
+    RAII(Resource Acquisition Is Initialization)
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    クラス宣言とは別に定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    継承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     仮想デストラクタ
   </a>
   
@@ -1581,20 +1602,41 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    クラス宣言とは別に定義
+    デストラクタを書かない
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    継承
+    デストラクタから例外を投げてはいけない
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raiiresource-acquisition-is-initialization" class="md-nav__link">
+    RAII(Resource Acquisition Is Initialization)
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    クラス宣言とは別に定義
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    継承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     仮想デストラクタ
   </a>
   
@@ -1623,13 +1665,6 @@
                 <h1 id="_1">デストラクタ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>オブジェクトを破棄する際に呼び出されるメンバ関数をデストラクタといいます。
 デストラクタはリソースの解放を行うために使用します。</p>
-<details class="tip"><summary>RAII (Resource Acquisition Is Initialization)</summary><p>C++ では <a href="https://ja.wikipedia.org/wiki/ガベージコレクション">ガベージコレクション</a> の代わりにデストラクタによってリソース解放を行います。
-デストラクタによるリソース解放のタイミングは明示的であるため、
-C++ ではデフォルトで <a href="https://ja.wikipedia.org/wiki/RAII">RAII</a> が適用されます。</p>
-<p>デストラクタを持たずに RAII を実現できる言語もありますが、
-一般に何らかの明示的な処理を必要とします。</p>
-<p>たとえば Python では明示的に with 文を使用する必要があります。</p>
-</details>
 <p><code>~</code> にクラス名をつけた名前で戻り値がない関数がデストラクタになります。
 デストラクタは引数をもちません。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1672,7 +1707,53 @@ C++ ではデフォルトで <a href="https://ja.wikipedia.org/wiki/RAII">RAII</
 
 <p>明示的に定義しない場合、
 コンパイラが暗黙的にデストラクタを定義します。</p>
-<h2 id="_2">クラス宣言とは別に定義<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">デストラクタを書かない<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>下に紹介するRAIIのためを除いてデストラクタを書く機会はありません。
+なぜならばRAII技法が使われたリソース管理クラスをメンバ変数に持つだけでそれらのデストラクタが自動的に呼び出されるからです。</p>
+<p>デストラクタを定義( <code>= default</code> 指定も含む)した場合、ムーブコンストラクタ/代入演算子が自動定義されなくなり、またコピーコンストラクタ/代入演算子は自動生成されるものの非推奨(=使ってはいけない)になるので、残りの特殊メンバ関数もすべて定義するようにしましょう。</p>
+<h2 id="_3">デストラクタから例外を投げてはいけない<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>C++11からはデストラクタは暗黙のうちに <code>noexcept</code> 指定されます。したがってデストラクタから例外を投げてはいけません。詳しくは<a href="../ch10-01-exceptions/">例外の解説</a>を参照してください。</p>
+<h2 id="raiiresource-acquisition-is-initialization">RAII(Resource Acquisition Is Initialization)<a class="headerlink" href="#raiiresource-acquisition-is-initialization" title="Permanent link">&para;</a></h2>
+<p>プログラムを書く時につきまとうのがリソースの管理です。リソースとは例えばメモリーや、ファイルポインタ、ハンドルなどが該当します。</p>
+<p>クラス変数の寿命が尽きた時にデストラクタが呼ばれるという性質を利用して、リソースの割り当てと開放を紐付けて管理する技法があります。これをRAIIといいます。</p>
+<p>もっとも頻繁に接するリソースであるメモリーについては<a href="https://ja.wikipedia.org/wiki/ガベージコレクション">ガベージコレクション</a>による解決を試みる言語もありますが、その場合メモリー以外のリソースの管理に困ります。</p>
+<p>デストラクタを持たずに RAII を実現できる言語もありますが、一般に何らかの明示的な処理を必要とします。たとえば Python の <code>with</code> 文、C#の <code>using</code> 文などが該当します。</p>
+<p>RAII技法を実装するクラスを作るときにはただ一つのリソースのみを管理するクラスを作ります。なぜならばコンストラクタで例外が発生したときデストラクタは呼ばれず、リソースの開放漏れが発生するからです</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 複数のリソースを管理しようとしている→×</span>
+<span class="k">class</span> <span class="nc">inferior</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">inferior</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">data1_</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">();</span>
+        <span class="n">data2_</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">();</span><span class="c1">//このnewに失敗するとdata1_は開放されない</span>
+    <span class="p">}</span>
+    <span class="o">~</span><span class="n">inferior</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="k">delete</span> <span class="n">data1_</span><span class="p">;</span>
+        <span class="k">delete</span> <span class="n">data2_</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">data1_</span><span class="p">;</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">data2_</span><span class="p">;</span>
+<span class="p">};</span>
+<span class="c1">// ただひとつのリソースを管理する</span>
+<span class="k">class</span> <span class="nc">resource</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">resource</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">data_</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">();</span><span class="c1">//このnewに失敗しても開放するべきものはない</span>
+    <span class="p">}</span>
+    <span class="o">~</span><span class="n">resource</span><span class="p">()</span> <span class="k">noexcept</span> <span class="p">{</span>
+        <span class="k">delete</span> <span class="n">data_</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="k">private</span><span class="o">:</span>
+    <span class="kt">int</span><span class="o">*</span> <span class="n">data_</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// RAII技法が使われただひとつのリソースを管理するクラスを複数メンバー変数として持つ→○</span>
+<span class="k">class</span> <span class="nc">good</span> <span class="p">{</span>
+    <span class="n">resource</span> <span class="n">data1_</span><span class="p">;</span>
+    <span class="n">resource</span> <span class="n">data2_</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="_4">クラス宣言とは別に定義<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>クラス宣言とは別にデストラクタを定義するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">DynamicArray</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
@@ -1703,7 +1784,7 @@ C++ ではデフォルトで <a href="https://ja.wikipedia.org/wiki/RAII">RAII</
 </span><span class="hll"><span class="p">}</span>
 </span></code></pre></div>
 
-<h2 id="_3">継承<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_5">継承<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>派生クラスのデストラクタは基底クラスのデストラクタを暗黙的に呼び出します。</p>
 <div class="admonition example">
 <p class="admonition-title">destructor_inheritance.cc</p>
@@ -1806,7 +1887,7 @@ BasicArray::~BasicArray() is called.
 <li>派生クラスのデストラクタ</li>
 <li>基底クラスのデストラクタ</li>
 </ol>
-<h2 id="_4">仮想デストラクタ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_6">仮想デストラクタ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>アップキャストして基底クラスのポインタで扱う場合、
 基底クラスのデストラクタだけが呼び出されて
 派生クラスのデストラクタは呼び出されなくなります。</p>
