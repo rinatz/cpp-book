@@ -127,9 +127,8 @@ int Sum(int a, int b) {
 
 ## 完全特殊化
 
-特殊化によって関数テンプレートやクラステンプレートから関数やクラスを生成する代わりに、
-通常の関数やクラスを使用するように指定することで
-特定のテンプレート引数に対する挙動を変更することができます。
+関数テンプレートやクラステンプレートでは、すべてのパラメータが確定した時に別の定義を書くことができます。
+これによって特定のテンプレート引数に対する挙動を変更することができます。
 これを完全特殊化 (または明示的特殊化) といいます。
 
 関数テンプレートの完全特殊化は次のようにします。
@@ -203,12 +202,28 @@ class Array<bool> {
 
 ## 部分特殊化
 
-特定のテンプレート引数に対して
-特殊化で使用する関数テンプレートやクラステンプレートを別のテンプレートに変更することができます。
-これを部分特殊化といいます。
+クラステンプレートの一部のテンプレート引数を確定させたり、制限することができます。これを部分特殊化といいます。
 
 詳細は
 [テンプレートの部分特殊化 - cppreference.com][cppreference_partial_specialization]
+    
 を参照してください。
 
 [cppreference_partial_specialization]: https://ja.cppreference.com/w/cpp/language/partial_specialization
+
+??? question "関数テンプレートを部分特殊化したいとき"
+    部分特殊化はクラステンプレートに対してのみ行なえます。しかし関数テンプレートに対しても行いたいことがあります。  
+    その場合はSFINAE(Substitution Failure Is Not An Error)を利用した書き方をします
+    
+    ```cpp
+    template <bool cond, typename T>
+    using enable_if_t = typename std::enable_if<cond, T>::type;
+    template <typename T, enable_if_t<(なんか条件式), std::nullptr_t> = nullptr>
+    void foo(T t) {}
+    template <typename T, enable_if_t<!(なんか条件式), std::nullptr_t> = nullptr>
+    void foo(T t) {}
+    ```
+    
+    [std::enable_ifを使ってオーバーロードする時、enablerを使う？ - Qiita](https://qiita.com/kazatsuyu/items/203584ef4cb8b9e52462)
+    
+    あるいはC++17で追加された[constexpr if 文](https://cpprefjp.github.io/lang/cpp17/if_constexpr.html)を利用することができます。
