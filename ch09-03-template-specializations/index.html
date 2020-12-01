@@ -1721,9 +1721,8 @@
 </div>
 </details>
 <h2 id="_2">完全特殊化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>特殊化によって関数テンプレートやクラステンプレートから関数やクラスを生成する代わりに、
-通常の関数やクラスを使用するように指定することで
-特定のテンプレート引数に対する挙動を変更することができます。
+<p>関数テンプレートやクラステンプレートでは、すべてのパラメータが確定した時に別の定義を書くことができます。
+これによって特定のテンプレート引数に対する挙動を変更することができます。
 これを完全特殊化 (または明示的特殊化) といいます。</p>
 <p>関数テンプレートの完全特殊化は次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
@@ -1789,12 +1788,23 @@
 <p>この例では8個の <code>bool</code> 値を1個の <code>uint8_t</code> で扱って省メモリ化するために、
 <code>bool</code> に対する完全特殊化を行っています。</p>
 <h2 id="_3">部分特殊化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>特定のテンプレート引数に対して
-特殊化で使用する関数テンプレートやクラステンプレートを別のテンプレートに変更することができます。
-これを部分特殊化といいます。</p>
+<p>クラステンプレートの一部のテンプレート引数を確定させたり、制限することができます。これを部分特殊化といいます。</p>
 <p>詳細は
-<a href="https://ja.cppreference.com/w/cpp/language/partial_specialization">テンプレートの部分特殊化 - cppreference.com</a>
-を参照してください。</p>
+<a href="https://ja.cppreference.com/w/cpp/language/partial_specialization">テンプレートの部分特殊化 - cppreference.com</a></p>
+<p>を参照してください。</p>
+<details class="question"><summary>関数テンプレートを部分特殊化したいとき</summary><p>部分特殊化はクラステンプレートに対してのみ行なえます。しかし関数テンプレートに対しても行いたいことがあります。<br />
+その場合はSFINAE(Substitution Failure Is Not An Error)を利用した書き方をします</p>
+<div class="highlight"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="kt">bool</span> <span class="n">cond</span><span class="p">,</span> <span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="k">using</span> <span class="n">enable_if_t</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">std</span><span class="o">::</span><span class="n">enable_if</span><span class="o">&lt;</span><span class="n">cond</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;::</span><span class="n">type</span><span class="p">;</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">enable_if_t</span><span class="o">&lt;</span><span class="p">(</span><span class="err">なんか条件式</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">nullptr_t</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">nullptr</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{}</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="p">,</span> <span class="n">enable_if_t</span><span class="o">&lt;!</span><span class="p">(</span><span class="err">なんか条件式</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">nullptr_t</span><span class="o">&gt;</span> <span class="o">=</span> <span class="k">nullptr</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">foo</span><span class="p">(</span><span class="n">T</span> <span class="n">t</span><span class="p">)</span> <span class="p">{}</span>
+</code></pre></div>
+
+<p><a href="https://qiita.com/kazatsuyu/items/203584ef4cb8b9e52462">std::enable_ifを使ってオーバーロードする時、enablerを使う？ - Qiita</a></p>
+<p>あるいはC++17で追加された<a href="https://cpprefjp.github.io/lang/cpp17/if_constexpr.html">constexpr if 文</a>を利用することができます。</p>
+</details>
                 
               
               
