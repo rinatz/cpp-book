@@ -1663,12 +1663,14 @@
 </code></pre></div>
 
 <div class="admonition question">
-<p class="admonition-title">emplace_backとpush_back</p>
-<p>C++11より前は <code>push_back</code> という関数のみが末尾への要素追加を担っていました。
-C++11で追加された <code>emplace_back</code> は要素型のコンストラクタに直接引数を渡すことができるので
-<code>push_back</code> と同じかそれ以上のパフォーマンスを得られます。
-多くの処理系では <code>push_back</code> を実装するのに <code>emplace_back</code> を呼び出していますから
-現代において <code>push_back</code> を使うべき理由は存在しません。</p>
+<p class="admonition-title"><code>emplace_back</code> と <code>push_back</code></p>
+<p>C++11 より前は <code>push_back</code> という関数のみが末尾への要素追加を担っていました。
+C++11 で追加された <code>emplace_back</code> は要素型のコンストラクタに
+直接引数を渡すことができるので <code>push_back</code> と同じか
+それ以上のパフォーマンスを得られるケースがあります。
+両者の最適な使い分けは高度なトピックとなるため、
+詳細は <a href="https://www.oreilly.co.jp/books/9784873117362/">書籍 Effective Modern C++</a> で紹介される
+「項目42：要素の挿入の代わりに直接配置を検討する」を参照ください。</p>
 </div>
 <h2 id="_3">末尾から要素削除<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>x.pop_back()</code> とすると末尾から要素を削除することができます。</p>
