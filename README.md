@@ -6,23 +6,21 @@
 
 ソースコードから HTML ページを生成するには下記のものが必要です。
 
-- Python
-- Poetry
-- Make
+- Python3
 
 ## ビルド
 
 HTML を生成するには下記のコマンドを実行してください。
 
 ```shell
-$ make init
-$ make build
+$ pip install -r requirements.txt
+$ mkdocs build
 ```
 
 ビルド結果をブラウザ上で確認するには次のコマンドを実行します。
 
 ```shell
-$ make serve
+$ mkdocs serve
 ```
 
 http://localhost:8000 にアクセスすると Web ページが表示されます。
