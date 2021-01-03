@@ -1,0 +1,30 @@
+name: MkDocs
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - docs/**
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Configure Git
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git fetch origin gh-pages
+
+      - name: Install MkDocs
+        run: |
+          python3 -m pip install setuptools
+          python3 -m pip install --no-cache-dir -r requirements.txt
+
+      - name: Deploy HTML files
+        run: python3 -m mkdocs gh-deploy
