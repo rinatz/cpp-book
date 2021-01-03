@@ -90,15 +90,15 @@ static_assert(std::is_pod<std::vector<int>*>::value, "Should be POD.");
 
 - 継承していない
 - メンバ関数を持たない (暗黙的に定義される特別なメンバ関数は明示しない)
-- すべてのメンバ変数は POD
-- メンバ変数に対するアクセス指定子が1種類のみ (暗黙的な `public` 指定も含む)
+- すべてのデータメンバは POD
+- データメンバに対するアクセス指定子が1種類のみ (暗黙的な `public` 指定も含む)
 
 ```cpp
-// メンバ変数を持たない
+// データメンバを持たない
 struct Empty {};
 static_assert(std::is_pod<Empty>::value, "Should be POD.");
 
-// すべてのメンバ変数が基本型
+// すべてのデータメンバが基本型
 struct FundamentalTypes {
     int16_t i;
     double d;
@@ -109,14 +109,14 @@ static_assert(std::is_pod<FundamentalTypes>::value, "Should be POD.");
 POD の構造体は入れ子にすることができます。
 
 ```cpp
-// POD の構造体 FundamentalTypes をメンバ変数にもつ
+// POD の構造体 FundamentalTypes をデータメンバにもつ
 struct FundamentalTypesAsChild {
     char c;
     FundamentalTypes f;
 };
 static_assert(std::is_pod<FundamentalTypesAsChild>::value, "Should be POD.");
 
-// POD の構造体 FundamentalTypesAsChild をメンバ変数にもつ
+// POD の構造体 FundamentalTypesAsChild をデータメンバにもつ
 struct FundamentalTypesAsGrandchild {
     char c;
     FundamentalTypesAsChild f;
@@ -166,9 +166,9 @@ struct VirtualFunction {
 static_assert(std::is_pod<VirtualFunction>::value, "Should be POD.");  // failed
 ```
 
-#### 非 POD のメンバ変数
+#### 非 POD のデータメンバ
 
-POD ではない型の非 `static` メンバ変数を持つ構造体は POD ではありません。
+POD ではない型の非 `static` データメンバを持つ構造体は POD ではありません。
 
 ```cpp hl_lines="4"
 struct NonPodMemberVariable {
@@ -177,10 +177,10 @@ struct NonPodMemberVariable {
 static_assert(std::is_pod<NonPodMemberVariable>::value, "Should be POD.");  // failed
 ```
 
-#### メンバ変数に対するアクセス指定子が2種類以上
+#### データメンバに対するアクセス指定子が2種類以上
 
 暗黙的なものを含めて、
-`static` ではないメンバ変数に対するアクセス指定子が2種類以上ある構造体は POD ではありません。
+`static` ではないデータメンバに対するアクセス指定子が2種類以上ある構造体は POD ではありません。
 
 ```cpp hl_lines="7"
 struct MultipleAccessSpecifierTypes {
