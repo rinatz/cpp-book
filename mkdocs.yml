@@ -8,11 +8,6 @@ copyright: Copyright &copy 2020 IDA Kenichiro
 
 theme:
   name: material
-  language: ja
-  logo: img/cpp.svg
-  favicon: img/cpp.svg
-  icon:
-    repo: fontawesome/brands/github
   palette:
     scheme: preference
     primary: indigo
@@ -20,32 +15,28 @@ theme:
   font:
     text: Noto Sans
     code: Inconsolata
+  language: ja
+  logo: img/cpp.svg
+  favicon: img/cpp.svg
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
 
 markdown_extensions:
   - admonition
-  - codehilite:
-      guess_lang: false
-  - toc:
-      permalink: true
-  - footnotes
-  - pymdownx.arithmatex
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.critic
   - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed
+  - footnotes
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.inlinehilite
-  - pymdownx.magiclink
-  - pymdownx.mark
-  - pymdownx.smartsymbols
-  - pymdownx.superfences
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-  - pymdownx.tabbed
+  - pymdownx.arithmatex:
+      generic: true
+  - meta
 
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
