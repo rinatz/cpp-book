@@ -24,6 +24,8 @@ theme:
     - navigation.instant
 
 markdown_extensions:
+  - toc:
+      permalink: true
   - admonition
   - pymdownx.details
   - pymdownx.superfences
