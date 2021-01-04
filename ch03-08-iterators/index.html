@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch03-08-iterators/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1821,7 +1821,7 @@
                   </a>
                 
                 
-                <h1 id="_1">イテレータ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">イテレータ</h1>
 <p>イテレータとはコンテナ内での要素の位置を指すもので、
 ポインタのように扱うことができます。
 イテレータを使用することで
@@ -1881,7 +1881,7 @@
 <span class="p">});</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 2</span>
 </code></pre></div>
-<h2 id="_2">イテレータを使用できるコンテナ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">イテレータを使用できるコンテナ</h2>
 <p>イテレータを使用できるコンテナとして、代表的なものはコンテナライブラリで提供されるコンテナです。
 コンテナライブラリで提供されるコンテナは STL コンテナと呼ばれ、本書で紹介した以下ものが該当します。</p>
 <ul>
@@ -1896,7 +1896,7 @@
 <a href="https://ja.cppreference.com/w/cpp/container">コンテナライブラリ - cppreference.com</a>
 を参照してください。</p>
 <p>STL コンテナ以外にも <code>std::string</code> などでイテレータは使用できます。</p>
-<h2 id="_3">マップのイテレータ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">マップのイテレータ</h2>
 <p><code>std::map</code> や <code>std::unordered_map</code> のイテレータが指す要素はペアとなっています。
 このペアは <code>first</code> がキーで <code>second</code> が値です。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">persons</span> <span class="o">=</span> <span class="p">{</span>
@@ -1911,7 +1911,7 @@
 </span>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;: &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">age</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_4">イテレータの種類<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">イテレータの種類</h2>
 <p>標準ライブラリのイテレータは5種類ありますが、
 本書ではそのうち以下3種類だけを紹介します。</p>
 <ul>
@@ -1921,7 +1921,7 @@
 </ul>
 <p>この3種類は次のような is-a 関係があります。</p>
 <p><img alt="is-a関係を表した図" src="../img/iterator.svg" /></p>
-<h3 id="_5">前方向イテレータ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5">前方向イテレータ</h3>
 <p>イテレータを動かす場合に前に進めることだけができます。</p>
 <p><code>std::unordered_map</code> や <code>std::unordered_set</code> のイテレータが該当します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">unordered_set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
@@ -1932,7 +1932,7 @@
 <span class="o">++</span><span class="n">it</span><span class="p">;</span>  <span class="c1">// 前に進める</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="_6">双方向イテレータ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6">双方向イテレータ</h3>
 <p>イテレータを動かす場合に前に進めるだけでなく、後ろへ戻すことができます。</p>
 <p><code>std::map</code> や <code>std::set</code> のイテレータが該当します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
@@ -1946,7 +1946,7 @@
 <span class="o">--</span><span class="n">it</span><span class="p">;</span>  <span class="c1">// 後ろへ戻す</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">it</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 0</span>
 </code></pre></div>
-<h3 id="_7">ランダムアクセスイテレータ<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_7">ランダムアクセスイテレータ</h3>
 <p>イテレータを動かす場合に任意の位置へ動かすことができます。</p>
 <p><code>std::array</code> や <code>std::vector</code> のイテレータが該当します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
@@ -1969,7 +1969,7 @@
 </code></pre></div>
 <!-- TODO: 範囲for文の説明 -->
 
-<h2 id="_8">イテレータと参照の無効化<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h2 id="_8">イテレータと参照の無効化</h2>
 <p>要素の追加や削除を行うと
 既存のイテレータや要素への参照が無効になることがあります。
 無効化されたイテレータや参照を使用した場合の挙動は未定義動作 (保証されない) です。</p>
@@ -2065,7 +2065,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

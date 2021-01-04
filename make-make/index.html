@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/make-make/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1753,13 +1753,13 @@
                   </a>
                 
                 
-                <h1 id="make">Make<a class="headerlink" href="#make" title="Permanent link">&para;</a></h1>
+                <h1 id="make">Make</h1>
 <p><a href="https://en.wikipedia.org/wiki/Make_(software)">Make</a> は1976年に登場して現在でも使用されているビルド自動化ツールです。</p>
-<h2 id="_1">インストール<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">インストール</h2>
 <p>msys2 のターミナルを起動して下記コマンドを打ってインストールします。</p>
 <div class="highlight"><pre><span></span><code>$ pacman -S make
 </code></pre></div>
-<h2 id="_2">ビルド実行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">ビルド実行</h2>
 <p><code>make</code> は <code>Makefile</code> という名前のファイルを読み込んで動作します。</p>
 <p><code>main.cc</code> をビルドして <code>a.exe</code> を生成する場合は、
 <code>Makefile</code> というファイルを作成して次のように記述します。</p>
@@ -1802,7 +1802,7 @@ make: <span class="s1">&#39;a.exe&#39;</span> は更新済みです.
 <!-- FIXME: Codeblock probably can not treat tab character (&#009). -->
 <p><div class="codehilite"><pre><span></span>a.exe: main.o util.o&#010;&#009;g++ -std=c++11 main.o util.o&#010;&#010;main.o: main.cc&#010;&#009;g++ -std=c++11 -c main.cc&#010;&#010;util.o: util.cc&#010;&#009;g++ -std=c++11 -c util.cc</pre></div></p>
 </details>
-<h2 id="_3">タスク実行<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">タスク実行</h2>
 <p><code>.PHONY</code> でターゲットを擬似ターゲットとして指定することで、ファイル生成以外のタスク実行のために使用できます。</p>
 <!-- FIXME: Codeblock probably can not treat tab character (&#009). -->
 
@@ -1890,7 +1890,7 @@ clean:
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

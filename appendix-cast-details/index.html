@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/appendix-cast-details/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1767,7 +1767,7 @@
                   </a>
                 
                 
-                <h1 id="_1">キャストの詳しい説明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">キャストの詳しい説明</h1>
 <p>C++ の4種類のキャスト演算子には以下のような違いがあります。</p>
 <table>
 <thead>
@@ -1806,12 +1806,12 @@
 </tbody>
 </table>
 <p>CV 修飾子の追加はどのキャストでも行うことができます。</p>
-<h2 id="cv">CV 修飾子<a class="headerlink" href="#cv" title="Permanent link">&para;</a></h2>
+<h2 id="cv">CV 修飾子</h2>
 <p><code>const</code> 修飾子と <code>volatile</code> 修飾子 をまとめて CV 修飾子と呼びます。</p>
 <p><code>volatile</code> 修飾子は
 <a href="https://ja.cppreference.com/w/cpp/language/cv">cv (const および volatile) 型修飾子 - cppreference.com</a>
 を参照してください。</p>
-<h2 id="static_cast-dynamic_cast">static_cast と dynamic_cast<a class="headerlink" href="#static_cast-dynamic_cast" title="Permanent link">&para;</a></h2>
+<h2 id="static_cast-dynamic_cast">static_cast と dynamic_cast</h2>
 <p><code>static_cast</code> と <code>dynamic_cast</code> は値の変換方法を決定するタイミングが違います。</p>
 <ul>
 <li><code>static_cast</code> はコンパイル時に決定</li>
@@ -1819,7 +1819,7 @@
 </ul>
 <p>この違いによって安全にダウンキャストができるかなどの差があります。
 詳細は <a href="../appendix-downcasts/">ダウンキャスト</a> を参照してください。</p>
-<h2 id="_2">ビット表現の変換<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">ビット表現の変換</h2>
 <p><code>static_cast</code> や <code>dynamic_cast</code> では型の変換と同時にビット表現を変換しますが、
 <code>reinterpret_cast</code> ではビット表現を変更せずに型だけを変更します。</p>
 <p>整数型と浮動小数点数型などビット表現が異なる型の変換を行うと、
@@ -1906,7 +1906,7 @@
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-<h2 id="c">C++ のキャストではできないこと<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<h2 id="c">C++ のキャストではできないこと</h2>
 <p>C++ のキャストではアクセス指定子を無視した変換などは行えませんが、
 C 言語形式のキャストなら変換することができます。</p>
 <p>アクセス指定子を無視した変換が必要となるのはクラス設計に問題がある場合なので、
@@ -1977,7 +1977,7 @@ C 言語形式のキャストを用いるのではなく、
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

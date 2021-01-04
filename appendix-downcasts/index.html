@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/appendix-downcasts/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1739,14 +1739,14 @@
                   </a>
                 
                 
-                <h1 id="_1">ダウンキャスト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">ダウンキャスト</h1>
 <p>基底クラスの参照やポインタから派生クラスの参照やポインタへの型変換をダウンキャストといいます。
 C++ では、ダウンキャストをする際に <code>dynamic_cast</code> や <code>static_cast</code> を使います。</p>
 <p>ダウンキャストをしたクラスを扱う場合、
 キャスト失敗を考慮したコードを書く必要があったり、
 メモリアクセス違反を引き起こすようなコードになる可能性があります。
 そのため、ダウンキャストを行わないで済むようなコードを書くことが望ましいです。</p>
-<h2 id="dynamic_cast">dynamic_cast によるダウンキャスト<a class="headerlink" href="#dynamic_cast" title="Permanent link">&para;</a></h2>
+<h2 id="dynamic_cast">dynamic_cast によるダウンキャスト</h2>
 <p><code>dynamic_cast</code> が使えるのは仮想関数を持ったクラスに限定されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
@@ -1796,7 +1796,7 @@ C++ では、ダウンキャストをする際に <code>dynamic_cast</code> や 
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="static_cast">static_cast によるダウンキャスト<a class="headerlink" href="#static_cast" title="Permanent link">&para;</a></h2>
+<h2 id="static_cast">static_cast によるダウンキャスト</h2>
 <p>キャスト元のポインタが正しくキャスト後のオブジェクトを指していることが自明であれば、
 <code>static_cast</code> を利用してダウンキャストを行うことも可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Base</span> <span class="p">{</span>
@@ -1909,7 +1909,7 @@ C++ では、ダウンキャストをする際に <code>dynamic_cast</code> や 
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch12-01-type-for-bytes/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1725,7 +1725,7 @@
                   </a>
                 
                 
-                <h1 id="_1">バイトを表す型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">バイトを表す型</h1>
 <p>C++ では以下の型のサイズが1バイトと規定されています。
 C でも同様です。</p>
 <ul>
@@ -1793,26 +1793,26 @@ C でも同様です。</p>
 C++17 で <a href="https://cpprefjp.github.io/reference/cstddef/byte.html">std::byte</a> という型が追加されました。</p>
 <p>C++17 の機能であるため C++11 では使用できません。</p>
 </details>
-<h2 id="18">1バイトは8ビットとは限らない<a class="headerlink" href="#18" title="Permanent link">&para;</a></h2>
+<h2 id="18">1バイトは8ビットとは限らない</h2>
 <p>2008年に発行された <a href="https://ja.wikipedia.org/wiki/バイト_(情報)">IEC 80000-13</a> にて
-<span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> と正式に定義されました。</p>
+<span class="arithmatex">\(1 byte = 8 bits\)</span> と正式に定義されました。</p>
 <p>それ以前は
 処理系が1つのアドレスで扱うビット数 (メモリ操作の最小単位) を
 1バイトと定めることが多く、
-<span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> とは限らず
-<span><span class="MathJax_Preview">1 byte = 7 bits</span><script type="math/tex">1 byte = 7 bits</script></span> や <span><span class="MathJax_Preview">1 byte = 9 bits</span><script type="math/tex">1 byte = 9 bits</script></span> となることもありました。</p>
-<p>C や C++ では以下の制約によって <span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> 以上と規定しています。</p>
+<span class="arithmatex">\(1 byte = 8 bits\)</span> とは限らず
+<span class="arithmatex">\(1 byte = 7 bits\)</span> や <span class="arithmatex">\(1 byte = 9 bits\)</span> となることもありました。</p>
+<p>C や C++ では以下の制約によって <span class="arithmatex">\(1 byte = 8 bits\)</span> 以上と規定しています。</p>
 <ul>
 <li><code>char</code> 型のサイズを1バイトとする</li>
 <li><code>char</code> 型のビット数 <a href="https://cpprefjp.github.io/reference/climits/char_bit.html">CHAR_BIT</a> は8ビット以上とする</li>
 </ul>
 <p>C や C++ では
-<span><span class="MathJax_Preview">1 byte = 7 bits</span><script type="math/tex">1 byte = 7 bits</script></span> は許容されませんが、
-<span><span class="MathJax_Preview">1 byte = 9 bits</span><script type="math/tex">1 byte = 9 bits</script></span> は許容されています。</p>
+<span class="arithmatex">\(1 byte = 7 bits\)</span> は許容されませんが、
+<span class="arithmatex">\(1 byte = 9 bits\)</span> は許容されています。</p>
 <p>実際には
-<span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> ではない処理系は非常に少ないため、
-<span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> だけを想定した実装にすることも多いです。</p>
-<p><span><span class="MathJax_Preview">1 byte = 8 bits</span><script type="math/tex">1 byte = 8 bits</script></span> しか想定していないことを表明する必要があれば
+<span class="arithmatex">\(1 byte = 8 bits\)</span> ではない処理系は非常に少ないため、
+<span class="arithmatex">\(1 byte = 8 bits\)</span> だけを想定した実装にすることも多いです。</p>
+<p><span class="arithmatex">\(1 byte = 8 bits\)</span> しか想定していないことを表明する必要があれば
 次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;climits&gt;</span><span class="cp"></span>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">CHAR_BIT</span> <span class="o">==</span> <span class="mi">8</span><span class="p">,</span> <span class="s">&quot;Not support 1byte != 8bits&quot;</span><span class="p">);</span>
@@ -1893,7 +1893,7 @@ C++17 で <a href="https://cpprefjp.github.io/reference/cstddef/byte.html">std::
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

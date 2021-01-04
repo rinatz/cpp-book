@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-02-primitive-types/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1875,21 +1875,21 @@
                   </a>
                 
                 
-                <h1 id="_1">基本型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">基本型</h1>
 <p>C++ ではじめから使用できる基本型について説明します。</p>
-<h2 id="bool">bool<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h2>
+<h2 id="bool">bool</h2>
 <p><code>bool</code> は真偽値を表す型で <code>true</code> または <code>false</code> が設定できます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">bool</span> <span class="n">ok</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="char">char<a class="headerlink" href="#char" title="Permanent link">&para;</a></h2>
+<h2 id="char">char</h2>
 <p><code>char</code> はアスキー文字1文字を表現する型です。
 ただし内部表現はアスキーコードの整数値として扱われ、
 標準出力などに出力する際に文字に変換されて出力されます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">char</span> <span class="n">x</span> <span class="o">=</span> <span class="sc">&#39;x&#39;</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="_2">数値<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">数値</h2>
 <p>数値を表現する型は複数種類用意されています。</p>
-<h3 id="_3">整数型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_3">整数型</h3>
 <p>整数を表現するための型です。</p>
 <ul>
 <li><code>char</code></li>
@@ -1901,7 +1901,7 @@
 具体的なサイズはコンパイラによって変わってきますが
 GCC では 8, 16, 32, 64 ビットで定義されています。
 一般的には <code>int</code> が使用されます。</p>
-<h3 id="_4">符号付き・符号なし整数型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_4">符号付き・符号なし整数型</h3>
 <p>各整数型に <code>unsigned</code> を付けると正の数しか表現できなくなる代わりに
 大きな値が表現できるようになります。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4000000000</span><span class="p">;</span>
@@ -1915,7 +1915,7 @@ GCC では 8, 16, 32, 64 ビットで定義されています。
 実際にはコンパイラオプションで符号有無を選択できたり、対象プロセッサアーキテクチャなどから決まるのが一般的です。
 移植性のあるコードを書く場合は十分注意して下さい。</p>
 </div>
-<h3 id="_5">サイズ指定付き整数型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_5">サイズ指定付き整数型</h3>
 <p>上述の整数型は型のサイズがコンパイラによってまちまちなので
 複数のコンパイラに対応するプログラムを書くときは
 移植性の面で問題が発生することがあります。
@@ -1936,7 +1936,7 @@ GCC では 8, 16, 32, 64 ビットで定義されています。
 
 <span class="n">std</span><span class="o">::</span><span class="kt">int32_t</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="_6">浮動小数点型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6">浮動小数点型</h3>
 <p>小数を表現する型は次の2つの型があります。</p>
 <ul>
 <li><code>float</code></li>
@@ -1945,9 +1945,9 @@ GCC では 8, 16, 32, 64 ビットで定義されています。
 <p><code>float</code> は 32 ビットの大きさを持ち、<code>double</code> は 64 ビットの大きさを持ちます。
 また <code>double</code> の方が <code>float</code> に比べて計算精度が高いですが数値計算の
 パフォーマンスは低いです。</p>
-<h2 id="_7">列挙型<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_7">列挙型</h2>
 <p>列挙型は、名前を付けた定数（列挙子）の集合を扱う型です。</p>
-<h3 id="enum">enum<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h3>
+<h3 id="enum">enum</h3>
 <p>列挙型である <code>enum</code> を定義するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="nc">Day</span> <span class="p">{</span>
   <span class="n">Sun</span><span class="p">,</span>  <span class="c1">// 0</span>
@@ -2002,7 +2002,7 @@ GCC では 8, 16, 32, 64 ビットで定義されています。
   <span class="n">Neptune</span>
 <span class="p">};</span>
 </code></pre></div>
-<h3 id="enum-class">enum class<a class="headerlink" href="#enum-class" title="Permanent link">&para;</a></h3>
+<h3 id="enum-class">enum class</h3>
 <p><code>enum class</code> で列挙型を定義することもできます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="k">class</span> <span class="nc">Day</span> <span class="p">{</span>
   <span class="n">Sun</span><span class="p">,</span>
@@ -2128,7 +2128,7 @@ GCC では 8, 16, 32, 64 ビットで定義されています。
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

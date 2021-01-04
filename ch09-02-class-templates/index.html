@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch09-02-class-templates/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">クラステンプレート<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">クラステンプレート</h1>
 <p>クラスに対するテンプレートをクラステンプレートといいます。
 クラステンプレートを定義するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
@@ -1780,7 +1780,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">r1</span><span class="p">.</span><span class="n">Area</span><span class="p">();</span>  <span class="c1">// 200</span>
 <span class="n">r2</span><span class="p">.</span><span class="n">Area</span><span class="p">();</span>  <span class="c1">// 4.08</span>
 </code></pre></div>
-<h2 id="_2">複数のテンプレート引数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">複数のテンプレート引数</h2>
 <p>パラメータ化する型やコンパイル時に定まる値は
 クラステンプレートでも複数にすることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">U</span><span class="o">&gt;</span>
@@ -1799,7 +1799,7 @@
 </code></pre></div>
 <p>この例ではメンバ関数 <code>Area()</code> の戻り値を <code>double</code> に固定して
 テンプレート引数を2つにしています。</p>
-<h2 id="_3">メンバ関数の戻り値の型推論<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">メンバ関数の戻り値の型推論</h2>
 <p>クラステンプレートでメンバ関数の戻り値の型を推論するには
 <code>decltype</code> 内で <code>std::declval</code> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">U</span><span class="o">&gt;</span>
@@ -1816,7 +1816,7 @@
     <span class="k">const</span> <span class="n">U</span> <span class="n">width_</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
-<h2 id="_4">コンパイル時に定まる値のパラメータ化<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">コンパイル時に定まる値のパラメータ化</h2>
 <p>コンパイル時に定まる値のパラメータ化はクラステンプレートでも使用できます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="kt">int</span> <span class="n">N</span><span class="o">&gt;</span>
 <span class="k">class</span> <span class="nc">Array</span> <span class="p">{</span>
@@ -1904,7 +1904,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

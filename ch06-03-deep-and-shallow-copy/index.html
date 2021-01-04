@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch06-03-deep-and-shallow-copy/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1753,8 +1753,8 @@
                   </a>
                 
                 
-                <h1 id="_1">ディープコピーとシャローコピー<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">ディープコピー<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+                <h1 id="_1">ディープコピーとシャローコピー</h1>
+<h2 id="_2">ディープコピー</h2>
 <p>C++ のコピーは基本的にはディープコピーと呼ばれるものです。</p>
 <p>ディープコピーは実体ごとコピーされるため、コピーした分のメモリ領域の確保が必要になります。
 ディープコピーの場合、コピー先（or コピー元）のオブジェクトを編集しても、他方のオブジェクトには影響を及ぼしません。</p>
@@ -1771,7 +1771,7 @@
 <p class="admonition-title">図2</p>
 <p><img alt="図1" src="../img/deep_copy_b.svg" /></p>
 </div>
-<h2 id="_3">シャローコピー<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">シャローコピー</h2>
 <p>ポインタをコピーする場合はシャローコピーになります。</p>
 <p>シャローコピーではポインタの向き先だけがコピーされ、実体はコピー元の領域のままなので、
 ディープコピーのようなコピーした分のメモリの確保は起きません。</p>
@@ -1789,7 +1789,7 @@
 <p class="admonition-title">図4</p>
 <p><img alt="図4" src="../img/shallow_copy_b.svg" /></p>
 </div>
-<h2 id="_4">関数の引数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">関数の引数</h2>
 <p>ディープコピーとシャローコピーは関数の引数でも区別されます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -1889,7 +1889,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

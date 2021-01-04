@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch10-02-signals/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">シグナル<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">シグナル</h1>
 <p>シグナルとはプログラム実行中に外部から要求を通知する仕組みです。
 OS からのエラー通知などで使用されます。</p>
 <p><code>&lt;csignal&gt;</code> で定義されるシグナルには以下の6種類があります。</p>
@@ -1766,7 +1766,7 @@ OS からのエラー通知などで使用されます。</p>
 <li>SIGTERM</li>
 </ul>
 <p>一部を紹介します。</p>
-<h2 id="sigabrt">SIGABRT<a class="headerlink" href="#sigabrt" title="Permanent link">&para;</a></h2>
+<h2 id="sigabrt">SIGABRT</h2>
 <p><a href="https://cpprefjp.github.io/reference/cstdlib/abort.html">std::abort</a> の呼び出しによって発生します。</p>
 <p><a href="https://cpprefjp.github.io/reference/cstdlib/abort.html">std::abort</a> は
 <a href="https://cpprefjp.github.io/reference/exception/terminate.html">std::terminate</a> などから呼び出されます。</p>
@@ -1779,7 +1779,7 @@ OS からのエラー通知などで使用されます。</p>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="sigfpe">SIGFPE<a class="headerlink" href="#sigfpe" title="Permanent link">&para;</a></h2>
+<h2 id="sigfpe">SIGFPE</h2>
 <p>整数の0除算など不正な算術演算を行うと発生します。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -1791,8 +1791,8 @@ OS からのエラー通知などで使用されます。</p>
 以下を値として使用することができます。</p>
 <ul>
 <li>非数 <code>NaN</code></li>
-<li>符号付ゼロ (<span><span class="MathJax_Preview">+0</span><script type="math/tex">+0</script></span> と <span><span class="MathJax_Preview">-0</span><script type="math/tex">-0</script></span>)</li>
-<li>無限大 (<span><span class="MathJax_Preview">+\infty</span><script type="math/tex">+\infty</script></span> と <span><span class="MathJax_Preview">-\infty</span><script type="math/tex">-\infty</script></span>)</li>
+<li>符号付ゼロ (<span class="arithmatex">\(+0\)</span> と <span class="arithmatex">\(-0\)</span>)</li>
+<li>無限大 (<span class="arithmatex">\(+\infty\)</span> と <span class="arithmatex">\(-\infty\)</span>)</li>
 </ul>
 <p>こうした処理系では浮動小数点数の演算結果でこれらの値を使用し、
 浮動小数点数のシグナルを発生させないようにしている場合が多いです。</p>
@@ -1801,7 +1801,7 @@ OS からのエラー通知などで使用されます。</p>
 https://ja.cppreference.com/w/cpp/numeric/fenv
 -->
 
-<h2 id="sigsegv">SIGSEGV<a class="headerlink" href="#sigsegv" title="Permanent link">&para;</a></h2>
+<h2 id="sigsegv">SIGSEGV</h2>
 <p>無効なメモリアクセス (セグメンテーション違反) を行うと発生します。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">*</span> <span class="n">x</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 
@@ -1884,7 +1884,7 @@ https://ja.cppreference.com/w/cpp/numeric/fenv
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

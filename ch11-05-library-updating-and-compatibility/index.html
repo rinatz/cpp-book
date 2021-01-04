@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch11-05-library-updating-and-compatibility/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">ライブラリ更新と互換性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">ライブラリ更新と互換性</h1>
 <div class="admonition info">
 <p class="admonition-title">説明に使用する環境</p>
 <p>Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。</p>
@@ -1766,7 +1766,7 @@
 <li>更新前後での ABI 互換性</li>
 </ul>
 <p><img alt="ライブラリ更新で必要な手順を表した図" src="../img/library_updating.svg" /></p>
-<h2 id="api">API 互換性<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
+<h2 id="api">API 互換性</h2>
 <p>API はアプリケーションプログラミングインタフェースの略で、
 ソースコードレベルでのインターフェースのことをいいます。
 更新前のライブラリに存在する API を
@@ -1792,7 +1792,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="_2">静的ライブラリと動的ライブラリ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">静的ライブラリと動的ライブラリ</h2>
 <div class="admonition info">
 <p class="admonition-title">静的ライブラリ</p>
 <p><img alt="静的ライブラリ" src="../img/static_library.svg" /></p>
@@ -1806,7 +1806,7 @@
 <p>動的ライブラリはライブラリを使用するプログラムに取り込まれないため、
 ライブラリを使用するプログラムの再ビルドは不要です。
 ただし、後述の ABI 互換性がない場合には再ビルドが必要となります。</p>
-<h2 id="abi">ABI 互換性<a class="headerlink" href="#abi" title="Permanent link">&para;</a></h2>
+<h2 id="abi">ABI 互換性</h2>
 <p>ABI はアプリケーションバイナリインタフェースの略で、
 バイナリレベルでのインターフェースのことをいいます。
 更新前のライブラリに存在する ABI を
@@ -1918,7 +1918,7 @@ GCC 4.x と ABI 互換性があるようにビルドすることができます�
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

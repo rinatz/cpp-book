@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch07-04-polymorphism/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1767,8 +1767,8 @@
                   </a>
                 
                 
-                <h1 id="_1">多態性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">アップキャスト<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+                <h1 id="_1">多態性</h1>
+<h2 id="_2">アップキャスト</h2>
 <p>派生クラスの参照やポインタから
 基底クラスの参照やポインタへの型変換をアップキャストといいます。</p>
 <p>アップキャストによって、
@@ -1837,12 +1837,12 @@
 </div>
 <p>この例では <code>Square</code> クラスのオブジェクト <code>s</code> を <code>Rectangle</code> クラスの参照 <code>r</code> で扱っています。</p>
 <p>アップキャストは暗黙的に行われるため、明示的に型変換を行う必要はありません。</p>
-<h2 id="_3">ダウンキャスト<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">ダウンキャスト</h2>
 <p>基底クラスの参照やポインタから
 派生クラスの参照やポインタへの型変換をダウンキャストといいます。</p>
 <p>ダウンキャストを行わないで済むようなコードを書くことが望ましいです。
 ダウンキャストの詳細については <a href="../appendix-downcasts/">ダウンキャスト</a> を参照してください。</p>
-<h2 id="_4">仮想関数とオーバーライド<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">仮想関数とオーバーライド</h2>
 <p>派生クラスで挙動を変更できるメンバ関数を仮想関数といいます。
 仮想関数にするには基底クラスのメンバ関数に <code>virtual</code> をつけます。</p>
 <p>派生クラスで仮想関数の挙動を変更することをオーバーライドといいます。
@@ -1934,7 +1934,7 @@
 </code></pre></div>
 <p>この例ではメンバ関数 <code>Describe</code> がオーバーライドされているため、
 <code>Rectangle</code> クラスではなく <code>Square</code> クラスの <code>Describe</code> が実行されます。</p>
-<h2 id="_5">純粋仮想関数とインターフェース<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">純粋仮想関数とインターフェース</h2>
 <p>定義をもたない仮想関数を純粋仮想関数といいます。
 純粋仮想関数にするには仮想関数に <code>= 0</code> をつけます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Polygon</span> <span class="p">{</span>
@@ -2036,7 +2036,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

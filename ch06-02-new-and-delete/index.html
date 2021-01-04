@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch06-02-new-and-delete/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1739,13 +1739,13 @@
                   </a>
                 
                 
-                <h1 id="newdelete">new/delete<a class="headerlink" href="#newdelete" title="Permanent link">&para;</a></h1>
-<h2 id="new">new<a class="headerlink" href="#new" title="Permanent link">&para;</a></h2>
+                <h1 id="newdelete">new/delete</h1>
+<h2 id="new">new</h2>
 <p>ヒープにメモリを動的に確保する場合は <code>new</code> 演算子を利用します。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// p1 は new で確保されたメモリ領域を指すポインタ</span>
 <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>    <span class="c1">// 配列の場合は [] を付ける</span>
 </code></pre></div>
-<h2 id="delete">delete<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
+<h2 id="delete">delete</h2>
 <p>ヒープに動的に確保したメモリを解放する場合は <code>delete</code> 演算子を利用します。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
 <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
@@ -1843,7 +1843,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-01-variables/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">変数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">変数</h1>
 <p>C++ で変数を使用する方法について説明します。
 整数値の変数を宣言するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
@@ -1768,17 +1768,17 @@
 
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 不定な値が出力される</span>
 </code></pre></div>
-<h2 id="const">const<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
+<h2 id="const">const</h2>
 <p><code>const</code> を付けると値の書き換えが禁止できます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// エラー</span>
 </code></pre></div>
-<h2 id="constexpr">constexpr<a class="headerlink" href="#constexpr" title="Permanent link">&para;</a></h2>
+<h2 id="constexpr">constexpr</h2>
 <p><code>constexpr</code> を付けると定数にできます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">constexpr</span> <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 </code></pre></div>
 <p><code>const</code> の値は実行時に決定しますが <code>constexpr</code> の値はコンパイル時に決定します。</p>
-<h2 id="_2">型推論<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">型推論</h2>
 <p>変数の宣言時には明示的に型を指定しなくても <code>auto</code> を使うと
 右辺の値から型を推論することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>  <span class="c1">// x は int と推論</span>
@@ -1859,7 +1859,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

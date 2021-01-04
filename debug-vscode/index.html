@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/debug-vscode/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1823,9 +1823,9 @@
                   </a>
                 
                 
-                <h1 id="visual-studio-code-gui">Visual Studio Code による GUI デバッグ<a class="headerlink" href="#visual-studio-code-gui" title="Permanent link">&para;</a></h1>
+                <h1 id="visual-studio-code-gui">Visual Studio Code による GUI デバッグ</h1>
 <p>Visual Studio Code から GDB を使用することで GUI デバッグすることができます。</p>
-<h2 id="launchjson">launch.json の設定<a class="headerlink" href="#launchjson" title="Permanent link">&para;</a></h2>
+<h2 id="launchjson">launch.json の設定</h2>
 <p>Visual Studio Code を起動している状態で <code>Ctrl+Shift+P</code> を押すとコマンドパレットが開きます。
 コマンドパレットに <code>Debug: Open launch.json</code> と入力して <code>launch.json</code> を開きます。</p>
 <p><code>launch.json</code> が存在しない場合には <code>環境の選択</code> というダイアログが出るので
@@ -1905,21 +1905,21 @@
     <span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_1">デバッグ開始<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">デバッグ開始</h2>
 <p>コマンドパレットに <code>Debug: Start Debugging</code> と入力すると
 デバッグ対象プログラムを開始します。</p>
 <p>Visual Studio Code を起動している状態で <code>F5</code> を押すことでも
 デバッグ対象プログラムを開始できます。</p>
 <p>ブレークポイントが設定されていない状態だとプログラム終了まで実行されます。</p>
-<h2 id="_2">ブレークポイントの追加と削除<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">ブレークポイントの追加と削除</h2>
 <p>行番号の左側をクリックすることでブレークポイントを追加できます。</p>
 <p><img alt="ブレークポイントを追加した画面" src="../img/debug_vscode_breakpoint_add.png" /></p>
 <p>もう一度クリックするとブレークポイントを削除できます。</p>
-<h2 id="_3">プログラムの一時停止<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">プログラムの一時停止</h2>
 <p>ブレークポイントを追加した状態でデバッグを開始すると、
 ブレークポイントに到達した時点でプログラムが一時停止します。</p>
 <p><img alt="ブレークポイントで一時停止している画面" src="../img/debug_vscode_breakpoint_pause.png" /></p>
-<h2 id="_4">デバッグツールバー<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">デバッグツールバー</h2>
 <p><img alt="デバッグツールバー" src="../img/debug_vscode_debug_toolbar.png" /></p>
 <p>左から順に以下の操作を行うことができます。</p>
 <ul>
@@ -1930,14 +1930,14 @@
 <li>再起動</li>
 <li>デバッグ終了</li>
 </ul>
-<h2 id="_5">変数の値<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">変数の値</h2>
 <p>現在の変数の値は自動で表示されます。</p>
 <p><img alt="変数の値" src="../img/debug_vscode_print_variable_values.png" /></p>
-<h2 id="_6">スタックフレーム<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_6">スタックフレーム</h2>
 <p>スタックフレームの一覧は自動で表示されます。</p>
 <p><img alt="スタックフレーム" src="../img/debug_vscode_stack_frames.png" /></p>
 <p>各フレームをクリックすることでデバッガの参照箇所を移動できます。</p>
-<h2 id="_7">参考<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_7">参考</h2>
 <ul>
 <li><a href="https://code.visualstudio.com/docs/editor/debugging">Debugging in Visual Studio Code</a></li>
 </ul>
@@ -2017,7 +2017,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

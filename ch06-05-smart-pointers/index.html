@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch06-05-smart-pointers/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1781,8 +1781,8 @@
                   </a>
                 
                 
-                <h1 id="_1">スマートポインタ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">リソースの所有権<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+                <h1 id="_1">スマートポインタ</h1>
+<h2 id="_2">リソースの所有権</h2>
 <p>ポインタはコピー可能なため、ポインタが指す先のリソースを複数のオブジェクトから参照することが可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="kt">int</span><span class="o">*</span> <span class="n">a</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
@@ -1797,7 +1797,7 @@
 どの変数がリソースの所有権（リソースを参照する権利と開放する権利）を持つのかをプログラマが細心の注意を払ってコードを書く必要があります。</p>
 <p>このようなポインタを扱う上での危険性や負担を下げるために、 C++ ではスマートポインタという仕組みが存在します。</p>
 <p>スマートポインタは <code>&lt;memory&gt;</code> ヘッダにて提供されています。</p>
-<h2 id="stdshared_ptr">std::shared_ptr<a class="headerlink" href="#stdshared_ptr" title="Permanent link">&para;</a></h2>
+<h2 id="stdshared_ptr">std::shared_ptr</h2>
 <p><code>std::shared_ptr</code> は動的確保したリソースの所有権を共有することができるスマートポインタです。
 内部で所有権を持つオブジェクトの一覧を管理し、所有者がいなくなった時に自動的に <code>delete</code> する仕組みを有しています。</p>
 <p><code>std::shared_ptr</code> オブジェクトを生成するには、 <code>std::make_shared</code> を利用します。</p>
@@ -1818,7 +1818,7 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span> <span class="c1">// 所有者が0人になるので、 x のデストラクタで自動的に delete が行われる。</span>
 </code></pre></div>
-<h2 id="stdunique_ptr">std::unique_ptr<a class="headerlink" href="#stdunique_ptr" title="Permanent link">&para;</a></h2>
+<h2 id="stdunique_ptr">std::unique_ptr</h2>
 <p><code>std::unique_ptr</code> は、 <code>std::shared_ptr</code> と違い、コピーが出来ません。
 そのため、確保したリソースの所有者が常に1人になります。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1847,10 +1847,10 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span> <span class="c1">// y が所有しているリソースが解放される。</span>
 </code></pre></div>
-<h2 id="stdauto_ptr">std::auto_ptr<a class="headerlink" href="#stdauto_ptr" title="Permanent link">&para;</a></h2>
+<h2 id="stdauto_ptr">std::auto_ptr</h2>
 <p><code>std::auto_ptr</code> は C++11 では非推奨となっており C++17 では削除されているため使用しないでください。</p>
 <p>詳細は <a href="https://ja.cppreference.com/w/cpp/memory/auto_ptr">std::auto_ptr - cppreference.com</a> を参照してください。</p>
-<h2 id="stdweak_ptr">std::weak_ptr<a class="headerlink" href="#stdweak_ptr" title="Permanent link">&para;</a></h2>
+<h2 id="stdweak_ptr">std::weak_ptr</h2>
 <p><code>std::weak_ptr</code> は普段使うことは有りませんが、 <code>std::shared_ptr</code> を使う時に循環参照するような場合で <code>std::shared_ptr</code> のリソースの所有権を持つことなく、
 そのリソースを監視する（弱参照）ことが出来るスマートポインタとして <code>std::weak_ptr</code> があります。
 <code>lock()</code> を使うことで、監視している <code>std::shared_ptr</code> のリソースが有効な場合、
@@ -1948,7 +1948,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

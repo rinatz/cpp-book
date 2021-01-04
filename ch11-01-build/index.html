@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch11-01-build/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">ビルド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">ビルド</h1>
 <div class="admonition info">
 <p class="admonition-title">説明に使用する環境</p>
 <p>Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。</p>
@@ -1765,13 +1765,13 @@
 <li>コンパイル</li>
 <li>リンク</li>
 </ol>
-<h2 id="_2">プリプロセス<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">プリプロセス</h2>
 <p>プリプロセスはコンパイル前に行われる前処理のことです。
 コメントの削除と <a href="../appendix-preprocessor-directives/">プリプロセッサ司令</a> の実行を行います。</p>
 <p><code>-E</code> を指定するとプリプロセスだけを行うことができます。</p>
 <div class="highlight"><pre><span></span><code>$ g++ -std<span class="o">=</span>c++11 -E main.cc
 </code></pre></div>
-<h2 id="_3">コンパイル<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">コンパイル</h2>
 <p>人間が扱うソースファイルをコンピュータで扱うために0と1の表現 (機械語) に変換することをコンパイルといいます。
 コンパイルはソースファイル単位で行います。</p>
 <p>厳密にはコンパイルを行うプログラムのことをコンパイラといいますが、
@@ -1784,7 +1784,7 @@ $ g++ -std<span class="o">=</span>c++11 -c util.cc
 <p>このコマンドを実行すると
 <code>main.cc</code> から <code>main.o</code>、 <code>util.cc</code> から <code>util.o</code> へコンパイルされます。</p>
 <p>コンパイルだけでは実行ファイルは生成されません。</p>
-<h2 id="_4">リンク<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">リンク</h2>
 <p>オブジェクトファイルなどをまとめて実行ファイルを生成することをリンクといいます。
 リンクを行うプログラムはリンカといいます。</p>
 <p><code>main.o</code> と <code>util.o</code> をリンクして実行ファイルを生成するには次のようにします。</p>
@@ -1895,7 +1895,7 @@ collect2: error: ld returned <span class="m">1</span> <span class="nb">exit</spa
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

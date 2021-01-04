@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch07-09-default-and-delete/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1739,7 +1739,7 @@
                   </a>
                 
                 
-                <h1 id="defaultdelete">default/delete<a class="headerlink" href="#defaultdelete" title="Permanent link">&para;</a></h1>
+                <h1 id="defaultdelete">default/delete</h1>
 <p>以下のメンバ関数は暗黙的に定義されることがある特別なメンバ関数です。</p>
 <ul>
 <li>デフォルトコンストラクタ</li>
@@ -1750,7 +1750,7 @@
 <li>デストラクタ</li>
 </ul>
 <p>これらに対する指定として <code>default</code> 指定と <code>delete</code> 指定があります。</p>
-<h2 id="default">default 指定<a class="headerlink" href="#default" title="Permanent link">&para;</a></h2>
+<h2 id="default">default 指定</h2>
 <p>暗黙的に定義される特別なメンバ関数に <code>= default</code> をつけることで、
 暗黙的に定義されるものと同じものを明示的に定義できます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Square</span> <span class="p">{</span>
@@ -1777,7 +1777,7 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="delete">delete 指定<a class="headerlink" href="#delete" title="Permanent link">&para;</a></h2>
+<h2 id="delete">delete 指定</h2>
 <p>暗黙的に定義される特別なメンバ関数に <code>= delete</code> をつけることで、
 暗黙的に定義される特別なメンバ関数の削除を指定します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">NonCopyable</span> <span class="p">{</span>
@@ -1866,7 +1866,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

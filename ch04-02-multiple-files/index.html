@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch04-02-multiple-files/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1767,8 +1767,8 @@
                   </a>
                 
                 
-                <h1 id="_1">複数ファイル<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">ファイルの種類<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+                <h1 id="_1">複数ファイル</h1>
+<h2 id="_2">ファイルの種類</h2>
 <p>C++ では2種類のファイルを扱います。</p>
 <ul>
 <li>ヘッダ (拡張子: <code>.h</code> , <code>.hpp</code> )<ul>
@@ -1780,7 +1780,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="_3">ソースファイルを分ける<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">ソースファイルを分ける</h2>
 <p>1 つのソースファイルにコードを書き続けていると、
 コードの量が多くなった時に、読みにくくなったり、書きにくくなったりするので、
 適度にコードを複数のファイルに分ける必要があります。</p>
@@ -1843,7 +1843,7 @@
 <p>上記のコードでも動作はしますが、
 <code>a.cc</code> に記述している関数を他の様々なソースから利用したいとなった場合に、
 その都度、それぞれのソースにプロトタイプ宣言を追加することになり、手間がかかります。</p>
-<h2 id="_4">ヘッダファイルを利用する<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">ヘッダファイルを利用する</h2>
 <p>ソースファイルを分けるだけでは、手間がかかりますが、合わせてヘッダを使うことで簡潔になります。
 プロトタイプ宣言だけヘッダに記述することで、宣言を 1 回書くだけで済むようになります。</p>
 <div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">main.cc</label><div class="tabbed-content">
@@ -1909,7 +1909,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># a.h は指定しなくて良い</span>
 g++ -std<span class="o">=</span>c++11 main.cc a.cc
 </code></pre></div>
-<h2 id="_5">インクルードガード<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">インクルードガード</h2>
 <p>ヘッダにはインクルードガードが必要です。</p>
 <div class="tabbed-set" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">a.h</label><div class="tabbed-content">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>1
@@ -2018,7 +2018,7 @@ g++ -std<span class="o">=</span>c++11 main.cc a.cc
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

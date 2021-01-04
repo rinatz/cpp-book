@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch09-03-template-specializations/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1739,7 +1739,7 @@
                   </a>
                 
                 
-                <h1 id="_1">特殊化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">特殊化</h1>
 <p>テンプレートでは実引数に応じて関数やクラスを生成します。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 関数テンプレート</span>
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="o">&gt;</span>
@@ -1845,7 +1845,7 @@
 </div>
 </div>
 </details>
-<h2 id="_2">完全特殊化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">完全特殊化</h2>
 <p>関数テンプレートやクラステンプレートでは、すべてのパラメータが確定した時に別の定義を書くことができます。
 これによって特定のテンプレート引数に対する挙動を変更することができます。
 これを完全特殊化 (または明示的特殊化) といいます。</p>
@@ -1910,7 +1910,7 @@
 </code></pre></div>
 <p>この例では8個の <code>bool</code> 値を1個の <code>uint8_t</code> で扱って省メモリ化するために、
 <code>bool</code> に対する完全特殊化を行っています。</p>
-<h2 id="_3">部分特殊化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">部分特殊化</h2>
 <p>クラステンプレートの一部のテンプレート引数を確定させたり、制限することができます。これを部分特殊化といいます。</p>
 <p>詳細は
 <a href="https://ja.cppreference.com/w/cpp/language/partial_specialization">テンプレートの部分特殊化 - cppreference.com</a></p>
@@ -2003,7 +2003,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

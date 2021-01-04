@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch06-01-memory-areas/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1739,9 +1739,9 @@
                   </a>
                 
                 
-                <h1 id="_1">メモリ領域<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">メモリ領域</h1>
 <p>プログラムが利用するメモリには様々な領域が存在します。ここでは、スタックとヒープについて紹介します。</p>
-<h2 id="_2">スタック<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">スタック</h2>
 <p>スタックはデータ構造上、ヒープに比べて高速に扱えます。スタックへのメモリの確保と解放はコンパイラ・OSが自動的に行います。</p>
 <p>代わりに、使用できるスタックには限りがあるので、大きなデータを取り扱うのには向いていません。
 また、スタックのサイズはプログラムのコンパイル・リンク時に決定しているので、実行前にメモリの確保期間が分かっているものに利用は限られます。</p>
@@ -1758,7 +1758,7 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_3">ヒープ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">ヒープ</h2>
 <p>ヒープのサイズはプログラム実行時に動的に変化します。ヒープはスタックのような制限がなく自由度が高いですが、アプリケーション側でメモリの確保と解放を行う必要があります。</p>
 <p>メモリの確保期間が明確でない場合や、実行時にサイズが確定するようなものについてはヒープを利用します。例えば、 <code>std::vector</code> は、保持する要素をヒープ上に確保することで、要素数を実行時に変更できるという仕組みを実現しています。</p>
                 
@@ -1837,7 +1837,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)

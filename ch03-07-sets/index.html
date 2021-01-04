@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch03-07-sets/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.2">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.73f7c429.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">セット<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">セット</h1>
 <p><code>std::set</code> または <code>std::unordered_set</code> という型を使用すると
 任意の型の集合を扱うことができます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;set&gt;</span><span class="cp"></span>
@@ -1770,15 +1770,15 @@
     <span class="s">&quot;Bob&quot;</span>
 <span class="p">};</span>
 </code></pre></div>
-<h2 id="_2">要素追加<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">要素追加</h2>
 <p><code>insert()</code> で要素を追加することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">persons</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="s">&quot;Eve&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_3">要素削除<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">要素削除</h2>
 <p><code>erase()</code> で要素を削除することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">persons</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="stdset-stdunordered_set">std::set と std::unordered_set の違い<a class="headerlink" href="#stdset-stdunordered_set" title="Permanent link">&para;</a></h2>
+<h2 id="stdset-stdunordered_set">std::set と std::unordered_set の違い</h2>
 <p><code>std::set</code> はキーでソートしてデータを管理するのに対し、
 <code>std::unordered_set</code> はキーから計算するハッシュと呼ばれる値でデータを管理します。</p>
 <p>キーの順番を保持したい場合を除いて、パフォーマンスは常に <code>std::unordered_set</code> の方が優れています。</p>
@@ -1858,7 +1858,7 @@
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.instant'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
