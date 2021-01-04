@@ -1793,7 +1793,7 @@
                   </a>
                 
                 
-                <h1 id="_1">動的ロードと名前マングリング</h1>
+                <h1 id="_1">動的ロードと名前マングリング<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <div class="admonition info">
 <p class="admonition-title">説明に使用する環境</p>
 <p>Windows の MSYS2 環境は構成が複雑なため、説明では Linux 環境を使用します。</p>
@@ -1911,7 +1911,7 @@ Linux 環境で使用する API の詳細は
 </td></tr></table>
 </div>
 </div>
-<h2 id="_2">動的ロード</h2>
+<h2 id="_2">動的ロード<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>add.cc</code> と <code>sub.cc</code> をコンパイルして生成される
 2つのオブジェクトファイル <code>add.o</code> と <code>sub.o</code> から
 作成した動的ライブラリを <code>libhoge.so</code> とします。</p>
@@ -1926,7 +1926,7 @@ OS が提供する <code>libdl.so</code> を動的リンクする必要があり
 <li>関数や変数のポインタを取得</li>
 <li>動的ライブラリを閉じる</li>
 </ol>
-<h3 id="_3">動的ライブラリを開く</h3>
+<h3 id="_3">動的ライブラリを開く<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>動的ライブラリを開くには <code>dlopen()</code> を使います。
 動的ロードに関する処理を使うには <code>&lt;dlfcn.h&gt;</code> のインクルードが必要です。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1950,7 +1950,7 @@ libhoge.so: cannot open shared object file: No such file or directory
 </code></pre></div>
 <p><code>dlopen()</code> が正常に終了した場合はハンドルが返却されます。
 このハンドルを用いて動的ライブラリを操作します。</p>
-<h3 id="_4">関数や変数のポインタを取得</h3>
+<h3 id="_4">関数や変数のポインタを取得<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><code>dlopen()</code> で取得したハンドルから
 関数や変数のポインタを取得するには <code>dlsym()</code> を使用します。</p>
 <p><code>dlsym()</code> では第1引数にハンドル、第2引数にシンボル名を指定します。
@@ -2014,12 +2014,12 @@ $ nm libhoge.so
 <div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">Add</span> <span class="o">=</span> <span class="k">reinterpret_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">symbol_add</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="_5">動的ライブラリを閉じる</h3>
+<h3 id="_5">動的ライブラリを閉じる<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>開いた動的ライブラリは使用が終わったら閉じる必要があります。
 動的ライブラリを閉じるには <code>dlclose()</code> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">dlclose</span><span class="p">(</span><span class="n">handle</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_6">名前マングリング</h2>
+<h2 id="_6">名前マングリング<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>オブジェクトファイルでは変数や関数を名前だけで識別する必要があります。</p>
 <p>C 言語はリンケージ指定が内部リンケージではない変数や関数を名前だけで識別していますが、
 C++ は C 言語にはない以下の機能によって名前だけで識別することができません。</p>

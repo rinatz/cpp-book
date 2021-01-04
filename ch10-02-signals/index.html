@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">シグナル</h1>
+                <h1 id="_1">シグナル<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>シグナルとはプログラム実行中に外部から要求を通知する仕組みです。
 OS からのエラー通知などで使用されます。</p>
 <p><code>&lt;csignal&gt;</code> で定義されるシグナルには以下の6種類があります。</p>
@@ -1766,7 +1766,7 @@ OS からのエラー通知などで使用されます。</p>
 <li>SIGTERM</li>
 </ul>
 <p>一部を紹介します。</p>
-<h2 id="sigabrt">SIGABRT</h2>
+<h2 id="sigabrt">SIGABRT<a class="headerlink" href="#sigabrt" title="Permanent link">&para;</a></h2>
 <p><a href="https://cpprefjp.github.io/reference/cstdlib/abort.html">std::abort</a> の呼び出しによって発生します。</p>
 <p><a href="https://cpprefjp.github.io/reference/cstdlib/abort.html">std::abort</a> は
 <a href="https://cpprefjp.github.io/reference/exception/terminate.html">std::terminate</a> などから呼び出されます。</p>
@@ -1779,7 +1779,7 @@ OS からのエラー通知などで使用されます。</p>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="sigfpe">SIGFPE</h2>
+<h2 id="sigfpe">SIGFPE<a class="headerlink" href="#sigfpe" title="Permanent link">&para;</a></h2>
 <p>整数の0除算など不正な算術演算を行うと発生します。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -1801,7 +1801,7 @@ OS からのエラー通知などで使用されます。</p>
 https://ja.cppreference.com/w/cpp/numeric/fenv
 -->
 
-<h2 id="sigsegv">SIGSEGV</h2>
+<h2 id="sigsegv">SIGSEGV<a class="headerlink" href="#sigsegv" title="Permanent link">&para;</a></h2>
 <p>無効なメモリアクセス (セグメンテーション違反) を行うと発生します。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">*</span> <span class="n">x</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 

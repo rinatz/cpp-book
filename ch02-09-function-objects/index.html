@@ -1807,8 +1807,8 @@
                   </a>
                 
                 
-                <h1 id="_1">関数オブジェクト</h1>
-<h2 id="_2">関数ポインタ</h2>
+                <h1 id="_1">関数オブジェクト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">関数ポインタ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>関数を指し示すポインタを作成する場合は次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 戻り値の型 (*変数名)(引数の型);</span>
 <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="kt">double</span><span class="p">);</span>    <span class="c1">// double を引数として int を返す関数のポインタ f1</span>
@@ -1832,7 +1832,7 @@
 <p>関数ポインタを変数に代入する際は、 <code>auto</code> を使うことで複雑な関数ポインタの型を書く必要が無くなり簡潔になります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">Add</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="_3">ラムダ式</h2>
+<h2 id="_3">ラムダ式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ラムダ式は、簡潔に関数オブジェクトを記述するための式です。
 ラムダ式で生成される関数オブジェクトは <code>auto</code> で保持することが出来ます。</p>
 <p>ラムダ式の構文は次のようになります。</p>
@@ -1842,7 +1842,7 @@
 <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 10</span>
 </code></pre></div>
-<h3 id="_4">キャプチャ</h3>
+<h3 id="_4">キャプチャ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>ラムダ式の外にある変数をラムダ式の中で使用する場合は、
 ラムダ式先頭の <code>[]</code> 内でキャプチャと呼ばれるものの指定が必要です。</p>
 <p>キャプチャには、コピーキャプチャと参照キャプチャの2種類が存在します。</p>
@@ -1898,17 +1898,17 @@
 <span class="kt">int</span> <span class="n">result_ref</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result_ref</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>   <span class="c1">// 8</span>
 </code></pre></div>
-<h3 id="_5">引数リスト</h3>
+<h3 id="_5">引数リスト<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p><code>( 引数リスト )</code> は、通常の関数と同じように記述することが出来ます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">func1</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// int を引数とする</span>
 <span class="k">auto</span> <span class="n">func2</span> <span class="o">=</span> <span class="p">[]()</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">400</span><span class="p">;</span> <span class="p">};</span>         <span class="c1">// 引数なし</span>
 <span class="k">auto</span> <span class="n">func3</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">400</span><span class="p">;</span> <span class="p">};</span>                  <span class="c1">// 戻り値の型の記述を省略した場合、 () ごと省略可能</span>
 </code></pre></div>
-<h3 id="_6">戻り値の型の省略</h3>
+<h3 id="_6">戻り値の型の省略<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p><code>-&gt; 戻り値の型</code> は、 ラムダ式内の型推論に任せる場合は省略可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">func</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// a, b は共に int なので、戻り値も int と推論される</span>
 </code></pre></div>
-<h2 id="stdfunction">std::function</h2>
+<h2 id="stdfunction">std::function<a class="headerlink" href="#stdfunction" title="Permanent link">&para;</a></h2>
 <p><code>std::function</code> で関数ポインタやラムダ式を保持することが出来ます。
 <code>std::function</code> を使うことで、関数ポインタのような複雑な構文が簡潔になるという利点もあります。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;functional&gt;</span><span class="cp"></span>

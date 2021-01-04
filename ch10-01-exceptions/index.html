@@ -1905,7 +1905,7 @@
                   </a>
                 
                 
-                <h1 id="_1">例外処理</h1>
+                <h1 id="_1">例外処理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>例外処理とはプログラム実行中にエラーが発生した場合に、
 後続の処理を行うのをやめてエラー発生時用の処理を行うための機能です。</p>
 <div class="admonition warning">
@@ -1956,7 +1956,7 @@
 <p><code>try</code> ブロック内で送出した例外は <code>catch</code> ブロックで捕捉します。</p>
 <p>この例では例外 <code>std::runtime_error</code> が送出された場合に
 参照 <code>e</code> で受けて <code>e.what()</code> でエラーメッセージを取得して出力します。</p>
-<h2 id="_2">例外の型</h2>
+<h2 id="_2">例外の型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>例外にはあらゆる型が使用できます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
     <span class="k">throw</span> <span class="mi">123</span><span class="p">;</span>
@@ -1965,7 +1965,7 @@
 <span class="p">}</span>
 </code></pre></div>
 <p>通常は標準ライブラリの例外クラスやそれを継承したユーザ定義クラスを使用します。</p>
-<h2 id="_3">型に応じた捕捉</h2>
+<h2 id="_3">型に応じた捕捉<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>1つの <code>try</code> ブロックに対して <code>catch</code> ブロックは複数記述することができます。
 これによって例外の型に応じた処理を行うことができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
@@ -1996,7 +1996,7 @@
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Unexpected exception was thrown.&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_4">関数から例外を送出</h2>
+<h2 id="_4">関数から例外を送出<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>関数内で例外が捕捉されない場合、
 捕捉されるまで関数の呼び出し元を順に辿っていきます。</p>
 <p>正の整数を表す <code>std::string</code> を <code>int</code> に変換する処理を関数化し、
@@ -2131,7 +2131,7 @@
 </code></pre></div>
 </td></tr></table>
 </div>
-<h2 id="_5">例外が捕捉されない場合</h2>
+<h2 id="_5">例外が捕捉されない場合<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>送出された例外が捕捉されない場合、
 <a href="https://cpprefjp.github.io/reference/exception/terminate.html">std::terminate</a> が呼び出されてプログラムが異常終了します。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -2141,7 +2141,7 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="noexcept">noexcept</h2>
+<h2 id="noexcept">noexcept<a class="headerlink" href="#noexcept" title="Permanent link">&para;</a></h2>
 <p>関数が例外を送出しないことを明示的に表すには <code>noexcept</code> をつけます。
 デストラクタは暗黙的に <code>noexcept</code> になります。</p>
 <!-- MEMO: delete 演算子もデフォルトで noexcept になる -->
@@ -2176,7 +2176,7 @@ C++11 では非推奨となっており C++17 では削除されているため�
 <a href="https://cpprefjp.github.io/lang/cpp17/remove_deprecated_exception_specifications.html">非推奨だった古い例外仕様を削除 - cpprefjp C++日本語リファレンス</a>
 を参照してください。</p>
 </div>
-<h2 id="_6">標準ライブラリの例外クラス</h2>
+<h2 id="_6">標準ライブラリの例外クラス<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>標準ライブラリの例外クラスの一部を紹介します。</p>
 <p>一覧は <a href="https://ja.cppreference.com/w/cpp/error/exception">std::exception - cppreference.com</a> を参照してください。</p>
 <p><img alt="クラス図" src="../img/exception_class.svg" /></p>
@@ -2186,7 +2186,7 @@ C++11 では非推奨となっており C++17 では削除されているため�
 プログラム実行前に検出可能なものは <code>std::logic_error</code>、
 プログラム実行時にのみ検出可能なものは <code>std::runtime_error</code> として分類されています。</p>
 </div>
-<h3 id="stdexception">std::exception</h3>
+<h3 id="stdexception">std::exception<a class="headerlink" href="#stdexception" title="Permanent link">&para;</a></h3>
 <p>すべての標準ライブラリの例外クラスの基底クラスです。</p>
 <p>このクラスで例外を捕捉することにより、
 標準ライブラリの例外クラスをすべて捕捉することができます。</p>
@@ -2203,10 +2203,10 @@ C++11 では非推奨となっており C++17 では削除されているため�
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="stdlogic_error">std::logic_error</h3>
+<h3 id="stdlogic_error">std::logic_error<a class="headerlink" href="#stdlogic_error" title="Permanent link">&para;</a></h3>
 <p>前提条件を満たしていないなど論理エラーを表すためのクラスです。</p>
 <p>標準ライブラリで <code>std::logic_error</code> を送出するものはありません。</p>
-<h3 id="stdinvalid_argument">std::invalid_argument</h3>
+<h3 id="stdinvalid_argument">std::invalid_argument<a class="headerlink" href="#stdinvalid_argument" title="Permanent link">&para;</a></h3>
 <p>関数の実引数が不正な値である場合の論理エラーを表すためのクラスです。</p>
 <p><code>std::bitset</code> で変換できない文字列を指定した場合などに送出されます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">try</span> <span class="p">{</span>
@@ -2220,7 +2220,7 @@ C++11 では非推奨となっており C++17 では削除されているため�
 <p><code>std::bitset</code> では文字列から2進数数値への変換処理をコンストラクタで行っています。
 一般にコンストラクタには戻り値がないため、戻り値によってエラー有無を判断することができません。
 そのためコンストラクタでエラーが発生した場合には、例外を送出するものがあります。</p>
-<h3 id="stdout_of_range">std::out_of_range</h3>
+<h3 id="stdout_of_range">std::out_of_range<a class="headerlink" href="#stdout_of_range" title="Permanent link">&para;</a></h3>
 <p>配列のようなデータに対する要素参照で
 範囲外が指定された場合の論理エラーを表すためのクラスです。</p>
 <p><code>std::vector</code> の <code>at()</code> で範囲外の要素を参照しようとした場合などに送出されます。</p>
@@ -2251,15 +2251,15 @@ C++11 では非推奨となっており C++17 では削除されているため�
 </div>
 <!-- TODO: 追加予定のシグナルのページへのリンクを貼る -->
 
-<h3 id="stdruntime_error">std::runtime_error</h3>
+<h3 id="stdruntime_error">std::runtime_error<a class="headerlink" href="#stdruntime_error" title="Permanent link">&para;</a></h3>
 <p>実行時に評価する値の不正や実行環境の問題など
 実行時エラーを表すためのクラスです。</p>
 <!-- TODO: std::locale 以外での例を追加する -->
 
-<h3 id="stdbad_cast">std::bad_cast</h3>
+<h3 id="stdbad_cast">std::bad_cast<a class="headerlink" href="#stdbad_cast" title="Permanent link">&para;</a></h3>
 <p><code>dynamic_cast</code> で失敗した場合に送出されます。
 <code>dynamic_cast</code> の詳細については <a href="../appendix-downcasts/">ダウンキャスト</a> を参照してください。</p>
-<h2 id="_7">デストラクタと例外</h2>
+<h2 id="_7">デストラクタと例外<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>例外を送出して捕捉するまでの間に、
 さらに例外を送出すると <a href="https://cpprefjp.github.io/reference/exception/terminate.html">std::terminate</a> が呼び出されて
 プログラムが異常終了します。

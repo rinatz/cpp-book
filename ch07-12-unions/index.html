@@ -1739,7 +1739,7 @@
                   </a>
                 
                 
-                <h1 id="_1">共用体</h1>
+                <h1 id="_1">共用体<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>共用体は複数の型のどれかを格納したい、という場合に用いるものです。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
 <span class="k">union</span> <span class="nc">X</span> <span class="p">{</span>
@@ -1770,7 +1770,7 @@
 <p>構造体の大きさがメンバーのすべての型の大きさの総和にパディングなどを足したものであったのに対して、
 共用体ではメンバーの型の大きさの最大値にパディングなどを足したものとなります。
 結果としてメモリーを節約することができるので、複数の型のどれかを格納したいという場合にはよく用いられます。</p>
-<h2 id="json">実用的な例: JSONのパース</h2>
+<h2 id="json">実用的な例: JSONのパース<a class="headerlink" href="#json" title="Permanent link">&para;</a></h2>
 <p>例えば<a href="https://www.json.org/json-en.html">JSON</a>をパースすることを考えます。
 JSONの値はオブジェクト、配列、文字列、数値、bool、nullを持つことができます。
 とりあえず最もわかりやすく表現するデータ構造を考えると次のようになります。</p>
@@ -1835,7 +1835,7 @@ JSONの値はオブジェクト、配列、文字列、数値、bool、nullを�
 <span class="p">}</span>
 </code></pre></div>
 <p>共用体にどんなデータが入っているかを別途変数で持っておき、読み出す時に条件分岐して処理するというのが一般的な扱いです。上の例では <code>value</code> クラスの中に <code>kind</code> という列挙型を定義してその型の変数 <code>k_</code> も定義しました。この <code>k_</code> に今なんのデータが共用体に入っているかを記録し、共用体にアクセスするときはこの <code>k_</code> を確認してからアクセスします。</p>
-<h2 id="_2">アクティブな共用体のメンバ変数</h2>
+<h2 id="_2">アクティブな共用体のメンバ変数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>共用体のあるメンバ変数にデータを入れたとき、そのメンバ変数の寿命が開始しアクティブになります。</p>
 <p>別のメンバ変数にデータを入れるとそれまでアクティブだったメンバー変数の寿命が尽き、新たにデータが入ったメンバー変数の寿命が開始しアクティブになります。</p>
 <p>アクティブになることができるメンバ変数は最大で1つまでです。</p>

@@ -1903,7 +1903,7 @@
                   </a>
                 
                 
-                <h1 id="pod">POD</h1>
+                <h1 id="pod">POD<a class="headerlink" href="#pod" title="Permanent link">&para;</a></h1>
 <p>POD (Plain Old Data) とは C と ABI 互換性が保証されるデータ構造のことです。</p>
 <p>データ構造が POD であるかは <a href="https://cpprefjp.github.io/reference/type_traits/is_pod.html">std::is_pod</a> で判定することができます。
 <code>std::is_pod</code> を使用するには <code>&lt;type_traits&gt;</code> のインクルードが必要です。
@@ -1915,7 +1915,7 @@
 <span class="p">};</span>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">FundamentalTypes</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_1">基本型</h2>
+<h2 id="_1">基本型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>基本型は POD です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">enum</span> <span class="nc">Direction</span> <span class="p">{</span>
     <span class="n">kLeft</span><span class="p">,</span>
@@ -1928,7 +1928,7 @@
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">Direction</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_2">配列</h2>
+<h2 id="_2">配列<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>POD の配列は POD です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 </code></pre></div>
@@ -1937,11 +1937,11 @@ POD の <code>std::vector</code> は POD ではありません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 <span class="hll"><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>  <span class="c1">// failed</span>
 </span></code></pre></div>
-<h2 id="_3">参照型</h2>
+<h2 id="_3">参照型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>参照型は POD ではありません。</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&amp;&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>  <span class="c1">// failed</span>
 </span></code></pre></div>
-<h2 id="_4">ポインタ型</h2>
+<h2 id="_4">ポインタ型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>あらゆるポインタは POD です。
 POD ではない型に対するポインタも POD です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
@@ -1949,7 +1949,7 @@ POD ではない型に対するポインタも POD です。</p>
 <span class="c1">// std::vector&lt;int&gt; は POD ではないが std::vector&lt;int&gt;* は POD</span>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;*&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_5">構造体</h2>
+<h2 id="_5">構造体<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>構造体の条件は複雑なため、本書では簡単な例だけを紹介します。</p>
 <details class="question"><summary>POD の要件</summary><p>トリビアルかつスタンダードレイアウトである場合に POD となります。
 詳細は以下を参照してください。</p>
@@ -1958,7 +1958,7 @@ POD ではない型に対するポインタも POD です。</p>
 <li><a href="https://cpprefjp.github.io/reference/type_traits/is_standard_layout.html">is_standard_layout - cpprefjp C++日本語リファレンス</a></li>
 </ul>
 </details>
-<h3 id="pod_1">POD になる構造体の例</h3>
+<h3 id="pod_1">POD になる構造体の例<a class="headerlink" href="#pod_1" title="Permanent link">&para;</a></h3>
 <p>以下の条件をすべて満たす構造体は POD です。</p>
 <ul>
 <li>継承していない</li>
@@ -1993,10 +1993,10 @@ POD ではない型に対するポインタも POD です。</p>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">FundamentalTypesAsGrandchild</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span>
               <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h3 id="pod_2">POD にならない構造体の例</h3>
+<h3 id="pod_2">POD にならない構造体の例<a class="headerlink" href="#pod_2" title="Permanent link">&para;</a></h3>
 <!-- MEMO: 多重継承や仮想継承に関連するものは言及していない -->
 
-<h4 id="_6">暗黙的に定義される特別なメンバ関数をユーザ定義</h4>
+<h4 id="_6">暗黙的に定義される特別なメンバ関数をユーザ定義<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>ユーザ定義のデフォルトコンストラクタをもつ構造体は POD ではありません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">UserDefinedDefaultConstructor</span> <span class="p">{</span>
     <span class="n">UserDefinedDefaultConstructor</span><span class="p">()</span> <span class="p">{}</span>
@@ -2014,21 +2014,21 @@ POD ではない型に対するポインタも POD です。</p>
 </code></pre></div>
 <p>デフォルトコンストラクタ以外の
 暗黙的に定義される特別なメンバ関数についても同様です。</p>
-<h4 id="_7">仮想関数</h4>
+<h4 id="_7">仮想関数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>仮想関数をもつ構造体は POD ではありません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">VirtualFunction</span> <span class="p">{</span>
     <span class="k">virtual</span> <span class="kt">void</span> <span class="n">Hoge</span><span class="p">()</span> <span class="p">{}</span>
 <span class="p">};</span>
 <span class="hll"><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">VirtualFunction</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>  <span class="c1">// failed</span>
 </span></code></pre></div>
-<h4 id="pod_3">非 POD のメンバ変数</h4>
+<h4 id="pod_3">非 POD のメンバ変数<a class="headerlink" href="#pod_3" title="Permanent link">&para;</a></h4>
 <p>POD ではない型の非 <code>static</code> メンバ変数を持つ構造体は POD ではありません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">NonPodMemberVariable</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>  <span class="c1">// std::vector&lt;int&gt; は POD ではない</span>
 <span class="p">};</span>
 <span class="hll"><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">NonPodMemberVariable</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>  <span class="c1">// failed</span>
 </span></code></pre></div>
-<h4 id="2">メンバ変数に対するアクセス指定子が2種類以上</h4>
+<h4 id="2">メンバ変数に対するアクセス指定子が2種類以上<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
 <p>暗黙的なものを含めて、
 <code>static</code> ではないメンバ変数に対するアクセス指定子が2種類以上ある構造体は POD ではありません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">MultipleAccessSpecifierTypes</span> <span class="p">{</span>
@@ -2039,7 +2039,7 @@ POD ではない型に対するポインタも POD です。</p>
 <span class="p">};</span>
 <span class="hll"><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">MultipleAccessSpecifierTypes</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>  <span class="c1">// failed</span>
 </span></code></pre></div>
-<h2 id="_8">クラス</h2>
+<h2 id="_8">クラス<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>C++ における構造体とクラスの違いはデフォルトのアクセス指定子だけなので、
 構造体と同じ条件でクラスも POD になります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">FundamentalTypes</span> <span class="p">{</span>

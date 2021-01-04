@@ -1793,12 +1793,12 @@
                   </a>
                 
                 
-                <h1 id="pod-api">POD の API 互換性</h1>
+                <h1 id="pod-api">POD の API 互換性<a class="headerlink" href="#pod-api" title="Permanent link">&para;</a></h1>
 <p>C と C++ でヘッダファイルを共有して、
 同じ型宣言を使用するには API 互換性が必要です。
 POD であれば ABI 互換性は保証されますが、 API 互換性は保証されません。</p>
 <p>POD にする場合には API 互換性もあるように定義しましょう。</p>
-<h2 id="c-c">C には存在しない C++ の機能</h2>
+<h2 id="c-c">C には存在しない C++ の機能<a class="headerlink" href="#c-c" title="Permanent link">&para;</a></h2>
 <p>C に存在しない機能を使用していると API 互換性はありません。
 C に存在しない機能の一例として次のものがあります。</p>
 <ul>
@@ -1809,7 +1809,7 @@ C に存在しない機能の一例として次のものがあります。</p>
 </ul>
 <!-- WARNING: stdbool.h の bool と C++ の bool は互換性があるか不明 -->
 
-<h3 id="_1">クラス</h3>
+<h3 id="_1">クラス<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>C にはクラスはありませんが構造体はあります。
 そのため POD の型はクラスではなく構造体にするのが一般的です。</p>
 <p>C の構造体はメンバ変数をもつ以外の機能はなく、以下の機能は使用できません。</p>
@@ -1825,7 +1825,7 @@ C に存在しない機能の一例として次のものがあります。</p>
     <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
-<h3 id="c">C++ の標準ヘッダファイル</h3>
+<h3 id="c">C++ の標準ヘッダファイル<a class="headerlink" href="#c" title="Permanent link">&para;</a></h3>
 <p>C++ の標準ヘッダファイルは C では使用できませんが、
 C の標準ヘッダファイルは C++ でも使用できます。</p>
 <p>C の標準ヘッダファイルに対して、
@@ -1843,7 +1843,7 @@ C の標準ヘッダファイルを使用することができます。
     <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
-<h2 id="c-c_1">C++ には存在しない C の機能</h2>
+<h2 id="c-c_1">C++ には存在しない C の機能<a class="headerlink" href="#c-c_1" title="Permanent link">&para;</a></h2>
 <p>C++ は C と高い互換性がありますが、完全上位互換ではありません。
 C++ に存在しない機能を使用していると API 互換性はありません。
 C++11 は <a href="https://ja.wikipedia.org/wiki/C99">C99</a> というバージョンの C の機能を概ね取り込んでいますが、
@@ -1866,7 +1866,7 @@ C++11 は <a href="https://ja.wikipedia.org/wiki/C99">C99</a> というバージ
 <p>詳細は
 <a href="https://ja.cppreference.com/w/c/language/compound_literal">複合リテラル - cppreference.com</a>
 を参照してください。</p>
-<h2 id="c-c_2">C と C++ で異なるソースコードにする</h2>
+<h2 id="c-c_2">C と C++ で異なるソースコードにする<a class="headerlink" href="#c-c_2" title="Permanent link">&para;</a></h2>
 <p><a href="../appendix-preprocessor-directives/">プリプロセッサ司令</a> を使用して C と C++ で異なるソースコードにすることができます。</p>
 <p>C++ では <code>__cplusplus</code> というマクロが定義されますが、
 C では定義されないことを利用して次のようにすることができます。</p>

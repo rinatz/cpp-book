@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">タプル</h1>
+                <h1 id="_1">タプル<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>タプルは複数の値をひとまとめにして扱うことができる型です。
 配列と似た部分がありますが、配列と異なり各要素は同じ型である必要はありません。
 タプルを定義するには次のようにします。</p>
@@ -1765,18 +1765,18 @@
 要素数はいくつでも増やすことができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">person</span> <span class="p">{</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span> <span class="p">};</span>
 </code></pre></div>
-<h2 id="_2">要素参照</h2>
+<h2 id="_2">要素参照<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>配列と同じようにタプルも要素参照を下記のようにすることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>    <span class="c1">// &quot;Bob&quot;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>    <span class="c1">// 20</span>
 </code></pre></div>
-<h2 id="_3">初期化のバリエーション</h2>
+<h2 id="_3">初期化のバリエーション<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>タプルは初期化方法に幾つかのバリエーションがあります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">person</span> <span class="p">{</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span> <span class="p">};</span>
 <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">person</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">person</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_tuple</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="stdtie"><code>std::tie()</code></h2>
+<h2 id="stdtie"><code>std::tie()</code><a class="headerlink" href="#stdtie" title="Permanent link">&para;</a></h2>
 <p><code>std::tie()</code> という関数を使うとタプルの要素を個別の変数に
 まとめて代入することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">tuple</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">person</span> <span class="p">{</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">&quot;USA&quot;</span> <span class="p">};</span>

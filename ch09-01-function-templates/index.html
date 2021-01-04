@@ -1767,7 +1767,7 @@
                   </a>
                 
                 
-                <h1 id="_1">関数テンプレート</h1>
+                <h1 id="_1">関数テンプレート<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>型やコンパイル時に定まる値をパラメータ化する機能をテンプレートといいます。
 型に依存せず処理を共通化するために使用されます。</p>
 <p>関数に対するテンプレートを関数テンプレートといいます。
@@ -1784,7 +1784,7 @@
 <span class="n">Sum</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">);</span>  <span class="c1">// 4.6</span>
 </code></pre></div>
 <p>関数呼び出し時に <code>&lt; ... &gt;</code> で <code>T</code> の型を指定します。</p>
-<h2 id="_2">テンプレート実引数の省略</h2>
+<h2 id="_2">テンプレート実引数の省略<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>実引数から型パラメータ <code>T</code> を推論できる場合には
 呼び出し時の <code>&lt; ... &gt;</code> を省略することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>      <span class="c1">// 3</span>
@@ -1795,7 +1795,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">Sum</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">);</span>  <span class="c1">// 3.3</span>
 <span class="c1">// Sum(1, 2.3);       // コンパイルエラー</span>
 </code></pre></div>
-<h2 id="_3">複数のテンプレート引数</h2>
+<h2 id="_3">複数のテンプレート引数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>パラメータ化する型やコンパイル時に定まる値は
 1つだけではなく複数にすることができます。</p>
 <p>戻り値を <code>double</code> に固定して第1引数と第2引数を
@@ -1808,14 +1808,14 @@
 <p>この場合には次の関数呼び出しもコンパイルエラーにはなりません。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">);</span>  <span class="c1">// 3.3</span>
 </code></pre></div>
-<h2 id="_4">戻り値の型推論</h2>
+<h2 id="_4">戻り値の型推論<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>パラメータ化した引数の型から戻り値の型を推論するには <code>decltype</code> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="nc">T</span><span class="p">,</span> <span class="k">typename</span> <span class="nc">U</span><span class="o">&gt;</span>
 <span class="k">auto</span> <span class="n">Sum</span><span class="p">(</span><span class="n">T</span> <span class="n">a</span><span class="p">,</span> <span class="n">U</span> <span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">decltype</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">コンパイル時に定まる値のパラメータ化</h2>
+<h2 id="_5">コンパイル時に定まる値のパラメータ化<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>テンプレートでは型だけではなく
 コンパイル時に定まる値をパラメータ化することができます。
 コンパイル時に定まる値として配列のサイズなどを指定することができます。</p>

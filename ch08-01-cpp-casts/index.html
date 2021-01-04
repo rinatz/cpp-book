@@ -1767,7 +1767,7 @@
                   </a>
                 
                 
-                <h1 id="c">C++ のキャスト</h1>
+                <h1 id="c">C++ のキャスト<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <p>C++ では4種類のキャスト演算子が用意されています。</p>
 <table>
 <thead>
@@ -1797,7 +1797,7 @@
 </table>
 <p>本節では基本的な使い方だけを説明します。
 詳しい説明は <a href="../appendix-cast-details/">キャストの詳しい説明</a> を参照してください。</p>
-<h2 id="static_cast">static_cast</h2>
+<h2 id="static_cast">static_cast<a class="headerlink" href="#static_cast" title="Permanent link">&para;</a></h2>
 <p>型変換を明示的に行うためのキャストです。必要があれば値を変化させます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">dx</span><span class="p">);</span>  <span class="c1">// 3</span>
@@ -1829,17 +1829,17 @@
 
 <span class="n">Square</span> <span class="n">square</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Square</span><span class="o">&gt;</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="dynamic_cast">dynamic_cast</h2>
+<h2 id="dynamic_cast">dynamic_cast<a class="headerlink" href="#dynamic_cast" title="Permanent link">&para;</a></h2>
 <p>一般にダウンキャストをする際に、 <code>dynamic_cast</code> を使います。アップキャストに使うときは <code>static_cast</code> と同じ意味を持ちます。
 <code>dynamic_cast</code> の詳細については <a href="../appendix-downcasts/">ダウンキャスト</a> を参照してください。</p>
-<h2 id="const_cast">const_cast</h2>
+<h2 id="const_cast">const_cast<a class="headerlink" href="#const_cast" title="Permanent link">&para;</a></h2>
 <p>一般にconst修飾子を外すときに用いるキャストです。const修飾を付加するときは <code>static_cast</code> と同じ意味を持ちます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str</span><span class="p">(</span><span class="s">&quot;hoge&quot;</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">x</span> <span class="o">=</span> <span class="k">const_cast</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
 </code></pre></div>
 <p>「オブジェクトに変更を加えないようにする」ために <code>const</code> が付いているにも関わらず、
 <code>const_cast</code> で「オブジェクトに変更を加えられるようにする」ことは望ましくないので、基本的には使いません。</p>
-<h2 id="reinterpret_cast">reinterpret_cast</h2>
+<h2 id="reinterpret_cast">reinterpret_cast<a class="headerlink" href="#reinterpret_cast" title="Permanent link">&para;</a></h2>
 <p>値はそのまま型情報の変換を行うキャストです。安全に使用するためにはいくつもの落とし穴があります。
 <a href="https://yohhoy.hatenadiary.jp/entry/20120220/p1">Strict Aliasing Rules</a>のようにキャスト単体でみれば問題なくても全体としてみると未定義動作を引き起こすこともあります。
 <code>std::nullptr_t -&gt; T -&gt; std::nullptr_t</code> が反例で、常にA→B→Aというふうに変換できるという保証もありません。

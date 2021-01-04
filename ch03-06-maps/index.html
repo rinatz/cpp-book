@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">マップ</h1>
+                <h1 id="_1">マップ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>配列では要素参照のために何番目の要素と指定しますが、
 <code>std::map</code> または <code>std::unorderd_map</code> という型を使用すると
 何番目という指定の代わりに任意の型をキーとして指定できます。</p>
@@ -1776,15 +1776,15 @@
 <div class="highlight"><pre><span></span><code><span class="n">persons</span><span class="p">[</span><span class="s">&quot;Alice&quot;</span><span class="p">];</span>  <span class="c1">// 18</span>
 <span class="n">persons</span><span class="p">[</span><span class="s">&quot;Bob&quot;</span><span class="p">];</span>    <span class="c1">// 20</span>
 </code></pre></div>
-<h2 id="_2">要素追加</h2>
+<h2 id="_2">要素追加<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>insert()</code> で要素を追加することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">persons</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span><span class="s">&quot;Eve&quot;</span><span class="p">,</span> <span class="mi">19</span><span class="p">});</span>
 </code></pre></div>
-<h2 id="_3">要素削除</h2>
+<h2 id="_3">要素削除<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>erase()</code> で要素を削除することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">persons</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="stdmap-stdunordered_map"><code>std::map</code> と <code>std::unordered_map</code> の違い</h2>
+<h2 id="stdmap-stdunordered_map"><code>std::map</code> と <code>std::unordered_map</code> の違い<a class="headerlink" href="#stdmap-stdunordered_map" title="Permanent link">&para;</a></h2>
 <p><code>std::map</code> はキーでソートしてデータを管理するのに対し、
 <code>std::unordered_map</code> はキーから計算するハッシュと呼ばれる値でデータを管理します。</p>
 <p>キーの順番を保持したい場合を除いて、パフォーマンスは常に <code>std::unordered_map</code> の方が優れています。</p>

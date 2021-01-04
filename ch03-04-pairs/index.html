@@ -1753,7 +1753,7 @@
                   </a>
                 
                 
-                <h1 id="_1">ペア</h1>
+                <h1 id="_1">ペア<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>ペアは2つの値をひとまとめにして扱うことができる型です。
 要素数が2つのタプルと同じように扱うことができます。
 ペアを定義するには次のようにします。</p>
@@ -1761,7 +1761,7 @@
 
 <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">person</span> <span class="p">{</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">};</span>
 </code></pre></div>
-<h2 id="_2">要素参照</h2>
+<h2 id="_2">要素参照<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>タプルと同様に要素参照を下記のようにすることができます。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>    <span class="c1">// &quot;Bob&quot;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">person</span><span class="p">);</span>    <span class="c1">// 20</span>
@@ -1770,13 +1770,13 @@
 <div class="highlight"><pre><span></span><code><span class="n">person</span><span class="p">.</span><span class="n">first</span><span class="p">;</span>     <span class="c1">// &quot;Bob&quot;</span>
 <span class="n">person</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>    <span class="c1">// 20</span>
 </code></pre></div>
-<h2 id="_3">初期化のバリエーション</h2>
+<h2 id="_3">初期化のバリエーション<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>タプルと同様に初期化方法に幾つかのバリエーションがあります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">person</span> <span class="p">{</span> <span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span> <span class="p">};</span>
 <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">person</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">person</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">make_pair</span><span class="p">(</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="stdtie"><code>std::tie()</code></h2>
+<h2 id="stdtie"><code>std::tie()</code><a class="headerlink" href="#stdtie" title="Permanent link">&para;</a></h2>
 <p><code>std::tie()</code> を使うとペアの要素を個別の変数にまとめて代入することができます。
 <code>std::tie()</code> を使うには <code>&lt;tuple&gt;</code> のインクルードが必要です。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;tuple&gt;</span><span class="cp"></span>

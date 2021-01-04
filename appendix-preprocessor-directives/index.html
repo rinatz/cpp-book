@@ -1873,9 +1873,9 @@
                   </a>
                 
                 
-                <h1 id="_1">プリプロセッサ司令</h1>
+                <h1 id="_1">プリプロセッサ司令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>プリプロセッサはコンパイルを行う前にソースファイルの変換などを行うプログラムです。</p>
-<h2 id="_2">インクルード</h2>
+<h2 id="_2">インクルード<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>#include</code> で指定ファイルを読み込んでその場に展開します。
 単純なファイル展開であるためインクルードガードなどが必要となります。</p>
 <p>ファイルの指定には <code>"..."</code> と <code>&lt;...&gt;</code> の2種類があります。</p>
@@ -1888,11 +1888,11 @@
 </ul>
 <p><code>"..."</code> はカレントディレクトリからファイルを検索します。
 見つからなかった場合には <code>&lt;...&gt;</code> と同様に標準のインクルードディレクトリからファイルを検索します。</p>
-<h2 id="_3">マクロ</h2>
+<h2 id="_3">マクロ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>#define</code> でマクロを定義して文字列置換を行います。</p>
 <p>定義されたマクロはソースファイルの末尾まで有効です。
 ソースファイルの途中で無効化するには <code>#undef</code> を使用します。</p>
-<h3 id="_4">オブジェクト形式</h3>
+<h3 id="_4">オブジェクト形式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>オブジェクト形式のマクロは固定の文字列へ置換されます。</p>
 <p>一般に定数として利用されますが、
 特別な理由がない限り <code>constexpr</code> 変数の使用が望ましいです。</p>
@@ -1905,7 +1905,7 @@
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="_5">関数形式</h3>
+<h3 id="_5">関数形式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>関数形式のマクロは引数を使用して文字列へ置換されます。</p>
 <p>一般に型に依存しない関数として使用されますが、
 特別な理由がない限り関数テンプレートの使用が望ましいです。</p>
@@ -1997,20 +1997,20 @@
 <span class="cp">        }                                      \</span>
 <span class="cp">    } while (false)</span>
 </code></pre></div>
-<h3 id="_6">定義済みマクロ</h3>
+<h3 id="_6">定義済みマクロ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>定義済みマクロの一部を紹介します。</p>
 <p>一覧は <a href="https://ja.cppreference.com/w/cpp/preprocessor/replace">テキストマクロの置換 - cppreference.com</a> を参照してください。</p>
-<h4 id="_7">ファイル名と行番号</h4>
+<h4 id="_7">ファイル名と行番号<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p>ソースファイルやヘッダファイルの情報として
 <code>__FILE__</code> でファイル名、
 <code>__LINE__</code> で行番号を取得することができます。</p>
 <p>ログ出力ではこれらの値を使用するために、
 ログ出力関数を関数形式のマクロで定義するのが一般的です。</p>
-<h4 id="c">C++ バージョン</h4>
+<h4 id="c">C++ バージョン<a class="headerlink" href="#c" title="Permanent link">&para;</a></h4>
 <p><code>__cplusplus</code> で使用している C++ のバージョンを表す数値を取得できます。
 C++11 であれば <code>201103L</code> という値に置換されます。</p>
 <p>C++ のバージョンに応じて有効/無効を制御するために使用されます。</p>
-<h2 id="_8">条件</h2>
+<h2 id="_8">条件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>次の司令で条件に応じてコードの有効/無効を分けることができます。</p>
 <ul>
 <li><code>#if</code></li>
@@ -2058,7 +2058,7 @@ C++11 であれば <code>201103L</code> という値に置換されます。</p>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="ifdef-ifndef">#ifdef と #ifndef</h3>
+<h3 id="ifdef-ifndef">#ifdef と #ifndef<a class="headerlink" href="#ifdef-ifndef" title="Permanent link">&para;</a></h3>
 <p>マクロが定義されているかという条件は多用されるため、
 <code>#if defined</code> の短縮として <code>#ifdef</code>、
 否定 <code>#if !defined</code> の短縮として <code>#ifndef</code> という司令があります。</p>

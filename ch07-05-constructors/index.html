@@ -1809,7 +1809,7 @@
                   </a>
                 
                 
-                <h1 id="_1">コンストラクタ</h1>
+                <h1 id="_1">コンストラクタ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>オブジェクトを作成する際に呼び出されるメンバ関数をコンストラクタといいます。
 コンストラクタはメンバ変数の初期化を行うために使用します。</p>
 <p>クラス名と同じ名前で戻り値がない関数がコンストラクタになります。</p>
@@ -1827,7 +1827,7 @@
 <p>このコンストラクタを使ってオブジェクトを作成するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Rectangle</span> <span class="nf">r</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_2">メンバ変数の初期化</h2>
+<h2 id="_2">メンバ変数の初期化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>コンストラクタでメンバ変数を初期化するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
@@ -1844,7 +1844,7 @@
 </code></pre></div>
 <p>初期化は値の変更ではないため、
 コンストラクタに渡された値から <code>const</code> メンバ変数の値を設定することができます。</p>
-<h2 id="_3">クラス宣言とは別に定義</h2>
+<h2 id="_3">クラス宣言とは別に定義<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>クラス宣言とは別にコンストラクタを定義するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
@@ -1861,7 +1861,7 @@
 
 <span class="hll"><span class="n">Rectangle</span><span class="o">::</span><span class="n">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">)</span> <span class="o">:</span> <span class="n">height_</span><span class="p">(</span><span class="n">height</span><span class="p">),</span> <span class="n">width_</span><span class="p">(</span><span class="n">width</span><span class="p">)</span> <span class="p">{}</span>
 </span></code></pre></div>
-<h2 id="_4">デフォルトコンストラクタ</h2>
+<h2 id="_4">デフォルトコンストラクタ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>値を1つも受け取らないコンストラクタをデフォルトコンストラクタといいます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
@@ -1881,7 +1881,7 @@
 </code></pre></div>
 <p>明示的に定義するコンストラクタが1つもない場合のみ、
 コンパイラが暗黙的にデフォルトコンストラクタを定義します。</p>
-<h2 id="_5">コピーコンストラクタ</h2>
+<h2 id="_5">コピーコンストラクタ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>そのクラスの参照だけを受け取るコンストラクタをコピーコンストラクタといいます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Copyable</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
@@ -1911,7 +1911,7 @@
 </ul>
 <p>詳細は <a href="https://ja.cppreference.com/w/cpp/language/copy_constructor">コピーコンストラクタ - cppreference.com</a> を参照してください。</p>
 </details>
-<h2 id="_6">ムーブコンストラクタ</h2>
+<h2 id="_6">ムーブコンストラクタ<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>そのクラスの右辺値参照だけを受け取るコンストラクタをムーブコンストラクタといいます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Movable</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
@@ -1940,7 +1940,7 @@
 </ul>
 <p>詳細は <a href="https://ja.cppreference.com/w/cpp/language/move_constructor">ムーブコンストラクタ - cppreference.com</a> を参照してください。</p>
 </details>
-<h2 id="explicit">変換コンストラクタと explicit</h2>
+<h2 id="explicit">変換コンストラクタと explicit<a class="headerlink" href="#explicit" title="Permanent link">&para;</a></h2>
 <p>値を1つだけ受け取るコンストラクタを変換コンストラクタといいます。
 コピーコンストラクタやムーブコンストラクタも変換コンストラクタです。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Square</span> <span class="p">{</span>
@@ -1987,7 +1987,7 @@
 <p><code>explicit</code> をつけると以下の記述はコンパイルエラーになります。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Square</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="_7">継承</h2>
+<h2 id="_7">継承<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>派生クラスのコンストラクタは
 基底クラスのデフォルトコンストラクタを暗黙的に呼び出します。</p>
 <div class="admonition example">

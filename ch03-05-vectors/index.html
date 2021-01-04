@@ -1767,7 +1767,7 @@
                   </a>
                 
                 
-                <h1 id="_1">ベクタ</h1>
+                <h1 id="_1">ベクタ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>要素数を実行時に変更できる配列を扱うには <code>std::vector</code> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -1781,7 +1781,7 @@
 <p><code>x.size()</code> とすると要素数が取得できます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">size</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 5</span>
 </code></pre></div>
-<h2 id="_2">末尾へ要素追加</h2>
+<h2 id="_2">末尾へ要素追加<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>x.emplace_back()</code> とすると末尾へ要素を追加することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -1801,7 +1801,7 @@ C++11 で追加された <code>emplace_back</code> は要素型のコンスト�
 詳細は <a href="https://www.oreilly.co.jp/books/9784873117362/">書籍 Effective Modern C++</a> で紹介される
 「項目42：要素の挿入の代わりに直接配置を検討する」を参照ください。</p>
 </div>
-<h2 id="_3">末尾から要素削除</h2>
+<h2 id="_3">末尾から要素削除<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>x.pop_back()</code> とすると末尾から要素を削除することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -1811,7 +1811,7 @@ C++11 で追加された <code>emplace_back</code> は要素型のコンスト�
 <span class="n">x</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
 <span class="k">auto</span> <span class="n">size2</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>  <span class="c1">// 4</span>
 </code></pre></div>
-<h2 id="_4">配列の先頭ポインタを取得</h2>
+<h2 id="_4">配列の先頭ポインタを取得<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><code>x.data()</code> とすると配列の先頭ポインタが取得できます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
 
@@ -1819,7 +1819,7 @@ C++11 で追加された <code>emplace_back</code> は要素型のコンスト�
 <span class="k">auto</span> <span class="n">px</span> <span class="o">=</span> <span class="n">x</span><span class="p">.</span><span class="n">data</span><span class="p">();</span>  <span class="c1">// 先頭ポインタ</span>
 <span class="k">auto</span> <span class="n">num</span> <span class="o">=</span> <span class="o">*</span><span class="n">px</span><span class="p">;</span>  <span class="c1">// 4</span>
 </code></pre></div>
-<h2 id="bool">bool に対する特殊化</h2>
+<h2 id="bool">bool に対する特殊化<a class="headerlink" href="#bool" title="Permanent link">&para;</a></h2>
 <p><code>std::vector</code> は <code>bool</code> に対してテンプレート特殊化されており、
 <code>std::vector&lt;bool&gt;</code> は <code>bool</code> 以外の <code>std::vector</code> とは動作が異なります。</p>
 <p>詳細は <a href="https://cpprefjp.github.io/reference/vector/vector.html">vector - cpprefjp C++日本語リファレンス</a> を参照してください。</p>

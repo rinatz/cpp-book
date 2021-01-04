@@ -1767,9 +1767,9 @@
                   </a>
                 
                 
-                <h1 id="mallocfree">malloc/free</h1>
+                <h1 id="mallocfree">malloc/free<a class="headerlink" href="#mallocfree" title="Permanent link">&para;</a></h1>
 <p>C言語のライブラリに用意されている関数 <code>malloc/free</code> を利用して、ヒープにメモリを動的に確保/解放することも出来ます。</p>
-<h2 id="sizeof">sizeof</h2>
+<h2 id="sizeof">sizeof<a class="headerlink" href="#sizeof" title="Permanent link">&para;</a></h2>
 <p><code>sizeof</code> 演算子を使うことで、オブジェクトや型のバイト単位のサイズを取得することが出来ます。操作するメモリのサイズを指定するときに使用されることが多いです。</p>
 <div class="admonition warning">
 <p class="admonition-title">環境依存</p>
@@ -1783,14 +1783,14 @@
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>    <span class="c1">// 8</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="o">&amp;</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>   <span class="c1">// 8</span>
 </code></pre></div>
-<h2 id="malloc">malloc</h2>
+<h2 id="malloc">malloc<a class="headerlink" href="#malloc" title="Permanent link">&para;</a></h2>
 <p>ヒープにメモリを動的に確保する場合は <code>malloc</code> を利用します。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
 
 <span class="kt">int</span><span class="o">*</span> <span class="n">p1</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>      <span class="c1">// (型名*)malloc(確保する領域のサイズ)</span>
 <span class="kt">int</span><span class="o">*</span> <span class="n">p2</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="p">);</span>  <span class="c1">// int[5] の領域を確保する場合</span>
 </code></pre></div>
-<h2 id="free">free</h2>
+<h2 id="free">free<a class="headerlink" href="#free" title="Permanent link">&para;</a></h2>
 <p>ヒープに動的に確保したメモリを解放する場合は <code>free</code> を利用します。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
 
@@ -1799,7 +1799,7 @@
 <span class="n">free</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>  <span class="c1">// メモリの解放</span>
 </code></pre></div>
 <p><code>malloc</code> を利用して確保したメモリの解放を忘れるとメモリリークになります。 <code>malloc</code> と <code>free</code> は必ずセットで使いましょう。</p>
-<h2 id="newdelete">new/deleteとの違い</h2>
+<h2 id="newdelete">new/deleteとの違い<a class="headerlink" href="#newdelete" title="Permanent link">&para;</a></h2>
 <p><code>new/delete</code> と違い、 <code>malloc/free</code> で生成されたオブジェクトはコンストラクタ・デストラクタの呼び出しが行われません。
 プログラムが予期せぬ動作をする原因になることがあるので、基本的に <code>new/delete</code> を使用するようにしましょう。</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">サンプルコード</label><div class="tabbed-content">

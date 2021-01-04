@@ -1753,13 +1753,13 @@
                   </a>
                 
                 
-                <h1 id="_1">内部リンケージ</h1>
+                <h1 id="_1">内部リンケージ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>宣言された同名のシンボルを同一のものとして扱うかどうかを示す概念のことをリンケージと言います。</p>
 <p>ここでは、内部リンケージについて紹介します。
 内部リンケージを持つシンボルは宣言されたファイル内でのみ参照できるようになります。</p>
 <!-- MEMO: ここで言うファイルとは厳密にはプリプロセス後の翻訳単位である -->
 
-<h2 id="static">static</h2>
+<h2 id="static">static<a class="headerlink" href="#static" title="Permanent link">&para;</a></h2>
 <p>シンボルの宣言に <code>static</code> 指定子を付与することで内部リンケージを持たせることが出来ます。</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">main.cc</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1776,7 +1776,7 @@
 </code></pre></div>
 </div>
 </div>
-<h2 id="_2">無名名前空間</h2>
+<h2 id="_2">無名名前空間<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>namespace 名前 {}</code> で名前空間を定義することが出来ますが、
 名前を付けずに <code>namespace {}</code> とすることで無名名前空間を定義することが出来ます。</p>
 <p>無名名前空間内に宣言された変数や関数は、 <code>static</code> 指定子と同様に内部リンケージを持ちます。</p>
@@ -1818,7 +1818,7 @@
 </div>
 <p>C++ において <code>static</code> は <a href="https://ja.cppreference.com/w/cpp/keyword/static">様々な意味を持つ</a> ため、分かりづらいキーワードとなっています。
 宣言に内部リンケージを持たせる場合は、 <code>static</code> ではなく無名名前空間を使うようにしましょう。</p>
-<h2 id="_3">内部リンケージと定義重複</h2>
+<h2 id="_3">内部リンケージと定義重複<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ソースファイル間で定義が重複している時、通常は定義の重複によるエラーになりますが、
 各々に内部リンケージを持たせて別のファイルから見えなくしていれば、別の定義として扱うことができます。</p>
 <div class="tabbed-set" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">main.cc</label><div class="tabbed-content">

@@ -1767,7 +1767,7 @@
                   </a>
                 
                 
-                <h1 id="_1">関数</h1>
+                <h1 id="_1">関数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>C++での関数の使用方法について説明します。</p>
 <p>関数<code>HelloWorld()</code>を作成し、<code>main()</code>から呼び出して利用する場合は次のようにします。</p>
 <div class="admonition example">
@@ -1834,7 +1834,7 @@
 </td></tr></table>
 </div>
 <p>4行目の時点では、<code>HelloWorld()</code>が何者なのかコンパイラには理解できないためです。</p>
-<h2 id="_2">関数の前方宣言</h2>
+<h2 id="_2">関数の前方宣言<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>関数の宣言のみを呼び出し箇所よりも上の行に記述することで、関数の存在をコンパイラに教えることが出来ます。</p>
 <div class="admonition example">
 <p class="admonition-title">main.cc</p>
@@ -1872,10 +1872,10 @@
 </div>
 <p><code>HelloWorld()</code>の本体は<code>main()</code>の呼び出し箇所よりも下に記述されていますが、前方宣言があることで問題なくコンパイルできます。</p>
 <p>宣言についての詳細は、<a href="../ch04-01-declarations-and-definitions/">4.1. 宣言と定義</a> を参照してください。</p>
-<h2 id="main">main関数</h2>
+<h2 id="main">main関数<a class="headerlink" href="#main" title="Permanent link">&para;</a></h2>
 <p>これまでのサンプルコードで度々現れた<code>main()</code>をmain関数と呼びます。</p>
 <p>C++で生成された実行ファイルを実行すると、main関数を起点に処理が進みます。</p>
-<h2 id="_3">コマンドライン引数</h2>
+<h2 id="_3">コマンドライン引数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>main関数にも引数を渡すことが可能です。main関数に渡される引数をコマンドライン引数と呼びます。
 コマンドライン引数は、プログラム実行時に実行ファイル名に続けて半角スペース区切りで複数指定することが出来ます。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 実行ファイル名 &lt;引数1&gt; &lt;引数2&gt; &lt;引数3&gt; ...</span>
@@ -1916,7 +1916,7 @@ argv<span class="o">[</span><span class="m">0</span><span class="o">]</span>: ./
 argv<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Hello
 argv<span class="o">[</span><span class="m">2</span><span class="o">]</span>: World!
 </code></pre></div>
-<h2 id="_4">オーバーロード</h2>
+<h2 id="_4">オーバーロード<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>関数の引数の個数や型が異なる場合、同じ名前の関数を定義することが出来ます。
 これを（関数の）オーバーロードと呼びます。引数の個数や型の情報を元に呼び出す関数を決定しています。</p>
 <div class="admonition example">

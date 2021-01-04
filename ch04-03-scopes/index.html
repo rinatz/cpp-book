@@ -1767,7 +1767,7 @@
                   </a>
                 
                 
-                <h1 id="_1">スコープ</h1>
+                <h1 id="_1">スコープ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>プログラムは、特定の範囲毎にシンボルを識別しています。
 この範囲のことを スコープ と言います。
 同一のスコープ内に同名のシンボルが存在した場合、シンボルを一意に識別する事ができないのでリンク時にエラーになります。</p>
@@ -1778,7 +1778,7 @@
 <p>これは、シンボルに引数の型の情報なども含める名前マングリングを行なった上で関数を一意に識別することで実現しています。
 詳細は <a href="../ch11-04-dynamic-loading-and-name-mangling/">11.4 動的ロードと名前マングリング</a> を参照してください。</p>
 </div>
-<h2 id="_2">名前空間スコープ</h2>
+<h2 id="_2">名前空間スコープ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>namespace 名前 {}</code> で名前空間の定義をすることが出来ます。
 <code>namespace</code> ブロックで括られたシンボルは、その名前空間に属することになります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">namespace</span> <span class="n">A</span> <span class="p">{</span>
@@ -1868,7 +1868,7 @@
 <p>これまでに出てきた、 <code>std::cout</code> や <code>std::vector</code> 等の <code>std::</code> は std 名前空間の事を指しています。
 C++ の標準ライブラリの機能は、ほとんどが std 名前空間に属しています。</p>
 </div>
-<h2 id="_3">関数スコープ</h2>
+<h2 id="_3">関数スコープ<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>関数内で宣言されたオブジェクトはその関数内でのみ有効になります。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -1885,7 +1885,7 @@ C++ の標準ライブラリの機能は、ほとんどが std 名前空間に�
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_4">ブロックスコープ</h2>
+<h2 id="_4">ブロックスコープ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>ブロック内もスコープの一つです。
 <code>if</code> 文を始めとした制御文で使われる <code>{}</code> もブロックスコープに該当します。</p>
 <p>名前空間同様、同一のブロック内に指定したシンボルが見つからなかった場合、シンボルを探す範囲をブロック毎に外に広げていき、最初に見つかったものが利用されます。</p>
@@ -1906,7 +1906,7 @@ C++ の標準ライブラリの機能は、ほとんどが std 名前空間に�
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">グローバルスコープ</h2>
+<h2 id="_5">グローバルスコープ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>名前空間や関数に属さない場所はグローバルスコープと言います。
 グローバルスコープに宣言された変数や関数は、宣言以降であればどこからでも利用することが出来ます。
 また、グローバルスコープに宣言した変数・関数のことを一般的にグローバル変数・関数と言います。</p>

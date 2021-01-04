@@ -1781,8 +1781,8 @@
                   </a>
                 
                 
-                <h1 id="_1">ポインタと参照</h1>
-<h2 id="_2">ポインタ</h2>
+                <h1 id="_1">ポインタと参照<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">ポインタ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>ポインタというのは他の変数を参照する仕組みの1つです。
 Windows のショートカットや Linux のシンボリックリンクと同じような機能です。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
@@ -1790,7 +1790,7 @@ Windows のショートカットや Linux のシンボリックリンクと同�
 </code></pre></div>
 <p><code>int*</code> と書くと <code>int</code> 型の変数を指すポインタ型となります。
 <code>&amp;x</code> というのは <code>x</code> を指すポインタを得るための演算です。</p>
-<h2 id="nullptr">nullptr</h2>
+<h2 id="nullptr">nullptr<a class="headerlink" href="#nullptr" title="Permanent link">&para;</a></h2>
 <p>どの変数も参照していないポインタのことをヌルポインタと呼びます。C++ではヌルポインタを表すキーワードとして <code>nullptr</code> が用意されています。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
 </code></pre></div>
@@ -1804,14 +1804,14 @@ C++ではそのような暗黙変換は許されていないため、 <code>NULL
 そのため C++11 以降では <code>NULL</code> ではなく <code>nullptr</code> を使うようにしましょう。</p>
 <p>詳細は <a href="https://cpprefjp.github.io/lang/cpp11/nullptr.html">nullptr - cpprefjp C++日本語リファレンス</a> を参照してください。</p>
 </div>
-<h2 id="_3">デリファレンス（逆参照）</h2>
+<h2 id="_3">デリファレンス（逆参照）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ポインタが指す変数の値を参照するには次のように書きます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
 </code></pre></div>
 <p>変数からポインタを得るときには <code>&amp;</code> を付け、ポインタから値を得るには <code>*</code> を付けます。</p>
-<h2 id="const">constポインタ</h2>
+<h2 id="const">constポインタ<a class="headerlink" href="#const" title="Permanent link">&para;</a></h2>
 <p>ポインタ型に <code>const</code> を付ける場合、 <code>const</code> の付ける位置によって意味合いが変わります。</p>
 <p><code>*</code> の前に <code>const</code> を付けると、ポインタが指し示す値を書き換えることができなくなります。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
@@ -1826,7 +1826,7 @@ C++ではそのような暗黙変換は許されていないため、 <code>NULL
 <p>併用することも可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
 </code></pre></div>
-<h2 id="_4">参照</h2>
+<h2 id="_4">参照<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>ポインタに似た仕組みとして参照があります。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 <span class="kt">int</span><span class="o">*</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span> <span class="c1">// pはポインタ型</span>

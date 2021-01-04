@@ -1781,19 +1781,19 @@
                   </a>
                 
                 
-                <h1 id="_1">配列</h1>
+                <h1 id="_1">配列<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>配列は同一の型を持つ複数の値をまとめて管理するための型です。
 使い方は次のとおりです。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
 </code></pre></div>
 <p>これで 5 要素の値を持つ配列が宣言されます。</p>
-<h2 id="_2">要素参照</h2>
+<h2 id="_2">要素参照<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>配列の要素を参照するには配列の何番目の要素なのかを指定します。
 数えの始まりは 0 からになります。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
 <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>  <span class="c1">// 2</span>
 </code></pre></div>
-<h2 id="_3">初期化のバリエーション</h2>
+<h2 id="_3">初期化のバリエーション<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>配列の宣言と同時に要素を設定する場合は要素数の指定が省略できます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
 </code></pre></div>
@@ -1813,7 +1813,7 @@
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>
 </code></pre></div>
 <p>これが一番手軽な初期化方法です。</p>
-<h2 id="_4">配列とポインタ</h2>
+<h2 id="_4">配列とポインタ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>配列はいくつかの例外を除いて常にポインタ型に暗黙変換されます。このため配列を参照する時に、 <code>[]</code> を省略すると、配列の先頭を指し示すポインタが取得できます。
 先頭のポインタにインデックスを足すことで、それぞれの要素に対応したポインタが取得できます。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
@@ -1826,7 +1826,7 @@
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 8</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 10</span>
 </code></pre></div>
-<h2 id="_5">関数に配列を渡す</h2>
+<h2 id="_5">関数に配列を渡す<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>配列がポインタ型に暗黙変換される仕様があることに加えてもう一つ注意するべき仕様があります。関数の引数宣言で配列型をつかうとき、ポインタ型として解釈されるのです。つまり次の例では見た目に反して <code>PrintArray1</code> と <code>PrintArray2</code> は完全に同一です。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
@@ -1883,7 +1883,7 @@
     <span class="k">static_assert</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="stdarray">std::array</h2>
+<h2 id="stdarray">std::array<a class="headerlink" href="#stdarray" title="Permanent link">&para;</a></h2>
 <p>より高機能な配列を使用したい場合は <code>std::array</code> を使用します。ただしC++11では初期化の時に二重に波括弧が必要です。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
 
