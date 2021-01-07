@@ -178,7 +178,7 @@ class Rectangle {
 };
 ```
 
-`const` メンバ関数ではメンバ変数を変更することができません。
+`const` メンバ関数ではデータメンバを変更することができません。
 
 ```cpp hl_lines="10"
 class Rectangle {
@@ -190,15 +190,15 @@ class Rectangle {
 };
 
 int Rectangle::Area() const {
-    height_ = 0;  // メンバ変数を変更するとコンパイルエラーになります
+    height_ = 0;  // データメンバを変更するとコンパイルエラーになります
     return height_ * width_;
 }
 ```
 
-`const` メンバ関数はメンバ変数を変更しないため、
+`const` メンバ関数はデータメンバを変更しないため、
 オブジェクトの状態を変化させずに呼び出すことができます。
 
-メンバ変数を変更しないという制約を満たすために、
+データメンバを変更しないという制約を満たすために、
 `const` メンバ関数から呼び出せるメンバ関数は `const` メンバ関数に限定されます。
 
 ## this ポインタ
@@ -215,7 +215,7 @@ class Rectangle {
 };
 
 int Rectangle::Area() {
-   // this ポインタ経由でメンバ変数を使用
+   // this ポインタ経由でデータメンバを使用
     return this->height_ * this->width_;
 }
 ```
