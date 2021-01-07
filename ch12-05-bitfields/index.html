@@ -832,8 +832,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch07-01-member-variables/" class="md-nav__link">
-      7.1. メンバ変数
+    <a href="../ch07-01-data-members/" class="md-nav__link">
+      7.1. データメンバ
     </a>
   </li>
 
@@ -1682,15 +1682,15 @@
                 
                 
                 <h1 id="_1">ビットフィールド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>構造体のメンバ変数はバイト単位でサイズが確保されますが、ビット単位でもサイズを確保することができます。
-そのようなメンバ変数をビットフィールドといいます。</p>
+<p>構造体のデータメンバはバイト単位でサイズが確保されますが、ビット単位でもサイズを確保することができます。
+そのようなデータメンバをビットフィールドといいます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">Bits</span> <span class="p">{</span>
     <span class="kt">uint8_t</span> <span class="nl">a</span> <span class="p">:</span> <span class="mi">1</span><span class="p">;</span>     <span class="c1">//  1 ビット</span>
     <span class="kt">uint8_t</span> <span class="nl">b</span> <span class="p">:</span> <span class="mi">3</span><span class="p">;</span>     <span class="c1">//  3 ビット</span>
     <span class="kt">uint8_t</span> <span class="nl">c</span> <span class="p">:</span> <span class="mi">4</span><span class="p">;</span>     <span class="c1">//  4 ビット</span>
 <span class="p">};</span>
 </code></pre></div>
-<p>メンバ変数 <code>a, b, c</code> は <code>uint8_t</code> 型の領域をそれぞれ指定したビット数で分割して利用します。
+<p>データメンバ <code>a, b, c</code> は <code>uint8_t</code> 型の領域をそれぞれ指定したビット数で分割して利用します。
 構造体のサイズをなるべく小さく抑えたいときなどに使用されます。</p>
 <p>例えば 1 ビットのビットフィールドを用意すれば <code>0, 1</code> の 2 値を表現できるため、
 <code>bool</code> の代わりとして使用することができます。</p>

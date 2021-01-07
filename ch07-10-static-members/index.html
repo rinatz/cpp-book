@@ -834,8 +834,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch07-01-member-variables/" class="md-nav__link">
-      7.1. メンバ変数
+    <a href="../ch07-01-data-members/" class="md-nav__link">
+      7.1. データメンバ
     </a>
   </li>
 
@@ -983,7 +983,7 @@
       
         <li class="md-nav__item">
   <a href="#static_1" class="md-nav__link">
-    static メンバ変数
+    static データメンバ
   </a>
   
 </li>
@@ -1710,7 +1710,7 @@
       
         <li class="md-nav__item">
   <a href="#static_1" class="md-nav__link">
-    static メンバ変数
+    static データメンバ
   </a>
   
 </li>
@@ -1740,26 +1740,26 @@
                 
                 
                 <h1 id="static">static メンバ<a class="headerlink" href="#static" title="Permanent link">&para;</a></h1>
-<h2 id="static_1">static メンバ変数<a class="headerlink" href="#static_1" title="Permanent link">&para;</a></h2>
+<h2 id="static_1">static データメンバ<a class="headerlink" href="#static_1" title="Permanent link">&para;</a></h2>
 <p>クラスのオブジェクトごとではなく、クラスそのものがもつ変数です。</p>
 <div class="admonition warning">
 <p class="admonition-title">初期化と破棄のタイミング</p>
-<p>static メンバ変数の初期化/破棄はプログラムの開始/終了時にまとめて行われますが、
+<p>static データメンバの初期化/破棄はプログラムの開始/終了時にまとめて行われますが、
 実行順序を制御することができません。</p>
 <p>誤った扱いをすると原因特定が難しいエラーが発生しやすい機能であり、使用には注意が必要です。</p>
 </div>
-<p>メンバ変数の宣言に <code>static</code> をつけることで <code>static</code> メンバ変数を宣言することができます。</p>
+<p>データメンバの宣言に <code>static</code> をつけることで <code>static</code> データメンバを宣言することができます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Counter</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
     <span class="k">static</span> <span class="kt">int</span> <span class="n">count_</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
-<p>static メンバ変数はクラスの外で実体を定義する必要があります。</p>
+<p>static データメンバはクラスの外で実体を定義する必要があります。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">Counter</span><span class="o">::</span><span class="n">count_</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>  <span class="c1">// 値 10 で初期化</span>
 </code></pre></div>
 <p>ヘッダファイルが2つ以上のファイルでインクルードされる場合、
 ヘッダファイルで実体の定義を行うと多重定義となりリンクエラーになってしまいます。
-この問題を避けるために static メンバ変数の実体の定義はソースファイルで行います。</p>
+この問題を避けるために static データメンバの実体の定義はソースファイルで行います。</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">counter.cc</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&quot;counter.h&quot;</span><span class="cp"></span>
 
@@ -1779,7 +1779,7 @@
 </code></pre></div>
 </div>
 </div>
-<p>static メンバ変数を参照するには <code>Counter::count_</code> のようにします。</p>
+<p>static データメンバを参照するには <code>Counter::count_</code> のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 
 <span class="cp">#include</span> <span class="cpf">&quot;counter.h&quot;</span><span class="cp"></span>
@@ -1809,7 +1809,7 @@
     <span class="kt">int</span> <span class="n">value_</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
-<p>static メンバ関数は static メンバ変数以外のメンバ変数は直接参照できないため、
+<p>static メンバ関数は static データメンバ以外のデータメンバは直接参照できないため、
 static メンバ関数ではなく通常の関数で十分なことが多いです。</p>
 <p>通常の関数との違いは static メンバ関数はクラスに属するため、
 <code>protected</code> や <code>private</code> のメンバにもアクセスできることです。</p>
@@ -1826,7 +1826,7 @@ static メンバ関数ではなく通常の関数で十分なことが多いで�
 <span class="p">}</span>
 </code></pre></div>
 <p>static メンバ関数は実行順序が定まるため、
-static メンバ変数の代わりに static メンバ関数を使用することで
+static データメンバの代わりに static メンバ関数を使用することで
 初期化順序を制御できない問題を回避することができます。</p>
                 
               

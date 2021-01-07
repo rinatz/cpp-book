@@ -13,14 +13,14 @@
         <meta name="author" content="IDA Kenichiro, KAMEI Shogo, KUBO Koki">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch07-01-member-variables/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch07-01-data-members/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>7.1. メンバ変数 - ゼロから学ぶ C++</title>
+        <title>7.1. データメンバ - ゼロから学ぶ C++</title>
       
     
     
@@ -101,7 +101,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              7.1. メンバ変数
+              7.1. データメンバ
             
           </span>
         </div>
@@ -843,7 +843,7 @@
     
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      7.1. メンバ変数
+      7.1. データメンバ
     </a>
     
   </li>
@@ -1676,28 +1676,34 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch07-01-member-variables.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch07-01-data-members.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">メンバ変数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+                <h1 id="_1">データメンバ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>クラスとは変数と関数を集約した型をつくるための仕組みです。</p>
-<p>クラスが持つ変数をメンバ変数といいます。</p>
+<p>クラスが持つ変数をデータメンバといいます。</p>
+<div class="admonition note">
+<p class="admonition-title">メンバ変数</p>
+<p>データメンバのことを俗にメンバ変数と呼ぶこともありますが、
+C++ ではデータメンバという呼び方が正式な呼び方なので
+本ドキュメントもそれに従います。</p>
+</div>
 <p>長方形を扱う <code>Rectangle</code> クラスに
-<code>int</code> 型のメンバ変数 <code>height</code> と <code>width</code> を持たせるには次のようにします。</p>
+<code>int</code> 型のデータメンバ <code>height</code> と <code>width</code> を持たせるには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">height_</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">width_</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
-<p>メンバ変数を参照するには <code>.</code> を使用します。</p>
+<p>データメンバを参照するには <code>.</code> を使用します。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Rectangle</span> <span class="n">r</span><span class="p">;</span>
 <span class="n">r</span><span class="p">.</span><span class="n">height_</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="n">r</span><span class="p">.</span><span class="n">width_</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
 </code></pre></div>
-<p>クラスのオブジェクトをポインタで扱う場合に、メンバ変数を参照するには次のようにします。</p>
+<p>クラスのオブジェクトをポインタで扱う場合に、データメンバを参照するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Rectangle</span> <span class="n">rectangle</span><span class="p">;</span>
 <span class="n">Rectangle</span><span class="o">*</span> <span class="n">r</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">rectangle</span><span class="p">;</span>
 <span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">).</span><span class="n">height_</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
@@ -1715,11 +1721,11 @@
 たとえば加算 <code>+</code> と乗算 <code>*</code> では乗算 <code>*</code> を優先することになっているため、
 <code>1 + 2 * 3</code> は <code>1 + (2 * 3)</code> と解釈されて結果は <code>7</code> になります。
 <code>(1 + 2) * 3)</code> の結果である <code>9</code> にはなりません。</p>
-<p>デリファレンスの <code>*</code> とメンバ変数参照の <code>.</code> では
-メンバ変数参照の <code>.</code> を優先することになっているため、
+<p>デリファレンスの <code>*</code> とデータメンバ参照の <code>.</code> では
+データメンバ参照の <code>.</code> を優先することになっているため、
 <code>*r.height_</code> は <code>*(r.height_)</code> と解釈されます。
 しかしながら <code>r</code> の型である <code>std::unique_ptr&lt;Rectangle&gt;</code> には
-<code>height_</code> というメンバ変数はないためコンパイルエラーとなります。</p>
+<code>height_</code> というデータメンバはないためコンパイルエラーとなります。</p>
 <p>詳細は <a href="https://ja.cppreference.com/w/cpp/language/operator_precedence">C++の演算子の優先順位 - cppreference.com</a>
 を参照してください。</p>
 </details>

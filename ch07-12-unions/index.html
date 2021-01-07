@@ -834,8 +834,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch07-01-member-variables/" class="md-nav__link">
-      7.1. メンバ変数
+    <a href="../ch07-01-data-members/" class="md-nav__link">
+      7.1. データメンバ
     </a>
   </li>
 
@@ -1016,7 +1016,7 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    アクティブな共用体のメンバ変数
+    アクティブな共用体のデータメンバ
   </a>
   
 </li>
@@ -1717,7 +1717,7 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    アクティブな共用体のメンバ変数
+    アクティブな共用体のデータメンバ
   </a>
   
 </li>
@@ -1835,10 +1835,10 @@ JSONの値はオブジェクト、配列、文字列、数値、bool、nullを�
 <span class="p">}</span>
 </code></pre></div>
 <p>共用体にどんなデータが入っているかを別途変数で持っておき、読み出す時に条件分岐して処理するというのが一般的な扱いです。上の例では <code>value</code> クラスの中に <code>kind</code> という列挙型を定義してその型の変数 <code>k_</code> も定義しました。この <code>k_</code> に今なんのデータが共用体に入っているかを記録し、共用体にアクセスするときはこの <code>k_</code> を確認してからアクセスします。</p>
-<h2 id="_2">アクティブな共用体のメンバ変数<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>共用体のあるメンバ変数にデータを入れたとき、そのメンバ変数の寿命が開始しアクティブになります。</p>
-<p>別のメンバ変数にデータを入れるとそれまでアクティブだったメンバー変数の寿命が尽き、新たにデータが入ったメンバー変数の寿命が開始しアクティブになります。</p>
-<p>アクティブになることができるメンバ変数は最大で1つまでです。</p>
+<h2 id="_2">アクティブな共用体のデータメンバ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>共用体のあるデータメンバにデータを入れたとき、そのデータメンバの寿命が開始しアクティブになります。</p>
+<p>別のデータメンバにデータを入れるとそれまでアクティブだったメンバー変数の寿命が尽き、新たにデータが入ったメンバー変数の寿命が開始しアクティブになります。</p>
+<p>アクティブになることができるデータメンバは最大で1つまでです。</p>
 <div class="highlight"><pre><span></span><code><span class="k">union</span> <span class="nc">A</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="kt">int</span> <span class="n">y</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span> <span class="p">};</span>
 <span class="k">struct</span> <span class="nc">B</span> <span class="p">{</span> <span class="n">A</span> <span class="n">a</span><span class="p">;</span> <span class="p">};</span>
 <span class="k">union</span> <span class="nc">C</span> <span class="p">{</span> <span class="n">B</span> <span class="n">b</span><span class="p">;</span> <span class="kt">int</span> <span class="n">k</span><span class="p">;</span> <span class="p">};</span>

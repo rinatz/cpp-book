@@ -832,8 +832,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch07-01-member-variables/" class="md-nav__link">
-      7.1. メンバ変数
+    <a href="../ch07-01-data-members/" class="md-nav__link">
+      7.1. データメンバ
     </a>
   </li>
 
@@ -1414,14 +1414,14 @@
         
           <li class="md-nav__item">
   <a href="#pod_3" class="md-nav__link">
-    非 POD のメンバ変数
+    非 POD のデータメンバ
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    メンバ変数に対するアクセス指定子が2種類以上
+    データメンバに対するアクセス指定子が2種類以上
   </a>
   
 </li>
@@ -1857,14 +1857,14 @@
         
           <li class="md-nav__item">
   <a href="#pod_3" class="md-nav__link">
-    非 POD のメンバ変数
+    非 POD のデータメンバ
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#2" class="md-nav__link">
-    メンバ変数に対するアクセス指定子が2種類以上
+    データメンバに対するアクセス指定子が2種類以上
   </a>
   
 </li>
@@ -1963,14 +1963,14 @@ POD ではない型に対するポインタも POD です。</p>
 <ul>
 <li>継承していない</li>
 <li>メンバ関数を持たない (暗黙的に定義される特別なメンバ関数は明示しない)</li>
-<li>すべてのメンバ変数は POD</li>
-<li>メンバ変数に対するアクセス指定子が1種類のみ (暗黙的な <code>public</code> 指定も含む)</li>
+<li>すべてのデータメンバは POD</li>
+<li>データメンバに対するアクセス指定子が1種類のみ (暗黙的な <code>public</code> 指定も含む)</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">// メンバ変数を持たない</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// データメンバを持たない</span>
 <span class="k">struct</span> <span class="nc">Empty</span> <span class="p">{};</span>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">Empty</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 
-<span class="c1">// すべてのメンバ変数が基本型</span>
+<span class="c1">// すべてのデータメンバが基本型</span>
 <span class="k">struct</span> <span class="nc">FundamentalTypes</span> <span class="p">{</span>
     <span class="kt">int16_t</span> <span class="n">i</span><span class="p">;</span>
     <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
@@ -1978,14 +1978,14 @@ POD ではない型に対するポインタも POD です。</p>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">FundamentalTypes</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 </code></pre></div>
 <p>POD の構造体は入れ子にすることができます。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// POD の構造体 FundamentalTypes をメンバ変数にもつ</span>
+<div class="highlight"><pre><span></span><code><span class="c1">// POD の構造体 FundamentalTypes をデータメンバにもつ</span>
 <span class="k">struct</span> <span class="nc">FundamentalTypesAsChild</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
     <span class="n">FundamentalTypes</span> <span class="n">f</span><span class="p">;</span>
 <span class="p">};</span>
 <span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">FundamentalTypesAsChild</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>
 
-<span class="c1">// POD の構造体 FundamentalTypesAsChild をメンバ変数にもつ</span>
+<span class="c1">// POD の構造体 FundamentalTypesAsChild をデータメンバにもつ</span>
 <span class="k">struct</span> <span class="nc">FundamentalTypesAsGrandchild</span> <span class="p">{</span>
     <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
     <span class="n">FundamentalTypesAsChild</span> <span class="n">f</span><span class="p">;</span>
@@ -2021,16 +2021,16 @@ POD ではない型に対するポインタも POD です。</p>
 <span class="p">};</span>
 <span class="hll"><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">VirtualFunction</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>  <span class="c1">// failed</span>
 </span></code></pre></div>
-<h4 id="pod_3">非 POD のメンバ変数<a class="headerlink" href="#pod_3" title="Permanent link">&para;</a></h4>
-<p>POD ではない型の非 <code>static</code> メンバ変数を持つ構造体は POD ではありません。</p>
+<h4 id="pod_3">非 POD のデータメンバ<a class="headerlink" href="#pod_3" title="Permanent link">&para;</a></h4>
+<p>POD ではない型の非 <code>static</code> データメンバを持つ構造体は POD ではありません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">NonPodMemberVariable</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>  <span class="c1">// std::vector&lt;int&gt; は POD ではない</span>
 <span class="p">};</span>
 <span class="hll"><span class="k">static_assert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">is_pod</span><span class="o">&lt;</span><span class="n">NonPodMemberVariable</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&quot;Should be POD.&quot;</span><span class="p">);</span>  <span class="c1">// failed</span>
 </span></code></pre></div>
-<h4 id="2">メンバ変数に対するアクセス指定子が2種類以上<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
+<h4 id="2">データメンバに対するアクセス指定子が2種類以上<a class="headerlink" href="#2" title="Permanent link">&para;</a></h4>
 <p>暗黙的なものを含めて、
-<code>static</code> ではないメンバ変数に対するアクセス指定子が2種類以上ある構造体は POD ではありません。</p>
+<code>static</code> ではないデータメンバに対するアクセス指定子が2種類以上ある構造体は POD ではありません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">struct</span> <span class="nc">MultipleAccessSpecifierTypes</span> <span class="p">{</span>
     <span class="kt">int</span> <span class="n">public_variable</span><span class="p">;</span>
 

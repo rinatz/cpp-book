@@ -834,8 +834,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch07-01-member-variables/" class="md-nav__link">
-      7.1. メンバ変数
+    <a href="../ch07-01-data-members/" class="md-nav__link">
+      7.1. データメンバ
     </a>
   </li>
 
@@ -1984,7 +1984,7 @@
 <span class="hll">    <span class="kt">int</span> <span class="n">Area</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
 </span><span class="p">};</span>
 </code></pre></div>
-<p><code>const</code> メンバ関数ではメンバ変数を変更することができません。</p>
+<p><code>const</code> メンバ関数ではデータメンバを変更することができません。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">Area</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
@@ -1994,13 +1994,13 @@
 <span class="p">};</span>
 
 <span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
-<span class="hll">    <span class="n">height_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// メンバ変数を変更するとコンパイルエラーになります</span>
+<span class="hll">    <span class="n">height_</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// データメンバを変更するとコンパイルエラーになります</span>
 </span>    <span class="k">return</span> <span class="n">height_</span> <span class="o">*</span> <span class="n">width_</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><code>const</code> メンバ関数はメンバ変数を変更しないため、
+<p><code>const</code> メンバ関数はデータメンバを変更しないため、
 オブジェクトの状態を変化させずに呼び出すことができます。</p>
-<p>メンバ変数を変更しないという制約を満たすために、
+<p>データメンバを変更しないという制約を満たすために、
 <code>const</code> メンバ関数から呼び出せるメンバ関数は <code>const</code> メンバ関数に限定されます。</p>
 <h2 id="this">this ポインタ<a class="headerlink" href="#this" title="Permanent link">&para;</a></h2>
 <p>メンバ関数では <code>this</code> で自オブジェクトのポインタを取得することができます。</p>
@@ -2013,7 +2013,7 @@
 <span class="p">};</span>
 
 <span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">Area</span><span class="p">()</span> <span class="p">{</span>
-   <span class="c1">// this ポインタ経由でメンバ変数を使用</span>
+   <span class="c1">// this ポインタ経由でデータメンバを使用</span>
     <span class="k">return</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">height_</span> <span class="o">*</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">width_</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2035,7 +2035,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../ch07-01-member-variables/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ch07-01-data-members/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2044,7 +2044,7 @@
                 <span class="md-footer-nav__direction">
                   前
                 </span>
-                7.1. メンバ変数
+                7.1. データメンバ
               </div>
             </div>
           </a>

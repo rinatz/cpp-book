@@ -834,8 +834,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch07-01-member-variables/" class="md-nav__link">
-      7.1. メンバ変数
+    <a href="../ch07-01-data-members/" class="md-nav__link">
+      7.1. データメンバ
     </a>
   </li>
 
@@ -918,7 +918,7 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    メンバ変数の初期化
+    データメンバの初期化
   </a>
   
 </li>
@@ -1745,7 +1745,7 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    メンバ変数の初期化
+    データメンバの初期化
   </a>
   
 </li>
@@ -1811,7 +1811,7 @@
                 
                 <h1 id="_1">コンストラクタ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>オブジェクトを作成する際に呼び出されるメンバ関数をコンストラクタといいます。
-コンストラクタはメンバ変数の初期化を行うために使用します。</p>
+コンストラクタはデータメンバの初期化を行うために使用します。</p>
 <p>クラス名と同じ名前で戻り値がない関数がコンストラクタになります。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
@@ -1827,8 +1827,8 @@
 <p>このコンストラクタを使ってオブジェクトを作成するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="n">Rectangle</span> <span class="nf">r</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="_2">メンバ変数の初期化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>コンストラクタでメンバ変数を初期化するには次のようにします。</p>
+<h2 id="_2">データメンバの初期化<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>コンストラクタでデータメンバを初期化するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
  <span class="k">public</span><span class="o">:</span>
 <span class="hll">    <span class="n">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">height</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">)</span> <span class="o">:</span> <span class="n">height_</span><span class="p">(</span><span class="n">height</span><span class="p">),</span> <span class="n">width_</span><span class="p">(</span><span class="n">width</span><span class="p">)</span> <span class="p">{}</span>
@@ -1843,7 +1843,7 @@
 <span class="p">};</span>
 </code></pre></div>
 <p>初期化は値の変更ではないため、
-コンストラクタに渡された値から <code>const</code> メンバ変数の値を設定することができます。</p>
+コンストラクタに渡された値から <code>const</code> データメンバの値を設定することができます。</p>
 <h2 id="_3">クラス宣言とは別に定義<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>クラス宣言とは別にコンストラクタを定義するには次のようにします。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span>
@@ -1901,8 +1901,8 @@
 特定の条件を満たした場合には暗黙的なコピーコンストラクタの定義は行われなくなります。</p>
 <p>条件の一例として次のものがあります。</p>
 <ul>
-<li>コピーできないメンバ変数をもつ</li>
-<li>右辺値参照型のメンバ変数をもつ</li>
+<li>コピーできないデータメンバをもつ</li>
+<li>右辺値参照型のデータメンバをもつ</li>
 <li>下記のいずれかが明示的に定義されている<ul>
 <li>ムーブコンストラクタ</li>
 <li>ムーブ代入演算子</li>
@@ -1929,7 +1929,7 @@
 特定の条件を満たした場合には暗黙的なムーブコンストラクタの定義は行われなくなります。</p>
 <p>条件の一例として次のものがあります。</p>
 <ul>
-<li>ムーブできないメンバ変数をもつ</li>
+<li>ムーブできないデータメンバをもつ</li>
 <li>下記のいずれかが明示的に定義されている<ul>
 <li>コピーコンストラクタ</li>
 <li>コピー代入演算子</li>
