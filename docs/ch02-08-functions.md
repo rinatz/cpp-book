@@ -74,6 +74,7 @@ C++での関数の使用方法について説明します。
 [declarations-and-definitions]: ch04-01-declarations-and-definitions.md
 
 ## main関数
+
 これまでのサンプルコードで度々現れた`main()`をmain関数と呼びます。
 
 C++で生成された実行ファイルを実行すると、main関数を起点に処理が進みます。
@@ -119,6 +120,7 @@ argv[2]: World!
 ```
 
 ## オーバーロード
+
 関数の引数の個数や型が異なる場合、同じ名前の関数を定義することが出来ます。
 これを（関数の）オーバーロードと呼びます。引数の個数や型の情報を元に呼び出す関数を決定しています。
 
@@ -147,4 +149,38 @@ argv[2]: World!
 $ ./a.exe
 int: 2
 double: 2.1
+```
+
+## 関数ポインタ
+
+関数を指し示すポインタを作成する場合は次のようにします。
+
+```cpp
+// 戻り値の型 (*変数名)(引数の型);
+int (*f1)(double);    // double を引数として int を返す関数のポインタ f1
+int (*f2)(int, int);  // 2つの int を引数として int を返す関数のポインタ f2
+```
+
+関数ポインタには、戻り値の型と引数の型・数・順番が一致している関数のアドレスが代入可能です。
+
+```cpp
+#include <iostream>
+
+int Add(int x, int y) {
+    return x + y;
+}
+
+int main() {
+    int (*fp)(int, int) = Add;  // 関数 Add のアドレスを保持する関数ポインタ fp
+    int result = fp(3, 5);      // 関数ポインタ fp を介して関数 Add が実行される
+    std::cout << result << std::endl;  // 8
+
+    return 0;
+}
+```
+
+関数ポインタを変数に代入する際は、 `auto` を使うことで複雑な関数ポインタの型を書く必要が無くなり簡潔になります。
+
+```cpp
+auto fp = Add;
 ```
