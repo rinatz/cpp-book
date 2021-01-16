@@ -13,21 +13,21 @@
         <meta name="author" content="IDA Kenichiro, KAMEI Shogo, KUBO Koki">
       
       
-        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-09-function-objects/">
+        <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-09-lambda-expressions/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
-        <title>2.9. 関数オブジェクト - ゼロから学ぶ C++</title>
+        <title>2.9. ラムダ式 - ゼロから学ぶ C++</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -101,7 +101,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              2.9. 関数オブジェクト
+              2.9. ラムダ式
             
           </span>
         </div>
@@ -412,12 +412,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.9. 関数オブジェクト
+        2.9. ラムダ式
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      2.9. 関数オブジェクト
+      2.9. ラムダ式
     </a>
     
       
@@ -435,42 +435,29 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    関数ポインタ
+    キャプチャ
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    ラムダ式
-  </a>
-  
-    <nav class="md-nav" aria-label="ラムダ式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    キャプチャ
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
     引数リスト
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     戻り値の型の省略
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    関数ポインタへの変換
+  </a>
   
 </li>
       
@@ -1744,42 +1731,29 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    関数ポインタ
+    キャプチャ
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    ラムダ式
-  </a>
-  
-    <nav class="md-nav" aria-label="ラムダ式">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    キャプチャ
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
     引数リスト
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     戻り値の型の省略
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    関数ポインタへの変換
+  </a>
   
 </li>
       
@@ -1802,37 +1776,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-09-function-objects.md" title="編集" class="md-content__button md-icon">
+                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch02-09-lambda-expressions.md" title="編集" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">関数オブジェクト<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="_2">関数ポインタ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>関数を指し示すポインタを作成する場合は次のようにします。</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// 戻り値の型 (*変数名)(引数の型);</span>
-<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="kt">double</span><span class="p">);</span>    <span class="c1">// double を引数として int を返す関数のポインタ f1</span>
-<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>  <span class="c1">// 2つの int を引数として int を返す関数のポインタ f2</span>
-</code></pre></div>
-<p>関数ポインタには、戻り値の型と引数の型・数・順番が一致している関数のアドレスが代入可能です。</p>
-<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-
-<span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">Add</span><span class="p">;</span>  <span class="c1">// 関数 Add のアドレスを保持する関数ポインタ fp</span>
-    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">fp</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// 関数ポインタ fp を介して関数 Add が実行される</span>
-    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 8</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>関数ポインタを変数に代入する際は、 <code>auto</code> を使うことで複雑な関数ポインタの型を書く必要が無くなり簡潔になります。</p>
-<div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">Add</span><span class="p">;</span>
-</code></pre></div>
-<h2 id="_3">ラムダ式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+                <h1 id="_1">ラムダ式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>ラムダ式は、簡潔に関数オブジェクトを記述するための式です。
 ラムダ式で生成される関数オブジェクトは <code>auto</code> で保持することが出来ます。</p>
 <p>ラムダ式の構文は次のようになります。</p>
@@ -1842,7 +1791,7 @@
 <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 10</span>
 </code></pre></div>
-<h3 id="_4">キャプチャ<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h2 id="_2">キャプチャ<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>ラムダ式の外にある変数をラムダ式の中で使用する場合は、
 ラムダ式先頭の <code>[]</code> 内でキャプチャと呼ばれるものの指定が必要です。</p>
 <p>キャプチャには、コピーキャプチャと参照キャプチャの2種類が存在します。</p>
@@ -1898,18 +1847,22 @@
 <span class="kt">int</span> <span class="n">result_ref</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result_ref</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>   <span class="c1">// 8</span>
 </code></pre></div>
-<h3 id="_5">引数リスト<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h2 id="_3">引数リスト<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>( 引数リスト )</code> は、通常の関数と同じように記述することが出来ます。</p>
 <div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">func1</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// int を引数とする</span>
 <span class="k">auto</span> <span class="n">func2</span> <span class="o">=</span> <span class="p">[]()</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">400</span><span class="p">;</span> <span class="p">};</span>         <span class="c1">// 引数なし</span>
 <span class="k">auto</span> <span class="n">func3</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">400</span><span class="p">;</span> <span class="p">};</span>                  <span class="c1">// 戻り値の型の記述を省略した場合、 () ごと省略可能</span>
 </code></pre></div>
-<h3 id="_6">戻り値の型の省略<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h2 id="_4">戻り値の型の省略<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><code>-&gt; 戻り値の型</code> は、 ラムダ式内の型推論に任せる場合は省略可能です。</p>
 <div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">func</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span> <span class="p">};</span>  <span class="c1">// a, b は共に int なので、戻り値も int と推論される</span>
 </code></pre></div>
-<h2 id="stdfunction">std::function<a class="headerlink" href="#stdfunction" title="Permanent link">&para;</a></h2>
-<p><code>std::function</code> で関数ポインタやラムダ式を保持することが出来ます。
+<h2 id="_5">関数ポインタへの変換<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>キャプチャを持たないラムダ式であれば関数ポインタに暗黙変換することが出来ます。</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="p">[](</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span> <span class="p">};</span>
+</code></pre></div>
+<h2 id="stdfunction"><code>std::function</code><a class="headerlink" href="#stdfunction" title="Permanent link">&para;</a></h2>
+<p><code>std::function</code> で関数ポインタやラムダ式（キャプチャを持つラムダ式も含む）を保持することが出来ます。
 <code>std::function</code> を使うことで、関数ポインタのような複雑な構文が簡潔になるという利点もあります。</p>
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
 
@@ -1998,8 +1951,8 @@
       
     </div>
     
-      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
-      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({

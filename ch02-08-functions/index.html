@@ -16,7 +16,7 @@
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch02-08-functions/">
       
       <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.15aa0b43.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.75751829.min.css">
         
           
           
@@ -448,6 +448,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    関数ポインタ
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -462,8 +469,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../ch02-09-function-objects/" class="md-nav__link">
-      2.9. 関数オブジェクト
+    <a href="../ch02-09-lambda-expressions/" class="md-nav__link">
+      2.9. ラムダ式
     </a>
   </li>
 
@@ -1750,6 +1757,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    関数ポインタ
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1960,6 +1974,30 @@ $ ./a.exe
 int: <span class="m">2</span>
 double: <span class="m">2</span>.1
 </code></pre></div>
+<h2 id="_5">関数ポインタ<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>関数を指し示すポインタを作成する場合は次のようにします。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 戻り値の型 (*変数名)(引数の型);</span>
+<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f1</span><span class="p">)(</span><span class="kt">double</span><span class="p">);</span>    <span class="c1">// double を引数として int を返す関数のポインタ f1</span>
+<span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">f2</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>  <span class="c1">// 2つの int を引数として int を返す関数のポインタ f2</span>
+</code></pre></div>
+<p>関数ポインタには、戻り値の型と引数の型・数・順番が一致している関数のアドレスが代入可能です。</p>
+<div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kt">int</span> <span class="p">(</span><span class="o">*</span><span class="n">fp</span><span class="p">)(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="o">=</span> <span class="n">Add</span><span class="p">;</span>  <span class="c1">// 関数 Add のアドレスを保持する関数ポインタ fp</span>
+    <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">fp</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>      <span class="c1">// 関数ポインタ fp を介して関数 Add が実行される</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>  <span class="c1">// 8</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>関数ポインタを変数に代入する際は、 <code>auto</code> を使うことで複雑な関数ポインタの型を書く必要が無くなり簡潔になります。</p>
+<div class="highlight"><pre><span></span><code><span class="k">auto</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">Add</span><span class="p">;</span>
+</code></pre></div>
                 
               
               
@@ -1993,13 +2031,13 @@ double: <span class="m">2</span>.1
           </a>
         
         
-          <a href="../ch02-09-function-objects/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../ch02-09-lambda-expressions/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   次
                 </span>
-                2.9. 関数オブジェクト
+                2.9. ラムダ式
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
@@ -2030,8 +2068,8 @@ double: <span class="m">2</span>.1
       
     </div>
     
-      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
-      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      <script src="../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
