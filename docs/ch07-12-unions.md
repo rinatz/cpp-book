@@ -97,7 +97,7 @@ struct value {
 int main()
 {
     value v1;
-    std::cout << static_cast<int>(v1.get_kind()) << v2.get_string_or("bbb") << std::endl;
+    std::cout << static_cast<int>(v1.get_kind()) << v1.get_string_or("bbb") << std::endl;
     value v2("aaa");
     std::cout << static_cast<int>(v2.get_kind()) << v2.get_string_or("bbb") << std::endl;
 }
