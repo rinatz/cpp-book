@@ -9,14 +9,19 @@
         <meta name="description" content="ゼロから学ぶ C++">
       
       
-      
         <meta name="author" content="IDA Kenichiro, KAMEI Shogo, KUBO Koki">
       
       
         <link rel="canonical" href="http://rinatz.github.io/cpp-book/ch08-02-c-cast/">
       
-      <link rel="shortcut icon" href="../img/cpp.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.5">
+      
+        <link rel="prev" href="../ch08-01-cpp-casts/">
+      
+      
+        <link rel="next" href="../ch09-01-function-templates/">
+      
+      <link rel="icon" href="../img/cpp.svg">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
     
     
       
@@ -24,30 +29,30 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.15aa0b43.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.75751829.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#4051b5">
-        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
       
+      
+
     
     
     
       
+        
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,400,400i,700%7CInconsolata&display=fallback">
-        <style>body,input{font-family:"Noto Sans",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Inconsolata",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CInconsolata:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Inconsolata"}</style>
       
     
     
-    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
+    
     
     
   </head>
@@ -59,10 +64,8 @@
     
     
     <body dir="ltr" data-md-color-scheme="preference" data-md-color-primary="indigo" data-md-color-accent="amber">
-      
-        <script>matchMedia("(prefers-color-scheme: dark)").matches&&document.body.setAttribute("data-md-color-scheme","slate")</script>
-      
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -79,26 +82,29 @@
       
     </div>
     
+    
       
 
-<header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="http://rinatz.github.io/cpp-book" title="ゼロから学ぶ C++" class="md-header-nav__button md-logo" aria-label="ゼロから学ぶ C++">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href=".." title="ゼロから学ぶ C++" class="md-header__button md-logo" aria-label="ゼロから学ぶ C++" data-md-component="logo">
       
   <img src="../img/cpp.svg" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      <div class="md-header-nav__ellipsis">
-        <div class="md-header-nav__topic">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
           <span class="md-ellipsis">
             ゼロから学ぶ C++
           </span>
         </div>
-        <div class="md-header-nav__topic">
+        <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
               8.2. C言語形式のキャスト
@@ -108,30 +114,37 @@
       </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
       
-<div class="md-search" data-md-component="search" role="dialog">
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            検索を初期化
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -139,12 +152,11 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/rinatz/cpp-book/" title="リポジトリへ" class="md-source">
+      <div class="md-header__source">
+        <a href="https://github.com/rinatz/cpp-book" title="リポジトリへ" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     rinatz/cpp-book
@@ -153,11 +165,14 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
       
+        
+          
         
       
       <main class="md-main" data-md-component="main">
@@ -165,17 +180,15 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
 
 
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="http://rinatz.github.io/cpp-book" title="ゼロから学ぶ C++" class="md-nav__button md-logo" aria-label="ゼロから学ぶ C++">
+    <a href=".." title="ゼロから学ぶ C++" class="md-nav__button md-logo" aria-label="ゼロから学ぶ C++" data-md-component="logo">
       
   <img src="../img/cpp.svg" alt="logo">
 
@@ -184,11 +197,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/rinatz/cpp-book/" title="リポジトリへ" class="md-source">
+      <a href="https://github.com/rinatz/cpp-book" title="リポジトリへ" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
   </div>
   <div class="md-source__repository">
     rinatz/cpp-book
@@ -201,7 +213,6 @@
       
       
       
-
 
   
   
@@ -218,7 +229,6 @@
       
       
 
-
   
   
   
@@ -226,21 +236,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
       
-      <label class="md-nav__link" for="nav-2">
-        1. C++ を始める
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="1. C++ を始める" data-md-level="1">
-        <label class="md-nav__title" for="nav-2">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          1. C++ を始める
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           1. C++ を始める
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -251,8 +266,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -263,6 +280,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -274,7 +292,6 @@
       
       
 
-
   
   
   
@@ -282,21 +299,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" >
       
-      <label class="md-nav__link" for="nav-3">
-        2. 基本構文
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="2. 基本構文" data-md-level="1">
-        <label class="md-nav__title" for="nav-3">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          2. 基本構文
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           2. 基本構文
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -307,8 +329,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -319,8 +343,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -331,8 +357,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -343,8 +371,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -355,8 +385,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -367,8 +399,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -379,8 +413,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -391,8 +427,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -403,6 +441,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -414,7 +453,6 @@
       
       
 
-
   
   
   
@@ -422,21 +460,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
       
-      <label class="md-nav__link" for="nav-4">
-        3. コンテナ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="3. コンテナ" data-md-level="1">
-        <label class="md-nav__title" for="nav-4">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          3. コンテナ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           3. コンテナ
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -447,8 +490,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -459,8 +504,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -471,8 +518,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -483,8 +532,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -495,8 +546,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -507,8 +560,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -519,8 +574,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -531,8 +588,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -543,6 +602,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -554,7 +614,6 @@
       
       
 
-
   
   
   
@@ -562,21 +621,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
       
-      <label class="md-nav__link" for="nav-5">
-        4. ファイル分割とスコープ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="4. ファイル分割とスコープ" data-md-level="1">
-        <label class="md-nav__title" for="nav-5">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          4. ファイル分割とスコープ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
           4. ファイル分割とスコープ
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -587,8 +651,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -599,8 +665,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -611,8 +679,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -623,8 +693,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -635,6 +707,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -646,7 +719,6 @@
       
       
 
-
   
   
   
@@ -654,21 +726,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
       
-      <label class="md-nav__link" for="nav-6">
-        5. ストリーム操作
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="5. ストリーム操作" data-md-level="1">
-        <label class="md-nav__title" for="nav-6">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          5. ストリーム操作
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           5. ストリーム操作
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -679,8 +756,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -691,6 +770,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -702,7 +782,6 @@
       
       
 
-
   
   
   
@@ -710,21 +789,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
       
-      <label class="md-nav__link" for="nav-7">
-        6. メモリの管理
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="6. メモリの管理" data-md-level="1">
-        <label class="md-nav__title" for="nav-7">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          6. メモリの管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           6. メモリの管理
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -735,8 +819,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -747,8 +833,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -759,8 +847,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -771,8 +861,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -783,6 +875,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -794,7 +887,6 @@
       
       
 
-
   
   
   
@@ -802,21 +894,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
       
-      <label class="md-nav__link" for="nav-8">
-        7. クラス
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="7. クラス" data-md-level="1">
-        <label class="md-nav__title" for="nav-8">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          7. クラス
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           7. クラス
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -827,8 +924,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -839,8 +938,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -851,8 +952,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -863,8 +966,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -875,8 +980,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -887,8 +994,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -899,8 +1008,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -911,8 +1022,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -923,8 +1036,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -935,8 +1050,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -947,8 +1064,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -959,6 +1078,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -970,7 +1090,6 @@
       
       
 
-
   
   
     
@@ -980,21 +1099,26 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
       
-      <label class="md-nav__link" for="nav-9">
-        8. キャスト
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="8. キャスト" data-md-level="1">
-        <label class="md-nav__title" for="nav-9">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          8. キャスト
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_9">
           <span class="md-nav__icon md-icon"></span>
           8. キャスト
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1005,8 +1129,10 @@
     </li>
   
 
+            
           
             
+              
   
   
     
@@ -1014,7 +1140,8 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
       
         
       
@@ -1026,6 +1153,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1037,7 +1165,6 @@
       
       
 
-
   
   
   
@@ -1045,21 +1172,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" >
       
-      <label class="md-nav__link" for="nav-10">
-        9. テンプレート
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="9. テンプレート" data-md-level="1">
-        <label class="md-nav__title" for="nav-10">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          9. テンプレート
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
           <span class="md-nav__icon md-icon"></span>
           9. テンプレート
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1070,8 +1202,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1082,8 +1216,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1094,6 +1230,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1105,7 +1242,6 @@
       
       
 
-
   
   
   
@@ -1113,21 +1249,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" >
       
-      <label class="md-nav__link" for="nav-11">
-        10. エラー処理
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="10. エラー処理" data-md-level="1">
-        <label class="md-nav__title" for="nav-11">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+          10. エラー処理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
           10. エラー処理
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1138,8 +1279,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1150,8 +1293,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1162,6 +1307,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1173,7 +1319,6 @@
       
       
 
-
   
   
   
@@ -1181,21 +1326,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12" >
       
-      <label class="md-nav__link" for="nav-12">
-        11. ビルドとライブラリ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="11. ビルドとライブラリ" data-md-level="1">
-        <label class="md-nav__title" for="nav-12">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+          11. ビルドとライブラリ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_12">
           <span class="md-nav__icon md-icon"></span>
           11. ビルドとライブラリ
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1206,8 +1356,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1218,8 +1370,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1230,8 +1384,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1242,8 +1398,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1254,6 +1412,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1265,7 +1424,6 @@
       
       
 
-
   
   
   
@@ -1273,21 +1431,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13" >
       
-      <label class="md-nav__link" for="nav-13">
-        12. メモリレイアウト
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="12. メモリレイアウト" data-md-level="1">
-        <label class="md-nav__title" for="nav-13">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+          12. メモリレイアウト
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_13">
           <span class="md-nav__icon md-icon"></span>
           12. メモリレイアウト
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1298,8 +1461,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1310,8 +1475,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1322,8 +1489,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1334,8 +1503,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1346,6 +1517,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1357,7 +1529,6 @@
       
       
 
-
   
   
   
@@ -1365,21 +1536,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14" >
       
-      <label class="md-nav__link" for="nav-14">
-        単体テスト
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="単体テスト" data-md-level="1">
-        <label class="md-nav__title" for="nav-14">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+          単体テスト
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_14">
           <span class="md-nav__icon md-icon"></span>
           単体テスト
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1390,6 +1566,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1401,7 +1578,6 @@
       
       
 
-
   
   
   
@@ -1409,21 +1585,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15" >
       
-      <label class="md-nav__link" for="nav-15">
-        デバッグ
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="デバッグ" data-md-level="1">
-        <label class="md-nav__title" for="nav-15">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+          デバッグ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_15">
           <span class="md-nav__icon md-icon"></span>
           デバッグ
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1434,8 +1615,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1446,8 +1629,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1458,8 +1643,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1470,6 +1657,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1481,7 +1669,6 @@
       
       
 
-
   
   
   
@@ -1489,21 +1676,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16" >
       
-      <label class="md-nav__link" for="nav-16">
-        ビルド自動化
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="ビルド自動化" data-md-level="1">
-        <label class="md-nav__title" for="nav-16">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+          ビルド自動化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_16">
           <span class="md-nav__icon md-icon"></span>
           ビルド自動化
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1514,8 +1706,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1526,6 +1720,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1537,7 +1732,6 @@
       
       
 
-
   
   
   
@@ -1545,21 +1739,26 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-17" type="checkbox" id="nav-17" >
       
-      <label class="md-nav__link" for="nav-17">
-        付録
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="付録" data-md-level="1">
-        <label class="md-nav__title" for="nav-17">
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_17" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_17" id="__nav_17_label" tabindex="0">
+          付録
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_17_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_17">
           <span class="md-nav__icon md-icon"></span>
           付録
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-          
             
+              
   
   
   
@@ -1570,8 +1769,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1582,8 +1783,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1594,8 +1797,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1606,8 +1811,10 @@
     </li>
   
 
+            
           
             
+              
   
   
   
@@ -1618,6 +1825,7 @@
     </li>
   
 
+            
           
         </ul>
       </nav>
@@ -1633,11 +1841,13 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="目次">
+  
   
   
     
@@ -1649,108 +1859,72 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-                  <a href="https://github.com/rinatz/cpp-book/edit/master/docs/ch08-02-c-cast.md" title="編集" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
-                
-                <h1 id="c">C言語形式のキャスト<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
+                  
+
+  
+  
+
+
+<h1 id="c">C言語形式のキャスト<a class="headerlink" href="#c" title="Permanent link">&para;</a></h1>
 <p>C++ は C言語と互換性があるため、<code>(型名)</code>でC言語形式のキャストも利用することができます。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
-<span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">dx</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="kt">double</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.14</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">dx</span><span class="p">;</span>
 </code></pre></div>
 <p>しかし、C言語形式のキャストでは、コードからキャストの意図が汲み取りにくい上、実装者の意に反したキャストを行ったとしてもコンパイルが通るため、不具合を生み出す要因になる可能性があります。</p>
 <p>対して、C++ のキャスト演算子は用途に合わせて種類が分かれているため、意図が明確になる上、実装者の意に反したキャストをコンパイル時に検知することが可能です。</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="kt">int</span><span class="o">*</span> <span class="n">px</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span> <span class="c1">// static_castの意図に反しているためコンパイルエラー</span>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">px</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span><span class="w"> </span><span class="c1">// static_castの意図に反しているためコンパイルエラー</span>
 </code></pre></div>
 <p>キャストの意図を明確にするために、C++ のキャスト演算子を使うようにしましょう。</p>
-                
-              
-              
-                
 
 
-              
-            </article>
-          </div>
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
-        
-          <a href="../ch08-01-cpp-casts/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-            </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  前
-                </span>
-                8.1. C++ のキャスト
-              </div>
-            </div>
-          </a>
-        
-        
-          <a href="../ch09-01-function-templates/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  次
-                </span>
-                9.1. 関数テンプレート
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+        <footer class="md-footer">
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright &copy 2020 IDA Kenichiro
-          </div>
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy 2020 IDA Kenichiro
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-      <script src="../assets/javascripts/vendor.93c04032.min.js"></script>
-      <script src="../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\u3000\u3001\u3002\uff0c\uff0e]+", "search.placeholder": "\u691c\u7d22", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
-      
-      <script>
-        app = initialize({
-          base: "..",
-          features: ['navigation.instant'],
-          search: Object.assign({
-            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="../javascripts/config.js"></script>
       
