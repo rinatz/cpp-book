@@ -9,9 +9,22 @@ copyright: Copyright &copy 2020 IDA Kenichiro
 theme:
   name: material
   palette:
-    scheme: preference
-    primary: indigo
-    accent: amber
+    # ライトモード
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: ダークモードに切り替え
+    # ダークモード
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: ライトモードに切り替え
   font:
     text: Noto Sans
     code: Inconsolata
