@@ -2120,7 +2120,7 @@
 <span class="c1">//auto size = std::size(x);  // C++17～</span>
 </code></pre></div>
 <p>配列と要素数を保存した変数の2つを持ち回す必要がでてきたとき、<code>std::array</code> を使えばそれらをひとまとめにして扱えるので便利です。</p>
-<p>また、配列とは異なり <code>std::array</code> は <code>int</code> 型などと同じ感覚で扱える特徴があります。例えば配列のコピーを例に上げると単なる代入のような書き方でコピーができます。。</p>
+<p>また、配列とは異なり <code>std::array</code> は <code>int</code> 型などと同じ感覚で扱える特徴があります。例えば配列のコピーを例に上げると単なる代入のような書き方でコピーができます。</p>
 <div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">arr1_1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
 <span class="c1">//int arr1_2[3] = arr1_1;//NG</span>
 <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">arr2_1</span><span class="p">{};</span>
