@@ -2065,16 +2065,16 @@
 <p>C++11からはデストラクタは暗黙のうちに <code>noexcept</code> 指定されます。したがってデストラクタから例外を投げてはいけません。詳しくは<a href="../ch10-01-exceptions/">例外の解説</a>を参照してください。</p>
 <h2 id="raiiresource-acquisition-is-initialization">RAII(Resource Acquisition Is Initialization)<a class="headerlink" href="#raiiresource-acquisition-is-initialization" title="Permanent link">&para;</a></h2>
 <p>プログラムを書く時につきまとうのがリソースの管理です。リソースとは例えばメモリーや、ファイルポインタ、ハンドルなどが該当します。</p>
-<p>クラス変数の寿命が尽きた時にデストラクタが呼ばれるという性質を利用して、リソースの割り当てと開放を紐付けて管理する技法があります。これをRAIIといいます。</p>
+<p>クラス変数の寿命が尽きた時にデストラクタが呼ばれるという性質を利用して、リソースの割り当てと解放を紐付けて管理する技法があります。これをRAIIといいます。</p>
 <p>もっとも頻繁に接するリソースであるメモリーについては<a href="https://ja.wikipedia.org/wiki/ガベージコレクション">ガベージコレクション</a>による解決を試みる言語もありますが、その場合メモリー以外のリソースの管理に困ります。</p>
 <p>デストラクタを持たずに RAII を実現できる言語もありますが、一般に何らかの明示的な処理を必要とします。たとえば Python の <code>with</code> 文、C#の <code>using</code> 文などが該当します。</p>
-<p>RAII技法を実装するクラスを作るときにはただ一つのリソースのみを管理するクラスを作ります。なぜならばコンストラクタで例外が発生したときデストラクタは呼ばれず、リソースの開放漏れが発生するからです</p>
+<p>RAII技法を実装するクラスを作るときにはただ一つのリソースのみを管理するクラスを作ります。なぜならばコンストラクタで例外が発生したときデストラクタは呼ばれず、リソースの解放漏れが発生するからです</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 複数のリソースを管理しようとしている→×</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">inferior</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="n">inferior</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">data1_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">();</span>
-<span class="w">        </span><span class="n">data2_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">();</span><span class="c1">//このnewに失敗するとdata1_は開放されない</span>
+<span class="w">        </span><span class="n">data2_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">();</span><span class="c1">//このnewに失敗するとdata1_は解放されない</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="o">~</span><span class="n">inferior</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="n">data1_</span><span class="p">;</span>
@@ -2088,7 +2088,7 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">resource</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="n">resource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">data_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">();</span><span class="c1">//このnewに失敗しても開放するべきものはない</span>
+<span class="w">        </span><span class="n">data_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">();</span><span class="c1">//このnewに失敗しても解放するべきものはない</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="o">~</span><span class="n">resource</span><span class="p">()</span><span class="w"> </span><span class="k">noexcept</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">delete</span><span class="w"> </span><span class="n">data_</span><span class="p">;</span>
